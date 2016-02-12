@@ -118,56 +118,17 @@ results for spectra with SNRs above 10, while below that limit the
 same situation holds for the model trained with SNR=10 spectra. {\bf
   Cite paper by Ana.}
 
-In Figures~\ref{fig:comp01}~\ref{fig:comp02} the relationship between
-Temperature estimated from the GA technique proposed features and
-modeled with different techniques and the $chi^2$ with SNR=50 against
-the estimations provided by \cite{cesetti} can be seen.
+Figure~\ref{fig:irtf-teff} shows the correlation between the $T_{\rm
+eff}$ estimates of the best (in the RMDSE sense) regression models and
+the effective temperatures in Table 3 of \cite{cesetti}. 
 
-\begin {figure}
- \centering
- \begin{subfigure}{.85\textwidth}
-  \centering
-  \includegraphics[width=11cm]{figs/irtf_T_chi250_Cesetti.pdf}
-  \caption{Comparison between Temperature estimations from Cesetti 
-  in x axis and the closest BT\_Settl spectra by $\chi^2$ at SNR=$50$ on y-axis}
- \label{fig:chi2_50_spt}
- \end{subfigure}
-  \begin{subfigure}{.85\textwidth}
-  \centering
-  \includegraphics[width=11cm]{figs/irtf_T_knnoo_Cesetti.pdf}
-  \caption{Comparison between Temperature estimations from Cesetti 
- in x axis and the KNN model for GA based features 
- at SNR=$\infty$ on y-axis}
- \label{fig:ga_too50ga_spt}
- \end{subfigure}
- \label {fig:comp01}
- \caption{Performance comparison between the $\chi^2$ based selection 
-          and the band oriented features}
-\end {figure}
+%\begin {figure}
+% \centering
+%  \includegraphics[width=11cm]{figs/irtf-teff.pdf}
+%  \caption{}
+% \label{fig:irtf-teff}
+%\end {figure}
  
- 
-\begin {figure}
- \centering 
- \begin{subfigure}{.85\textwidth}
-  \centering
-  \includegraphics[width=11cm]{figs/irtf_T_rregoo_Cesetti.pdf}
-  \caption{Comparison between Temperature estimations from Cesetti 
- in x axis and the Rule Regression model for GA based features 
- at SNR=$\infty$ on y-axis}
- \label{fig:ga_rr00ga_spt}
- \end{subfigure}
-\begin{subfigure}{.85\textwidth}
-  \centering
-  \includegraphics[width=11cm]{figs/irtf_T_rreg50_Cesetti.pdf}
-  \caption{Comparison between Temperature estimations from Cesetti 
- in x axis and the Rule Regression model for GA based features 
- at SNR=$50$ on y-axis}
- \label{fig:ga_rr50ga_spt}
- \end{subfigure} 
- \label {fig:comp02}
- \caption{Performance comparison between two Rule regression based models with different SNR}
-\end {figure}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Comparison with Teffs from spectral types.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -193,7 +154,7 @@ using the features suggested by \cite{cesetti}. The performace of the
 models based on these features are included in Table
 \ref{tab:tab_CS_Model}.
 
-\begin{table}\centering
+\begin{table*}\centering
 \ra{1.3}
 \begin{tabular}{@{}rrrcrrcrr@{}}\toprule
 & \multicolumn{2}{c}{$SNR = 10$} & \phantom{ab}& \multicolumn{2}{c}{$SNR = 50$} &
@@ -211,7 +172,7 @@ CS-KPLS             & 351       & {\bf 162} && 856       & 456       && 1086    
 \caption {Regression model performance based on the features proposed by \cite{cesetti}} 
 \label{tab:tab_CS_Model}
 %\end{center}
-\end{table}
+\end{table*}
 
 {\bf How do you explain that the best SNR=10 model has the poorest
   performances for SNR=50 or $\infty$?}
@@ -342,8 +303,6 @@ $GA-RR$     & 0.31 & 0.17      && 0.30 & 0.24     && 0.78 & 0.23 \\
 % \end{center}
 \end{table*}
 
-
-
 {\bf Compare the 7 or 6 values available. Discuss.  $\chi^2$ is
   the most popular method by far. We compare predictions of machine
   learning methods with minimum chi-squared. We first do histogram
@@ -358,7 +317,7 @@ $GA-RR$     & 0.31 & 0.17      && 0.30 & 0.24     && 0.78 & 0.23 \\
 
  \begin {figure}
   \centering
-   \includegraphics[width=\textwidth]{figs/teff-logg/M-ICA10.pdf}
+   \includegraphics[width=0.4\textwidth]{figs/irtf-figs/M-ICA10.pdf}
    \caption{Comparison between metallicity estimates from the
      literature and predictions from the PPR-ICA (SNR=10) model. {\bf
        TBC: Include description of symbols and colours.}}

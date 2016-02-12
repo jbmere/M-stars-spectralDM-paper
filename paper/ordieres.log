@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.6)  10 FEB 2016 16:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.6)  12 FEB 2016 09:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -563,18 +563,10 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \betweenumberspace=\skip122
 \aa@stripbox=\box38
 \aa@outputbox=\box39
-
-
-Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 768.
-
-
-Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
-less on input line 768.
-
 \c@AAproof=\count123
 \c@AAtheorem=\count124
-) (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
@@ -725,9 +717,41 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \@thisruleclass=\count131
 \@lastruleclass=\count132
 \@thisrulewidth=\dimen148
-) (./ordieres.aux
+)
+
+LaTeX Warning: Unused global option(s):
+    [printer].
+
+(./ordieres.aux
 
 LaTeX Warning: Label `tab:tab_SNR1050_G' multiply defined.
+
+
+LaTeX Warning: Label `tab:tab_NC_T' multiply defined.
+
+
+LaTeX Warning: Label `tab:tab_SNR1050_T' multiply defined.
+
+
+LaTeX Warning: Label `tab:tab_SNRoo_G' multiply defined.
+
+
+LaTeX Warning: Label `tab:tab_SNR1050_G' multiply defined.
+
+
+LaTeX Warning: Label `tab:tab_SNRoo_M' multiply defined.
+
+
+LaTeX Warning: Label `tab:tab_SNR1050_G' multiply defined.
+
+
+LaTeX Warning: Label `tab:tab_CS_Model' multiply defined.
+
+
+LaTeX Warning: Label `tab:models_G_rmse' multiply defined.
+
+
+LaTeX Warning: Label `tab:models_M_rmse' multiply defined.
 
 )
 \openout1 = `ordieres.aux'.
@@ -777,15 +801,15 @@ File: t1txr.fd 2000/12/15 v3.1
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
-* h-part:(L,W,R)=(42.67912pt, 392.64803pt, 162.18073pt)
+* modes: twoside 
+* h-part:(L,W,R)=(36.98859pt, 523.5307pt, 36.98859pt)
 * v-part:(T,H,B)=(56.01874pt, 705.0pt, 84.0281pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=392.64803pt
+* \textwidth=523.5307pt
 * \textheight=705.0pt
-* \oddsidemargin=-29.59087pt
-* \evensidemargin=-29.59087pt
+* \oddsidemargin=-35.2814pt
+* \evensidemargin=-35.2814pt
 * \topmargin=-40.25125pt
 * \headheight=12.0pt
 * \headsep=12.0pt
@@ -798,9 +822,9 @@ File: t1txr.fd 2000/12/15 v3.1
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
+* \@twocolumntrue
+* \@twosidetrue
+* \@mparswitchtrue
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
@@ -924,18 +948,6 @@ LaTeX Font Info:    Font shape `T1/txss/m/n' will be
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
 (Font)              scaled to size 8.54997pt on input line 122.
 
-
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-Class aa Warning: The running head built automatically from \author and \titlee
-xceeds the pagewidth, please supply a shorter form with \authorrunning and/or \
-titlerunning prior to \maketitle on input line 122.
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- 
-
 Output from handle ordieres going to ordieres.llt
 \ordieres@file=\write3
 \openout3 = `ordieres.llt'.
@@ -945,20 +957,6 @@ LaTeX Font Info:    Font shape `T1/txss/m/n' will be
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
 (Font)              scaled to size 10.40245pt on input line 128.
 (./meth.tex
-
-Package natbib Warning: Citation `2013MSAIS..24..128A' on page 1 undefined on i
-nput line 21.
-
-
-Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
-less on input line 24.
-
-
-LaTeX Warning: Reference `LastPage' on page 1 undefined on input line 24.
-
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
 (Font)              scaled to size 9.49997pt on input line 25.
 LaTeX Font Info:    Font shape `T1/txss/m/it' in size <10> not available
@@ -966,413 +964,177 @@ LaTeX Font Info:    Font shape `T1/txss/m/it' in size <10> not available
 LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
 (Font)              scaled to size 9.49997pt on input line 25.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Package natbib Warning: Citation `Anaetal' on page 2 undefined on input line 88
+
+
+Package natbib Warning: Citation `Anaetal' on page 1 undefined on input line 88
 .
 
-
-Package natbib Warning: Citation `cesetti' on page 2 undefined on input line 96
-.
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-LaTeX Warning: Reference `LastPage' on page 2 undefined on input line 110.
+] [2]
 
-[2]
-
-Package natbib Warning: Citation `cesetti' on page 3 undefined on input line 14
-0.
-
-
-Package natbib Warning: Citation `R2013' on page 3 undefined on input line 146.
+Package natbib Warning: Citation `dummy' on page 3 undefined on input line 342.
 
 
 
-Package natbib Warning: Citation `holland1975adaptation' on page 3 undefined on
- input line 148.
-
-
-Package natbib Warning: Citation `goldberg1989genetic' on page 3 undefined on i
-nput line 150.
-
-
-LaTeX Warning: Reference `LastPage' on page 3 undefined on input line 171.
-
-[3]
-
-LaTeX Warning: Reference `LastPage' on page 4 undefined on input line 235.
-
-[4]
-
-Package natbib Warning: Citation `cesetti' on page 5 undefined on input line 27
-2.
-
-
-Overfull \hbox (33.11996pt too wide) in paragraph at lines 278--287
-\T1/txr/m/n/10 For the mod-els to be built, the same strat-egy was used for all
- the three phys-i-cal pa-ram-e-ters $\OT1/txr/m/n/10 (\OML/txmi/m/it/10 T[]; lo
-g\OT1/txr/m/n/10 (\OML/txmi/m/it/10 g\OT1/txr/m/n/10 )\OML/txmi/m/it/10 ; met\O
-T1/txr/m/n/10 )$
- []
-
-
-LaTeX Warning: Reference `LastPage' on page 5 undefined on input line 289.
-
-[5]
-
-Package natbib Warning: Citation `cesetti' on page 6 undefined on input line 30
-6.
-
-
-Package natbib Warning: Citation `hoggCannon' on page 6 undefined on input line
- 325.
-
-
-Package natbib Warning: Citation `heiter' on page 6 undefined on input line 336
-.
-
-
-Package natbib Warning: Citation `dummy' on page 6 undefined on input line 342.
+Package natbib Warning: Citation `dummy' on page 3 undefined on input line 342.
 
 
 
-Package natbib Warning: Citation `dummy' on page 6 undefined on input line 342.
+Package natbib Warning: Citation `dummy' on page 3 undefined on input line 342.
 
 
+) (./irtf.fs.tex [3]
 
-Package natbib Warning: Citation `dummy' on page 6 undefined on input line 342.
-
-
-
-LaTeX Warning: Reference `LastPage' on page 6 undefined on input line 347.
-
-[6]) (./irtf.fs.tex
-Overfull \hbox (3.3521pt too wide) in paragraph at lines 58--77
- [] 
- []
-
-
-LaTeX Warning: Reference `tab:tab_SNR1050_t' on page 7 undefined on input line 
+LaTeX Warning: Reference `tab:tab_SNR1050_t' on page 4 undefined on input line 
 81.
 
 
-LaTeX Warning: Reference `LastPage' on page 7 undefined on input line 89.
-
-[7]
-
-Package natbib Warning: Citation `cesetti' on page 8 undefined on input line 92
-.
-
-
-Overfull \hbox (56.81204pt too wide) in paragraph at lines 96--131
- [] 
- []
-
-
-Package natbib Warning: Citation `cesetti' on page 8 undefined on input line 13
-1.
-
-
-Package natbib Warning: Citation `cesetti' on page 8 undefined on input line 13
-1.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-LaTeX Warning: Reference `LastPage' on page 8 undefined on input line 170.
-
-[8]
-Overfull \hbox (3.3521pt too wide) in paragraph at lines 174--194
- [] 
- []
-
-
-LaTeX Warning: Reference `tab:tab_SNR1050_M' on page 9 undefined on input line 
+LaTeX Warning: Reference `tab:tab_SNR1050_M' on page 4 undefined on input line 
 202.
 
 
-LaTeX Warning: Reference `tab:tab_SNR1050_M' on page 9 undefined on input line 
+Underfull \vbox (badness 4479) has occurred while \output is active []
+
+
+
+LaTeX Warning: Reference `tab:tab_SNR1050_M' on page 4 undefined on input line 
 234.
 
-
-LaTeX Warning: Reference `LastPage' on page 9 undefined on input line 263.
-
-[9]) (./irtf.rm.tex
-
-Package natbib Warning: Citation `cesetti' on page 10 undefined on input line 6
-.
-
-
-LaTeX Warning: Reference `LastPage' on page 10 undefined on input line 73.
-
-[10]
-
-Package natbib Warning: Citation `cesetti' on page 11 undefined on input line 7
-5.
-
-
-Package natbib Warning: Citation `cesetti' on page 11 undefined on input line 9
-6.
-
-
-Package natbib Warning: Citation `cesetti' on page 11 undefined on input line 9
-6.
-
-
-LaTeX Warning: Reference `LastPage' on page 11 undefined on input line 111.
-
-[11]
-
-Package caption Warning: \label without proper \caption on input line 143.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `fig:comp01' on page 12 undefined on input line 121.
-
-
-Package caption Warning: \label without proper \caption on input line 167.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `fig:comp02' on page 12 undefined on input line 121.
-
-
-Package natbib Warning: Citation `cesetti' on page 12 undefined on input line 1
-24.
-
-<figs/irtf_T_chi250_Cesetti.pdf, id=52, 794.97pt x 867.24pt>
-File: figs/irtf_T_chi250_Cesetti.pdf Graphic file (type pdf)
-
-<use figs/irtf_T_chi250_Cesetti.pdf>
-Package pdftex.def Info: figs/irtf_T_chi250_Cesetti.pdf used on input line 130.
-
-(pdftex.def)             Requested size: 312.9803pt x 341.43787pt.
-
-<figs/irtf_T_knnoo_Cesetti.pdf, id=53, 794.97pt x 867.24pt>
-File: figs/irtf_T_knnoo_Cesetti.pdf Graphic file (type pdf)
-
-<use figs/irtf_T_knnoo_Cesetti.pdf>
-Package pdftex.def Info: figs/irtf_T_knnoo_Cesetti.pdf used on input line 137.
-(pdftex.def)             Requested size: 312.9803pt x 341.43787pt.
-
-
-LaTeX Warning: Float too large for page by 52.48874pt on input line 146.
-
-<figs/irtf_T_rregoo_Cesetti.pdf, id=54, 794.97pt x 867.24pt>
-File: figs/irtf_T_rregoo_Cesetti.pdf Graphic file (type pdf)
-
-<use figs/irtf_T_rregoo_Cesetti.pdf>
-Package pdftex.def Info: figs/irtf_T_rregoo_Cesetti.pdf used on input line 153.
-
-(pdftex.def)             Requested size: 312.9803pt x 341.43787pt.
-
-<figs/irtf_T_rreg50_Cesetti.pdf, id=55, 794.97pt x 867.24pt>
-File: figs/irtf_T_rreg50_Cesetti.pdf Graphic file (type pdf)
-
-<use figs/irtf_T_rreg50_Cesetti.pdf>
-Package pdftex.def Info: figs/irtf_T_rreg50_Cesetti.pdf used on input line 161.
-
-(pdftex.def)             Requested size: 312.9803pt x 341.43787pt.
-
-
-LaTeX Warning: Float too large for page by 51.87573pt on input line 169.
-
-
-Package natbib Warning: Citation `cesetti' on page 12 undefined on input line 1
-78.
-
-
-Package natbib Warning: Citation `2009ApJ...702..154S' on page 12 undefined on 
-input line 180.
-
-
-LaTeX Warning: Reference `tab:model_Tvar' on page 12 undefined on input line 18
-1.
-
-
-Package natbib Warning: Citation `cesetti' on page 12 undefined on input line 1
-92.
-
-
-Package natbib Warning: Citation `cesetti' on page 12 undefined on input line 2
-11.
-
-
-Package natbib Warning: Citation `cesetti' on page 12 undefined on input line 2
-11.
-
-
-Overfull \hbox (3.64209pt too wide) in paragraph at lines 216--218
-[]\T1/txr/bx/n/10 How do you ex-plain that the best SNR=10 model has the poor-e
-st per-for-mances for SNR=50
- []
-
-
-Package natbib Warning: Citation `cesetti' on page 12 undefined on input line 2
-25.
-
-
-Package natbib Warning: Citation `cesetti' on page 12 undefined on input line 2
-29.
-
-
-Package natbib Warning: Citation `cesetti' on page 12 undefined on input line 2
-34.
-
-
-Package natbib Warning: Citation `cesetti' on page 12 undefined on input line 2
-40.
-
-
-LaTeX Warning: Reference `LastPage' on page 12 undefined on input line 249.
-
-[12]
-
-LaTeX Warning: Reference `LastPage' on page 13 undefined on input line 249.
-
-[13 <./figs/irtf_T_chi250_Cesetti.pdf> <./figs/irtf_T_knnoo_Cesetti.pdf>]
-
-LaTeX Warning: Reference `LastPage' on page 14 undefined on input line 249.
-
-[14 <./figs/irtf_T_rregoo_Cesetti.pdf> <./figs/irtf_T_rreg50_Cesetti.pdf>]
-
-LaTeX Warning: Reference `fig:lt_lg_ga' on page 15 undefined on input line 287.
-
-
-<figs/ordieres-fig4.pdf, id=90, 578.16pt x 361.35pt>
-File: figs/ordieres-fig4.pdf Graphic file (type pdf)
-
-<use figs/ordieres-fig4.pdf>
-Package pdftex.def Info: figs/ordieres-fig4.pdf used on input line 294.
-(pdftex.def)             Requested size: 392.64803pt x 245.40598pt.
-
-
-LaTeX Warning: Reference `tab:models_M_rmse' on page 15 undefined on input line
- 313.
-
-
-Package natbib Warning: Citation `cesetti' on page 15 undefined on input line 3
-15.
-
-
-Underfull \vbox (badness 5908) has occurred while \output is active []
-
-
-
-LaTeX Warning: Reference `LastPage' on page 15 undefined on input line 344.
-
-[15]
-
-LaTeX Warning: Reference `M_ICA_10' on page 16 undefined on input line 354.
-
-
-Package natbib Warning: Citation `2013A&A...549A.129C' on page 16 undefined on 
-input line 357.
-
-<figs/teff-logg/M-ICA10.pdf, id=94, 505.89pt x 505.89pt>
-File: figs/teff-logg/M-ICA10.pdf Graphic file (type pdf)
-
-<use figs/teff-logg/M-ICA10.pdf>
-Package pdftex.def Info: figs/teff-logg/M-ICA10.pdf used on input line 361.
-(pdftex.def)             Requested size: 392.64803pt x 392.65506pt.
-)
-
-LaTeX Warning: Reference `LastPage' on page 16 undefined on input line 156.
-
-[16 <./figs/ordieres-fig4.pdf>] (./ipac.fs.tex
-
-LaTeX Warning: Reference `irtf' on page 17 undefined on input line 16.
+) (./irtf.rm.tex [4]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [5]
+
+LaTeX Warning: Reference `fig:irtf-teff' on page 6 undefined on input line 121.
 
 
-LaTeX Warning: Reference `LastPage' on page 17 undefined on input line 26.
 
-[17 <./figs/teff-logg/M-ICA10.pdf>]
+LaTeX Warning: Reference `tab:model_Tvar' on page 6 undefined on input line 142
+.
 
-LaTeX Warning: Reference `tab:tab_SNR1050_M' on page 18 undefined on input line
+
+Underfull \vbox (badness 7777) has occurred while \output is active []
+
+
+Underfull \vbox (badness 2302) has occurred while \output is active []
+
+ [6]
+<figs/ordieres-fig4.pdf, id=36, 578.16pt x 361.35pt>
+File: figs/ordieres-fig4.pdf Graphic file (type pdf)
+
+<use figs/ordieres-fig4.pdf>
+Package pdftex.def Info: figs/ordieres-fig4.pdf used on input line 255.
+(pdftex.def)             Requested size: 523.5307pt x 327.22452pt.
+
+Overfull \hbox (267.4559pt too wide) in paragraph at lines 255--259
+ [] 
+ []
+
+
+Package natbib Warning: Citation `2013A&A...549A.129C' on page 7 undefined on i
+nput line 318.
+
+<figs/irtf-figs/M-ICA10.pdf, id=37, 505.89pt x 505.89pt>
+File: figs/irtf-figs/M-ICA10.pdf Graphic file (type pdf)
+
+<use figs/irtf-figs/M-ICA10.pdf>
+Package pdftex.def Info: figs/irtf-figs/M-ICA10.pdf used on input line 322.
+(pdftex.def)             Requested size: 209.40907pt x 209.40779pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7])
+[8] [9
+
+ <./figs/ordieres-fig4.pdf> <./figs/irtf-figs/M-ICA10.pdf>]
+(./ipac.fs.tex
+
+LaTeX Warning: Reference `irtf' on page 10 undefined on input line 16.
+
+
+Overfull \hbox (59.27728pt too wide) in paragraph at lines 60--80
+ [] 
+ []
+
+
+Overfull \hbox (36.77728pt too wide) in paragraph at lines 115--135
+ [] 
+ []
+
+
+LaTeX Warning: Reference `tab:tab_SNR1050_M' on page 10 undefined on input line
  142.
 
+
+Overfull \hbox (36.77728pt too wide) in paragraph at lines 171--191
+ [] 
+ []
+
 ) (./ipac.rm.tex
-Underfull \vbox (badness 1629) has occurred while \output is active []
+Underfull \vbox (badness 4792) has occurred while \output is active []
 
+ [10
 
+]
 
-LaTeX Warning: Reference `LastPage' on page 18 undefined on input line 8.
-
-[18]
-
-LaTeX Warning: Reference `tab:model_IPAC_TSD_IPAC' on page 19 undefined on inpu
+LaTeX Warning: Reference `tab:model_IPAC_TSD_IPAC' on page 11 undefined on inpu
 t line 11.
 
 
-Underfull \vbox (badness 1596) has occurred while \output is active []
+Underfull \vbox (badness 2443) has occurred while \output is active []
 
 
-
-LaTeX Warning: Reference `LastPage' on page 19 undefined on input line 55.
-
-[19] <figs/ipac_T_ICAoo_LSB.pdf, id=121, 650.43pt x 722.7pt>
+<figs/ipac_T_ICAoo_LSB.pdf, id=64, 650.43pt x 722.7pt>
 File: figs/ipac_T_ICAoo_LSB.pdf Graphic file (type pdf)
 
 <use figs/ipac_T_ICAoo_LSB.pdf>
 Package pdftex.def Info: figs/ipac_T_ICAoo_LSB.pdf used on input line 68.
 (pdftex.def)             Requested size: 312.9803pt x 347.76323pt.
 
-<figs/ipac_T_RFoo_LSB.pdf, id=122, 650.43pt x 722.7pt>
+<figs/ipac_T_RFoo_LSB.pdf, id=65, 650.43pt x 722.7pt>
 File: figs/ipac_T_RFoo_LSB.pdf Graphic file (type pdf)
 
 <use figs/ipac_T_RFoo_LSB.pdf>
 Package pdftex.def Info: figs/ipac_T_RFoo_LSB.pdf used on input line 75.
 (pdftex.def)             Requested size: 312.9803pt x 347.76323pt.
 
-<figs/ipac_T_RF50_LSB.pdf, id=123, 650.43pt x 722.7pt>
+<figs/ipac_T_RF50_LSB.pdf, id=66, 650.43pt x 722.7pt>
 File: figs/ipac_T_RF50_LSB.pdf Graphic file (type pdf)
 
 <use figs/ipac_T_RF50_LSB.pdf>
 Package pdftex.def Info: figs/ipac_T_RF50_LSB.pdf used on input line 82.
 (pdftex.def)             Requested size: 312.9803pt x 347.76323pt.
 
-
-LaTeX Warning: Float too large for page by 439.28969pt on input line 89.
-
-
-Package natbib Warning: Citation `cesetti' on page 20 undefined on input line 9
-9.
+Overfull \hbox (188.92949pt too wide) in paragraph at lines 66--88
+ []$[]$ 
+ []
 
 
-Package natbib Warning: Citation `cesetti' on page 20 undefined on input line 1
-26.
+Overfull \hbox (188.92949pt too wide) in paragraph at lines 66--88
+ []$ 
+ []
 
 
-Package natbib Warning: Citation `cesetti' on page 20 undefined on input line 1
-30.
+Overfull \hbox (188.92949pt too wide) in paragraph at lines 66--88
+ []$ 
+ []
 
 
-Package natbib Warning: Citation `cesetti' on page 20 undefined on input line 1
-51.
+LaTeX Warning: Float too large for page by 451.28969pt on input line 89.
 
 
-Package natbib Warning: Citation `cesetti' on page 20 undefined on input line 1
-51.
+Overfull \hbox (130.56514pt too wide) in paragraph at lines 134--151
+ [] 
+ []
 
-
-LaTeX Warning: Reference `LastPage' on page 20 undefined on input line 154.
-
-[20]
-
-LaTeX Warning: Reference `LastPage' on page 21 undefined on input line 154.
-
-[21 <./figs/ipac_T_ICAoo_LSB.pdf> <./figs/ipac_T_RFoo_LSB.pdf> <./figs/ipac_T_R
-F50_LSB.pdf>]
-
-LaTeX Warning: Reference `fig:ipac_lt_lt' on page 22 undefined on input line 17
-0.
-
-<figs/ipac_LG_Trojas_Tknn_10.pdf, id=148, 650.43pt x 650.43pt>
+<figs/ipac_LG_Trojas_Tknn_10.pdf, id=67, 650.43pt x 650.43pt>
 File: figs/ipac_LG_Trojas_Tknn_10.pdf Graphic file (type pdf)
 
 <use figs/ipac_LG_Trojas_Tknn_10.pdf>
@@ -1380,67 +1142,41 @@ Package pdftex.def Info: figs/ipac_LG_Trojas_Tknn_10.pdf used on input line 173
 .
 (pdftex.def)             Requested size: 341.43306pt x 341.44116pt.
 
+Overfull \hbox (85.35826pt too wide) in paragraph at lines 173--175
+ [] 
+ []
 
-LaTeX Warning: Reference `LastPage' on page 22 undefined on input line 191.
+[11]
 
-[22]
-
-LaTeX Warning: Reference `fig:teffvsloggIPAC' on page 23 undefined on input lin
+LaTeX Warning: Reference `fig:teffvsloggIPAC' on page 12 undefined on input lin
 e 224.
 
 
-LaTeX Warning: Reference `' on page 23 undefined on input line 227.
+LaTeX Warning: Reference `' on page 12 undefined on input line 227.
 
-
-Package natbib Warning: Citation `cesetti' on page 23 undefined on input line 2
-27.
-
-
-LaTeX Warning: Reference `tab:models_M_rmse' on page 23 undefined on input line
- 261.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-LaTeX Warning: Reference `LastPage' on page 23 undefined on input line 265.
-
-[23 <./figs/ipac_LG_Trojas_Tknn_10.pdf>]
-
-LaTeX Warning: Reference `fig:ipac_mt' on page 24 undefined on input line 297.
-
-<figs/ipac_Met_10_NevesIII.pdf, id=161, 650.43pt x 686.565pt>
+<figs/ipac_Met_10_NevesIII.pdf, id=71, 650.43pt x 686.565pt>
 File: figs/ipac_Met_10_NevesIII.pdf Graphic file (type pdf)
 
 <use figs/ipac_Met_10_NevesIII.pdf>
 Package pdftex.def Info: figs/ipac_Met_10_NevesIII.pdf used on input line 300.
 (pdftex.def)             Requested size: 341.43306pt x 360.41013pt.
-)
 
-LaTeX Warning: Reference `LastPage' on page 24 undefined on input line 163.
+Overfull \hbox (85.35826pt too wide) in paragraph at lines 300--302
+ [] 
+ []
 
-[24] (./ordieres.bbl (./ordieres.obj)
-\tf@obj=\write4
-\openout4 = `ordieres.obj'.
+) [12] [13] (./ordieres.bbl [14
 
- (./ordieres.llt))
+ <./figs/ipac_T_ICAoo_LSB.pdf> <./figs/ipac_T_RFoo_LSB.pdf> <./figs/ipac_T_RF50
+_LSB.pdf>] [15 <./figs/ipac_LG_Trojas_Tknn_10.pdf> <./figs/ipac_Met_10_NevesIII
+.pdf>] (./ordieres.llt))
 
 Package natbib Warning: There were undefined citations.
 
+[16
 
-LaTeX Warning: Reference `LastPage' on page 25 undefined on input line 178.
 
-[25 <./figs/ipac_Met_10_NevesIII.pdf>]
-
-LaTeX Warning: Reference `LastPage' on page 26 undefined on input line 178.
-
-[26] (./ordieres.aux
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-)
+] (./ordieres.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1449,13 +1185,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7479 strings out of 495020
- 103954 string characters out of 6181324
- 192460 words of memory out of 5000000
- 10426 multiletter control sequences out of 15000+600000
- 92097 words of font info for 147 fonts, out of 8000000 for 9000
+ 7446 strings out of 495020
+ 103103 string characters out of 6181324
+ 215173 words of memory out of 5000000
+ 10402 multiletter control sequences out of 15000+600000
+ 90764 words of font info for 145 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 41i,12n,45p,404b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,12n,45p,403b,464s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type
@@ -1470,10 +1206,10 @@ uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmri8a.pfb>
-Output written on ordieres.pdf (26 pages, 255008 bytes).
+Output written on ordieres.pdf (16 pages, 226051 bytes).
 PDF statistics:
- 228 PDF objects out of 1000 (max. 8388607)
- 161 compressed objects within 2 object streams
+ 168 PDF objects out of 1000 (max. 8388607)
+ 119 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
