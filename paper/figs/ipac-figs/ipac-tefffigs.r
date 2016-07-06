@@ -1,4 +1,5 @@
 
+rm(list=ls())
 load("LSB_Tdata_plot_IPAC.RData")
 
 lc2 <- 15
@@ -53,7 +54,7 @@ text(2000,4000,"GA-RF-inf",pos=4,cex=1.5)
 abline(0,1)
 
 par(mar = c(4,5,0,0))
-plot(df_T_50$T_teo,df_T_10$MARS,pch=lc2,cex=0.5,col="blue",axes=F,
+plot(df_T_50$T_teo,df_T_10$MARS,pch=lc2,cex=0.5,col="red",axes=F,
      xlab=expression(T[eff]),
      cex.lab=1.5,xlim=xl,ylim=xl)
 box()
@@ -64,7 +65,7 @@ box()
 abline(0,1)
 #
 par(mar = c(4,0,0,4))
-plot(df_T_50$T_teo,df_T_10$NNR,pch=lc2,cex=0.5,col="blue",axes=F,
+plot(df_T_50$T_teo,df_T_10$NNR,pch=lc2,cex=0.5,col="red",axes=F,
           xlab=expression(log(T[eff-spt])),
      ylab=expression(T[eff]),cex.lab=1.5,xlim=xl,ylim=xl)
 box()
@@ -85,9 +86,28 @@ load("../irtf-figs/irtf.Rdata")
 teffirtf <- df_T_inf$KNN
 loggirtf <- df_G$NNR_50
 load("LSB_Tdata_plot_IPAC.RData")
-load("~/Escritorio/M-stars-spectralDM-paper/paper/figs/ipac-figs/Gdata_plot.RData")
+load("Gdata_plot.RData")
 
-lc2 <- 16
+load("Trv_GA_models_IPAC-interp2_newT.RData")
+pchmask <- rep(NA,length(LC))
+pchmask[LC=="V"] = 15
+pchmask[LC=="III"] = 17
+pchmask[is.na(LC)] = 1
+colmask <- rep(NA,length(LC))
+colmask[LC=="V"] = "blue"
+colmask[LC=="III"] = "red"
+colmask[is.na(LC)] = "gray"
+df_G$LG_teo[LC=="V"]=5
+df_G$LG_teo[LC=="III"]=1
+df_G$LG_teo[is.na(LC)]=NA
+
+
+c1 <- apply(df_G[,c(2:31)],2,"-",df_G$LG_teo)
+m1 <- apply(c1,2,median,na.rm=T)
+c1 <- apply(c1,1,"-",m1)
+c1 <- t(c1)
+c1 <- apply(c1,2,mad,na.rm=T)
+
 lc <- 15
 
 pdf("../ipac-teff-logg.pdf",width=8,height=5)
@@ -104,33 +124,33 @@ nf = layout(layoutmat,respect=T,
 )
 
 par(mar = c(0,5,1,0))
-plot(log10(df_T_10$PLS),df_G$RF_10,pch=lc2,cex=0.5,col="red",axes=F,xlab="",
+plot(log10(df_T_inf$RF),df_G$NNR_10,pch=pchmask,cex=0.5,col=colmask,axes=F,xlab="",
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(teffirtf),loggirtf,cex=.5,pch=lc)
 box()
-text(3.4,0,"GA-RF-10",pos=4,cex=0.7)
+text(3.4,0,"GA-NNR-10",pos=4,cex=0.7)
 axis(2)
 
 par(mar = c(0,0,1,4))
-plot(log10(df_T_10$PLS),df_G$GB_10,pch=lc2,cex=0.5,col="red",axes=F,xlab="",
+plot(log10(df_T_inf$RF),df_G$SVR_50,pch=pchmask,cex=0.5,col=colmask,axes=F,xlab="",
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(teffirtf),loggirtf,cex=.5,pch=lc)
 box()
 axis(4)
-text(3.4,0,"GA-GB-10",pos=4,cex=0.7)
+text(3.4,0,"GA-SVR-50",pos=4,cex=0.7)
 
 par(mar = c(4,5,0,0))
-plot(log10(df_T_10$PLS),df_G$Chi2_50,pch=lc2,cex=0.5,col="blue",axes=F,xlab=expression(log(T[eff])),
+plot(log10(df_T_inf$RF),df_G$Chi2_50,pch=pchmask,cex=0.5,col=colmask,axes=F,xlab=expression(log(T[eff])),
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(teffirtf),loggirtf,cex=.5,pch=lc)
 box()
 axis(1)
 axis(2)
-text(3.4,0,"GA-NNR-50",pos=4,cex=0.7)
+text(3.4,0,expression(GA-chi^2-50),pos=4,cex=0.7)
 box()
 #
 par(mar = c(4,0,0,4))
-plot(log10(df_T_10$PLS),df_G$Chi2_inf,pch=lc2,cex=0.5,col="blue",axes=F,xlab=expression(log(T[eff])),
+plot(log10(df_T_inf$RF),df_G$ICA_10,pch=pchmask,cex=0.5,col=colmask,axes=F,xlab=expression(log(T[eff])),
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(teffirtf),loggirtf,cex=.5,pch=lc)
 box()
@@ -141,4 +161,9 @@ box()
 axis(1)
 
 dev.off()
+
+################# Metallicities
+
+source("plot-M.r")
+
 
