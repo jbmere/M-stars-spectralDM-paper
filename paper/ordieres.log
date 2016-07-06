@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.6)  12 FEB 2016 09:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.6)  16 JUN 2016 14:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -730,16 +730,16 @@ LaTeX Warning: Label `tab:tab_SNR1050_G' multiply defined.
 LaTeX Warning: Label `tab:tab_NC_T' multiply defined.
 
 
-LaTeX Warning: Label `tab:tab_SNR1050_T' multiply defined.
-
-
 LaTeX Warning: Label `tab:tab_SNRoo_G' multiply defined.
 
 
-LaTeX Warning: Label `tab:tab_SNR1050_G' multiply defined.
-
-
 LaTeX Warning: Label `tab:tab_SNRoo_M' multiply defined.
+
+
+LaTeX Warning: Label `tab:tab_SNR1050_T' multiply defined.
+
+
+LaTeX Warning: Label `tab:tab_SNR1050_G' multiply defined.
 
 
 LaTeX Warning: Label `tab:tab_SNR1050_G' multiply defined.
@@ -966,12 +966,7 @@ LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-Package natbib Warning: Citation `Anaetal' on page 1 undefined on input line 88
-.
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ] [2]
@@ -1039,13 +1034,13 @@ Overfull \hbox (267.4559pt too wide) in paragraph at lines 255--259
 
 
 Package natbib Warning: Citation `2013A&A...549A.129C' on page 7 undefined on i
-nput line 318.
+nput line 316.
 
 <figs/irtf-figs/M-ICA10.pdf, id=37, 505.89pt x 505.89pt>
 File: figs/irtf-figs/M-ICA10.pdf Graphic file (type pdf)
 
 <use figs/irtf-figs/M-ICA10.pdf>
-Package pdftex.def Info: figs/irtf-figs/M-ICA10.pdf used on input line 322.
+Package pdftex.def Info: figs/irtf-figs/M-ICA10.pdf used on input line 320.
 (pdftex.def)             Requested size: 209.40907pt x 209.40779pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1059,23 +1054,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Warning: Reference `irtf' on page 10 undefined on input line 16.
 
 
-Overfull \hbox (59.27728pt too wide) in paragraph at lines 60--80
- [] 
- []
-
-
-Overfull \hbox (36.77728pt too wide) in paragraph at lines 115--135
- [] 
- []
-
-
 LaTeX Warning: Reference `tab:tab_SNR1050_M' on page 10 undefined on input line
  142.
-
-
-Overfull \hbox (36.77728pt too wide) in paragraph at lines 171--191
- [] 
- []
 
 ) (./ipac.rm.tex
 Underfull \vbox (badness 4792) has occurred while \output is active []
@@ -1083,100 +1063,92 @@ Underfull \vbox (badness 4792) has occurred while \output is active []
  [10
 
 ]
-
-LaTeX Warning: Reference `tab:model_IPAC_TSD_IPAC' on page 11 undefined on inpu
-t line 11.
-
-
-Underfull \vbox (badness 2443) has occurred while \output is active []
-
-
-<figs/ipac_T_ICAoo_LSB.pdf, id=64, 650.43pt x 722.7pt>
+<figs/ipac_T_ICAoo_LSB.pdf, id=63, 650.43pt x 722.7pt>
 File: figs/ipac_T_ICAoo_LSB.pdf Graphic file (type pdf)
 
 <use figs/ipac_T_ICAoo_LSB.pdf>
-Package pdftex.def Info: figs/ipac_T_ICAoo_LSB.pdf used on input line 68.
+Package pdftex.def Info: figs/ipac_T_ICAoo_LSB.pdf used on input line 69.
 (pdftex.def)             Requested size: 312.9803pt x 347.76323pt.
 
-<figs/ipac_T_RFoo_LSB.pdf, id=65, 650.43pt x 722.7pt>
+Overfull \hbox (129.74136pt too wide) in paragraph at lines 69--71
+ [][] 
+ []
+
+<figs/ipac_T_RFoo_LSB.pdf, id=64, 650.43pt x 722.7pt>
 File: figs/ipac_T_RFoo_LSB.pdf Graphic file (type pdf)
 
 <use figs/ipac_T_RFoo_LSB.pdf>
-Package pdftex.def Info: figs/ipac_T_RFoo_LSB.pdf used on input line 75.
+Package pdftex.def Info: figs/ipac_T_RFoo_LSB.pdf used on input line 76.
 (pdftex.def)             Requested size: 312.9803pt x 347.76323pt.
 
-<figs/ipac_T_RF50_LSB.pdf, id=66, 650.43pt x 722.7pt>
+Overfull \hbox (129.74136pt too wide) in paragraph at lines 76--78
+ [][] 
+ []
+
+<figs/ipac_T_RF50_LSB.pdf, id=65, 650.43pt x 722.7pt>
 File: figs/ipac_T_RF50_LSB.pdf Graphic file (type pdf)
 
 <use figs/ipac_T_RF50_LSB.pdf>
-Package pdftex.def Info: figs/ipac_T_RF50_LSB.pdf used on input line 82.
+Package pdftex.def Info: figs/ipac_T_RF50_LSB.pdf used on input line 83.
 (pdftex.def)             Requested size: 312.9803pt x 347.76323pt.
 
-Overfull \hbox (188.92949pt too wide) in paragraph at lines 66--88
- []$[]$ 
+Overfull \hbox (129.74136pt too wide) in paragraph at lines 83--85
+ [][] 
  []
 
 
-Overfull \hbox (188.92949pt too wide) in paragraph at lines 66--88
- []$ 
- []
+LaTeX Warning: Float too large for page by 104.52646pt on input line 90.
 
-
-Overfull \hbox (188.92949pt too wide) in paragraph at lines 66--88
- []$ 
- []
-
-
-LaTeX Warning: Float too large for page by 451.28969pt on input line 89.
-
-
-Overfull \hbox (130.56514pt too wide) in paragraph at lines 134--151
- [] 
- []
-
-<figs/ipac_LG_Trojas_Tknn_10.pdf, id=67, 650.43pt x 650.43pt>
+<figs/ipac_LG_Trojas_Tknn_10.pdf, id=66, 650.43pt x 650.43pt>
 File: figs/ipac_LG_Trojas_Tknn_10.pdf Graphic file (type pdf)
 
 <use figs/ipac_LG_Trojas_Tknn_10.pdf>
-Package pdftex.def Info: figs/ipac_LG_Trojas_Tknn_10.pdf used on input line 173
+Package pdftex.def Info: figs/ipac_LG_Trojas_Tknn_10.pdf used on input line 174
 .
 (pdftex.def)             Requested size: 341.43306pt x 341.44116pt.
 
-Overfull \hbox (85.35826pt too wide) in paragraph at lines 173--175
+Overfull \hbox (85.35826pt too wide) in paragraph at lines 174--176
  [] 
  []
 
-[11]
+[11] [12 <./figs/ipac_T_ICAoo_LSB.pdf> <./figs/ipac_T_RFoo_LSB.pdf> <./figs/ipa
+c_T_RF50_LSB.pdf>]
 
-LaTeX Warning: Reference `fig:teffvsloggIPAC' on page 12 undefined on input lin
-e 224.
+LaTeX Warning: Reference `' on page 13 undefined on input line 231.
 
 
-LaTeX Warning: Reference `' on page 12 undefined on input line 227.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<figs/ipac_Met_10_NevesIII.pdf, id=71, 650.43pt x 686.565pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+<figs/ipac-teff-logg.pdf, id=95, 578.16pt x 361.35pt>
+File: figs/ipac-teff-logg.pdf Graphic file (type pdf)
+
+<use figs/ipac-teff-logg.pdf>
+Package pdftex.def Info: figs/ipac-teff-logg.pdf used on input line 243.
+(pdftex.def)             Requested size: 341.43306pt x 213.39314pt.
+
+<figs/ipac_Met_10_NevesIII.pdf, id=96, 650.43pt x 686.565pt>
 File: figs/ipac_Met_10_NevesIII.pdf Graphic file (type pdf)
 
 <use figs/ipac_Met_10_NevesIII.pdf>
-Package pdftex.def Info: figs/ipac_Met_10_NevesIII.pdf used on input line 300.
+Package pdftex.def Info: figs/ipac_Met_10_NevesIII.pdf used on input line 295.
 (pdftex.def)             Requested size: 341.43306pt x 360.41013pt.
 
-Overfull \hbox (85.35826pt too wide) in paragraph at lines 300--302
+Overfull \hbox (85.35826pt too wide) in paragraph at lines 295--297
  [] 
  []
 
-) [12] [13] (./ordieres.bbl [14
-
- <./figs/ipac_T_ICAoo_LSB.pdf> <./figs/ipac_T_RFoo_LSB.pdf> <./figs/ipac_T_RF50
-_LSB.pdf>] [15 <./figs/ipac_LG_Trojas_Tknn_10.pdf> <./figs/ipac_Met_10_NevesIII
-.pdf>] (./ordieres.llt))
+) [14 <./figs/ipac_LG_Trojas_Tknn_10.pdf>] [15 <./figs/ipac-teff-logg.pdf>]
+(./ordieres.bbl (./ordieres.llt))
 
 Package natbib Warning: There were undefined citations.
 
 [16
 
-
-] (./ordieres.aux)
+ <./figs/ipac_Met_10_NevesIII.pdf>] (./ordieres.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1185,13 +1157,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7446 strings out of 495020
- 103103 string characters out of 6181324
- 215173 words of memory out of 5000000
- 10402 multiletter control sequences out of 15000+600000
+ 7449 strings out of 495020
+ 103153 string characters out of 6181324
+ 215202 words of memory out of 5000000
+ 10404 multiletter control sequences out of 15000+600000
  90764 words of font info for 145 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 41i,12n,45p,403b,464s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,12n,45p,507b,468s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type
@@ -1206,10 +1178,10 @@ uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmri8a.pfb>
-Output written on ordieres.pdf (16 pages, 226051 bytes).
+Output written on ordieres.pdf (16 pages, 249931 bytes).
 PDF statistics:
- 168 PDF objects out of 1000 (max. 8388607)
- 119 compressed objects within 2 object streams
+ 175 PDF objects out of 1000 (max. 8388607)
+ 124 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

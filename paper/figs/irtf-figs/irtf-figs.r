@@ -1,3 +1,4 @@
+rm(list=ls())
 
 load("Tdata_plot.RData")
 load("Gdata_plot.RData")
@@ -22,6 +23,7 @@ lc[mask] <- 18
 tmp <- gsub("I","",tmp)
 mask <- is.na(lc)
 lc[mask] <- 4
+
 irtf.lcs <- read.table("../../../names/IRTF-origweb.txt",sep=",")
 irtf.lcs[,1] <- gsub(" ","",irtf.lcs[,1])
 irtf.lcs[,1] <- gsub("[\t]","",irtf.lcs[,1])
@@ -42,21 +44,27 @@ irtf.lcs.sorted <- gsub("[\t]","",irtf.lcs.sorted)
 irtf.lcs.sorted <- gsub(" ","",irtf.lcs.sorted)
 lc2 <- rep(NA,length(irtf.lcs.sorted))
 tmp <- irtf.lcs.sorted
+
 mask <- grep("IV",tmp)
 lc2[mask] <- 16
 tmp <- gsub("IV","",tmp)
+
 mask <- grep("V",tmp)
 lc2[mask] <- 15
 tmp <- gsub("V","",tmp)
+
 mask <- grep("III",tmp)
 lc2[mask] <- 17
 tmp <- gsub("III","",tmp)
+
 mask <- grep("II",tmp)
 lc2[mask] <- 18
 tmp <- gsub("II","",tmp)
+
 mask <- grep("I",tmp)
 lc2[mask] <- 18
 tmp <- gsub("I","",tmp)
+
 mask <- is.na(lc2)
 lc2[mask] <- 4
 
@@ -227,5 +235,5 @@ points(log10(tab3[,2]),tab3[,3],cex=.5,pch=lc)
 text(3.4,0,"GA-RR-50",pos=4,cex=0.7)
 dev.off()
 
-
+save.image("irtf.Rdata")
 

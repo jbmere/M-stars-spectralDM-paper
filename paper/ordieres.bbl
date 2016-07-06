@@ -10,14 +10,14 @@
   {Corsini}, \& {Dalla Bont{\`a}}}]{cesetti}
 {Cesetti}, M., {Pizzella}, A., {Ivanov}, V.~D., {et~al.} 2013, \aap, 549, A129
 
-\bibitem[{Fuhrmeister {et~al.}(2005)Fuhrmeister, Schmitt, \&
-  Hauschildt}]{fuhrmeister2005phoenix}
-Fuhrmeister, B., Schmitt, J., \& Hauschildt, P. 2005, arXiv preprint
-  astro-ph/0505375
-
 \bibitem[{Goldberg {et~al.}(1989)}]{goldberg1989genetic}
 Goldberg, D.~E. {et~al.} 1989, Genetic algorithms in search, optimization, and
   machine learning, Vol. 412 (Addison-wesley Reading Menlo Park)
+
+\bibitem[{{Gonz\'alez} {et~al.}(submitted){Gonz\'alez}, {Bello},
+  {Ordieres-Mer\'e}, \& {Sarro}}]{Anaetal}
+{Gonz\'alez}, A., {Bello}, A., {Ordieres-Mer\'e}, J., \& {Sarro}, L. submitted,
+  \mnras
 
 \bibitem[{{Heiter} {et~al.}(2015){Heiter}, {Jofr{\'e}}, {Gustafsson}, {Korn},
   {Soubiran}, \& {Th{\'e}venin}}]{heiter}

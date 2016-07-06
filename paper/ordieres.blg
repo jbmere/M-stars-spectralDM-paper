@@ -4,34 +4,35 @@ The top-level auxiliary file: ordieres.aux
 The style file: bibtex/aa.bst
 Database file #1: references_m.bib
 Warning--I didn't find a database entry for "dummy"
+Warning--I didn't find a database entry for "2013A&A...549A.129C"
 You've used 9 entries,
             2947 wiz_defined-function locations,
-            703 strings with 6513 characters,
-and the built_in function-call counts, 4370 in all, are:
-= -- 351
-> -- 375
+            706 strings with 6616 characters,
+and the built_in function-call counts, 4416 in all, are:
+= -- 353
+> -- 384
 < -- 4
-+ -- 126
-- -- 117
-* -- 367
-:= -- 834
++ -- 129
+- -- 120
+* -- 373
+:= -- 843
 add.period$ -- 9
 call.type$ -- 9
-change.case$ -- 74
+change.case$ -- 75
 chr.to.int$ -- 9
 cite$ -- 9
 duplicate$ -- 160
 empty$ -- 237
-format.name$ -- 137
-if$ -- 847
+format.name$ -- 140
+if$ -- 855
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 8
 newline$ -- 31
 num.names$ -- 36
-pop$ -- 76
+pop$ -- 77
 preamble$ -- 1
-purify$ -- 74
+purify$ -- 75
 quote$ -- 0
 skip$ -- 138
 stack$ -- 0
@@ -45,4 +46,4 @@ warning$ -- 0
 while$ -- 31
 width$ -- 0
 write$ -- 92
-(There was 1 warning)
+(There were 2 warnings)

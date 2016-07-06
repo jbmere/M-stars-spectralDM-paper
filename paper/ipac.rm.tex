@@ -6,9 +6,9 @@ Errors (RMSE) and Root Median Square Error (RMDSE )for the five-fold
 cross-validation strategy, and we subsequently discuss the accuracy of
 the predictions with respect to literature values where available.
 
-\subsection{Effective temperature models}
+\subsubsection{Effective temperature models}
 
-Table \ref{tab:model_IPAC_TSD_IPAC} summarises the RMSE/RMDSE for the
+Table \ref{tab:model_TSD_IPAC} summarises the RMSE/RMDSE for the
 complete set of models: the minimum $\chi^2$ estimate based on the
 full spectrum ($\chi^2$), the projection pursuit regression based on
 the ICA components (PPR-ICA) and some models trained on the spectral
@@ -42,13 +42,14 @@ GA-KPLS     & 227       & {\bf 72} && 331       & 123       && 409       & 208 \
 
 Again, as in the IRTF case, we see that the compression of the spectra
 results in a performance degradation. We believe that this is due to
-the information being spread all over the spectrum rather than
+the information being spread over the entire spectrum rather than
 concentrated in a few bands. {\bf What about the curse of
   dimensionality? }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Comparison with the Teff from SpType calibration.
+% Because for IPAC we do not have Teff estimates?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -61,23 +62,23 @@ trained with SNR= 10 or 50.}
 
 {\bf Include plot with 4 models}
 
-\begin {figure}
+\begin {figure*}
  \centering
- \begin{subfigure}{.85\textwidth}
+ \begin{subfigure}{.35\textwidth}
   \centering
   \includegraphics[width=11cm]{figs/ipac_T_ICAoo_LSB.pdf}
   \caption{Comparison between Temperature estimations from Theoretical Temperature 
   in x axis and the modeled ICA based estimation at SNR=$\infty$ on y-axis}
  \label{fig:ipac_icaoo_lsb}
  \end{subfigure}
-  \begin{subfigure}{.85\textwidth}
+  \begin{subfigure}{.35\textwidth}
   \centering
   \includegraphics[width=11cm]{figs/ipac_T_RFoo_LSB.pdf}
   \caption{Comparison between Temperature estimations from Theoretical Temperature 
   in x axis and the featured based Random Forest modeled at SNR=$\infty$ on y-axis}
  \label{fig:ipac_rfoo_lsb}
  \end{subfigure}
-  \begin{subfigure}{.85\textwidth}
+  \begin{subfigure}{.35\textwidth}
   \centering
   \includegraphics[width=11cm]{figs/ipac_T_RF50_LSB.pdf}
   \caption{Comparison between Temperature estimations from Theoretical Temperature 
@@ -86,7 +87,7 @@ trained with SNR= 10 or 50.}
  \end{subfigure}
  \label {fig:comp01}
  \caption{Performance comparison between the different strategies for Teperature prediction}
-\end {figure}
+\end {figure*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Comparison with predictions from Cesetti's features. 
@@ -129,7 +130,7 @@ set. A summary of the results can be found in Table
 \ref{tab:tab_CS_Model}, where we use CS- to indicate that the model was
 trained using the features by \cite{cesetti}.
 
-\begin{table}
+\begin{table*}
 \begin{center}
 \begin{tabular}{@{}rrrcrrcrr@{}}\toprule
 & \multicolumn{2}{c}{$SNR = 10$} & \phantom{ab}& \multicolumn{2}{c}{$SNR = 50$} &
@@ -151,7 +152,7 @@ CS-RR   & 211       & 128       && 400       & 239       &&  828       &  774  \
   selected by \cite{cesetti} applied to BT-Settl spectra.}
 \label{tab:tab_CS_Model}
 \end{center}
-\end{table}
+\end{table*}
 
 For SNR=10, the GA best models (GA-KPLS in RMDSE or GA-RF in RMSE)
 outperform the best CS model (GA-GBM). For SNR=50 the situation
@@ -178,7 +179,7 @@ Figure~\ref{fig:ipac_lt_lt}
 \end{figure}
 %%%%%%%%%%%%%
 
-\subsection{Surface gravity models}
+\subsubsection{Surface gravity models}
 
 As in the IRTF exercise, we attempt to select features for surface
 gravity estimation from BT-Settl spectra using GAs despite the much
@@ -195,6 +196,9 @@ and RMDSE for the same set of regression models used throughout this
 article. It shows that the GA-RF model outperforms all other in all
 SNR regimes, giving a consistent RMDSE of 1.0 dex. Obviously, this is
 barely enough for classification in luminosity classes.
+
+% HERE 2: This must be wrong: the Chi^2 and ICA columns are almost empty
+% so I have asked Joaquín why. If the RMDSE are computed from these empty columns, these figures are just wrong.
 
 \ra{1.3}
 \begin{table*}\centering
@@ -234,27 +238,18 @@ the 4-6 range except for the hottest cases with $\log(T_{rm eff} >
 errors (RMSE/RMDSE), result in unrealistic main sequence gravities. We
 interpret this as the result of overfitting to the training examples. 
 
-%\begin{figure}
-% \begin{center}
-% \includegraphics[width=12cm]{figs/ipac_LG_T_Mars_10.pdf}
-% \caption{Relationship between $log(T) $ in the x axis 
-% and $log(g)$ in the y axis for MARS model based on the GA provided bandpass features with SNR=$1%0$}
-% \label{fig:lt_lg_ga}
-% \end{center}
-%\end{figure}
+\begin{figure*}
+ \begin{center}
+ \includegraphics[width=12cm]{figs/ipac-teff-logg.pdf}
+ \caption{Relationship between $log(T) $ ($x$ axis) 
+ and $log(g)$ ($y$ axis) for several regression models.}
+ \label{fig:teffvsloggIPAC}
+ \end{center}
+\end{figure*}
 
-%\begin{figure}
-% \begin{center}
-% \includegraphics[width=12cm]{figs/ipac_LG_T_PLS_10.pdf}
-% \caption{Relationship between $log(T) $ in the x axis 
-% and $log(g)$ in the y axis for Partial Least Square model based on the GA provided bandpass features with SNR=$10$}
-% \label{fig:lt_lg_pls}
-% \end{center}
-%\end{figure}
+{\bf Right now, it appears that feature selected models are worse than $\chi^2$, judging only from the 10 available estimates (mail sent to jbmere). If so, the conclusion is clear: we should not do feature selection at these resolutions. This is useful as Cesseti et al do not question the utility of feature selection. For the IRTF (which is the dataset used by Cesseti et al), we should check this: are the models with feature selection better than $\chi^2$?}
 
-%%%% ---> HERE 2 %%%
-
-\subsection{Metallicity models} 
+\subsubsection{Metallicity models} 
 
 Finally, the same analysis is performed for the Metalicty parameter, 
 again by considering Temperature as a fixed feature.
