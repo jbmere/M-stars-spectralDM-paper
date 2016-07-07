@@ -1,8 +1,8 @@
 
 In the following, we will summarise the results obtained for the IPAC
-data set. We deal with the different physical paramenters in separate
+data set. We deal with the different physical parameters in separate
 Sections. We start by reporting the cross validation Root Mean Square
-Errors (RMSE) and Root Median Square Error (RMDSE )for the five-fold
+Errors (RMSE) and Root Median Square Error (RMDSE ) for the five-fold
 cross-validation strategy, and we subsequently discuss the accuracy of
 the predictions with respect to literature values where available.
 
@@ -16,7 +16,8 @@ features proposed by the GA (GA-RF, GA-GBM, GA-SVR, GA-NNET, GA-MARS,
 GA-KPLS). For each model, we report the RMSE/RMDSE obtained for
 several noise levels of the training sets.
 
-%\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+% According to Joaqu. this is with respect to the spectral types
+% 
 \begin{table*}\centering
 \ra{1.3}
 \begin{tabular}{@{}rrrcrrcrr@{}}\toprule
@@ -41,17 +42,21 @@ GA-KPLS     & 227       & {\bf 72} && 331       & 123       && 409       & 208 \
 \end{table*}
 
 Again, as in the IRTF case, we see that the compression of the spectra
-results in a performance degradation. We believe that this is due to
-the information being spread over the entire spectrum rather than
-concentrated in a few bands. {\bf What about the curse of
-  dimensionality? }
+results in a performance degradation. Figure \ref{} 
+
+\begin {figure*}
+ \centering
+  \includegraphics[width=11cm]{figs/ipac-teff.pdf}
+  \caption{Comparison between Temperature estimations from Theoretical Temperature 
+  in x axis and the modeled ICA based estimation at SNR=$\infty$ on y-axis}
+ \label{fig:ipac_teff}
+\end {figure*}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Comparison with the Teff from SpType calibration.
-% Because for IPAC we do not have Teff estimates?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 {\bf Explain the spt-teff calibration used.}
 
@@ -62,13 +67,6 @@ trained with SNR= 10 or 50.}
 
 {\bf Include plot with 4 models}
 
-\begin {figure*}
- \centering
-  \includegraphics[width=11cm]{figs/ipac-teff.pdf}
-  \caption{Comparison between Temperature estimations from Theoretical Temperature 
-  in x axis and the modeled ICA based estimation at SNR=$\infty$ on y-axis}
- \label{fig:ipac_teff}
-\end {figure*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Comparison with predictions from Cesetti's features. 
@@ -147,12 +145,13 @@ GA, the performance is below the one achieved by the minimum-$\chi^2$
 approach.
 
 %%% HERE 1 %%%
+
 The relationship between the GA predicted Temperature and the one
 measured by Rojas-Ayala can be found in the
 Figure~\ref{fig:ipac_lt_lt}
 \begin{figure}
  \begin{center}
- \includegraphics[width=12cm]{figs/ipac_LG_Trojas_Tknn_10.pdf}
+ \includegraphics[width=8cm]{figs/ipac_LG_Trojas_Tknn_10.pdf}
  \caption{Relationship between $log(T) from Rojas-Ayala $ in the x axis 
  and $log(T)$ as predicted by KNN with SNR=$10$}
  \label{fig:ipac_lt_lt}
@@ -180,6 +179,8 @@ barely enough for classification in luminosity classes.
 
 % HERE 2: This must be wrong: the Chi^2 and ICA columns are almost empty
 % so I have asked Joaquín why. If the RMDSE are computed from these empty columns, these figures are just wrong.
+% Answer: Wrong RData
+% REDO tables and discussion
 
 \ra{1.3}
 \begin{table*}\centering
@@ -206,42 +207,50 @@ GA-RR       & 2.0       & 1.8       && 2.1       & 1.8       && 3.7       & 3.2 
 % \end{center}
 \end{table*}
 
+% THIS PARAGRAPGH NEEDS REWRITING
 Figure \ref{fig:teffvsloggIPAC} shows the $\log(T_{\rm
   eff})$--$\log(g)$ diagram for the GA-RF and GA-NNET models. The
-latter is, in our opinion, the one that shows the diagram that is most
-with Fig. \ref{} in this work, and Fig. 1 in \cite{cesetti}. All GA-
-models predict decreasing surface gravities for main sequence stars
-below $\log(T_{\rm eff}=3.6$. GA-NNET predicts main sequence values
-between $4 \le \log(g) \le6$, while luminosity classes III-I appear
-clearly separated from the main sequence with values concentrated in
-the 4-6 range except for the hottest cases with $\log(T_{rm eff} >
-3.55$. The GA-RF results, despite showing the best cross-validation
-errors (RMSE/RMDSE), result in unrealistic main sequence gravities. We
-interpret this as the result of overfitting to the training examples. 
+  latter is, in our opinion, the one that shows the diagram that is
+  most with Fig. \ref{} in this work, and Fig. 1
+  in \cite{cesetti}. All GA- models predict decreasing surface
+  gravities for main sequence stars below $\log(T_{\rm
+  eff}=3.6$. GA-NNET predicts main sequence values between
+  $4 \le \log(g) \le6$, while luminosity classes III-I appear clearly
+  separated from the main sequence with values concentrated in the 4-6
+  range except for the hottest cases with $\log(T_{rm eff} >
+  3.55$. The GA-RF results, despite showing the best cross-validation
+  errors (RMSE/RMDSE), result in unrealistic main sequence
+  gravities. We interpret this as the result of overfitting to the
+  training examples.
 
 \begin{figure*}
  \begin{center}
- \includegraphics[width=12cm]{figs/ipac-teff-logg.pdf}
+ \includegraphics[width=\textwidth]{figs/ipac-teff-logg.pdf}
  \caption{Relationship between $log(T) $ ($x$ axis) 
  and $log(g)$ ($y$ axis) for several regression models.}
  \label{fig:teffvsloggIPAC}
  \end{center}
 \end{figure*}
 
-{\bf Right now, it appears that feature selected models are worse than $\chi^2$, judging only from the 10 available estimates (mail sent to jbmere). If so, the conclusion is clear: we should not do feature selection at these resolutions. This is useful as Cesseti et al do not question the utility of feature selection. For the IRTF (which is the dataset used by Cesseti et al), we should check this: are the models with feature selection better than $\chi^2$?}
+{\bf Right now, it appears that feature selected models are worse than
+$\chi^2$, judging only from the 10 available estimates (mail sent to
+jbmere). If so, the conclusion is clear: we should not do feature
+selection at these resolutions. This is useful as Cesseti et al do not
+question the utility of feature selection. For the IRTF (which is the
+dataset used by Cesseti et al), we should check this: are the models
+with feature selection better than $\chi^2$?}
 
 \subsubsection{Metallicity models} 
 
-Finally, the same analysis is performed for the Metalicty parameter, 
-again by considering Temperature as a fixed feature.
-In Table~\ref{tab:models_M_rmse} 
-we can see the analysis of performance of different classes of
-models and cosidering a variety in features. The checks were carried out against 
-$Met$ from Neves III.
+Finally, the same analysis is performed for metalicities, again using
+the previously inferred temperature as a fixed input feature.
+Table~\ref{tab:models_M_rmse} shows a summary of the cross-validation
+performance of the different models.
 
 %
 % Metalicidad teórica desde NevesIII para IPAC
 %
+% Check if this comes from CV if not, replace
 \ra{1.3}
 \begin{table*}\centering
 \begin{tabular}{@{}rrrcrrcrr@{}}\toprule
@@ -267,10 +276,10 @@ $Rule Regression $  & 0.47 & 0.29 && 0.50 & 0.36  && 1.18 &  1.18 \\
 % \end{center}
 \end{table*}
 
+%% Check results from cesseti and add a plot with best prediction
 
-{\bf Noooo}
-The relationship between the GA predicted Temperature and the one measured by Rojas-Ayala can be 
-found in the Figure~\ref{fig:ipac_mt}
+
+% FIGURE WITH LITERATURE METALLICITIES
 \begin{figure}
  \begin{center}
  \includegraphics[width=12cm]{figs/ipac-figs/M-RFInf.pdf}
@@ -280,36 +289,4 @@ found in the Figure~\ref{fig:ipac_mt}
  \end{center}
 \end{figure}
 
-
-% In Figure~\ref{fig:M_chi2_50_cesetti} and Figure~\ref{fig:M_GAM_1010_Cesetti} 
-% relationships between metalicity predicted by global espectrum estimation 
-% and GA feature based estimation against the real values
-% provided by \cite{2013A&A...549A.129C} can be observed.
-
-% \begin {figure}
-%  \centering
-%  \begin{subfigure}{.85\textwidth}
-%   \centering
-%   \includegraphics[width=12cm]{figs/M_Chi2_50_Cesetti.pdf}
-%   \caption{Comparison between Metalicity estimations from Spectral Subtype 
-%  in x axis and the closest BT\_Settl spectra by $\chi^2$ at SNR=$50$ on y-axis}
-%  \label{M_chi2_50_cesetti}
-%  \end{subfigure}
-%   \begin{subfigure}{.85\textwidth}
-%   \centering
-%   \includegraphics[width=12cm]{figs/M_GAM_1010_Cesetti.pdf}
-%   \caption{Comparison between Metalicity estimations from Spectral Subtype 
-%  in x axis and the Support Vector Machines for Ga based features trained with BT\_Settl 
-%  at SNR=$\infty$ and features for forecasting at SNR=$\infty$ on y-axis}
-%  \label{fig:M_GAM_1010_Cesetti}
-%  \end{subfigure}
-%  \label {fig:comp03}
-%  \caption{Performance comparison between the $chi^2$ based selection 
-%           and the band oriented features to forecast Log(g)}
-% \end {figure}
-%
-   
-   
-
-% De nuevo, el análisis y discusión, función de lo que queramos dejar
 
