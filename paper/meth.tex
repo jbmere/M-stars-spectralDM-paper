@@ -127,8 +127,8 @@ Another type of features defined as
                {\int_{\lambda_{3}}^{\lambda_{4}} f(\lambda) \cdot {\rm d}{\lambda}} 
 \end{equation}
 
-was considered, where $\lambda_1, \lambda_2, \lambda_3$, and
-$lambda_4$ delimit two spectral bands such that the ratio of the
+were considered, where $\lambda_1, \lambda_2, \lambda_3$, and
+$\lambda_4$ delimit two spectral bands such that the ratio of the
 integrated fluxes in the two bands is hoped to be a good predictor
 (alone or in combination with other features) of the star atmospheric
 physical parameters. The results obtained with this alternative
@@ -143,7 +143,7 @@ We used Genetic Algorithms to solve the optimization problem described
 above, that is, the problem of finding the features (band boundaries)
 that minimize the prediction error of a regression estimate of the
 physical parameters. We used the implementation of genetic algorithms
-publicly available as the R \citep{R2013} ???  package. The concept of
+publicly available as the R \citep{R2013} GA  package. The concept of
 using in-silico evolution for the solution of optimization problems
 was introduced by \cite{holland1975adaptation}. Although its
 application is now reasonably widespread \citep[see
@@ -197,10 +197,6 @@ $i=10$, the second feature between bins $i=6$ and $i=15$, the third
 feature between bins $i=11$ and $i=20$, etc). We do not test for
 feature ratios that overlap in wavelength.
 
-{\bf The distribution of the ratio of two gaussian variables (our
-case) has extremely wide wings if any of the features is centred
-around zero. We should automatically discard features like this. Can
-we do it now?}
 
 An obvious conceptual limitation of a univariate approach (considering
 chromosomes that code a single predictive feature) would be the lack
@@ -213,7 +209,7 @@ interactions between features. In this work we define a chromosome as
 a set of ten individual genes, and each gene codes a pair of
 non-overlapping spectral bands, the ratio of which is used as
 predictor of the physical parameters according
-to \ref{eq:featureDefinition}. 
+to (\ref{eq:featureDefinition}). 
 
 The population size was set to 8000 individuals and the maximum number
 of accepted iterations set to 4000. We produced three randomly started
@@ -230,76 +226,103 @@ The most frequent and efficient features were selected as candidates
 to predictive variables of the physical parameters in regression
 models. We used a binary codification of the chromosomes and a
 parallel implementation of the GA in a farm of fifteen computers per
-physical parameter. {\bf Here a bit more detail is needed: what
-processors, number of cores, etc. Just one additional sentence.}
+physical parameter. The used architecture was the CESVIMA power7 HPC
+which involve processors with 8 cores and four threads per core, running by 3,3 GHz
+and with 32Gb of RAM each.
+
 
 The GA procedure provides us with a large collection of chromosomes.
 Although these are all potential solutions of the problem, it is not
 immediately clear which one should be selected for the final
-regression model.  This single regression model should, to some
-extent, be representative of the population. The simpler strategy
+regression model.  
+
+It is relevant to say that when genes of a chromosome induced as ratio
+of two gaussian variables have extremely wide wings if any of the features 
+is centered arounf zero, the fitness criteria removes it as a cadidate feature
+as it is not able to explain the physical parameter. 
+Therefore, the single regression model should, to some
+extent, be descriptive of the population. The simpler strategy
 would be to use the frequency of the chromosome in the population as
 criterion for inclusion in a forward selection strategy. However we
-prefered to select the features based on their highest fitness. {\bf
-How many? Do we select the top 10 fittest chromosomes? Why 10?}
+prefered to select the features based on their highest fitness as it
+enhances the value of the direct contribution to explain the physical 
+parameter. 
+As we have accepted that compex interaction between individual features 
+are possible, it was selected a fixed number of features allowing both,
+enough room for developping those complex dependency relationships but
+to keep the complexity of the comming regression models under control.
+Therefore, it was selected ten as the suitable number of features being considered 
+per physical parameter.
 
 Once the GA has generated a proposal set of features for predicting
 each of the physical parameters, the next step consists in training
 the regression model to predict them based in these features.  The GA
-generates a large set of proposals {\bf here we need to explain how we
-go from the output of the GA to a list of 10 features. They are
-ordered by fitness and number of replicates in the pool, I believe. We
-keep the top fittest features with many replications, but can we
-describe this more quantitatively?}
-
-There are different statistics that can be used to identify features
-that are differentially expressed between two or more groups of
-samples {\bf hay que explicar a qué nos referimos con differential
-expression, samples y groups of samples aquí} and then uses the most
-differentially expressed ones to construct a statistical model.
+generates a large set of proposals that they are ordered by fitness and frequency of 
+participation in the final poluation. 
+Features arising less than five times were discarded as they can not be 
+relevant by themselves and just arising randomly by combination with other
+stronger features.
 
 In order to assess the performance of the regression models, we
 compare their predictions with i) values of the physical parameters
 from the literature (when available); ii) the predictions from the
-popular $minimum \chi^2$ distance to spectra in the BT-Settl library;
-iii) parameter predictions based on a projection pursuit regression
-model {\bf Is this correct, Joaquín? Somewhere in your first version
-of the paper it was stated that the ICA components were fed to an SVM
-with C=10 and epsilon=0.001 for temperature, and different values for
-logg and metallicity} trained with projections of the BT-Settl spectra
-onto the set of vectors resulting from an Independent Component
-Analysis (ICA); and finally, iv) predictions from a regression model
-trained with the features proposed by \cite{cesetti} (only for the
-IRTF spectra) {\bf Joaquín, aquí necesitamos explicar qué tipo de
-modelo entrenamos con las features de cesetti.}.
+popular $minimum \chi^2$ distance to spectra in the BT-Settl library.
+%;
+%iii) parameter predictions based on a projection pursuit regression
+%model {\bf Is this correct, Joaquín? Somewhere in your first version
+%of the paper it was stated that the ICA components were fed to an SVM
+%with C=10 and epsilon=0.001 for temperature, and different values for
+%logg and metallicity} trained with projections of the BT-Settl spectra
+%onto the set of vectors resulting from an Independent Component
+%Analysis (ICA); and finally, iv) predictions from a regression model
+%trained with the features proposed by \cite{cesetti} (only for the
+%IRTF spectra) {\bf Joaquín, aquí necesitamos explicar qué tipo de
+%modelo entrenamos con las features de cesetti.}.
+In the case of features proposed by \cite{cesetti}, such ranges were
+directly provided by their paper and the GA based selection of features 
+was, therefore, not needed.
+
+It is worthy to said that because of the impact on the emission spectrum 
+for all the pohysical parameters are the same, several strategies were 
+implemented to verify to what end using hierarchical knowledge becomes
+helpful to the modelling procedure. Therefore, extensive set of trials 
+have been conducted to derive gravity and metallicity features with and
+without temperature knowledge. Models were trained to determine the impact of
+such temperature hierarchical contribution and it was found that, 
+no matter of the model considered, the features determined plus the 
+estimated star temperature outperform the same model without the 
+temperature knowledge by about 20\% in case of gravity models and 12\%
+in case of metallicity models.
+Based on those results, GA features for gravity and netallicity were 
+reinforced with the estimated star temperature as an additional feature.
+
 
 \subsection{Models considered.}
 \label {ssub:models}
 For the models to be built, the same strategy was used for all the
 three physical parameters $(T_{eff}, log(g), met)$ and it was to use
-non linear methods for modellization.  As a classical regression
-problem several linear and non-linear modelling techniques with
-specific research for adequate parameters per method when required,
-were considered: {\bf Joaquín, no entiendo este párrafo. Pareces decir
-primero que utilizas modelos no lineales, para luego indicar que
-utilizas varios modelos lineales y no lineales. Los GAMs son lineales
-¿no?}
+regression techniques over the selected set of features.  
+As a classical regression problem several modelling techniques, with
+specific selection of adequate parameters per method when required,
+were considered: 
 
 \begin{itemize}
- \item {Generalized Additive Models \emph{(GAM)}.}
  \item {Bagging with Multiadaptative Spline Regression Models \emph{(MARS)}.}
  \item {Random Forest Regression Models \emph{(RF)}.} 
- \item {Gradient Boosting with Regression Trees \emph{(BOOSTING)}.}
+ \item {K Nearest Neighbours \emph{(KNN)}.}
  \item {Generalized Boosted Regression Models \emph{(GBM)}.}
- \item {Support Vector Regression with Gaussian Kernel \emph{(SVM)}.}
+ \item {Support Vector Regression with Gaussian Kernel \emph{(SVR)}.}
  \item {MLP Neural Networks \emph{(NNET)}.}
  \item {Kernel Partial Least Squares Regression \emph{(KPLS)}.}
+ \item {Rule Regression Models \emph{(RR)}.} 
  \end{itemize}
 
 
 Including here a sufficient description of each and every regression
 model that we trained would render the manuscript excessively
-lengthy. Suffice it to say that each one of them can be thought of as
+lengthy but interested readers can find additional information in 
+\cite{baraud2002model,geman1992neural,elith2008working,meyer2003support,svetnik2003random}.
+Suffice it to say that each one of them can be thought of as
 a parametric model that predicts one physical parameter from an input
 vector. The input vector can be the full normalised spectrum, the ICA
 lower-dimensional representation of the full spectrum, or the spectral
@@ -312,12 +335,35 @@ determined from the training set, is called training of the model. In
 the next paragraph we give minimal details of each regression model
 trained, and references for the interested reader.
 
-{\bf Aquí haría falta describir muy mínimamente cada uno de los
-modelos y dar una referencia que los describa en detalle. Luego,
-explicar cómo se determina el valor óptimo de los parámetros de cada
-modelo. Me pareció entender que caret lo hace automáticamente, pero en
-cualquier caso habría que escribirlo explícitamente y citar caret (si
-este es el caso).}
+As every type of model has its own set of tunable parameters as well as
+its own training procedure, the authors have selected a common wrapper 
+named caret  (short for C\_lassification A\_nd RE\_gression T\_raining) \cite{caret}.
+This wrapper enables a common interface as well as the use of the same 
+set of samples for the adopted five-folder cross-validation training
+technique used. The adopted strategy for selection of parameters was 
+to search throughout the grid of values.
+Therefore, generally speaking the adopted procedure for learning models 
+is presented in Algorithm \ref{caretp}.
+
+\begin{pseudocode}[shadowbox]{Model Learning}{DataSet,ParRanges}
+\label{caretp}
+ \mathcal{S}_{ModelParameters} \GETS ParRanges \\
+ \mathcal{S}_{DataFolders} \GETS Preprocess(DataSet) \\ 
+ \FOREACH x \in \mathcal{S}_{ModelParameters} \DO
+  \BEGIN
+    \FOREACH z \in \mathcal{S}_{DataFolders} \DO
+      \BEGIN
+	HDS(z) \GETS \mbox{Hold-out specific samples} \\
+	Model(z) \GETS Fits(\mathcal{S}_{DataFolders} \setminus HDS(z) ) \\
+	Perf(z) \GETS Predicts(Model(z),HDS(z)) \\
+      \END \\
+    Perf(x) \GETS Average(Perf(z)) \quad \forall z \in \mathcal{S}_{DataFolders} \\
+  \END \\
+  
+  OPS \GETS argmax(Perf(y)) \quad \forall y \in \mathcal{S}_{Modelparameters} \\
+  Model \GETS Fits(DataSet, POS) \\
+\end{pseudocode}
+
 
 As mentioned above, the training set was constructed from the BT Settl
 library of stellar spectra. The interested reader may find different
@@ -353,4 +399,5 @@ regression models by making them independent of these same atmospheric
 models. But until these training sets with sufficient and homogeneous
 sampling of the parameter space are available, we turn to the use of
 synthetic libraries. 
+
 
