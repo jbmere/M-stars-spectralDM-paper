@@ -162,6 +162,77 @@ axis(1)
 
 dev.off()
 
+#####################  4 CESSETI  ###############################
+
+load("Mdata_plot.RData")
+
+df_G_ours <- df_G
+df_M_ours <- df_M
+
+load("Gdata_CES_plot.RData")
+load("Mdata_plot_CES.RData")
+
+df_G_CES <- df_G
+df_M_CES <- df_M
+df_G <- df_G_ours
+df_M <- df_M_ours
+rm(df_G_ours,df_M_ours)
+
+# Gives error because of different sizes in X and Y
+# Email sent to jbmere on Oct 14 2016
+
+pdf("../ipac-Cesseti.pdf",width=8,height=5)
+par(cex.axis=1.0)
+nrows = 2
+ncols = 2
+nplots = nrows*ncols
+windim = c(60,30) 
+mardim=7
+layoutmat = matrix(c(1,2,3,4),nrows,ncols, byrow=T)
+nf = layout(layoutmat,respect=T,
+            widths=c(windim[1],windim[1]),
+            heights=c(windim[2],windim[2]+mardim)
+)
+
+par(mar = c(0,5,1,0))
+plot(log10(df_T_inf$RF_Ces),df_G_CES$NNR_10,pch=pchmask,cex=0.5,col=colmask,axes=F,xlab="",
+     ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
+points(log10(teffirtf),loggirtf,cex=.5,pch=lc)
+box()
+text(3.4,0,"CES-NNR-10",pos=4,cex=0.7)
+axis(2)
+
+par(mar = c(0,0,1,4))
+plot(log10(df_T_inf$RF_Ces),df_G_CES$SVR_50,pch=pchmask,cex=0.5,col=colmask,axes=F,xlab="",
+     ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
+points(log10(teffirtf),loggirtf,cex=.5,pch=lc)
+box()
+axis(4)
+text(3.4,0,"CES-SVR-50",pos=4,cex=0.7)
+
+par(mar = c(4,5,0,0))
+plot(log10(df_T_inf$RF_Ces),df_G_CES$Chi2_50,pch=pchmask,cex=0.5,col=colmask,axes=F,xlab=expression(log(T[eff])),
+     ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
+points(log10(teffirtf),loggirtf,cex=.5,pch=lc)
+box()
+axis(1)
+axis(2)
+text(3.4,0,expression(CES-chi^2-50),pos=4,cex=0.7)
+box()
+#
+par(mar = c(4,0,0,4))
+plot(log10(df_T_inf$RF_Ces),df_G_CES$ICA_10,pch=pchmask,cex=0.5,col=colmask,axes=F,xlab=expression(log(T[eff])),
+     ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
+points(log10(teffirtf),loggirtf,cex=.5,pch=lc)
+box()
+axis(1)
+axis(4)
+text(3.4,0,"ICA-10",pos=4,cex=0.7)
+box()
+axis(1)
+
+dev.off()
+
 ################# Metallicities
 
 source("plot-M.r")

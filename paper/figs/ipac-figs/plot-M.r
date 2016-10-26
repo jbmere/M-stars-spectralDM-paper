@@ -1,9 +1,9 @@
 ############# Metallicity #############
 
-kcc <- apply(df_M[,c(2:30)],2,function(tmp){
-  cor.test(x = tmp,y=df_M$M_teo,method="k")$p.value})
-scc <- apply(df_M[,c(2:30)],2,function(tmp){
-  cor.test(x = tmp,y=df_M$M_teo,method="s")$p.value})
+#kcc <- apply(df_M[,c(2:30)],2,function(tmp){
+#  cor.test(x = tmp,y=df_M$M_teo,method="k")$p.value})
+#scc <- apply(df_M[,c(2:30)],2,function(tmp){
+#  cor.test(x = tmp,y=df_M$M_teo,method="s")$p.value})
 pcc <- apply(df_M[,c(2:30)],2,function(tmp){
   cor.test(x = tmp,y=df_M$M_teo,method="p")$p.value})
 
@@ -82,6 +82,44 @@ points(ra.m[,3], df_M[,2],pch=lc2,col="blue") # Fe/H
 points(mann.m, df_M[,2],pch=lc2,col="red") # Fe/H
 points(new.m, df_M[,2],pch=lc2,col="yellow") # Fe/H
 points(gaidos.m, df_M[,2],pch=lc2,col="black") # Fe/H
+#  text(0,0.2,paste(colnames(df_M)[30],sum(abs(df_M[avail,i]) < 0.4,na.rm=T)))
+abline(0,1)
+dev.off()
+
+##########################################
+
+
+pdf("tmpCES.pdf")
+par(mar = c(6,6,1,1))
+for(i in 2:31)
+{
+  plot(df_M$M_teo, df_M_CES[,i],xlim=c(-3,1),ylim=c(-3,1))
+  points(n3.m, df_M_CES[,i],pch=16,col="orange") # Fe/H
+  points(nt8.m[,1], df_M_CES[,i],pch=15,col="green") # Fe/H 1
+  points(nt8.m[,2], df_M_CES[,i],pch=15,col="darkgreen") # Fe/H 2
+  points(ra.m[,1], df_M_CES[,i],pch=17,col="cyan") # M/H
+  points(ra.m[,3], df_M_CES[,i],pch=17,col="blue") # Fe/H
+  points(mann.m, df_M_CES[,i],pch=18,col="red") # Fe/H
+  points(new.m, df_M_CES[,i],pch=19,col="yellow") # Fe/H
+  points(gaidos.m, df_M_CES[,i],pch=20,col="black") # Fe/H
+  text(0,0.2,paste(colnames(df_M_CES)[i],sum(abs(df_M_CES[avail,i]) < 0.4,na.rm=T)))
+  abline(0,1)
+}
+dev.off()
+
+lc2=16
+pdf("M-GB10-CES.pdf")
+par(mar = c(6,6,1,1))
+column=11
+plot(df_M$M_teo, df_M_CES[,column],pch=lc2,xlim=c(-1.5,1),ylim=c(-1.5,1),xlab="Literature Fe/H or M/H",ylab="M/H",cex.axis=1.5,cex.lab=1.5)
+points(n3.m, df_M_CES[,column],pch=lc2,col="orange") # Fe/H
+points(nt8.m[,1], df_M_CES[,column],pch=lc2,col="green") # Fe/H 1
+points(nt8.m[,2], df_M_CES[,column],pch=lc2,col="darkgreen") # Fe/H 2
+points(ra.m[,1], df_M_CES[,column],pch=lc2,col="cyan") # M/H
+points(ra.m[,3], df_M_CES[,column],pch=lc2,col="blue") # Fe/H
+points(mann.m, df_M_CES[,column],pch=lc2,col="red") # Fe/H
+points(new.m, df_M_CES[,column],pch=lc2,col="yellow") # Fe/H
+points(gaidos.m, df_M_CES[,column],pch=lc2,col="black") # Fe/H
 #  text(0,0.2,paste(colnames(df_M)[30],sum(abs(df_M[avail,i]) < 0.4,na.rm=T)))
 abline(0,1)
 dev.off()

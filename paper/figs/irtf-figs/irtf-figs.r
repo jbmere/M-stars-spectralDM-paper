@@ -68,6 +68,7 @@ tmp <- gsub("I","",tmp)
 mask <- is.na(lc2)
 lc2[mask] <- 4
 
+################################################
 
 
 cex.size <- .6
@@ -79,6 +80,8 @@ points(df_T_inf$T_teo,df_T_inf$`Rule-Regression`,pch=lc2,col="blue",cex=cex.size
 #points(df_T_inf$T_teo,df_T_10$Chi2_10,pch=16,col="orange",cex=cex.size)
 abline(0,1)
 dev.off()
+
+################################################
 
 pdf("../ordieres-fig4.pdf",width=8,height=5)
 par(cex.axis=1.0)
@@ -132,13 +135,75 @@ axis(1)
 
 dev.off()
 
+#################    4 CESSETI  ###############################
+
+df_G_ours <- df_G
+df_M_ours <- df_M
+
+load("Gdata_CES_plot.RData")
+load("Mdata_CES_plot.RData")
+
+df_G_CES <- df_G
+df_M_CES <- df_M
+df_G <- df_G_ours
+df_M <- df_M_ours
+rm(df_G_ours,df_M_ours)
+
+pdf("../irtf-Cesseti.pdf",width=8,height=5)
+par(cex.axis=1.0)
+nrows = 2
+ncols = 2
+nplots = nrows*ncols
+windim = c(60,30) 
+mardim=7
+layoutmat = matrix(c(1,2,3,4),nrows,ncols, byrow=T)
+nf = layout(layoutmat,respect=T,
+            widths=c(windim[1],windim[1]),
+            heights=c(windim[2],windim[2]+mardim)
+)
+
+par(mar = c(0,5,1,0))
+plot(log10(df_T_inf$KNN_Ces),df_G_CES$GB_50,pch=lc2,cex=0.5,col="red",axes=F,xlab="",
+     ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
+points(log10(tab3[,2]),tab3[,3],cex=.5,pch=lc)
+box()
+text(3.4,0,"Ces-GB-50",pos=4,cex=0.7)
+axis(2)
+
+par(mar = c(0,0,1,4))
+plot(log10(df_T_inf$KNN_Ces),df_G_CES$Chi2_50,pch=lc2,cex=0.5,col="red",axes=F,xlab="",
+     ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
+points(log10(tab3[,2]),tab3[,3],cex=.5,pch=lc)
+box()
+axis(4)
+text(3.4,0,expression("Ces-"~chi^2~"-50"),pos=4,cex=0.7)
+
+par(mar = c(4,5,0,0))
+plot(log10(df_T_inf$KNN_Ces),df_G_CES$NNR_50,pch=lc2,cex=0.5,col="blue",axes=F,xlab=expression(log(T[eff])),
+     ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
+points(log10(tab3[,2]),tab3[,3],cex=.5,pch=lc)
+box()
+axis(1)
+axis(2)
+text(3.4,0,"Ces-NNR-50",pos=4,cex=0.7)
+box()
+#
+par(mar = c(4,0,0,4))
+plot(log10(df_T_inf$KNN_Ces),df_G_CES$ICA_10,pch=lc2,cex=0.5,col="blue",axes=F,xlab=expression(log(T[eff])),
+     ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
+points(log10(tab3[,2]),tab3[,3],cex=.5,pch=lc)
+box()
+axis(1)
+axis(4)
+text(3.4,0,"ICA-10",pos=4,cex=0.7)
+box()
+axis(1)
+
+dev.off()
+
 ############# Metallicity #############
 
-kcc <- apply(df_M[,c(2:30)],2,function(tmp){
-  cor.test(x = tmp,y=df_M$M_teo,method="k")$p.value})
-scc <- apply(df_M[,c(2:30)],2,function(tmp){
-  cor.test(x = tmp,y=df_M$M_teo,method="s")$p.value})
-pcc <- apply(df_M[,c(2:30)],2,function(tmp){
+pcc <- apply(df_M[,c(2:31)],2,function(tmp){
   cor.test(x = tmp,y=df_M$M_teo,method="p")$p.value})
 
 n3 <- read.table("../../../metallicities/NevesIII-IRTF-final.tsv", sep="|")
@@ -179,9 +244,10 @@ idcs <- match(gaidos[,1],df_M[,1])
 gaidos.m[idcs] <- gaidos[,34]
 
 avail <- !(is.na(df_M$M_teo))
-pdf("tmp.pdf")
+
+pdf("all-met.pdf")
 par(mar = c(6,6,1,1))
-for(i in 2:30)
+for(i in 2:31)
 {
   plot(df_M$M_teo, df_M[,i],xlim=c(-1,1),ylim=c(-1,1))
   points(n3.m, df_M[,i],pch=16,col="orange") # Fe/H
@@ -201,16 +267,56 @@ dev.off()
 pdf("M-ICA10.pdf")
 par(mar = c(6,6,1,1))
 plot(df_M$M_teo, df_M[,30],pch=lc2,xlim=c(-.8,.8),ylim=c(-.8,.8),xlab="Literature Fe/H or M/H",ylab="M/H",cex.axis=1.5,cex.lab=1.5)
-  points(n3.m, df_M[,30],pch=lc2,col="orange") # Fe/H
-  points(nt8.m[,1], df_M[,30],pch=lc2,col="green") # Fe/H 1
-  points(nt8.m[,2], df_M[,30],pch=lc2,col="darkgreen") # Fe/H 2
-  points(ra.m[,1], df_M[,30],pch=lc2,col="cyan") # M/H
-  points(ra.m[,3], df_M[,30],pch=lc2,col="blue") # Fe/H
-  points(mann.m, df_M[,30],pch=lc2,col="red") # Fe/H
-  points(new.m, df_M[,30],pch=lc2,col="yellow") # Fe/H
-  points(gaidos.m, df_M[,30],pch=lc2,col="black") # Fe/H
+points(n3.m, df_M[,30],pch=lc2,col="orange") # Fe/H
+points(nt8.m[,1], df_M[,30],pch=lc2,col="green") # Fe/H 1
+points(nt8.m[,2], df_M[,30],pch=lc2,col="darkgreen") # Fe/H 2
+points(ra.m[,1], df_M[,30],pch=lc2,col="cyan") # M/H
+points(ra.m[,3], df_M[,30],pch=lc2,col="blue") # Fe/H
+points(mann.m, df_M[,30],pch=lc2,col="red") # Fe/H
+points(new.m, df_M[,30],pch=lc2,col="yellow") # Fe/H
+points(gaidos.m, df_M[,30],pch=lc2,col="black") # Fe/H
 #  text(0,0.2,paste(colnames(df_M)[30],sum(abs(df_M[avail,i]) < 0.4,na.rm=T)))
+abline(0,1)
+dev.off()
+
+
+################33 CEsseti ##########################3
+
+pcc_cess <- apply(df_M_CES[,c(2:31)],2,function(tmp){
+  cor.test(x = tmp,y=df_M$M_teo,method="p")$p.value})
+
+pdf("all-met-CES.pdf")
+par(mar = c(6,6,1,1))
+for(i in 2:31)
+{
+  plot(df_M$M_teo, df_M_CES[,i],xlim=c(-1,1),ylim=c(-1,1))
+  points(n3.m, df_M[,i],pch=16,col="orange") # Fe/H
+  points(nt8.m[,1], df_M[,i],pch=15,col="green") # Fe/H 1
+  points(nt8.m[,2], df_M[,i],pch=15,col="darkgreen") # Fe/H 2
+  points(ra.m[,1], df_M[,i],pch=17,col="cyan") # M/H
+  points(ra.m[,3], df_M[,i],pch=17,col="blue") # Fe/H
+  points(mann.m, df_M[,i],pch=18,col="red") # Fe/H
+  points(new.m, df_M[,i],pch=19,col="yellow") # Fe/H
+  points(gaidos.m, df_M[,i],pch=20,col="black") # Fe/H
+  text(0,0.2,paste(colnames(df_M)[i],sum(abs(df_M[avail,i]) < 0.4,na.rm=T)))
   abline(0,1)
+}
+dev.off()
+
+
+pdf("M-CES.pdf")
+par(mar = c(6,6,1,1))
+plot(df_M$M_teo, df_M_CES[,18],pch=lc2,xlim=c(-.8,.8),ylim=c(-.8,.8),xlab="Literature Fe/H or M/H",ylab="M/H",cex.axis=1.5,cex.lab=1.5)
+points(n3.m, df_M[,18],pch=lc2,col="orange") # Fe/H
+points(nt8.m[,1], df_M[,18],pch=lc2,col="green") # Fe/H 1
+points(nt8.m[,2], df_M[,18],pch=lc2,col="darkgreen") # Fe/H 2
+points(ra.m[,1], df_M[,18],pch=lc2,col="cyan") # M/H
+points(ra.m[,3], df_M[,18],pch=lc2,col="blue") # Fe/H
+points(mann.m, df_M[,18],pch=lc2,col="red") # Fe/H
+points(new.m, df_M[,18],pch=lc2,col="yellow") # Fe/H
+points(gaidos.m, df_M[,18],pch=lc2,col="black") # Fe/H
+#  text(0,0.2,paste(colnames(df_M)[30],sum(abs(df_M[avail,i]) < 0.4,na.rm=T)))
+abline(0,1)
 dev.off()
 
 #####################################################
@@ -236,4 +342,6 @@ text(3.4,0,"GA-RR-50",pos=4,cex=0.7)
 dev.off()
 
 save.image("irtf.Rdata")
+
+
 
