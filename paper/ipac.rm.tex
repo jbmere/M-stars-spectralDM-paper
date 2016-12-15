@@ -16,30 +16,6 @@ features proposed by the GA (GA-RF, GA-GBM, GA-SVR, GA-NNET, GA-MARS,
 GA-KPLS). For each model, we report the RMSE/RMDSE obtained for
 several noise levels of the training sets.
 
-% According to Joaqu. this is with respect to the spectral types
-% 
-\begin{table*}\centering
-\ra{1.3}
-\begin{tabular}{@{}rrrcrrcrr@{}}\toprule
-& \multicolumn{2}{c}{$SNR = 10$} & \phantom{ab}& \multicolumn{2}{c}{$SNR = 50$} &
-\phantom{ab} & \multicolumn{2}{c}{$SNR = \infty$}\\
-\cmidrule{2-3} \cmidrule{5-6} \cmidrule{8-9}
-$Regression Models$ & $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$ \\ \midrule
-$\chi^2$    & {\bf 147} & 79       && {\bf 121} & {\bf 56}  && {\bf 126} & {\bf 57} \\
-$ PPR-ICA$  & 188       & 126      && 164       & 95        && 191       & 130 \\
-GA-RF       & 160       & 97       && 196       & 103       && 145       & 94 \\
-GA-GBM      & 175       & 105      && 225       & 99        && 185       & 94 \\
-GA-SVR      & 203       & 112      && 285       & 106       && 368       & 154 \\
-GA-NNET     & 221       & 84       && 313       & 111       && 395       & 202 \\
-GA-KNN      & 183       & 119      && 193       & 109       && 224       & 110  \\
-GA-MARS     & 222       & 76       && 361       & 103       && 374       & 157 \\
-GA-KPLS     & 227       & {\bf 72} && 331       & 123       && 409       & 208 \\
-\bottomrule
-\end{tabular}
-\caption {RMSE and RMDSE for the various regression models that predict $T_{eff}$ (K).} 
-\label{tab:model_TSD_IPAC} 
-% \end{center}
-\end{table*}
 
 Again, as in the IRTF case, we see that the compression of the spectra
 results in a performance degradation. Figure \ref{} 
@@ -109,29 +85,6 @@ set. A summary of the results can be found in Table
 \ref{tab:tab_CS_Model}, where we use CS- to indicate that the model was
 trained using the features by \cite{cesetti}.
 
-\begin{table*}
-\begin{center}
-\begin{tabular}{@{}rrrcrrcrr@{}}\toprule
-& \multicolumn{2}{c}{$SNR = 10$} & \phantom{ab}& \multicolumn{2}{c}{$SNR = 50$} &
-\phantom{ab} & \multicolumn{2}{c}{$SNR = \infty$}\\
-\cmidrule{2-3} \cmidrule{5-6} \cmidrule{8-9}
-$Regression Models$ & $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$     && $RMSE$       & $RMDSE$ \\ \midrule
-CS-RF   & 203       & 140       && 243       & {\bf 121} &&  {\bf 306} &  {\bf 172}  \\
-CS-GBM  & {\bf 188} & {\bf 120} && {\bf 161} & 138       &&  337       &  222  \\
-CS-SVR  & 197       & 135       && 379       & 194       &&  840       &  688  \\
-CS-NNET & 207       & 135       && 514       & 296       &&  719       &  489  \\
-CS-MARS & 252       & 124       && 789       & 186       && 3464       &  784  \\
-CS-KNN  & 235       & 158       && 246       & 137       &&  314       &  175  \\
-CS-KPLS & 250       & 201       && 741       & 361       && 2247       & 1424  \\
-CS-RR   & 211       & 128       && 400       & 239       &&  828       &  774  \\
-
-\hline
-\end{tabular}
-\caption {Performances of regression models trained on the features
-  selected by \cite{cesetti} applied to BT-Settl spectra.}
-\label{tab:tab_CS_Model}
-\end{center}
-\end{table*}
 
 For SNR=10, the GA best models (GA-KPLS in RMDSE or GA-RF in RMSE)
 outperform the best CS model (GA-GBM). For SNR=50 the situation
@@ -177,35 +130,6 @@ article. It shows that the GA-RF model outperforms all other in all
 SNR regimes, giving a consistent RMDSE of 1.0 dex. Obviously, this is
 barely enough for classification in luminosity classes.
 
-% HERE 2: This must be wrong: the Chi^2 and ICA columns are almost empty
-% so I have asked Joaquín why. If the RMDSE are computed from these empty columns, these figures are just wrong.
-% Answer: Wrong RData
-% REDO tables and discussion
-
-\ra{1.3}
-\begin{table*}\centering
-\begin{tabular}{@{}rrrcrrcrr@{}}\toprule
-& \multicolumn{2}{c}{$SNR = 10$} & \phantom{ab}& \multicolumn{2}{c}{$SNR = 50$} &
-\phantom{ab} & \multicolumn{2}{c}{$SNR = \infty$}\\
-\cmidrule{2-3} \cmidrule{5-6} \cmidrule{8-9}
-$Regression Models$ & $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$     && $RMSE$       & $RMDSE$ \\ \midrule
-$\chi^2$    & 2.2       & 1.6       && 2.2       & 1.4       && 2.2       & 1.6 \\
-PPR-ICA     & 2.1       & 1.8       && 1.8       & 1.4       && 4.3       & 4.2 \\
-GA-RF       & {\bf 1.3} & {\bf 1.0} && {\bf 1.6} & {\bf 1.1} && {\bf 1.4} & {\bf 0.9} \\
-GA-GBM      & 1.6       & 1.1       && 1.7       & 1.4       && 1.7       & 1.2 \\
-GA-SVR      & 2.0       & 1.8       && 2.1       & 1.9       && 2.3       & 1.6 \\
-GA-NNET     & 2.0       & 1.8       && 2.2       & 1.9       && 3.2       & 2.8 \\
-GA-MARS     & 1.8       & 1.5       && 2.0       & 1.7       && 2.0       & 1.5 \\
-GA-KNN      & 2.0       & 1.5       && 2.2       & 1.7       && 1.7       & 1.2 \\
-GA-KPLS     & 1.8       & 1.4       && 2.0       & 1.7       && 2.7       & 2.3 \\
-GA-RR       & 2.0       & 1.8       && 2.1       & 1.8       && 3.7       & 3.2 \\
-
-\bottomrule
-\end{tabular}
-\caption {RMSE and RMDSE for the various regression models predicting $Log(G)$ [dex].} 
-\label{tab:models_G_rmse} 
-% \end{center}
-\end{table*}
 
 % THIS PARAGRAPGH NEEDS REWRITING
 Figure \ref{fig:teffvsloggIPAC} shows the $\log(T_{\rm
@@ -262,30 +186,6 @@ apparently optimal $GA-RF-\infty$, but also smaller differences between models.
 % Metalicidad teórica desde NevesIII para IPAC
 %
 % Check if this comes from CV if not, replace
-\ra{1.3}
-\begin{table*}\centering
-\begin{tabular}{@{}rrrcrrcrr@{}}\toprule
-& \multicolumn{2}{c}{$SNR = 10$} & \phantom{ab}& \multicolumn{2}{c}{$SNR = 50$} &
-\phantom{ab} & \multicolumn{2}{c}{$SNR = \infty$}\\
-\cmidrule{2-3} \cmidrule{5-6} \cmidrule{8-9}
-$Regression Models$ & $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$     && $RMSE$       & $RMDSE$ \\ \midrule
-$\chi^2$    & 0.55 & 0.27 && 0.51 & 0.29 && 0.43  & 0.29 \\
-$PPR-ICA$   & 0.48 & 0.27 && 0.70 & 0.39 && 0.85  & 0.71 \\
-$GA-RF$     & 0.55 & 0.38 && 0.71 & 0.61 && 0.23  & 0.16 \\
-$GA-GBM$    & 0.64 & 0.43 && 0.87 & 0.84 && 0.31  & 0.23 \\
-$GA-SVR$    & 0.46 & 0.26 && 0.57 & 0.44 && 3.38  & 2.33 \\
-$GA-NNET$   & 0.52 & 0.45 && 0.66 & 0.54 && 2.03  & 1.88 \\
-$GA-KNN$    & 0.37 & 0.28 && 0.99 & 0.78 && 0.56  & 0.32 \\ 
-$GA-MARS$   & 0.71 & 0.47 && 0.80 & 0.69 && 1.15  & 0.68 \\
-%$ pls $    & 0.67  & 0.61  && 0.63  & 0.55 && 1.17 & 1.02 \\ 
-$GA-RR$     & 0.47 & 0.29 && 0.50 & 0.36 && 1.18  & 1.18 \\
-
-\bottomrule
-\end{tabular}
-\caption {RMSE and RMDSE for the various regression models predicting $Met$ [dex].} 
-\label{tab:models_M_rmse} 
-% \end{center}
-\end{table*}
 
 In order to select the best model, we again compare our model predictions with the 
 reference catalogs used in Sect. \ref{sect:irtf-met}. We select, as best model the 

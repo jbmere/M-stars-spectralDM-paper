@@ -3,47 +3,47 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: ordieres.aux
 The style file: bibtex/aa.bst
 Database file #1: references_m.bib
-Warning--I didn't find a database entry for "dummy"
+Warning--I didn't find a database entry for ""
 Warning--empty journal in caret
-You've used 26 entries,
+You've used 31 entries,
             2947 wiz_defined-function locations,
-            823 strings with 10530 characters,
-and the built_in function-call counts, 13542 in all, are:
-= -- 1094
-> -- 1221
-< -- 6
-+ -- 411
-- -- 381
-* -- 1181
-:= -- 2551
-add.period$ -- 26
-call.type$ -- 26
-change.case$ -- 231
-chr.to.int$ -- 26
-cite$ -- 27
-duplicate$ -- 474
-empty$ -- 668
-format.name$ -- 446
-if$ -- 2630
+            849 strings with 11173 characters,
+and the built_in function-call counts, 15425 in all, are:
+= -- 1260
+> -- 1316
+< -- 9
++ -- 443
+- -- 408
+* -- 1323
+:= -- 2906
+add.period$ -- 31
+call.type$ -- 31
+change.case$ -- 260
+chr.to.int$ -- 31
+cite$ -- 32
+duplicate$ -- 564
+empty$ -- 797
+format.name$ -- 482
+if$ -- 3003
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 25
-newline$ -- 82
-num.names$ -- 104
-pop$ -- 234
+missing$ -- 29
+newline$ -- 97
+num.names$ -- 124
+pop$ -- 258
 preamble$ -- 1
-purify$ -- 230
+purify$ -- 259
 quote$ -- 0
-skip$ -- 397
+skip$ -- 475
 stack$ -- 0
-substring$ -- 479
+substring$ -- 578
 swap$ -- 1
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 228
+type$ -- 273
 warning$ -- 1
-while$ -- 97
+while$ -- 117
 width$ -- 0
-write$ -- 261
+write$ -- 313
 (There were 2 warnings)

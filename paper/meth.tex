@@ -91,7 +91,6 @@ Here, a feature $F$ is defined as
 
 \begin{equation}\label{eq:featureDefinition}
   F = \int_{\lambda_{1}}^{\lambda_{2}} (1-\frac{f(\lambda)}{F_{cont}} \cdot {\rm d}{\lambda})
-\label{eq:featuredef}
 \end{equation}
 
 where $f(\lambda)$ denotes the normalized flux from the star at
@@ -138,7 +137,7 @@ For the sake of simplicity let us define Genetic Algorithms (GAs) as
 search algorithms that are based on the principle of evolution by
 natural selection. The procedure works by evolving in the sense
 explained below, chromosomes (in our case, sets of spectral features
-as defined by Eq. \ref{eq:featuredef}) from an initial random
+as defined by Eq. \ref{eq:featureDefinition}) from an initial random
 population. Evolution proceeds via cycles of differential replication,
 recombination and mutation of the fittest chromosomes. The concept of
 fittest is context dependent, but in our case fitness is defined in
@@ -197,7 +196,7 @@ etc). The spectral bands in the numerator and denominator of a test
 feature cannot overlap.
 
 It would be possible to evaluate the predictive performance of
-individual features defined with Eq. \ref{eq:featuredef}. An obvious
+individual features defined with Eq. \ref{eq:featureDefinition}. An obvious
 conceptual limitation of this univariate approach (considering
 chromosomes that code a single predictive feature) would be the lack
 of consideration that features work in the context of interconnected
@@ -222,7 +221,7 @@ and a parallel implementation of the GA in a farm of fifteen computers
 per physical parameter \footnote{All computations needed for this work
 were carried out in the CeSViMa (http://www.cesvima.upm.es/) power7
 HPC which involves processors with 8 cores and four threads per core,
-running at 3,3 GHz and with 32Gb of RAM each.
+running at 3,3 GHz and with 32Gb of RAM each.}
 
 Feature fitness was defined in terms of the Akaike Information
 Criterion (AIC) for linearity between the potential feature against
@@ -365,7 +364,7 @@ as the pseudocode \ref{caretp}.
 
 {\bf TODO [Joaquín]: define each element in the pseudocode}
 
-\begin{pseudocode}[shadowbox]{Model Learning}{DataSet,ParRanges}
+\begin{pseudocode}[plain]{Model Learning}{DataSet,ParRanges}
 \label{caretp}
  \mathcal{S}_{ModelParameters} \GETS ParRanges \\
  \mathcal{S}_{DataFolders} \GETS Preprocess(DataSet) \\ 

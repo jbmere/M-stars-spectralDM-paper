@@ -21,31 +21,6 @@ to noiseless spectra. In the GA- cases, the model is trained with
 {\bf Make sure we always have Rule-Regression models everywhere or
   discuss why not.}
   
-\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
-\begin{table*}\centering
-\ra{1.3}
-\begin{tabular}{@{}lrrcrrcrr@{}}\toprule
-& \multicolumn{2}{c}{$SNR = 10$} & \phantom{ab}& \multicolumn{2}{c}{$SNR = 50$} &
-\phantom{ab} & \multicolumn{2}{c}{$SNR = \infty$}\\
-\cmidrule{2-3} \cmidrule{5-6} \cmidrule{8-9}
-$Regression Models$ & $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$ \\ \midrule
-$\chi^2$      & 232      & \bf{100}&& 235      & 120    && 232      & \bf{100} \\
- PPR-ICA      & 242      & 128        && 242      &  99    && 280      & 162 \\
- GA-RF        & 308      & 183        && 248      & 136    && \bf{167} & 135 \\
- GA-GBM       & 287      & 160        && 248      & 149    && 233      & 113 \\
- GA-SVR       & \bf{221} & 122        && 281      & 151    && 299      & 160 \\
- GA-NNET      & 283      & 192        && 264      & 114    && 326      & 212 \\
- GA-KNN       & 238      & 120        && \bf{232} & 137    && 219      & \bf{100}  \\
- GA-MARS      & 253      & 113        && 254      & \bf{95}&& 226      & 133 \\
- GA-KPLS      & 275      & 120        && 300      & 119    && 387      & 218 \\
-\bottomrule
-\end{tabular}
-\caption {Cross-validation RMSE and RMDSE for the various regression
-  models that predict $T_{eff}$ (K).}
-\label{tab:model_TSD} 
-% \end{center}
-\end{table*}
-
 Table \ref{tab:model_TSD} shows that the performance of classifiers
 based on the full spectrum (or in a compressed version in the form of
 ICA components) and the best classifier based on features derived from
@@ -75,28 +50,6 @@ The comparison with the effective temperatures compiled by
 \cite{cesetti} shows however some significant differences across
 models when evaluated not by the RMSE/RMDSE, but by the average bias
 (see Table \ref{tab:model_Tbias}). 
-
-\begin{table*}\centering
-\ra{1.3}
-\begin{tabular}{@{}lrrr@{}}\toprule
-& {$SNR = 10$} & {$SNR = 50$} & {$SNR = \infty$}\\ \midrule
-$\chi^2 $            &  -77 &  -87  & -85 \\
-$ICA+ppr$            & -104 & -55   & -130 \\
-GA-RR                & -102 &  -39  & 170 \\
-GA-RF                & -173 & -127  &  -5 \\
-GA-GBM               & -141 & -109  &  32 \\
-GA-SVR               &  -58  &  -3  &  92 \\
-GA-NNET              & -147 &  -36  &  39 \\
-GA-KNN               &  -76  &-110  & -67 \\
-GA-MARS              &  -57  & -88  &  98 \\
-GA-KPLS              & -120 &   -4  & 214 \\
-\bottomrule
-\end{tabular}
-\caption {Average bias in the $T_{eff}$ (K) estimates computed with
-  respect to the reference values in Table 3 of \cite{cesetti}.}
-\label{tab:model_Tbias} 
-% \end{center}
-\end{table*}
 
 In general, all classifiers tend to predict lower effective
 temperatures than those in the literature except in the noiseless
@@ -154,25 +107,6 @@ using the features suggested by \cite{cesetti}. The performace of the
 models based on these features are included in Table
 \ref{tab:tab_CS_Model}.
 
-\begin{table*}\centering
-\ra{1.3}
-\begin{tabular}{@{}rrrcrrcrr@{}}\toprule
-& \multicolumn{2}{c}{$SNR = 10$} & \phantom{ab}& \multicolumn{2}{c}{$SNR = 50$} &
-\phantom{ab} & \multicolumn{2}{c}{$SNR = \infty$}\\
-\cmidrule{2-3} \cmidrule{5-6} \cmidrule{8-9}
-$Regression Models$ & $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$ \\ \midrule
-CS-RF               & 234       & 180       && {\bf 264} & 218       &&  {\bf 321} & 265 \\
-CS-GBM              & {\bf 232} & 195       && 268       & 254       &&  325       & 246 \\
-CS-SVR              & 268       & 227       && 293       & 257       &&  432       & 364 \\
-CS-NNET             & 357       & 255       && 357       & {\bf 204} &&  552       & 435 \\
-CS-KNN              & 249       & 172       && 293       & 256       &&  327       & {\bf 230}\\
-CS-KPLS             & 351       & {\bf 162} && 856       & 456       && 1086       & 535 \\
-\hline
-\end{tabular}
-\caption {Regression model performance based on the features proposed by \cite{cesetti}} 
-\label{tab:tab_CS_Model}
-%\end{center}
-\end{table*}
 
 {\bf How do you explain that the best SNR=10 model has the poorest
   performances for SNR=50 or $\infty$?}
@@ -211,32 +145,6 @@ previous stage as input of our models. {\bf do we have some hint
 Table~\ref{tab:models_G_rmse} shows the RMSE and RMDSE of the
 $\log(g)$ regression models for the same SNR regimes discussed for the
 estimation of $T_{\rm eff}$.
-
-\ra{1.3}
-\begin{table*}\centering
-\begin{tabular}{@{}rrrcrrcrr@{}}\toprule
-& \multicolumn{2}{c}{$SNR = 10$} & \phantom{ab}& \multicolumn{2}{c}{$SNR = 50$} &
-\phantom{ab} & \multicolumn{2}{c}{$SNR = \infty$}\\
-\cmidrule{2-3} \cmidrule{5-6} \cmidrule{8-9}
-$Regression Models$ & $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$     && $RMSE$       & $RMDSE$ \\ \midrule
-$\chi^2$          & 0.82       & 0.45      && 0.93       & 0.61       && 3.5        & 3.48 \\
-$ PPR-ICA$        & 0.54       & 0.48      && {\bf 0.3}  & {\bf 0.17} && 0.72       & 0.57 \\
-GA-RF             & 0.64       & \bf{0.38} && 0.77       & 0.72       && 0.53       & 0.39 \\
-GA-GBM            & {\bf 0.48} & 0.45      && 0.61       & 0.47       && 0.49       & 0.41 \\
-GA-SVR            & 0.66       & 0.40      && 0.63       & 0.58       && {\bf 0.46} & \bf{0.21} \\
-GA-NNET           & 0.78       & 0.61      && 0.47       & 0.44       && 1.2        & 0.97 \\
-GA-MARS           & 0.84       & 0.57      && 0.54       & 0.37       && 0.99       & 0.76 \\
-GA-KNN            & 1.23       & 0.83      && 1.39       & 1.44       && 1.60       & 1.32 \\
-GA-KPLS           & 0.99       & 0.99      && 0.51       & 0.49       && 0.96       & 0.77 \\
-GA-RR             & 0.74       & 0.57      && 0.50       & 0.47       && 0.57       & 0.41 \\
-
-\bottomrule
-\end{tabular}
-\caption {RMSE and RMDSE for the various $\log(g)$ regression models
-  [dex].}
-\label{tab:models_G_rmse} 
-% \end{center}
-\end{table*}
 
 Again, as in the case of the effective temperatures, the differences
 between the various models as measured by the RMSE or RMDSE are not
@@ -306,30 +214,6 @@ finally, black filles squares, values from \cite{Gaidos2015}.
 %
 % Metalicidad teórica desde Cesseti para las IRTF
 %
-\ra{1.3}
-\begin{table*}\centering
-\begin{tabular}{@{}rrrcrrcrr@{}}\toprule
-& \multicolumn{2}{c}{$SNR = 10$} & \phantom{ab}& \multicolumn{2}{c}{$SNR = 50$} &
-\phantom{ab} & \multicolumn{2}{c}{$SNR = \infty$}\\
-\cmidrule{2-3} \cmidrule{5-6} \cmidrule{8-9}
-$Regression Models$ & $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$     && $RMSE$       & $RMDSE$ \\ \midrule
-$\chi^2$    & 0.76 & 0.22      && 0.36 & 0.18     && 0.36 & 0.18 \\
-$PPR-ICA$   & 0.24 & \bf{0.13} && 0.31 & 0.22     && 0.43 & 0.27 \\
-$GA-RF$     & 0.33 & 0.25      && 0.73 & 0.41     && 0.61 & 0.36 \\
-$GA-GBM$    & 0.27 & 0.19      && 0.70 & 0.52     && 0.63 & 0.35 \\
-$GA-SVR$    & 0.33 & 0.22      && 0.45 & 0.32     && 0.92 & 0.89 \\
-$GA-NNET$   & 0.37 & 0.30      && 0.33 & 0.37     && 0.95 & 0.81 \\
-$GA-KNN$    & 0.69 & 0.55      && 0.23 & \bf{0.15}&& 0.21 & \bf{0.15} \\ 
-$GA-MARS$   & 0.36 & 0.16      && 0.49 & 0.41     && 0.83 & 0.85 \\
-$GA-RR$     & 0.31 & 0.17      && 0.30 & 0.24     && 0.78 & 0.23 \\
-
-\bottomrule
-\end{tabular}
-\caption {RMSE and RMDSE for the various regression models predicting
-  metallicity [dex].}
-\label{tab:Met-irtf-litCes} 
-% \end{center}
-\end{table*}
 
 {\bf Compare the 7 or 6 values available. Discuss.  $\chi^2$ is
   the most popular method by far. We compare predictions of machine
