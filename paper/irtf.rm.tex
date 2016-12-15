@@ -7,21 +7,21 @@ literature by \cite{cesetti} and included in their Table 3.
 
 \subsubsection{Effective temperature models}
 
-Table \ref{tab:model_TSD} summarises the RMSE/RMDSE for the complete
-set of models: the minimum $\chi^2$ estimate based on the full
-spectrum ($\chi^2$), the projection pursuit regression based on the
-ICA components (PPR-ICA) and models trained on the spectral features
-proposed by the GA (GA-RF, GA-GBM, GA-SVR, GA-NNET, GA-MARS,
+Table \ref{tab:irtf-teff-rmse} summarises the RMSE/RMDSE for the
+complete set of models: the minimum $\chi^2$ estimate based on the
+full spectrum ($\chi^2$), the projection pursuit regression based on
+the ICA components (PPR-ICA) and models trained on the spectral
+features proposed by the GA (GA-RF, GA-GBM, GA-SVR, GA-NNET, GA-MARS,
 GA-KPLS, GA-RR). For each model, we report the RMSE/RMDSE obtained for
 several noise levels of the training sets.  SNR=$\infty$ corresponds
-to noiseless spectra. In the GA- cases, the model is trained with
-  the spectral features found by the Genetic Algorithms when applied
-  to BT-Settl spectra of the corresponding SNR.
+to noiseless spectra. In the GA- cases, the model is trained with the
+spectral features found by the Genetic Algorithms when applied to
+BT-Settl spectra of the corresponding SNR.
 
 {\bf Make sure we always have Rule-Regression models everywhere or
   discuss why not.}
   
-Table \ref{tab:model_TSD} shows that the performance of classifiers
+Table \ref{tab:irtf-teff-rmse} shows that the performance of classifiers
 based on the full spectrum (or in a compressed version in the form of
 ICA components) and the best classifier based on features derived from
 limited spectral bands is equivalent. The bartlett test shows that the
@@ -49,7 +49,7 @@ spectrum shape as can be distilled from a few spectral bands.
 The comparison with the effective temperatures compiled by
 \cite{cesetti} shows however some significant differences across
 models when evaluated not by the RMSE/RMDSE, but by the average bias
-(see Table \ref{tab:model_Tbias}). 
+(see Table \ref{tab:irtf-teff-bias}). 
 
 In general, all classifiers tend to predict lower effective
 temperatures than those in the literature except in the noiseless
@@ -75,6 +75,8 @@ Figure~\ref{fig:irtf-teff} shows the correlation between the $T_{\rm
 eff}$ estimates of the best (in the RMDSE sense) regression models and
 the effective temperatures in Table 3 of \cite{cesetti}. 
 
+{\bf TODO: make and include figure}
+
 %\begin {figure}
 % \centering
 %  \includegraphics[width=11cm]{figs/irtf-teff.pdf}
@@ -92,11 +94,11 @@ size of the validation sample beyond the 57 cases with estimated
 temperatures in Table 3 of \cite{cesetti}. We converted the spectral
 types into effective temperatures using the calibration of
 \cite{2009ApJ...702..154S}. Both the RMSE and RMDSE were used to
-evaluate the prediction accuracy (see Table~\ref{tab:model_Tvar}).
+evaluate the prediction accuracy (see Table~\ref{}).
+
+{\bf TODO: Make table}
 
 {\bf Faltan las tablas y figuras.}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TBD: Comparison with temperatures estimated with Cesetti features
@@ -105,14 +107,13 @@ evaluate the prediction accuracy (see Table~\ref{tab:model_Tvar}).
 We have trained the same non linear regression models discussed above
 using the features suggested by \cite{cesetti}. The performace of the
 models based on these features are included in Table
-\ref{tab:tab_CS_Model}.
-
+\ref{tab:irtf-teff-rmse-cesetti}.
 
 {\bf How do you explain that the best SNR=10 model has the poorest
   performances for SNR=50 or $\infty$?}
 
-From the comparison of Tables \ref{tab:tab_CS_Model} and
-\ref{tab:model_TSD} we can draw the following conclusions:
+From the comparison of Tables \ref{tab:irtf-teff-rmse} and
+\ref{tab:irtf-teff-rmse-cesetti} we can draw the following conclusions:
 
 \begin{itemize}
 \item the RMSE for SNR=10 and 50 is equivalent for the regression
@@ -142,7 +143,7 @@ discussed above is that we use the $T_{\rm eff}$ estimated in the
 previous stage as input of our models. {\bf do we have some hint
   whether this was beneficial, neutral or detrimental?}
 
-Table~\ref{tab:models_G_rmse} shows the RMSE and RMDSE of the
+Table~\ref{tab:irtf-logg-rmse} shows the RMSE and RMDSE of the
 $\log(g)$ regression models for the same SNR regimes discussed for the
 estimation of $T_{\rm eff}$.
 
@@ -179,7 +180,7 @@ PPR-ICA (clockwise, starting at the top left corner).
 Finally, the same machine learning models are trained to infer the
 metallicity, again considering the effective temperature as an input
 feature as in the $\log(g)$ regression
-models. Table~\ref{tab:Met-irtf-litCes} shows the RMSE and RMDSE
+models. Table~\ref{tab:irtf-met-rmse} shows the RMSE and RMDSE
 obtained for each regression model for the only seven M-type stars in
 Table 3 of \cite{cesetti}. The minimum values are consistently obtained 
 with the minimum $\chi^2$, $PPR-ICA$ and $GA-KNN$. The differences are 

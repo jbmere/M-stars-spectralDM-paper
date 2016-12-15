@@ -8,7 +8,7 @@ the predictions with respect to literature values where available.
 
 \subsubsection{Effective temperature models}
 
-Table \ref{tab:model_TSD_IPAC} summarises the RMSE/RMDSE for the
+Table \ref{tab:ipac-teff-rmse} summarises the RMSE/RMDSE for the
 complete set of models: the minimum $\chi^2$ estimate based on the
 full spectrum ($\chi^2$), the projection pursuit regression based on
 the ICA components (PPR-ICA) and some models trained on the spectral
@@ -18,7 +18,7 @@ several noise levels of the training sets.
 
 
 Again, as in the IRTF case, we see that the compression of the spectra
-results in a performance degradation. Figure \ref{} 
+results in a performance degradation. {\bf TODO: continue} 
 
 \begin {figure*}
  \centering
@@ -82,20 +82,19 @@ We train the same regression models applied to the GA selected
 features, to the features selected in \cite{cesetti}, again learning
 from BT-Settl spectra of various SNRs and predicting over the IPAC
 set. A summary of the results can be found in Table
-\ref{tab:tab_CS_Model}, where we use CS- to indicate that the model was
+\ref{tab:ipac-teff-rmse-cesetti}, where we use CS- to indicate that the model was
 trained using the features by \cite{cesetti}.
-
 
 For SNR=10, the GA best models (GA-KPLS in RMDSE or GA-RF in RMSE)
 outperform the best CS model (GA-GBM). For SNR=50 the situation
 depends on the figure-of-merit used to compare the classifiers: in
 RMSE the best model is CS-GBM while in RMDSE GA-GBM outperforms all
 CS-models. Finally, for the unrealistic case of noiseless spectra,
-Table \ref{tab:tab_CS_Model} shows an overwhelming degradation of the
-prediction accuracy from CS- features. {\bf Overfitting?} But even in
-the only case where the CS features outperform those selected by the
-GA, the performance is below the one achieved by the minimum-$\chi^2$
-approach.
+Table \ref{tab:ipac-teff-rmse-cesetti} shows an overwhelming
+degradation of the prediction accuracy from CS- features. {\bf
+Overfitting?} But even in the only case where the CS features
+outperform those selected by the GA, the performance is below the one
+achieved by the minimum-$\chi^2$ approach.
 
 %%% HERE 1 %%%
 
@@ -124,7 +123,7 @@ used in the IRTF study which are based on the $\log(T_{\rm
   eff})$--$\log(g)$ diagram.
 
 We again use the effective temperatures as input of the regression
-models. Table~\ref{tab:models_G_rmse} shows the cross-validation RMSE
+models. Table~\ref{tab:ipac-logg-rmse} shows the cross-validation RMSE
 and RMDSE for the same set of regression models used throughout this
 article. It shows that the GA-RF model outperforms all other in all
 SNR regimes, giving a consistent RMDSE of 1.0 dex. Obviously, this is
@@ -135,7 +134,7 @@ barely enough for classification in luminosity classes.
 Figure \ref{fig:teffvsloggIPAC} shows the $\log(T_{\rm
   eff})$--$\log(g)$ diagram for the GA-RF and GA-NNET models. The
   latter is, in our opinion, the one that shows the diagram that is
-  most with Fig. \ref{} in this work, and Fig. 1
+  most consistent with Fig. \ref{} in this work, and Fig. 1
   in \cite{cesetti}. All GA- models predict decreasing surface
   gravities for main sequence stars below $\log(T_{\rm
   eff}=3.6$. GA-NNET predicts main sequence values between
@@ -168,7 +167,7 @@ with feature selection better than $\chi^2$?}
 
 Finally, the same analysis is performed for metalicities, again using
 the previously inferred temperature as a fixed input feature.
-Table~\ref{tab:models_M_rmse} shows a summary of the cross-validation
+Table~\ref{tab:ipac-met-rmse} shows a summary of the cross-validation
 performance of the different models.
 
 In general, models trained with SNR=$\infty$ show much poorer 
@@ -187,15 +186,17 @@ apparently optimal $GA-RF-\infty$, but also smaller differences between models.
 %
 % Check if this comes from CV if not, replace
 
-In order to select the best model, we again compare our model predictions with the 
-reference catalogs used in Sect. \ref{sect:irtf-met}. We select, as best model the 
-Random Forest trained with noiseless synthetic spectra, which renders the minimum 
-RMSE (0.3 dex). Figure \ref{fig:ipac_mt} shows the comparison of our 
-estimates with the reference catalogs, using the same symbols and colours as in 
-Fig. \ref{MIRTF_ICA_10}.  
+In order to select the best model, we again compare our model
+predictions with the reference catalogs used in
+Sect. \ref{sect:irtf-met}. We select, as best model the Random Forest
+trained with noiseless synthetic spectra, which renders the minimum
+RMSE (0.3 dex). Figure \ref{fig:ipac_mt} shows the comparison of our
+estimates with the reference catalogs, using the same symbols and
+colours as in Fig. \ref{MIRTF_ICA_10}.
 
-Our value of the RMSE contrasts with the differences between estimates for the 
-same star in the literature. We obtain a mean difference of 0.1 dex {\bf TO BE COMPLETED ALSO FOR IRTF}
+Our value of the RMSE contrasts with the differences between estimates
+for the same star in the literature. We obtain a mean difference of
+0.1 dex {\bf TO BE COMPLETED ALSO FOR IRTF}
 
 
 %% Check results from cesseti and add a plot with best prediction
@@ -219,7 +220,12 @@ same star in the literature. We obtain a mean difference of 0.1 dex {\bf TO BE C
 \end{figure}
 
 
-It is interesting to note that our predictions extend to metallicities as low as -2.1. Figure \ref{fig:ipac-hist-mets} shows a histogram of the metallicities predicted by the GA-RF-$\infty$ model for the IPAC set of spectra. We find predictions below -1.5 for eleven sources, 6 of which have been previously identified as subdwarfs of different categories (see Table \ref{tab:known-sds}).  
+It is interesting to note that our predictions extend to metallicities
+as low as -2.1. Figure \ref{fig:ipac-hist-mets} shows a histogram of
+the metallicities predicted by the GA-RF-$\infty$ model for the IPAC
+set of spectra. We find predictions below -1.5 for eleven sources, 6
+of which have been previously identified as subdwarfs of different
+categories (see Table \ref{tab:known-sds}).
 
 \begin{figure}
 	\begin{center}

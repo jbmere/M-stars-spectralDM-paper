@@ -13,28 +13,28 @@ There is little hope {\it a priori} for reasonable accuracies with
 regression models that predict the surface gravity and metallicity
 from such wavelength-limited, low/intermediate resolution
 spectra. Anyhow, we provide the results obtained applying the same
-methodology as in Section \ref{irtf} to show the limitations.
+methodology as in Section \ref{sec:irtf} (and described in
+Section \ref{sec:meth}) to show the limitations.
 
 \subsubsection{Spectral features for the estimation of effective temperatures.}
 
 The application of the GA to the selection of features for the
 prediction of effective temperature from noiseless spectra within the
 IPAC wavelength range and resolution, results in the features included
-in Table~\ref{tab:tab_NC_T}. Features are ordered by the fitness value
-(the AIC){\bf and we only consider features that are present in at least 5
-sets}.
+in Table~\ref{tab:ipac-teff-noiseless}. Features are ordered by the
+fitness value (the AIC){\bf and we only consider features that are
+present in at least 5 sets}. For the noisy spectra of SNR=10 and 50 we
+select the spectral features listed in
+Table~\ref{tab:ipac-teff-noisy}.
 
 {\bf TBD by Luis: interpret the features.}
 
-When noise is added to the BT-Settl spectra, we obtain the following
-features depending on the SNR of the spectra:
-
-Tables \ref{tab:tab_SNRoo_G} and \ref{tab:tab_SNR1050_G} show the
-spectral features selected by the GA for noiseless BT-Settl spectra
-and the same spectra with SNR=10 and 50, respectively.
+Tables \ref{tab:ipac-logg-noiseless} and \ref{tab:ipac-logg-noisy}
+show the spectral features selected by the GA for noiseless BT-Settl
+spectra and the same spectra with SNR=10 and 50, respectively.
 
 Finally, the best features found by the GA for the estimation of the
-metallicity are listed in Table~\ref{tab:tab_SNRoo_M} for the
-noiseless BT-Settl spectra, and in Table~\ref{tab:tab_SNR1050_M} for
+metallicity are listed in Table~\ref{tab:ipac-met-noiseless} for the
+noiseless BT-Settl spectra, and in Table~\ref{tab:ipac-met-noisy} for
 signal-to-noise ratios equal to 10 and 50.
 

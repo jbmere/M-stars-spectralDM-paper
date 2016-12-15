@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2016.12.15)  15 DEC 2016 14:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2016.12.15)  15 DEC 2016 14:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -975,53 +975,20 @@ Overfull \hbox (48.9252pt too wide) in paragraph at lines 384--385
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 )
-(./irtf.rm.tex
-
-LaTeX Warning: Reference `tab:model_TSD' on page 4 undefined on input line 10.
-
-[4]
-
-LaTeX Warning: Reference `tab:model_TSD' on page 5 undefined on input line 24.
-
-
-LaTeX Warning: Reference `tab:model_Tbias' on page 5 undefined on input line 52
-.
-
+(./irtf.rm.tex [4]
 
 LaTeX Warning: Reference `fig:irtf-teff' on page 5 undefined on input line 74.
 
 
-LaTeX Warning: Reference `tab:model_Tvar' on page 5 undefined on input line 95.
-
-
-
-LaTeX Warning: Reference `tab:tab_CS_Model' on page 5 undefined on input line 1
-08.
-
-
-LaTeX Warning: Reference `tab:tab_CS_Model' on page 5 undefined on input line 1
-14.
-
-
-LaTeX Warning: Reference `tab:model_TSD' on page 5 undefined on input line 115.
-
-
-
-LaTeX Warning: Reference `tab:models_G_rmse' on page 5 undefined on input line 
-145.
+LaTeX Warning: Reference `' on page 5 undefined on input line 97.
 
 <figs/ordieres-fig4.pdf, id=29, 578.16pt x 361.35pt>
 File: figs/ordieres-fig4.pdf Graphic file (type pdf)
 
 <use figs/ordieres-fig4.pdf>
-Package pdftex.def Info: figs/ordieres-fig4.pdf used on input line 163.
+Package pdftex.def Info: figs/ordieres-fig4.pdf used on input line 164.
 (pdftex.def)             Requested size: 523.5307pt x 327.22452pt.
-
-
-LaTeX Warning: Reference `tab:Met-irtf-litCes' on page 5 undefined on input lin
-e 182.
-
-[5]
+ [5]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1029,7 +996,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: figs/irtf-figs/M-ICA10.pdf Graphic file (type pdf)
 
 <use figs/irtf-figs/M-ICA10.pdf>
-Package pdftex.def Info: figs/irtf-figs/M-ICA10.pdf used on input line 226.
+Package pdftex.def Info: figs/irtf-figs/M-ICA10.pdf used on input line 227.
 (pdftex.def)             Requested size: 235.5872pt x 235.59149pt.
 ) (./irtf.ces.tex
 <figs/irtf-figs/irtf-Cesseti.pdf, id=35, 578.16pt x 361.35pt>
@@ -1043,49 +1010,20 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 4--5
  [][] 
  []
 
-
-LaTeX Warning: Reference `irtf-cs-met' on page 6 undefined on input line 10.
-
 <figs/irtf-figs/M-CES.pdf, id=36, 505.89pt x 505.89pt>
 File: figs/irtf-figs/M-CES.pdf Graphic file (type pdf)
 
 <use figs/irtf-figs/M-CES.pdf>
-Package pdftex.def Info: figs/irtf-figs/M-CES.pdf used on input line 14.
+Package pdftex.def Info: figs/irtf-figs/M-CES.pdf used on input line 22.
 (pdftex.def)             Requested size: 312.9803pt x 312.9847pt.
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 14--15
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 22--23
  [][] 
  []
 
 ) [6 <./figs/ordieres-fig4.pdf>] [7 <./figs/irtf-figs/M-ICA10.pdf> <./figs/irtf
--figs/irtf-Cesseti.pdf> <./figs/irtf-figs/M-CES.pdf>] (./ipac.fs.tex
-
-LaTeX Warning: Reference `irtf' on page 8 undefined on input line 16.
-
-
-LaTeX Warning: Reference `tab:tab_NC_T' on page 8 undefined on input line 23.
-
-
-LaTeX Warning: Reference `tab:tab_SNRoo_G' on page 8 undefined on input line 32
-.
-
-
-LaTeX Warning: Reference `tab:tab_SNR1050_G' on page 8 undefined on input line 
-32.
-
-
-LaTeX Warning: Reference `tab:tab_SNRoo_M' on page 8 undefined on input line 37
-.
-
-
-LaTeX Warning: Reference `tab:tab_SNR1050_M' on page 8 undefined on input line 
-38.
-
-) (./ipac.rm.tex
-
-LaTeX Warning: Reference `tab:model_TSD_IPAC' on page 8 undefined on input line
- 11.
-
+-figs/irtf-Cesseti.pdf> <./figs/irtf-figs/M-CES.pdf>] (./ipac.fs.tex)
+(./ipac.rm.tex
 
 LaTeX Warning: Reference `' on page 8 undefined on input line 21.
 
@@ -1095,68 +1033,52 @@ File: figs/ipac-teff.pdf Graphic file (type pdf)
 Package pdftex.def Info: figs/ipac-teff.pdf used on input line 25.
 (pdftex.def)             Requested size: 312.9803pt x 195.6113pt.
 
-
-LaTeX Warning: Reference `tab:tab_CS_Model' on page 8 undefined on input line 8
-5.
-
-
-LaTeX Warning: Reference `tab:tab_CS_Model' on page 8 undefined on input line 9
-4.
-
 <figs/ipac_LG_Trojas_Tknn_10.pdf, id=69, 650.43pt x 650.43pt>
 File: figs/ipac_LG_Trojas_Tknn_10.pdf Graphic file (type pdf)
 
 <use figs/ipac_LG_Trojas_Tknn_10.pdf>
-Package pdftex.def Info: figs/ipac_LG_Trojas_Tknn_10.pdf used on input line 107
+Package pdftex.def Info: figs/ipac_LG_Trojas_Tknn_10.pdf used on input line 106
 .
 (pdftex.def)             Requested size: 256.0748pt x 256.07838pt.
  [8
 
  <./figs/ipac_LG_Trojas_Tknn_10.pdf>]
 
-LaTeX Warning: Reference `tab:models_G_rmse' on page 9 undefined on input line 
-127.
-
-
-LaTeX Warning: Reference `' on page 9 undefined on input line 138.
+LaTeX Warning: Reference `' on page 9 undefined on input line 137.
 
 <figs/ipac-teff-logg.pdf, id=79, 578.16pt x 361.35pt>
 File: figs/ipac-teff-logg.pdf Graphic file (type pdf)
 
 <use figs/ipac-teff-logg.pdf>
-Package pdftex.def Info: figs/ipac-teff-logg.pdf used on input line 152.
+Package pdftex.def Info: figs/ipac-teff-logg.pdf used on input line 151.
 (pdftex.def)             Requested size: 523.5307pt x 327.22452pt.
-
-
-LaTeX Warning: Reference `tab:models_M_rmse' on page 9 undefined on input line 
-171.
 
 <figs/ipac-figs/M-RFInf.pdf, id=80, 505.89pt x 505.89pt>
 File: figs/ipac-figs/M-RFInf.pdf Graphic file (type pdf)
 
 <use figs/ipac-figs/M-RFInf.pdf>
-Package pdftex.def Info: figs/ipac-figs/M-RFInf.pdf used on input line 206.
+Package pdftex.def Info: figs/ipac-figs/M-RFInf.pdf used on input line 207.
 (pdftex.def)             Requested size: 256.0748pt x 256.07838pt.
 
 <figs/ipac-figs/ipac-M-hist.pdf, id=81, 505.89pt x 505.89pt>
 File: figs/ipac-figs/ipac-M-hist.pdf Graphic file (type pdf)
 
 <use figs/ipac-figs/ipac-M-hist.pdf>
-Package pdftex.def Info: figs/ipac-figs/ipac-M-hist.pdf used on input line 226.
+Package pdftex.def Info: figs/ipac-figs/ipac-M-hist.pdf used on input line 232.
 
 (pdftex.def)             Requested size: 256.0748pt x 256.07838pt.
 
-Overfull \hbox (12.59526pt too wide) in paragraph at lines 234--246
+Overfull \hbox (12.59526pt too wide) in paragraph at lines 240--252
  [][] 
  []
 
 
-Underfull \hbox (badness 4531) in paragraph at lines 250--253
+Underfull \hbox (badness 4531) in paragraph at lines 256--259
 []\T1/txr/m/n/10 The re-main-ing 5 stars with metal-lic-i-ties be-low -1.5
  []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 250--253
+Underfull \hbox (badness 1661) in paragraph at lines 256--259
 \T1/txr/m/n/10 are 2MASS J17275631-3240430 (-2.0 dex); LHS 1625 (-
  []
 
@@ -1186,10 +1108,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 7826 strings out of 495020
- 108655 string characters out of 6181323
+ 7811 strings out of 495020
+ 108417 string characters out of 6181323
  213468 words of memory out of 5000000
- 10757 multiletter control sequences out of 15000+600000
+ 10742 multiletter control sequences out of 15000+600000
  90764 words of font info for 145 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  41i,21n,45p,813b,480s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1207,7 +1129,7 @@ uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmri8a.pfb>
-Output written on ordieres.pdf (21 pages, 366857 bytes).
+Output written on ordieres.pdf (21 pages, 366690 bytes).
 PDF statistics:
  205 PDF objects out of 1000 (max. 8388607)
  145 compressed objects within 2 object streams
