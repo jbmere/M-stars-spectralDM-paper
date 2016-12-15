@@ -250,7 +250,7 @@ this distribution for four models selected based on these plausibility
 criteria: GA-RR, GA-PLS, GA-KNN (the three of them for SNR=50), and
 PPR-ICA (clockwise, starting at the top left corner).
 
-\begin{figure}
+\begin{figure*}
  \begin{center}
    \includegraphics[width=\textwidth]{figs/ordieres-fig4.pdf}
  \caption{$\log(T_{eff})$--$\log(g)$ diagrams produced by the GA-KNN
@@ -259,7 +259,7 @@ PPR-ICA (clockwise, starting at the top left corner).
    the top left plot).}
  \label{fig:lt_lg_ga}
  \end{center}
-\end{figure}
+\end{figure*}
 
 {\bf Is $\chi^2$ much worse now for the weak parameter logg? I guess
   no. This needs be discussed}
@@ -267,14 +267,42 @@ PPR-ICA (clockwise, starting at the top left corner).
 {\bf Discuss these plots in the case of Cesetti features.}
 
 \subsubsection{Metallicity models} 
-
+\label{sect:irtf-met}
 Finally, the same machine learning models are trained to infer the
 metallicity, again considering the effective temperature as an input
 feature as in the $\log(g)$ regression
-models. Table~\ref{tab:models_M_rmse} shows the RMSE and RMDSE
+models. Table~\ref{tab:Met-irtf-litCes} shows the RMSE and RMDSE
 obtained for each regression model for the only seven M-type stars in
-Table 3 of \cite{cesetti} with a metallicity estimate in the
-literature.
+Table 3 of \cite{cesetti}. The minimum values are consistently obtained 
+with the minimum $\chi^2$, $PPR-ICA$ and $GA-KNN$. The differences are 
+only marginal, but we see that even at these intermediate resolutions 
+the reduction of dimensionality (either with ICA or GA) produces an 
+improvement in the predictions. This is even more evident if we 
+compare our predictions with more recent metallicity estimates not 
+included in \cite{cesetti}. We have gathered estimates for stars in 
+both the IRTF collection and a series of recent metallicity catalogs 
+by \cite{RA2012}, \cite{NevesIII}, \cite{Newton2014}, \cite{Gaidos2015}, 
+and \cite{Mann2015}. All of the aforementioned references provide us 
+with estimates of the iron abundance ratio [Fe/H] except \cite{RA2012} that 
+provides both the overall metallicity [M/H]
+and the [Fe/H] ratio. Our estimates, coming from the BT-Settl library, are 
+for the [M/H] ratios, so some offset could be expected from the 
+different nature of the quantities compared. Hence, when comparing our 
+estimates with those from the literature, we compute the RMSE or RMDSE 
+after subtracting any difference in the mean. It turns out that, after 
+correcting for biases, $PPR-ICA$ trained with SNR=10 examples 
+yields the lowest RMSE/RMDSE. Figure \ref{MIRTF_ICA_10} 
+represents the estimates of [M/H] obtained from the $PPR-ICA$ based 
+regressor, as a function of the values taken from these references for 
+the sources in common. The black empty circles represent values from \cite{cesetti}
+; orange filled circles, values from \cite{NevesIII};  green filled 
+squares, values that the Vizier catalog entry for Table 8 of 
+\cite{NevesIII} links to \cite{Jao}, although we find no evidence that \cite{Jao} 
+contains estimates of metallicities; cyan and blue filled squares, the values 
+of [M/H] and [Fe/H] respectively in \cite{RA2012}; red filled squares, values 
+from \cite{Mann2015}; yellow filled squares,  values from \cite{Newton2014}; and, 
+finally, black filles squares, values from \cite{Gaidos2015}.
+
 %
 % Metalicidad teórica desde Cesseti para las IRTF
 %
@@ -299,7 +327,7 @@ $GA-RR$     & 0.31 & 0.17      && 0.30 & 0.24     && 0.78 & 0.23 \\
 \end{tabular}
 \caption {RMSE and RMDSE for the various regression models predicting
   metallicity [dex].}
-\label{tab:models_M_rmse} 
+\label{tab:Met-irtf-litCes} 
 % \end{center}
 \end{table*}
 
@@ -309,19 +337,20 @@ $GA-RR$     & 0.31 & 0.17      && 0.30 & 0.24     && 0.78 & 0.23 \\
   plots. Then, the same logTeff-logg plots as above but with
   metallicity coded in colour.}
 
-% To be corrected
- Figure~\ref{M_ICA_10} shows the relationships between metalicity
- predicted by global espectrum estimation and GA feature based
- estimation against the real values provided by
- \cite{2013A&A...549A.129C} can be observed.
-
  \begin {figure}
   \centering
-   \includegraphics[width=0.4\textwidth]{figs/irtf-figs/M-ICA10.pdf}
+   \includegraphics[width=0.45\textwidth]{figs/irtf-figs/M-ICA10.pdf}
    \caption{Comparison between metallicity estimates from the
-     literature and predictions from the PPR-ICA (SNR=10) model. {\bf
-       TBC: Include description of symbols and colours.}}
-  \label{M_ICA_10}
+     literature and predictions from the PPR-ICA (SNR=10) model. 
+     Black empty circles represent values from \cite{cesetti}
+     ; orange filled circles, values from \cite{NevesIII};  green filled 
+     squares, values that the Vizier catalog entry for Table 8 of 
+     \cite{NevesIII} links to \cite{Jao}, although we find no evidence that \cite{Jao} 
+     contains estimates of metallicities; cyan and blue filled squares, the values 
+     of [M/H] and [Fe/H] respectively in \cite{RA2012}; red filled squares, values 
+     from \cite{Mann2015}; yellow filled squares,  values from \cite{Newton2014}; and, 
+     finally, black filles squares, values from \cite{Gaidos2015}.}
+  \label{MIRTF_ICA_10}
  \end {figure}
 
- {\bf Include table as annex with metallicities from the literature.}
+ {\bf Include table as annex with metallicities from the literature?}

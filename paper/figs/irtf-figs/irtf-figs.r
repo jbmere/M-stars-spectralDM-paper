@@ -260,6 +260,16 @@ for(i in 2:31)
   points(gaidos.m, df_M[,i],pch=20,col="black") # Fe/H
   text(0,0.2,paste(colnames(df_M)[i],sum(abs(df_M[avail,i]) < 0.4,na.rm=T)))
   abline(0,1)
+
+  x <- cbind(df_M$M_teo,n3.m,nt8.m[,1],nt8.m[,2],ra.m[,1],ra.m[,3],mann.m,new.m,gaidos.m)
+  x2 <- x-df_M[,i]
+  x3<- apply(x,1,mean,na.rm=T)
+  x4 <- apply(x,1,sd,na.rm=T)
+  y <- df_M[,i]
+  y1 <- median(x2,na.rm=T)  
+  y2 <- y - y1
+  y3 <- sd(x-y2,na.rm=T)
+  print(paste(colnames(df_M)[i],"=",y3))
 }
 dev.off()
 

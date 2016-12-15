@@ -151,7 +151,7 @@ measured by Rojas-Ayala can be found in the
 Figure~\ref{fig:ipac_lt_lt}
 \begin{figure}
  \begin{center}
- \includegraphics[width=8cm]{figs/ipac_LG_Trojas_Tknn_10.pdf}
+ \includegraphics[width=9cm]{figs/ipac_LG_Trojas_Tknn_10.pdf}
  \caption{Relationship between $log(T) from Rojas-Ayala $ in the x axis 
  and $log(T)$ as predicted by KNN with SNR=$10$}
  \label{fig:ipac_lt_lt}
@@ -247,6 +247,17 @@ the previously inferred temperature as a fixed input feature.
 Table~\ref{tab:models_M_rmse} shows a summary of the cross-validation
 performance of the different models.
 
+In general, models trained with SNR=$\infty$ show much poorer 
+performace except for the GA-RF and GA-GBM cases. The best $\chi^2$ 
+model produces errors almost a factor two larger than the 
+$GA-RF-\infty$ model (although it has to be borne in mind that, while 
+our regressors are capable of predicting metallicities that are 
+intermediate in the grid, the minimum $\chi^2$ can only yield values 
+in the grid, which has a step size of 0.5 dex). Models trained with 
+SNR=10 and 50, on the contrary,  show a more consistent behaviour for 
+the entire set of regressors, with poorer performances than the 
+apparently optimal $GA-RF-\infty$, but also smaller differences between models. 
+
 %
 % Metalicidad teórica desde NevesIII para IPAC
 %
@@ -258,16 +269,16 @@ performance of the different models.
 \phantom{ab} & \multicolumn{2}{c}{$SNR = \infty$}\\
 \cmidrule{2-3} \cmidrule{5-6} \cmidrule{8-9}
 $Regression Models$ & $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$     && $RMSE$       & $RMDSE$ \\ \midrule
-$\chi^2 BTSettl$    & 0.55    & 0.27   && 0.51 & 0.29 && 0.43  & 0.29 \\
-$ ICA+ ppr$         & 0.48 & 0.27 && 0.70  & 0.39 && 0.85  & 0.71 \\
-$rf $               & 0.55 & 0.38    && 0.71  & 0.61   && 0.23  & 0.16 \\
-$gbm $              & 0.64 & 0.43 && 0.87  & 0.84  && 0.31  & 0.23 \\
-$ svr $             & 0.46 & 0.26   && 0.57 & 0.44  && 3.38  & 2.33 \\
-$ nnet $            & 0.52 & 0.45      && 0.66 & 0.54  && 2.03  & 1.88 \\
-$ knn $             & 0.37  & 0.28   && 0.99  & 0.78 && 0.56 & 0.32 \\ 
-$ mars+ bagging $   & 0.71  & 0.47 && 0.80   & 0.69   && 1.15    & 0.68 \\
-$ pls $             & 0.67  & 0.61  && 0.63  & 0.55 && 1.17 & 1.02 \\ 
-$Rule Regression $  & 0.47 & 0.29 && 0.50 & 0.36  && 1.18 &  1.18 \\
+$\chi^2$    & 0.55 & 0.27 && 0.51 & 0.29 && 0.43  & 0.29 \\
+$PPR-ICA$   & 0.48 & 0.27 && 0.70 & 0.39 && 0.85  & 0.71 \\
+$GA-RF$     & 0.55 & 0.38 && 0.71 & 0.61 && 0.23  & 0.16 \\
+$GA-GBM$    & 0.64 & 0.43 && 0.87 & 0.84 && 0.31  & 0.23 \\
+$GA-SVR$    & 0.46 & 0.26 && 0.57 & 0.44 && 3.38  & 2.33 \\
+$GA-NNET$   & 0.52 & 0.45 && 0.66 & 0.54 && 2.03  & 1.88 \\
+$GA-KNN$    & 0.37 & 0.28 && 0.99 & 0.78 && 0.56  & 0.32 \\ 
+$GA-MARS$   & 0.71 & 0.47 && 0.80 & 0.69 && 1.15  & 0.68 \\
+%$ pls $    & 0.67  & 0.61  && 0.63  & 0.55 && 1.17 & 1.02 \\ 
+$GA-RR$     & 0.47 & 0.29 && 0.50 & 0.36 && 1.18  & 1.18 \\
 
 \bottomrule
 \end{tabular}
@@ -276,17 +287,67 @@ $Rule Regression $  & 0.47 & 0.29 && 0.50 & 0.36  && 1.18 &  1.18 \\
 % \end{center}
 \end{table*}
 
-%% Check results from cesseti and add a plot with best prediction
+In order to select the best model, we again compare our model predictions with the 
+reference catalogs used in Sect. \ref{sect:irtf-met}. We select, as best model the 
+Random Forest trained with noiseless synthetic spectra, which renders the minimum 
+RMSE (0.3 dex). Figure \ref{fig:ipac_mt} shows the comparison of our 
+estimates with the reference catalogs, using the same symbols and colours as in 
+Fig. \ref{MIRTF_ICA_10}.  
 
+Our value of the RMSE contrasts with the differences between estimates for the 
+same star in the literature. We obtain a mean difference of 0.1 dex {\bf TO BE COMPLETED ALSO FOR IRTF}
+
+
+%% Check results from cesseti and add a plot with best prediction
 
 % FIGURE WITH LITERATURE METALLICITIES
 \begin{figure}
  \begin{center}
- \includegraphics[width=12cm]{figs/ipac-figs/M-RFInf.pdf}
- \caption{Relationship between $ T from NevesIII $ in the x axis 
- and $ Met $ as predicted by Regression Rules with SNR=$10$}
+ \includegraphics[width=9cm]{figs/ipac-figs/M-RFInf.pdf}
+ \caption{Relationship between the $RF-\infty$ predictions for 
+ 	metallicity and values from the literature. 
+ 	Black empty circles represent values from \cite{cesetti}
+ 	; orange filled circles, values from \cite{NevesIII};  green filled 
+ 	squares, values that the Vizier catalog entry for Table 8 of 
+ 	\cite{NevesIII} links to \cite{Jao}, although we find no evidence that \cite{Jao} 
+ 	contains estimates of metallicities; cyan and blue filled squares, the values 
+ 	of [M/H] and [Fe/H] respectively in \cite{RA2012}; red filled squares, values 
+ 	from \cite{Mann2015}; yellow filled squares,  values from \cite{Newton2014}; and, 
+ 	finally, black filles squares, values from \cite{Gaidos2015}.}
  \label{fig:ipac_mt}
  \end{center}
 \end{figure}
 
+
+It is interesting to note that our predictions extend to metallicities as low as -2.1. Figure \ref{fig:ipac-hist-mets} shows a histogram of the metallicities predicted by the GA-RF-$\infty$ model for the IPAC set of spectra. We find predictions below -1.5 for eleven sources, 6 of which have been previously identified as subdwarfs of different categories (see Table \ref{tab:known-sds}).  
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=9cm]{figs/ipac-figs/ipac-M-hist.pdf}
+		\caption{}
+		\label{fig:ipac-hist-mets}
+	\end{center}
+\end{figure}
+
+
+\begin{table}\centering
+	\begin{tabular}{@{}llll@{}}
+		\toprule
+		Identifier & classification & Reference & GA-RF-$\infty$\\
+		\hline
+		LHS 3768 & usdM3 & \cite{1995AJ....109..797K}  & -2.1 \\
+		LHS 2352 & esd   & \cite{1995AJ....109..797K}  & -2.0 \\
+		LHS 1691 & usdM2 & \cite{0004-637X-669-2-1235} & -1.95\\
+		LHS 2023 & esdM6 & \cite{0004-637X-672-2-1153} & -1.95\\
+		LHS 515  & esdM5 & \cite{1538-3873-117-833-676}& -1.8\\
+		LP471-17 & sdM   & \cite{1995AJ....109..797K}  & -1.7\\
+		\bottomrule
+	\end{tabular}
+	\caption{TMP TBC} 
+	\label{tab:known-sds} 
+\end{table}
+
+The remaining 5 stars with metallicities below -1.5 are 2MASS J17275631-3240430 (-2.0 dex); 
+LHS 1625 (-1.97 dex);  2MASS J19215188+2802275 (-1.9 dex); 2MASS J19004675+2806462 (-1.7 dex), 
+classified as K7III by \cite{1994ApJS...94..749K}); and 2MASS J14465233-5320580 (-1.7 dex). 
 
