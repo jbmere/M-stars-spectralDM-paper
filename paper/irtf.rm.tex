@@ -1,10 +1,4 @@
 
-In the following, we will summarise the results obtained for the IRTF
-data set. We deal with the different physical paramenters in separate
-Sections. We start by reporting the Root Mean/Median Square Errors
-(RMSE/RMDSE) with respect to the parameters gathered from the
-literature by \cite{cesetti} and included in their Table 3.
-
 \subsubsection{Effective temperature models}
 
 Table \ref{tab:irtf-teff-rmse} summarises the RMSE/RMDSE for the
@@ -18,7 +12,7 @@ to noiseless spectra. In the GA- cases, the model is trained with the
 spectral features found by the Genetic Algorithms when applied to
 BT-Settl spectra of the corresponding SNR.
 
-{\bf Make sure we always have Rule-Regression models everywhere or
+{\bf TODO 6: Make sure we always have Rule-Regression models everywhere or
   discuss why not.}
   
 Table \ref{tab:irtf-teff-rmse} shows that the performance of classifiers
@@ -68,14 +62,18 @@ set. On the contrary, we find that two regimes are sufficient to
 obtain acceptable results. The two regimes are separated at
 SNR=10. The model trained with SNR=50 spectra gives close to optimal
 results for spectra with SNRs above 10, while below that limit the
-same situation holds for the model trained with SNR=10 spectra. {\bf
-  Cite paper by Ana.}
+same situation holds for the model trained with SNR=10
+spectra \cite{PaperAna}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comparison with Teffs from Cesetti.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Figure~\ref{fig:irtf-teff} shows the correlation between the $T_{\rm
 eff}$ estimates of the best (in the RMDSE sense) regression models and
 the effective temperatures in Table 3 of \cite{cesetti}. 
 
-{\bf TODO: make and include figure}
+{\bf TODO 7: make and include figure}
 
 %\begin {figure}
 % \centering
@@ -96,9 +94,7 @@ types into effective temperatures using the calibration of
 \cite{2009ApJ...702..154S}. Both the RMSE and RMDSE were used to
 evaluate the prediction accuracy (see Table~\ref{}).
 
-{\bf TODO: Make table}
-
-{\bf Faltan las tablas y figuras.}
+{\bf TODO 8: Make table and figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TBD: Comparison with temperatures estimated with Cesetti features
@@ -109,8 +105,9 @@ using the features suggested by \cite{cesetti}. The performace of the
 models based on these features are included in Table
 \ref{tab:irtf-teff-rmse-cesetti}.
 
-{\bf How do you explain that the best SNR=10 model has the poorest
-  performances for SNR=50 or $\infty$?}
+{\bf TODO 9[ Joaquín]:How do you explain that the best SNR=10 model
+  (KPLS according to the RMDSE) has the poorest performances for
+  SNR=50 or $\infty$?} 
 
 From the comparison of Tables \ref{tab:irtf-teff-rmse} and
 \ref{tab:irtf-teff-rmse-cesetti} we can draw the following conclusions:
@@ -137,11 +134,11 @@ the surface gravity available in Table 3 of
 significant conclusions on the comparison of methodologies from
 external data. Hence, we are left only with plausibility arguments for
 the selection of models. In this Section we will use $\log(T_{\rm
-  eff})--\log(g)$ diagram comparisons to select the most plausible
-model results. An important difference with respect to the models
-discussed above is that we use the $T_{\rm eff}$ estimated in the
-previous stage as input of our models. {\bf do we have some hint
-  whether this was beneficial, neutral or detrimental?}
+eff})--\log(g)$ diagram comparisons to select the most plausible model
+results. An important difference with respect to the models discussed
+above is that we use the $T_{\rm eff}$ estimated in the previous stage
+as input of our models. {\bf TODO 10: do we have some hint whether
+this was beneficial, neutral or detrimental? YEs, look at the email}.
 
 Table~\ref{tab:irtf-logg-rmse} shows the RMSE and RMDSE of the
 $\log(g)$ regression models for the same SNR regimes discussed for the
@@ -162,18 +159,15 @@ PPR-ICA (clockwise, starting at the top left corner).
 \begin{figure*}
  \begin{center}
    \includegraphics[width=\textwidth]{figs/ordieres-fig4.pdf}
- \caption{$\log(T_{eff})$--$\log(g)$ diagrams produced by the GA-KNN
+
+\caption{$\log(T_{eff})$--$\log(g)$ diagrams produced by the GA-KNN
    (SNR=$\infty$) effective temperatures and gravities derived with
-   the GA-RR (SNR=50), GA-PLS (SNR=50), GA-NNR (SNR=50), and $\chi^2$ models (clockwise, starting from
-   the top left plot).}
- \label{fig:lt_lg_ga}
+   the GA-RR (SNR=50), GA-PLS (SNR=50), GA-NNR (SNR=50), and $\chi^2$
+   models (clockwise, starting from the top left plot).}
+
+\label{fig:lt_lg_ga}
  \end{center}
 \end{figure*}
-
-{\bf Is $\chi^2$ much worse now for the weak parameter logg? I guess
-  no. This needs be discussed}
-
-{\bf Discuss these plots in the case of Cesetti features.}
 
 \subsubsection{Metallicity models} 
 \label{sect:irtf-met}
@@ -182,60 +176,67 @@ metallicity, again considering the effective temperature as an input
 feature as in the $\log(g)$ regression
 models. Table~\ref{tab:irtf-met-rmse} shows the RMSE and RMDSE
 obtained for each regression model for the only seven M-type stars in
-Table 3 of \cite{cesetti}. The minimum values are consistently obtained 
-with the minimum $\chi^2$, $PPR-ICA$ and $GA-KNN$. The differences are 
-only marginal, but we see that even at these intermediate resolutions 
-the reduction of dimensionality (either with ICA or GA) produces an 
-improvement in the predictions. This is even more evident if we 
-compare our predictions with more recent metallicity estimates not 
-included in \cite{cesetti}. We have gathered estimates for stars in 
-both the IRTF collection and a series of recent metallicity catalogs 
-by \cite{RA2012}, \cite{NevesIII}, \cite{Newton2014}, \cite{Gaidos2015}, 
-and \cite{Mann2015}. All of the aforementioned references provide us 
-with estimates of the iron abundance ratio [Fe/H] except \cite{RA2012} that 
-provides both the overall metallicity [M/H]
-and the [Fe/H] ratio. Our estimates, coming from the BT-Settl library, are 
-for the [M/H] ratios, so some offset could be expected from the 
-different nature of the quantities compared. Hence, when comparing our 
-estimates with those from the literature, we compute the RMSE or RMDSE 
-after subtracting any difference in the mean. It turns out that, after 
-correcting for biases, $PPR-ICA$ trained with SNR=10 examples 
-yields the lowest RMSE/RMDSE. Figure \ref{MIRTF_ICA_10} 
-represents the estimates of [M/H] obtained from the $PPR-ICA$ based 
-regressor, as a function of the values taken from these references for 
-the sources in common. The black empty circles represent values from \cite{cesetti}
-; orange filled circles, values from \cite{NevesIII};  green filled 
-squares, values that the Vizier catalog entry for Table 8 of 
-\cite{NevesIII} links to \cite{Jao}, although we find no evidence that \cite{Jao} 
-contains estimates of metallicities; cyan and blue filled squares, the values 
-of [M/H] and [Fe/H] respectively in \cite{RA2012}; red filled squares, values 
-from \cite{Mann2015}; yellow filled squares,  values from \cite{Newton2014}; and, 
-finally, black filles squares, values from \cite{Gaidos2015}.
+Table 3 of \cite{cesetti}. The minimum values are consistently
+obtained with the minimum $\chi^2$, $PPR-ICA$ and $GA-KNN$. The
+differences are only marginal, but we see that even at these
+intermediate resolutions the reduction of dimensionality (either with
+ICA or GA) produces an improvement in the predictions. This is even
+more evident if we compare our predictions with more recent
+metallicity estimates not included in \cite{cesetti}. We have gathered
+estimates for stars in both the IRTF collection and a series of recent
+metallicity catalogs
+by \cite{RA2012}, \cite{NevesIII}, \cite{Newton2014}, \cite{Gaidos2015},
+and \cite{Mann2015}. All of the aforementioned references provide us
+with estimates of the iron abundance ratio [Fe/H] except \cite{RA2012}
+that provides both the overall metallicity [M/H] and the [Fe/H]
+ratio. Our estimates, coming from the BT-Settl library, are for the
+[M/H] ratios, so some offset could be expected from the different
+nature of the quantities compared. Hence, when comparing our estimates
+with those from the literature, we compute the RMSE or RMDSE after
+subtracting any difference in the mean. It turns out that, after
+correcting for biases, $PPR-ICA$ trained with SNR=10 examples yields
+the lowest RMSE/RMDSE. Figure \ref{MIRTF_ICA_10} represents the
+estimates of [M/H] obtained from the $PPR-ICA$ based regressor, as a
+function of the values taken from these references for the sources in
+common. The black empty circles represent values from \cite{cesetti} ;
+orange filled circles, values from \cite{NevesIII}; green filled
+squares, values that the Vizier catalog entry for Table 8 of
+\cite{NevesIII} links to \cite{Jao}, although we find no evidence
+that \cite{Jao} contains estimates of metallicities; cyan and blue
+filled squares, the values of [M/H] and [Fe/H] respectively
+in \cite{RA2012}; red filled squares, values from \cite{Mann2015};
+yellow filled squares, values from \cite{Newton2014}; and, finally,
+black filles squares, values from \cite{Gaidos2015}.
 
 %
 % Metalicidad teórica desde Cesseti para las IRTF
 %
 
-{\bf Compare the 7 or 6 values available. Discuss.  $\chi^2$ is
-  the most popular method by far. We compare predictions of machine
+{\bf TODO 11: Compare the 7 or 6 values available. Discuss.  $\chi^2$
+  is the most popular method by far. We compare predictions of machine
   learning methods with minimum chi-squared. We first do histogram
   plots. Then, the same logTeff-logg plots as above but with
   metallicity coded in colour.}
 
- \begin {figure}
-  \centering
-   \includegraphics[width=0.45\textwidth]{figs/irtf-figs/M-ICA10.pdf}
-   \caption{Comparison between metallicity estimates from the
-     literature and predictions from the PPR-ICA (SNR=10) model. 
-     Black empty circles represent values from \cite{cesetti}
-     ; orange filled circles, values from \cite{NevesIII};  green filled 
-     squares, values that the Vizier catalog entry for Table 8 of 
-     \cite{NevesIII} links to \cite{Jao}, although we find no evidence that \cite{Jao} 
-     contains estimates of metallicities; cyan and blue filled squares, the values 
-     of [M/H] and [Fe/H] respectively in \cite{RA2012}; red filled squares, values 
-     from \cite{Mann2015}; yellow filled squares,  values from \cite{Newton2014}; and, 
-     finally, black filles squares, values from \cite{Gaidos2015}.}
-  \label{MIRTF_ICA_10}
- \end {figure}
+ \begin{figure}
+ \centering
+ \includegraphics[width=0.45\textwidth]{figs/irtf-figs/M-ICA10.pdf}
 
- {\bf Include table as annex with metallicities from the literature?}
+\caption{Comparison
+  between metallicity estimates from the literature and predictions
+  from the PPR-ICA (SNR=10) model.  Black empty circles represent
+  values from \cite{cesetti} ; orange filled circles, values
+  from \cite{NevesIII}; green filled squares, values that the Vizier
+  catalog entry for Table 8 of \cite{NevesIII} links to \cite{Jao},
+  although we find no evidence that \cite{Jao} contains estimates of
+  metallicities; cyan and blue filled squares, the values of [M/H] and
+  [Fe/H] respectively in \cite{RA2012}; red filled squares, values
+  from \cite{Mann2015}; yellow filled squares, values
+  from \cite{Newton2014}; and, finally, black filles squares, values
+  from \cite{Gaidos2015}.}
+
+\label{MIRTF_ICA_10}
+\end {figure}
+
+ {\bf TODO 12: Include table as annex with metallicities from the
+ literature?}

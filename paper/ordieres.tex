@@ -123,11 +123,12 @@
    \maketitle
 %
 
-{\bf TODO: Luis, cambiar spectral libraries por stellar atmosphere
+{\bf TODO -1: Luis, cambiar spectral libraries por stellar atmosphere
 models o synthetic spectral libraries}.
    
 \section{Introduction}
 \label{sec:intro}
+\input{intro}
 
 % The importance of M stars
 % The problem of estimation of stellar parameters in the M regime: bands, no continuum...
@@ -150,7 +151,13 @@ models o synthetic spectral libraries}.
 
 \section{Physical parameters of the IRTF collection of spectra.}
 \label{sec:irtf}
-%\input{irtf}
+
+In the following, we will summarise the results obtained for the IRTF
+data set. We deal with the different physical paramenters in separate
+Sections. We start by reporting the Root Mean/Median Square Errors
+(RMSE/RMDSE) with respect to the parameters gathered from the
+literature by \cite{cesetti} and included in their Table 3.
+
 \subsection{Spectral bands selected}
 \input{irtf.fs}
 \subsection{Regression models}
@@ -160,7 +167,7 @@ models o synthetic spectral libraries}.
 
 \section{Physical parameters of the IPAC collection of spectra.}
 \label{sec:ipac}
-%\input{ipac}
+
 \subsection{Spectral bands selected}
 \input{ipac.fs}
 \subsection{Regression models}
@@ -168,7 +175,9 @@ models o synthetic spectral libraries}.
 \subsection{Comparison with previous feature sets}
 \input{ipac.ces}
 
-\section{Conclusions}
+\section{Summary and conclusions}
+\label{sec:summary}
+\input{summary}
 
 \begin{acknowledgements}
 This research has benefitted from the M, L, T, and Y dwarf compendium housed at DwarfArchives.org.

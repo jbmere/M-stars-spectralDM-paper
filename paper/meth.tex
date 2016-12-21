@@ -60,10 +60,10 @@ diagnostics of the atmopheric parameters of M stars was carried out
 for three SNR values (10, 50 and $\infty$) by degrading the synthetic
 spectra with Gaussian noise of zero mean. These values were found to
 be sufficient in a wide range of experiments carried out in parallel
-and described in \cite{}. The special SNR=$\infty$ case has been
-retained for the sake of completeness although \cite{} show that
+and described in \cite{PaperAna}. The special SNR=$\infty$ case has
+been retained for the sake of completeness although \cite{} show that
 training sets derived from noiseless spectra are, at best,
-unnecessary, and at worst damage performance severely. 
+unnecessary, and at worst damage performance severely.
 
 \subsection{Feature definition and selection}
 \label{subsec:FD}
@@ -223,20 +223,18 @@ were carried out in the CeSViMa (http://www.cesvima.upm.es/) power7
 HPC which involves processors with 8 cores and four threads per core,
 running at 3,3 GHz and with 32Gb of RAM each.}
 
-Feature fitness was defined in terms of the Akaike Information
-Criterion (AIC) for linearity between the potential feature against
-the physical parameter.{bf TODO: RMSE? Why AIC?}  
-
-It is important to stress that the regression model used to evaluate
-the fitness of the feature sets (chromosomes) is not the same model
-that will be used in practice to predict physical parameters for
-observed spectra as described in Section \ref{ssub:models} below. For
-fitness evaluation in the GA we used a simple multilinear model for
-the sake of speed, given the extreme size of the search space of all
-possible combinations of 10 spectral features. In the IRTF context,
-these 10 features in each chromosome are selected amongst the roughly
-6000 potential features. This is $\binom{6000}{10}$ which has an order
-of magnitude of $10^{24}$. 
+Feature fitness was defined in terms of the RMSE of a linear
+regression model trained with the chromosome features. It is important
+to stress that the regression model used to evaluate the fitness of
+the feature sets (chromosomes) is not the same model that will be used
+in practice to predict physical parameters for observed spectra as
+described in Section \ref{ssub:models} below. For fitness evaluation
+in the GA we used a simple multilinear model for the sake of speed,
+given the extreme size of the search space of all possible
+combinations of 10 spectral features. In the IRTF context, these 10
+features in each chromosome are selected amongst the roughly 6000
+potential features. This is $\binom{6000}{10}$ which has an order of
+magnitude of $10^{24}$.
 
 The GA procedure provides us with a large collection of chromosomes,
 each one of them consisting of ten spectral features.  Although these
@@ -248,7 +246,7 @@ in regression models. Features appearing in less than five chromosomes
 were initially discarded as they can not be relevant by themselves and
 just arise randomly by combination with other stronger chromosomes.
 
-{\bf TODO: Rewrite} It is relevant to say that when genes of a
+{\bf TODO 1: Rewrite} It is relevant to say that when genes of a
 chromosome induced as ratio of two gaussian variables have extremely
 wide wings if any of the features is centered around zero, the fitness
 criteria removes it as a cadidate feature as it is not able to explain
@@ -283,7 +281,7 @@ variables for which the predicted variables are available) to infer
 the parameters of an (often analytical) mapping between predictor and
 predicted variables. The regression model parameters should not be
 confused with the physical parameters of the atmosphere we aim at
-inferring. {\bf TODO: Check if every occurrence of parameter is clear}
+inferring. {\bf TODO 2: Check if every occurrence of parameter is clear}
 
 In this case, our training set is again the BT Settl collection of
 synthetic spectra, for which we already computed the predictor
@@ -320,7 +318,7 @@ In order to assess the validity of our feature sets we also compare
 the predictions based on them with other input spaces. In particular,
 we also compute physical parameters that yield the the minimum
 $\chi^2$, and train a Projection Pursuit regression models with the
-Independent Components derived from each spectrum. {\bf TODO: add
+Independent Components derived from each spectrum. {\bf TODO 3: add
 reference for ICA}.
 
 Including here a sufficient description of each and every regression
@@ -362,7 +360,7 @@ values defined {\it ad hoc} for each technique.
 The adopted procedure for learning the models can then be summarized
 as the pseudocode \ref{caretp}.
 
-{\bf TODO [Joaquín]: define each element in the pseudocode}
+{\bf TODO 4 [Joaquín]: define each element in the pseudocode}
 
 \begin{pseudocode}[plain]{Model Learning}{DataSet,ParRanges}
 \label{caretp}

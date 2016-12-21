@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2016.12.15)  15 DEC 2016 14:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.5)  21 DEC 2016 13:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **ordieres.tex
 (./ordieres.tex
 LaTeX2e <2014/05/01>
-Babel <3.9l> and hyphenation patterns for 2 languages loaded.
+Babel <3.9l> and hyphenation patterns for 5 languages loaded.
 (./aa.cls
 Document Class: aa 2012/05/22{} v8.2{} Class for AA journal
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -951,7 +951,16 @@ LaTeX Font Info:    Font shape `T1/txss/m/n' will be
 (Font)              scaled to size 10.40245pt on input line 129.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
 (Font)              scaled to size 10.40245pt on input line 129.
-(./meth.tex
+(./intro.tex
+
+Package natbib Warning: Citation `rajpurohit' on page 1 undefined on input line
+ 9.
+
+
+Package natbib Warning: Citation `amelia' on page 1 undefined on input line 10.
+
+
+) (./meth.tex
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
 (Font)              scaled to size 9.49997pt on input line 37.
 LaTeX Font Info:    Font shape `T1/txss/m/it' in size <10> not available
@@ -961,42 +970,48 @@ LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-] [2]
-Underfull \hbox (badness 2302) in paragraph at lines 301--302
+]
+
+Package natbib Warning: Citation `PaperAna' on page 2 undefined on input line 6
+3.
+
+[2]
+Underfull \hbox (badness 2302) in paragraph at lines 299--300
 []\T1/txr/m/n/10 Bagging with Mul-ti-adap-tive Spline Re-gres-sion Mod-els
  []
 
 [3]
-Overfull \hbox (48.9252pt too wide) in paragraph at lines 384--385
+Overfull \hbox (48.9252pt too wide) in paragraph at lines 382--383
 [] 
  []
 
-) (./irtf.fs.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
+) (./irtf.fs.tex [4]
 
-)
-(./irtf.rm.tex [4]
+LaTeX Warning: Reference `bandsIRTF' on page 5 undefined on input line 53.
 
-LaTeX Warning: Reference `fig:irtf-teff' on page 5 undefined on input line 74.
+) (./irtf.rm.tex
+
+Package natbib Warning: Citation `PaperAna' on page 5 undefined on input line 6
+6.
 
 
-LaTeX Warning: Reference `' on page 5 undefined on input line 97.
+LaTeX Warning: Reference `fig:irtf-teff' on page 5 undefined on input line 72.
 
-<figs/ordieres-fig4.pdf, id=29, 578.16pt x 361.35pt>
+
+LaTeX Warning: Reference `' on page 5 undefined on input line 95.
+
+[5] <figs/ordieres-fig4.pdf, id=33, 578.16pt x 361.35pt>
 File: figs/ordieres-fig4.pdf Graphic file (type pdf)
 
 <use figs/ordieres-fig4.pdf>
-Package pdftex.def Info: figs/ordieres-fig4.pdf used on input line 164.
+Package pdftex.def Info: figs/ordieres-fig4.pdf used on input line 161.
 (pdftex.def)             Requested size: 523.5307pt x 327.22452pt.
- [5]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 
 <figs/irtf-figs/M-ICA10.pdf, id=34, 505.89pt x 505.89pt>
 File: figs/irtf-figs/M-ICA10.pdf Graphic file (type pdf)
 
 <use figs/irtf-figs/M-ICA10.pdf>
-Package pdftex.def Info: figs/irtf-figs/M-ICA10.pdf used on input line 227.
+Package pdftex.def Info: figs/irtf-figs/M-ICA10.pdf used on input line 223.
 (pdftex.def)             Requested size: 235.5872pt x 235.59149pt.
 ) (./irtf.ces.tex
 <figs/irtf-figs/irtf-Cesseti.pdf, id=35, 578.16pt x 361.35pt>
@@ -1004,63 +1019,68 @@ File: figs/irtf-figs/irtf-Cesseti.pdf Graphic file (type pdf)
 
 <use figs/irtf-figs/irtf-Cesseti.pdf>
 Package pdftex.def Info: figs/irtf-figs/irtf-Cesseti.pdf used on input line 4.
-(pdftex.def)             Requested size: 312.9803pt x 195.6113pt.
+(pdftex.def)             Requested size: 523.5307pt x 327.22452pt.
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 4--5
- [][] 
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 <figs/irtf-figs/M-CES.pdf, id=36, 505.89pt x 505.89pt>
 File: figs/irtf-figs/M-CES.pdf Graphic file (type pdf)
 
 <use figs/irtf-figs/M-CES.pdf>
-Package pdftex.def Info: figs/irtf-figs/M-CES.pdf used on input line 22.
-(pdftex.def)             Requested size: 312.9803pt x 312.9847pt.
+Package pdftex.def Info: figs/irtf-figs/M-CES.pdf used on input line 27.
+(pdftex.def)             Requested size: 523.5307pt x 523.54266pt.
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 22--23
+Overfull \hbox (267.4559pt too wide) in paragraph at lines 27--31
  [][] 
  []
 
-) [6 <./figs/ordieres-fig4.pdf>] [7 <./figs/irtf-figs/M-ICA10.pdf> <./figs/irtf
--figs/irtf-Cesseti.pdf> <./figs/irtf-figs/M-CES.pdf>] (./ipac.fs.tex)
-(./ipac.rm.tex
+) [6 <./figs/irtf-figs/M-ICA10.pdf>] [7 <./figs/ordieres-fig4.pdf>] [8 <./figs/
+irtf-figs/irtf-Cesseti.pdf>] (./ipac.fs.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: Reference `' on page 8 undefined on input line 21.
+)
+(./ipac.rm.tex [9
 
-<figs/ipac-teff.pdf, id=68, 578.16pt x 361.35pt>
+ <./figs/irtf-figs/M-CES.pdf>]
+<figs/ipac-teff.pdf, id=74, 578.16pt x 361.35pt>
 File: figs/ipac-teff.pdf Graphic file (type pdf)
  <use figs/ipac-teff.pdf>
-Package pdftex.def Info: figs/ipac-teff.pdf used on input line 25.
+Package pdftex.def Info: figs/ipac-teff.pdf used on input line 23.
 (pdftex.def)             Requested size: 312.9803pt x 195.6113pt.
 
-<figs/ipac_LG_Trojas_Tknn_10.pdf, id=69, 650.43pt x 650.43pt>
+<figs/ipac_LG_Trojas_Tknn_10.pdf, id=75, 650.43pt x 650.43pt>
 File: figs/ipac_LG_Trojas_Tknn_10.pdf Graphic file (type pdf)
 
 <use figs/ipac_LG_Trojas_Tknn_10.pdf>
 Package pdftex.def Info: figs/ipac_LG_Trojas_Tknn_10.pdf used on input line 106
 .
 (pdftex.def)             Requested size: 256.0748pt x 256.07838pt.
- [8
 
- <./figs/ipac_LG_Trojas_Tknn_10.pdf>]
 
-LaTeX Warning: Reference `' on page 9 undefined on input line 137.
+LaTeX Warning: Reference `' on page 10 undefined on input line 137.
 
-<figs/ipac-teff-logg.pdf, id=79, 578.16pt x 361.35pt>
+<figs/ipac-teff-logg.pdf, id=76, 578.16pt x 361.35pt>
 File: figs/ipac-teff-logg.pdf Graphic file (type pdf)
 
 <use figs/ipac-teff-logg.pdf>
 Package pdftex.def Info: figs/ipac-teff-logg.pdf used on input line 151.
 (pdftex.def)             Requested size: 523.5307pt x 327.22452pt.
+ [10 <./figs/ipac_LG_Trojas_Tknn_10.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<figs/ipac-figs/M-RFInf.pdf, id=80, 505.89pt x 505.89pt>
+
+Underfull \vbox (badness 1009) has occurred while \output is active []
+
+ [11 <./figs/ipac-teff.pdf> <./figs/ipac-teff-logg.pdf>]
+<figs/ipac-figs/M-RFInf.pdf, id=102, 505.89pt x 505.89pt>
 File: figs/ipac-figs/M-RFInf.pdf Graphic file (type pdf)
 
 <use figs/ipac-figs/M-RFInf.pdf>
 Package pdftex.def Info: figs/ipac-figs/M-RFInf.pdf used on input line 207.
 (pdftex.def)             Requested size: 256.0748pt x 256.07838pt.
 
-<figs/ipac-figs/ipac-M-hist.pdf, id=81, 505.89pt x 505.89pt>
+<figs/ipac-figs/ipac-M-hist.pdf, id=103, 505.89pt x 505.89pt>
 File: figs/ipac-figs/ipac-M-hist.pdf Graphic file (type pdf)
 
 <use figs/ipac-figs/ipac-M-hist.pdf>
@@ -1082,8 +1102,7 @@ Underfull \hbox (badness 1661) in paragraph at lines 256--259
 \T1/txr/m/n/10 are 2MASS J17275631-3240430 (-2.0 dex); LHS 1625 (-
  []
 
-) [9 <./figs/ipac-teff.pdf>] (./ipac.ces.tex
-<figs/ipac-Cesseti.pdf, id=91, 578.16pt x 361.35pt>
+) (./ipac.ces.tex <figs/ipac-Cesseti.pdf, id=104, 578.16pt x 361.35pt>
 File: figs/ipac-Cesseti.pdf Graphic file (type pdf)
 
 <use figs/ipac-Cesseti.pdf>
@@ -1094,27 +1113,31 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 4--5
  [][] 
  []
 
-) [10 <./figs/ipac-teff-logg.pdf>] (./ordieres.bbl [11 <./figs/ipac-figs/M-RFIn
-f.pdf> <./figs/ipac-figs/ipac-M-hist.pdf> <./figs/ipac-Cesseti.pdf>]
-(./ordieres.llt)) (./appendix-wavelengths.tex [12] [13] [14])
-(./appendix-RMSE.tex [15
+) (./summary.tex) (./ordieres.bbl [12 <./figs/ipac-figs/M-RFInf.pdf> <./figs/ip
+ac-figs/ipac-M-hist.pdf> <./figs/ipac-Cesseti.pdf>] (./ordieres.llt))
+(./appendix-wavelengths.tex [13] [14] [15]) (./appendix-RMSE.tex [16
 
-] [16] [17] [18]) [19
+] [17]
+[18] [19])
+
+Package natbib Warning: There were undefined citations.
+
+[20
 
 
-] [20] [21] (./ordieres.aux)
+] [21] [22] (./ordieres.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 7811 strings out of 495020
- 108417 string characters out of 6181323
- 213468 words of memory out of 5000000
- 10742 multiletter control sequences out of 15000+600000
+ 7831 strings out of 494958
+ 108770 string characters out of 6179386
+ 218901 words of memory out of 5000000
+ 10764 multiletter control sequences out of 15000+600000
  90764 words of font info for 145 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 41i,21n,45p,813b,480s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40 hyphenation exceptions out of 8191
+ 41i,21n,45p,813b,438s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type
@@ -1129,10 +1152,10 @@ uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmri8a.pfb>
-Output written on ordieres.pdf (21 pages, 366690 bytes).
+Output written on ordieres.pdf (22 pages, 368967 bytes).
 PDF statistics:
- 205 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
+ 208 PDF objects out of 1000 (max. 8388607)
+ 147 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
