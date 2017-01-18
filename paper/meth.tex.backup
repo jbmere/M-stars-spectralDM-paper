@@ -379,22 +379,10 @@ as the pseudocode \ref{caretp}.
   Model \GETS Fits(DataSet, OPS) \\
 \end{pseudocode}
 
-% JOM 17/01/2017
 % Pseudo code explanation
 Where $ParRanges$ mean the set of available parameter ranges which will be
 organized into different datasets named $S_{ModelParameters}$.
-Similarly, the available DataSet will be used to create the five disjoined data DataFolders
-named $S_{DataFolders}$. Therefore, the learning procedure implies to 
-sequentially combine all the data folders excluding one $HDS(z)$. 
-By fitting the models according to the particular parameter 
-set and training data will produce models $Model(z)$. Those models can be now scored
-against the unseen data folder $Perf(z)$.
-They can also be scored by evolving the parameters of the models $Perf(x)$ just by
-averaging the exhibited behaviour per excluded folder of data.
-The selection of the most suitable model configuration ($Model$), will be based on the parameter
-which makes maximum for the available training dataset $DataSet$
-such averaged performance and it was named as $OPS$ .
-% Ends of the Pseudo code explanation.
+Similarly, the available DataSet will be used to create the five data fo
 
 As mentioned above, the training set was constructed from the BT Settl
 library of stellar spectra. The interested reader may find different

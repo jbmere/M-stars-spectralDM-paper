@@ -1,0 +1,178 @@
+%                                                                 aa.dem
+% AA vers. 8.2, LaTeX class for Astronomy & Astrophysics
+% demonstration file
+%                                                       (c) EDP Sciences
+%-----------------------------------------------------------------------
+%
+%\documentclass[referee]{aa} % for a referee version
+%\documentclass[onecolumn]{aa} % for a paper on 1 column  
+%\documentclass[longauth]{aa} % for the long lists of affiliations 
+%\documentclass[rnote]{aa} % for the research notes
+%\documentclass[letter]{aa} % for the letters 
+%\documentclass[bibyear]{aa} % if the references are not structured 
+% according to the author-year natbib style
+
+%
+\documentclass[printer]{aa}  
+
+%
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{txfonts}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[options]{hyperref}
+% To add links in your PDF file, use the package "hyperref"
+% with options according to your LaTeX or PDFLaTeX drivers.
+%
+% Enable mutiple title row on tables.
+\usepackage{multirow}
+%%%%%%%%%%%
+% 
+% Dealing with ``too many unprocessed floats'' use it with \clearpage 
+\usepackage[section] {placeins}
+
+% For marginal notes
+\usepackage{marginnote}
+\usepackage{booktabs}
+
+\begin{document} 
+
+
+   \title{Physical parameter estimates of M-type stars: a machine learning perspective.}
+
+   \author{
+          L. M. Sarro \inst{1}  
+          \and
+          J. Ordieres-Mere \inst{2} 
+          \and
+          A. Bello-Garcia\inst{3} 
+          \and
+          A. Gonzalez-Marcos\inst{4} 
+          \and
+          M.B. Prendes-Gero\inst{3} 
+          }
+
+   \institute{ 
+      \inst{1} Universidad Nacional de Educaci\'{o}n a Distancia, \\
+               Department of Artificial Intelligence.
+               \email{lsb@uned.es}
+        \and 
+      \inst{2}  Universidad Polit\'{e}cnica de Madrid (UPM), PMQ Research Group, \\
+              Jos\'{e} Guti\'{e}rrez Abascal 2, 28006 Madrid, Spain. 
+              \email{j.ordieres@upm.es}
+        \and 
+      \inst{3}   Universidad de Oviedo, Construction and Manufacturing Engineering Department, \\
+              Campus de Viesques s/n, Gij\'{o}n, Asturias, Spain. 
+              \email{\{abello,mbprendes\}@uniovi.es} 
+        \and 
+      \inst{4}  Universidad de la Rioja, P2ML Research Group, \\
+              Luis de Ulloa 20, 26004 Logro\~{n}o, La Rioja, Spain. 
+              \email{ana.gonzalez@unirioja.es}
+      }
+
+   \date{Received \today; accepted }
+
+% \abstract{}{}{}{}{} 
+% 5 {} token are mandatory
+ 
+  \abstract
+  % context heading (optional)
+  % {} leave it empty if necessary  
+%    {To investigate the physical nature of the `nuc\-leated instability' of
+%    proto giant planets, the stability of layers
+%    in static, radiative gas spheres is analysed on the basis of Baker's
+%    standard one-zone model.}
+%   % aims heading (mandatory)
+%    {It is shown that stability
+%    depends only upon the equations of state, the opacities and the local
+%    thermodynamic state in the layer. Stability and instability can
+%    therefore be expressed in the form of stability equations of state
+%    which are universal for a given composition.}
+%   % methods heading (mandatory)
+%    {The stability equations of state are
+%    calculated for solar composition and are displayed in the domain
+%    $-14 \leq \lg \rho / \mathrm{[g\, cm^{-3}]} \leq 0 $,
+%    $ 8.8 \leq \lg e / \mathrm{[erg\, g^{-1}]} \leq 17.7$. These displays
+%    may be
+%    used to determine the one-zone stability of layers in stellar
+%    or planetary structure models by directly reading off the value of
+%    the stability equations for the thermodynamic state of these layers,
+%    specified
+%    by state quantities as density $\rho$, temperature $T$ or
+%    specific internal energy $e$.
+%    Regions of instability in the $(\rho,e)$-plane are described
+%    and related to the underlying microphysical processes.}
+%   % results heading (mandatory)
+%    {Vibrational instability is found to be a common phenomenon
+%    at temperatures lower than the second He ionisation
+%    zone. The $\kappa$-mechanism is widespread under `cool'
+%    conditions.}
+%   % conclusions heading (optional), leave it empty if necessary 
+   {}
+
+   \keywords{class M stars --
+                dynamic feature selection --
+                physical parameter identification --
+                Temperature, gravity and metalicity Modelling --
+                Learning from BT-Settl spectra library
+               }
+
+   \maketitle
+%
+
+{\bf TODO: Luis, cambiar spectral libraries por stellar atmosphere
+models o synthetic spectral libraries}.
+   
+\section{Introduction}
+\label{sec:intro}
+
+% The importance of M stars
+% The problem of estimation of stellar parameters in the M regime: bands, no continuum...
+% who and what. Teff calibrations
+% \cite{rajpurohit}
+% \cite{amelia}
+
+% Atlases 
+%\cite{2013arXiv1306.3709B} % for lambda > 1.1 um :(
+%\cite{2009ApJS..185..289R} %IRTF library of cool star
+
+%\cite{2012ApJ...748...93R} % Metall. and Teff indicators in the K band! :(
+
+% Summary of spectral diagnostics in the IR for M stars
+
+
+\section{Methodology. \label{meth}}
+\input{meth}
+
+\section{Physical parameters of the IRTF collection of spectra.}
+%\input{irtf}
+\subsection{Spectral bands}
+\input{irtf.fs}
+\subsection{Regression models}
+\input{irtf.rm}
+
+\section{Physical parameters of the IPAC collection of spectra.}
+%\input{ipac}
+\subsection{Spectral bands selected}
+\input{ipac.fs}
+\subsection{Regression models}
+\input{ipac.rm}
+
+\section{Conclusions}
+
+\begin{acknowledgements}
+This research has benefitted from the M, L, T, and Y dwarf compendium housed at DwarfArchives.org.
+The authors also thanks to the Spanish Ministery for Economy and Innovation because of the 
+support obtained through the project with ID: AyA2011-24052. IRTF library provided by the 
+University of Hawaii under Cooperative Agreement no. NNX-08AE38A with the National 
+Aeronautics and Space Administration, Science Mission Directorate, Planetary Astronomy Program.
+\end{acknowledgements}
+
+%-------------------------------------------------------------------
+
+\bibliography{references_m}{}
+\bibliographystyle{bibtex/aa}
+
+\end{document}
