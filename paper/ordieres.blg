@@ -1,49 +1,56 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/dev/Debian)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: ordieres.aux
 The style file: bibtex/aa.bst
 Database file #1: references_m.bib
+Repeated entry---line 155 of file references_m.bib
+ : @article{2009ApJS..185..289R
+ :                             ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "rajpurohit"
+Warning--I didn't find a database entry for "amelia"
+Warning--I didn't find a database entry for "PaperAna"
 Warning--I didn't find a database entry for ""
 Warning--empty journal in caret
-You've used 31 entries,
+You've used 34 entries,
             2947 wiz_defined-function locations,
-            849 strings with 11173 characters,
-and the built_in function-call counts, 15425 in all, are:
-= -- 1260
-> -- 1316
+            865 strings with 11660 characters,
+and the built_in function-call counts, 16979 in all, are:
+= -- 1385
+> -- 1461
 < -- 9
-+ -- 443
-- -- 408
-* -- 1323
-:= -- 2906
-add.period$ -- 31
-call.type$ -- 31
-change.case$ -- 260
-chr.to.int$ -- 31
-cite$ -- 32
-duplicate$ -- 564
-empty$ -- 797
-format.name$ -- 482
-if$ -- 3003
-int.to.chr$ -- 1
++ -- 492
+- -- 453
+* -- 1464
+:= -- 3200
+add.period$ -- 34
+call.type$ -- 34
+change.case$ -- 287
+chr.to.int$ -- 33
+cite$ -- 35
+duplicate$ -- 619
+empty$ -- 869
+format.name$ -- 535
+if$ -- 3301
+int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 29
-newline$ -- 97
-num.names$ -- 124
-pop$ -- 258
+missing$ -- 32
+newline$ -- 106
+num.names$ -- 136
+pop$ -- 287
 preamble$ -- 1
-purify$ -- 259
+purify$ -- 286
 quote$ -- 0
-skip$ -- 475
+skip$ -- 514
 stack$ -- 0
-substring$ -- 578
-swap$ -- 1
+substring$ -- 628
+swap$ -- 3
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 273
+type$ -- 300
 warning$ -- 1
-while$ -- 117
+while$ -- 128
 width$ -- 0
-write$ -- 313
-(There were 2 warnings)
+write$ -- 342
+(There was 1 error message)

@@ -12,6 +12,7 @@
 $Regression Models$ & $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$ \\ \midrule
 $\chi^2$      & 232      & \bf{100}&& 235      & 120    && 232      & \bf{100} \\
  PPR-ICA      & 242      & 128        && 242      &  99    && 280      & 162 \\
+ GA-RR        & 260      & 115        && 270      & 128    && 333      & 170 \\
  GA-RF        & 308      & 183        && 248      & 136    && \bf{167} & 135 \\
  GA-GBM       & 287      & 160        && 248      & 149    && 233      & 113 \\
  GA-SVR       & \bf{221} & 122        && 281      & 151    && 299      & 160 \\
@@ -24,7 +25,7 @@ $\chi^2$      & 232      & \bf{100}&& 235      & 120    && 232      & \bf{100} \
 \caption {Cross-validation RMSE and RMDSE for the various regression
   models that predict $T_{eff}$ (K) in the IRTF wavelength range and
   resolution.}
-\label{tab:model_TSD} 
+\label{tab:irtf-teff-rmse} 
 % \end{center}
 \end{table*}
 
@@ -34,7 +35,7 @@ $\chi^2$      & 232      & \bf{100}&& 235      & 120    && 232      & \bf{100} \
 \begin{tabular}{@{}lrrr@{}}\toprule
 & {$SNR = 10$} & {$SNR = 50$} & {$SNR = \infty$}\\ \midrule
 $\chi^2 $            &  -77 &  -87  & -85 \\
-$ICA+ppr$            & -104 & -55   & -130 \\
+PPR-ICA            & -104 & -55   & -130 \\
 GA-RR                & -102 &  -39  & 170 \\
 GA-RF                & -173 & -127  &  -5 \\
 GA-GBM               & -141 & -109  &  32 \\
@@ -48,7 +49,7 @@ GA-KPLS              & -120 &   -4  & 214 \\
 \caption {Average bias in the $T_{eff}$ (K) estimates computed (IRTF
   wavelength range and resolution) with respect to the reference
   values in Table 3 of \cite{cesetti}.}
-\label{tab:model_Tbias} 
+\label{tab:irtf-teff-bias} 
 % \end{center}
 \end{table*}
 
@@ -69,7 +70,7 @@ CS-KPLS             & 351       & {\bf 162} && 856       & 456       && 1086    
 \end{tabular}
 \caption {Regression model performance based on the features proposed
   by \cite{cesetti}}
-\label{tab:tab_CS_Model}
+\label{tab:irtf-teff-rmse-cesetti}
 %\end{center}
 \end{table*}
 
@@ -82,7 +83,7 @@ CS-KPLS             & 351       & {\bf 162} && 856       & 456       && 1086    
 \cmidrule{2-3} \cmidrule{5-6} \cmidrule{8-9}
 $Regression Models$ & $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$     && $RMSE$       & $RMDSE$ \\ \midrule
 $\chi^2$          & 0.82       & 0.45      && 0.93       & 0.61       && 3.5        & 3.48 \\
-$ PPR-ICA$        & 0.54       & 0.48      && {\bf 0.3}  & {\bf 0.17} && 0.72       & 0.57 \\
+ PPR-ICA        & 0.54       & 0.48      && {\bf 0.3}  & {\bf 0.17} && 0.72       & 0.57 \\
 GA-RF             & 0.64       & \bf{0.38} && 0.77       & 0.72       && 0.53       & 0.39 \\
 GA-GBM            & {\bf 0.48} & 0.45      && 0.61       & 0.47       && 0.49       & 0.41 \\
 GA-SVR            & 0.66       & 0.40      && 0.63       & 0.58       && {\bf 0.46} & \bf{0.21} \\
@@ -96,7 +97,7 @@ GA-RR             & 0.74       & 0.57      && 0.50       & 0.47       && 0.57   
 \end{tabular}
 \caption {RMSE and RMDSE for the various $\log(g)$ regression models
   [dex] in the IRTF wavelength range and resolution.}
-\label{tab:models_G_rmse} 
+\label{tab:irtf-logg-rmse} 
 % \end{center}
 \end{table*}
 
@@ -108,20 +109,20 @@ GA-RR             & 0.74       & 0.57      && 0.50       & 0.47       && 0.57   
 \cmidrule{2-3} \cmidrule{5-6} \cmidrule{8-9}
 $Regression Models$ & $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$     && $RMSE$       & $RMDSE$ \\ \midrule
 $\chi^2$    & 0.76 & 0.22      && 0.36 & 0.18     && 0.36 & 0.18 \\
-$PPR-ICA$   & 0.24 & \bf{0.13} && 0.31 & 0.22     && 0.43 & 0.27 \\
-$GA-RF$     & 0.33 & 0.25      && 0.73 & 0.41     && 0.61 & 0.36 \\
-$GA-GBM$    & 0.27 & 0.19      && 0.70 & 0.52     && 0.63 & 0.35 \\
-$GA-SVR$    & 0.33 & 0.22      && 0.45 & 0.32     && 0.92 & 0.89 \\
-$GA-NNET$   & 0.37 & 0.30      && 0.33 & 0.37     && 0.95 & 0.81 \\
-$GA-KNN$    & 0.69 & 0.55      && 0.23 & \bf{0.15}&& 0.21 & \bf{0.15} \\ 
-$GA-MARS$   & 0.36 & 0.16      && 0.49 & 0.41     && 0.83 & 0.85 \\
-$GA-RR$     & 0.31 & 0.17      && 0.30 & 0.24     && 0.78 & 0.23 \\
+PPR-ICA   & 0.24 & \bf{0.13} && 0.31 & 0.22     && 0.43 & 0.27 \\
+GA-RF     & 0.33 & 0.25      && 0.73 & 0.41     && 0.61 & 0.36 \\
+GA-GBM    & 0.27 & 0.19      && 0.70 & 0.52     && 0.63 & 0.35 \\
+GA-SVR    & 0.33 & 0.22      && 0.45 & 0.32     && 0.92 & 0.89 \\
+GA-NNET   & 0.37 & 0.30      && 0.33 & 0.37     && 0.95 & 0.81 \\
+GA-KNN    & 0.69 & 0.55      && 0.23 & \bf{0.15}&& 0.21 & \bf{0.15} \\ 
+GA-MARS   & 0.36 & 0.16      && 0.49 & 0.41     && 0.83 & 0.85 \\
+GA-RR     & 0.31 & 0.17      && 0.30 & 0.24     && 0.78 & 0.23 \\
 
 \bottomrule
 \end{tabular}
 \caption {RMSE and RMDSE for the various regression models (IRTF
   wavelength range and resolution) predicting metallicity [dex].}
-\label{tab:Met-irtf-litCes} 
+\label{tab:irtf-met-rmse} 
 % \end{center}
 \end{table*}
 
@@ -138,7 +139,7 @@ $GA-RR$     & 0.31 & 0.17      && 0.30 & 0.24     && 0.78 & 0.23 \\
 \cmidrule{2-3} \cmidrule{5-6} \cmidrule{8-9}
 $Regression Models$ & $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$ \\ \midrule
 $\chi^2$    & {\bf 147} & 79       && {\bf 121} & {\bf 56}  && {\bf 126} & {\bf 57} \\
-$ PPR-ICA$  & 188       & 126      && 164       & 95        && 191       & 130 \\
+PPR-ICA  & 188       & 126      && 164       & 95        && 191       & 130 \\
 GA-RF       & 160       & 97       && 196       & 103       && 145       & 94 \\
 GA-GBM      & 175       & 105      && 225       & 99        && 185       & 94 \\
 GA-SVR      & 203       & 112      && 285       & 106       && 368       & 154 \\
@@ -149,7 +150,7 @@ GA-KPLS     & 227       & {\bf 72} && 331       & 123       && 409       & 208 \
 \bottomrule
 \end{tabular}
 \caption {RMSE and RMDSE for the various regression models that predict $T_{eff}$ (K) in the IPAC wavelength range and resolution.} 
-\label{tab:model_TSD_IPAC} 
+\label{tab:ipac-teff-rmse} 
 % \end{center}
 \end{table*}
 
@@ -173,7 +174,7 @@ CS-RR   & 211       & 128       && 400       & 239       &&  828       &  774  \
 \end{tabular}
 \caption {Performances of regression models trained on the features
   selected by \cite{cesetti} and applied to BT-Settl spectra in the IPAC wavelength range and resolution.}
-\label{tab:tab_CS_Model}
+\label{tab:ipac-teff-rmse-cesetti}
 \end{center}
 \end{table*}
 
@@ -203,7 +204,7 @@ GA-RR       & 2.0       & 1.8       && 2.1       & 1.8       && 3.7       & 3.2 
 \bottomrule
 \end{tabular}
 \caption {RMSE and RMDSE for the various regression models predicting $Log(G)$ [dex] in the IPAC wavelength range and resolution.} 
-\label{tab:models_G_rmse} 
+\label{tab:ipac-logg-rmse} 
 % \end{center}
 \end{table*}
 
@@ -215,20 +216,20 @@ GA-RR       & 2.0       & 1.8       && 2.1       & 1.8       && 3.7       & 3.2 
 \cmidrule{2-3} \cmidrule{5-6} \cmidrule{8-9}
 $Regression Models$ & $RMSE$ & $RMDSE$ && $RMSE$ & $RMDSE$     && $RMSE$       & $RMDSE$ \\ \midrule
 $\chi^2$    & 0.55 & 0.27 && 0.51 & 0.29 && 0.43  & 0.29 \\
-$PPR-ICA$   & 0.48 & 0.27 && 0.70 & 0.39 && 0.85  & 0.71 \\
-$GA-RF$     & 0.55 & 0.38 && 0.71 & 0.61 && 0.23  & 0.16 \\
-$GA-GBM$    & 0.64 & 0.43 && 0.87 & 0.84 && 0.31  & 0.23 \\
-$GA-SVR$    & 0.46 & 0.26 && 0.57 & 0.44 && 3.38  & 2.33 \\
-$GA-NNET$   & 0.52 & 0.45 && 0.66 & 0.54 && 2.03  & 1.88 \\
-$GA-KNN$    & 0.37 & 0.28 && 0.99 & 0.78 && 0.56  & 0.32 \\ 
-$GA-MARS$   & 0.71 & 0.47 && 0.80 & 0.69 && 1.15  & 0.68 \\
-%$ pls $    & 0.67  & 0.61  && 0.63  & 0.55 && 1.17 & 1.02 \\ 
+PPR-ICA   & 0.48 & 0.27 && 0.70 & 0.39 && 0.85  & 0.71 \\
+GA-RF     & 0.55 & 0.38 && 0.71 & 0.61 && 0.23  & 0.16 \\
+GA-GBM    & 0.64 & 0.43 && 0.87 & 0.84 && 0.31  & 0.23 \\
+GA-SVR    & 0.46 & 0.26 && 0.57 & 0.44 && 3.38  & 2.33 \\
+GA-NNET    & 0.52 & 0.45 && 0.66 & 0.54 && 2.03  & 1.88 \\
+GA-KNN     & 0.37 & 0.28 && 0.99 & 0.78 && 0.56  & 0.32 \\ 
+GA-MARS    & 0.71 & 0.47 && 0.80 & 0.69 && 1.15  & 0.68 \\
+%$ GA-KPLS $    & 0.67  & 0.61  && 0.63  & 0.55 && 1.17 & 1.02 \\ 
 $GA-RR$     & 0.47 & 0.29 && 0.50 & 0.36 && 1.18  & 1.18 \\
 
 \bottomrule
 \end{tabular}
 \caption {RMSE and RMDSE for the various regression models predicting $Met$ [dex] in the IPAC wavelength range and resolution.} 
-\label{tab:models_M_rmse} 
+\label{tab:ipac-met-rmse} 
 % \end{center}
 \end{table*}
 

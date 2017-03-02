@@ -25,7 +25,6 @@
 %\usepackage[options]{hyperref}
 % To add links in your PDF file, use the package "hyperref"
 % with options according to your LaTeX or PDFLaTeX drivers.
-\usepackage{pseudocode}
 %
 % Enable mutiple title row on tables.
 \usepackage{multirow}
@@ -123,12 +122,11 @@
    \maketitle
 %
 
-{\bf TODO -1: Luis, cambiar spectral libraries por stellar atmosphere
+{\bf TODO: Luis, cambiar spectral libraries por stellar atmosphere
 models o synthetic spectral libraries}.
    
 \section{Introduction}
 \label{sec:intro}
-\input{intro}
 
 % The importance of M stars
 % The problem of estimation of stellar parameters in the M regime: bands, no continuum...
@@ -145,39 +143,24 @@ models o synthetic spectral libraries}.
 % Summary of spectral diagnostics in the IR for M stars
 
 
-\section{Methodology.}
-\label{sec:meth}
+\section{Methodology. \label{meth}}
 \input{meth}
 
 \section{Physical parameters of the IRTF collection of spectra.}
-\label{sec:irtf}
-
-In the following, we will summarise the results obtained for the IRTF
-data set. We deal with the different physical paramenters in separate
-Sections. We start by reporting the Root Mean/Median Square Errors
-(RMSE/RMDSE) with respect to the parameters gathered from the
-literature by \cite{cesetti} and included in their Table 3.
-
-\subsection{Spectral bands selected}
+%\input{irtf}
+\subsection{Spectral bands}
 \input{irtf.fs}
 \subsection{Regression models}
 \input{irtf.rm}
-\subsection{Comparison with previous feature sets}
-\input{irtf.ces}
 
 \section{Physical parameters of the IPAC collection of spectra.}
-\label{sec:ipac}
-
+%\input{ipac}
 \subsection{Spectral bands selected}
 \input{ipac.fs}
 \subsection{Regression models}
 \input{ipac.rm}
-\subsection{Comparison with previous feature sets}
-\input{ipac.ces}
 
-\section{Summary and conclusions}
-\label{sec:summary}
-\input{summary}
+\section{Conclusions}
 
 \begin{acknowledgements}
 This research has benefitted from the M, L, T, and Y dwarf compendium housed at DwarfArchives.org.
@@ -191,8 +174,5 @@ Aeronautics and Space Administration, Science Mission Directorate, Planetary Ast
 
 \bibliography{references_m}{}
 \bibliographystyle{bibtex/aa}
-
-\input{appendix-wavelengths}
-\input{appendix-RMSE}
 
 \end{document}

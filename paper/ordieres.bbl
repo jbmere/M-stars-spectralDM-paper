@@ -1,4 +1,4 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{34}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Allard} {et~al.}(2013){Allard}, {Homeier}, {Freytag},
@@ -8,6 +8,10 @@
 
 \bibitem[{Baraud(2002)}]{baraud2002model}
 Baraud, Y. 2002, ESAIM: Probability and Statistics, 6, 127
+
+\bibitem[{{Bonnefoy} {et~al.}(2013){Bonnefoy}, {Chauvin}, {Lagrange}, {Rojo},
+  {Allard}, {Pinte}, {Dumas}, \& {Homeier}}]{2013arXiv1306.3709B}
+{Bonnefoy}, M., {Chauvin}, G., {Lagrange}, A.-M., {et~al.} 2013, ArXiv e-prints
 
 \bibitem[{{Boyajian} {et~al.}(2014){Boyajian}, {van Belle}, \& {von
   Braun}}]{2014AJ....147...47B}
@@ -105,6 +109,10 @@ Meyer, D., Leisch, F., \& Hornik, K. 2003, Neurocomputing, 55, 169
 {R Core Team}. 2016, R: A Language and Environment for Statistical Computing, R
   Foundation for Statistical Computing, Vienna, Austria
 
+\bibitem[{{Rayner} {et~al.}(2009){Rayner}, {Cushing}, \&
+  {Vacca}}]{2009ApJS..185..289R}
+{Rayner}, J.~T., {Cushing}, M.~C., \& {Vacca}, W.~D. 2009, \apjs, 185, 289
+
 \bibitem[{Reid \& Gizis(2005)}]{1538-3873-117-833-676}
 Reid, I.~N. \& Gizis, J.~E. 2005, Publications of the Astronomical Society of
   the Pacific, 117, 676
@@ -113,10 +121,15 @@ Reid, I.~N. \& Gizis, J.~E. 2005, Publications of the Astronomical Society of
 Riaz, B., Gizis, J.~E., \& Samaddar, D. 2008, The Astrophysical Journal, 672,
   1153
 
-\bibitem[{{Rojas-Ayala} {et~al.}(2012){Rojas-Ayala}, {Covey}, {Muirhead}, \&
-  {Lloyd}}]{RA2012}
-{Rojas-Ayala}, B., {Covey}, K.~R., {Muirhead}, P.~S., \& {Lloyd}, J.~P. 2012,
-  \apj, 748, 93
+\bibitem[{{Rojas-Ayala} {et~al.}(2012{\natexlab{a}}){Rojas-Ayala}, {Covey},
+  {Muirhead}, \& {Lloyd}}]{2012ApJ...748...93R}
+{Rojas-Ayala}, B., {Covey}, K.~R., {Muirhead}, P.~S., \& {Lloyd}, J.~P.
+  2012{\natexlab{a}}, \apj, 748, 93
+
+\bibitem[{{Rojas-Ayala} {et~al.}(2012{\natexlab{b}}){Rojas-Ayala}, {Covey},
+  {Muirhead}, \& {Lloyd}}]{RA2012}
+{Rojas-Ayala}, B., {Covey}, K.~R., {Muirhead}, P.~S., \& {Lloyd}, J.~P.
+  2012{\natexlab{b}}, \apj, 748, 93
 
 \bibitem[{{S{\'e}gransan} {et~al.}(2003){S{\'e}gransan}, {Kervella},
   {Forveille}, \& {Queloz}}]{2003A&A...397L...5S}
