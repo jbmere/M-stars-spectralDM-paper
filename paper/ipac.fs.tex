@@ -2,12 +2,12 @@
 As for the IRTF spectra, the spectral resolution of the BT-Settl
 library was degraded to match the average resolution of IPAC spectra
 in the Dwarf
-Archives\footnote{http://spider.ipac.caltech.edu/staff/davy/ARCHIVE/index.shtml}. {\bf
-What is the average resolution?}. Then, the spectra were trimmed to
-produce valid segments between *** and *** {\AA}, which is the
-spectral range common to all M stars in the archive. Finally, all
-spectra were divided by the total integrated flux in this range in
-order to factor out the stellar distance.
+Archives\footnote{http://spider.ipac.caltech.edu/staff/davy/ARCHIVE/index.shtml}. Then,
+the spectra were trimmed to produce segments in the spectral range
+common to all spectra of M stars in the archive, to avoid missing data
+in the input variables. Finally, all spectra were divided by the total
+integrated flux in this range in order to factor out the stellar
+distance.
 
 There is little hope {\it a priori} for reasonable accuracies with
 regression models that predict the surface gravity and metallicity
@@ -22,12 +22,9 @@ The application of the GA to the selection of features for the
 prediction of effective temperature from noiseless spectra within the
 IPAC wavelength range and resolution, results in the features included
 in Table~\ref{tab:ipac-teff-noiseless}. Features are ordered by the
-fitness value (the AIC){\bf and we only consider features that are
-present in at least 5 sets}. For the noisy spectra of SNR=10 and 50 we
-select the spectral features listed in
-Table~\ref{tab:ipac-teff-noisy}.
-
-{\bf TBD by Luis: interpret the features.}
+fitness value (the AIC) and we only consider features that are present
+in at least 5 sets. For the noisy spectra of SNR=10 and 50 we select
+the spectral features listed in Table~\ref{tab:ipac-teff-noisy}.
 
 Tables \ref{tab:ipac-logg-noiseless} and \ref{tab:ipac-logg-noisy}
 show the spectral features selected by the GA for noiseless BT-Settl

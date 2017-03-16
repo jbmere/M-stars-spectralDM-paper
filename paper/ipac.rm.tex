@@ -20,12 +20,16 @@ Again, as in the IRTF case, we see that the compression of the spectra
 results in a performance degradation. {\bf TODO: continue} 
 
 \begin {figure*}
- \centering \includegraphics[width=11cm]{figs/ipac-teff.pdf}
-
+ \centering \includegraphics[width=\textwidth]{figs/ipac-teff.pdf}
 \caption{Comparison
- between Temperature estimations from Theoretical Temperature in x
- axis and the modeled ICA based estimation at SNR=$\infty$ on
- y-axis} \label{fig:ipac_teff}
+ between the effective temperatures derived from the tabulated
+ spectral types in \cite{cesetti} and those inferred by the Neural
+ Network module (top left, SNR=10), Support Vector Regression module
+ (top right, SNR=10), $\chi^2$ minimization module (bottom left,
+ SNR=50), and the Projection Pursuit Regression module based on ICA
+ components (bottom right, SNR=10).  Blue squares denote Main Sequence
+ dwarfs and red triangles denote giant stars (luminosity class III)
+ according to \cite{cesetti}} \label{fig:ipac_teff}
 \end {figure*}
 
 

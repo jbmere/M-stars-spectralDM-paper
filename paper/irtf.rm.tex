@@ -73,28 +73,34 @@ Figure~\ref{fig:irtf-teff} shows the correlation between the $T_{\rm
 eff}$ estimates of the best (in the RMDSE sense) regression models and
 the effective temperatures in Table 3 of \cite{cesetti}. 
 
-{\bf TODO 7: make and include figure}
+\begin {figure}
+ \centering
+  \includegraphics[scale=0.45]{figs/irtf-teffs-literature.pdf}
+  
+  \caption{Comparison of the effective temperatures from the
+  literature included in \cite{cesetti} and those inferred from the
+  KNN module trained with the GA features (black). In orange and blue
+  we show the estimates from the minimum $\chi^2$ estimate and from
+  the PPR model based on the ICA components, respectively.}
 
-%\begin {figure}
-% \centering
-%  \includegraphics[width=11cm]{figs/irtf-teff.pdf}
-%  \caption{}
-% \label{fig:irtf-teff}
-%\end {figure}
- 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Comparison with Teffs from spectral types.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{fig:irtf-teff}
+\end {figure}
 
-We then compare the predicted effective temperatures with the spectral
-types listed in the IRTF spectral library in order to increase the
-size of the validation sample beyond the 57 cases with estimated
-temperatures in Table 3 of \cite{cesetti}. We converted the spectral
-types into effective temperatures using the calibration of
-\cite{2009ApJ...702..154S}. Both the RMSE and RMDSE were used to
-evaluate the prediction accuracy (see Table~\ref{}).
+It is worth noting that in the M star regime, there are 63 effective
+temperatures available in \cite{cesetti}, and 46 of the 63 were
+estimated from the spectral types using the calibrations
+of \cite{1996imsa.book.....O}. We have substituted them with a spline
+fit to the combined datasets of M dwarfs in \cite{2013A&A...556A..15R}
+and \cite{2012ApJ...757..112B} as it removes systematics in the
+temperatures between 2500 and 3500 K.
 
-{\bf TODO 8: Make table and figure}
+It is not evident that the GA-KNN model performs significantly better
+than the minimum $\chi^2$ estimate, but in the following we will
+retain the former for further analysis. Figure \ref{fig:irtf-teff}
+shows that the GA features can be used to estimate effective
+temperatures with an accuracy equivalent to that yielded by full
+wavelength range spectra of the same resolution.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TBD: Comparison with temperatures estimated with Cesetti features
@@ -103,28 +109,53 @@ evaluate the prediction accuracy (see Table~\ref{}).
 We have trained the same non linear regression models discussed above
 using the features suggested by \cite{cesetti}. The performace of the
 models based on these features are included in Table
-\ref{tab:irtf-teff-rmse-cesetti}.
-
-{\bf TODO 9[ Joaquín]:How do you explain that the best SNR=10 model
-  (KPLS according to the RMDSE) has the poorest performances for
-  SNR=50 or $\infty$?} 
-
-From the comparison of Tables \ref{tab:irtf-teff-rmse} and
+\ref{tab:irtf-teff-rmse-cesetti}. From the comparison of Tables
+\ref{tab:irtf-teff-rmse} and
 \ref{tab:irtf-teff-rmse-cesetti} we can draw the following conclusions:
 
 \begin{itemize}
+
 \item the RMSE for SNR=10 and 50 is equivalent for the regression
-  models trained on GA features and those recommended in
-  \cite{cesetti};
-  \item however, the RMDSE is significantly higher in the case of the
-    latter features for all SNR values.
-    \item in the unrealistic case of noiseless spectra, the features
-      proposed by \cite{cesetti} produce RMSE and RMDSE significantly
-      worse than the GA features.
+  models trained on GA features and those recommended
+  in \cite{cesetti};
+
+\item however, the RMDSE is significantly higher
+  in the case of the \cite{cesetti} features for all SNR values.
+
+\item in the unrealistic case of noiseless spectra, the features proposed
+  by \cite{cesetti} produce RMSE and RMDSE significantly worse than
+  the GA features.
+
 \end{itemize}
 
-As a summary, we believe that the features found by the GA are to be
-prefered to the ones proposed by \cite{cesetti}.
+However, the cross-validation errors are far from informative with
+respect to the true performance when the models are applied to real
+data. In the case of the features defined by \cite{cesetti}, we find
+that the best RMSE/RMDSE (obtained not from cross-validation but from
+the comparison with the effective temperatures in Table 3
+of\cite{cesetti}) is attained by the CES-NNR
+model. Figure \ref{fig:irtf-cesteff} shows the graphical comparison of
+the CES-NNR predictions with the Table 3 reference values. Again, and
+in the rest of this work, we substitute the effective temperatures in
+that Table that were estimated using the \cite{1996imsa.book.....O}
+calibration with those from the spline fit described above.
+
+\begin {figure}
+ \centering
+  \includegraphics[scale=0.45]{figs/irtf-CESteffs-literature.pdf}
+  
+  \caption{Comparison of the effective temperatures from the
+  literature included in \cite{cesetti} and those inferred from the
+  NNR module trained with the features introduced in \cite{cesetti}
+  (black). In orange and blue we show the estimates from the minimum
+  $\chi^2$ estimate and from the PPR model based on the ICA
+  components, respectively.}
+
+\label{fig:irtf-cesteff}
+\end {figure}
+
+Figure \ref{fig:irtf-cesteff} shows that the features found by the GA
+are to be prefered to the ones proposed by \cite{cesetti}. 
 
 \subsubsection{Surface gravity models}
 
@@ -137,24 +168,28 @@ the selection of models. In this Section we will use $\log(T_{\rm
 eff})--\log(g)$ diagram comparisons to select the most plausible model
 results. An important difference with respect to the models discussed
 above is that we use the $T_{\rm eff}$ estimated in the previous stage
-as input of our models. {\bf TODO 10: do we have some hint whether
-this was beneficial, neutral or detrimental? YEs, look at the email}.
+as input of our models. It introduces an average improvement in the
+RMSE/RMDSE of 20\% with respect to the models without input
+information on the effective temperature although it represents a risk
+if the $T_{\rm eff}$ estimate is in gross error.
 
 Table~\ref{tab:irtf-logg-rmse} shows the RMSE and RMDSE of the
-$\log(g)$ regression models for the same SNR regimes discussed for the
-estimation of $T_{\rm eff}$.
-
-Again, as in the case of the effective temperatures, the differences
-between the various models as measured by the RMSE or RMDSE are not
-statistically significant.  This is not surprising given the
-extraordinarily small sample of gravity measurements gathered from the
-literature and used as reference for the computation of errors.
-However, we can evaluate the models according to plausibility
-arguments relative to the distribution of the model predictions in
-$T_{\rm eff}$--$\log(g)$ diagrams.  Figure~\ref{fig:lt_lg_ga} shows
-this distribution for four models selected based on these plausibility
+cross-validation experiments for the $\log(g)$ regression models and
+the same SNR regimes discussed for the estimation of $T_{\rm eff}$. We
+have assessed the models according to plausibility arguments relative
+to the distribution of the model predictions in $T_{\rm
+eff}$--$\log(g)$ diagrams.  Figure~\ref{fig:lt_lg_ga} shows this
+distribution for four models selected based on these plausibility
 criteria: GA-RR, GA-PLS, GA-KNN (the three of them for SNR=50), and
-PPR-ICA (clockwise, starting at the top left corner).
+PPR-ICA (clockwise, starting at the top left corner). All four panels
+show a tendency towards lower surface gravities at the coolest end,
+and a reasonable capability to separate dwarfs from giants, and giants
+from supergiants. The estimates are in reasonable agreement with the
+extrapolation of the distributions that can be guessed from the values
+in Table 3 of \cite{cesetti} (represented with black filled
+symbols). Since we cannot propose quantifications of this plausibility
+argument, we let the reader decide which estimate (GA-RR, GA-PLS,
+GA-KNN, or ICA-10) is to be prefered.
 
 \begin{figure*}
  \begin{center}
@@ -169,22 +204,33 @@ PPR-ICA (clockwise, starting at the top left corner).
  \end{center}
 \end{figure*}
 
+Figure \ref{fig:irtf-ces} shows the equivalent diagram for predictions
+obtained from the features selected in \cite{cesetti}. Again, we
+select the regression models that yield the most plausible
+$\log(T_{\rm eff})-\log(g)$ distributions with no quantitative
+criteria defined to select the models. It is again evident the
+superiority of the GA-based features over those defined
+by \cite{cesetti}.
+
 \subsubsection{Metallicity models} 
 \label{sect:irtf-met}
+
 Finally, the same machine learning models are trained to infer the
 metallicity, again considering the effective temperature as an input
 feature as in the $\log(g)$ regression
 models. Table~\ref{tab:irtf-met-rmse} shows the RMSE and RMDSE
-obtained for each regression model for the only seven M-type stars in
-Table 3 of \cite{cesetti}. The minimum values are consistently
-obtained with the minimum $\chi^2$, $PPR-ICA$ and $GA-KNN$. The
-differences are only marginal, but we see that even at these
-intermediate resolutions the reduction of dimensionality (either with
-ICA or GA) produces an improvement in the predictions. This is even
-more evident if we compare our predictions with more recent
-metallicity estimates not included in \cite{cesetti}. We have gathered
-estimates for stars in both the IRTF collection and a series of recent
-metallicity catalogs
+obtained for the cross-validation experiments of each regression
+model. The minimum cross-validation errors are consistently obtained
+with the minimum $\chi^2$, $PPR-ICA$ and $GA-KNN$ (with some
+exceptions). The differences from these cross-validation experiments
+are only marginal, but we see that even at these intermediate
+resolutions the reduction of dimensionality (either with ICA or GA)
+produces an improvement in the predictions. 
+
+This is even more evident if we compare our predictions with more
+recent metallicity estimates not included in \cite{cesetti}. We have
+gathered estimates for stars in both the IRTF collection and a series
+of recent metallicity catalogs
 by \cite{RA2012}, \cite{NevesIII}, \cite{Newton2014}, \cite{Gaidos2015},
 and \cite{Mann2015}. All of the aforementioned references provide us
 with estimates of the iron abundance ratio [Fe/H] except \cite{RA2012}
@@ -194,13 +240,14 @@ ratio. Our estimates, coming from the BT-Settl library, are for the
 nature of the quantities compared. Hence, when comparing our estimates
 with those from the literature, we compute the RMSE or RMDSE after
 subtracting any difference in the mean. It turns out that, after
-correcting for biases, $PPR-ICA$ trained with SNR=10 examples yields
-the lowest RMSE/RMDSE. Figure \ref{MIRTF_ICA_10} represents the
-estimates of [M/H] obtained from the $PPR-ICA$ based regressor, as a
-function of the values taken from these references for the sources in
-common. The black empty circles represent values from \cite{cesetti} ;
-orange filled circles, values from \cite{NevesIII}; green filled
-squares, values that the Vizier catalog entry for Table 8 of
+correcting for these different scales, $PPR-ICA$ trained with SNR=10
+examples yields the lowest RMSE/RMDSE. Figure \ref{MIRTF_ICA_10}
+represents the estimates of [M/H] obtained from the $PPR-ICA$ based
+regressor, as a function of the values taken from these references for
+the sources in common. The black empty circles represent values
+from \cite{cesetti} ; orange filled circles, values
+from \cite{NevesIII}; green filled squares, values that the Vizier
+catalog entry for Table 8 of
 \cite{NevesIII} links to \cite{Jao}, although we find no evidence
 that \cite{Jao} contains estimates of metallicities; cyan and blue
 filled squares, the values of [M/H] and [Fe/H] respectively
@@ -208,15 +255,10 @@ in \cite{RA2012}; red filled squares, values from \cite{Mann2015};
 yellow filled squares, values from \cite{Newton2014}; and, finally,
 black filles squares, values from \cite{Gaidos2015}.
 
-%
-% Metalicidad teórica desde Cesseti para las IRTF
-%
-
-{\bf TODO 11: Compare the 7 or 6 values available. Discuss.  $\chi^2$
-  is the most popular method by far. We compare predictions of machine
-  learning methods with minimum chi-squared. We first do histogram
-  plots. Then, the same logTeff-logg plots as above but with
-  metallicity coded in colour.}
+It is remarkable that the minimum $\chi^2$ predictions result in a
+50\% increase in the RMDSE with respect to the ICA-10 models and the
+best performing GA-based models. Therefore, we advice against its use
+in the context of metallicity estimations. 
 
  \begin{figure}
  \centering
@@ -238,5 +280,27 @@ black filles squares, values from \cite{Gaidos2015}.
 \label{MIRTF_ICA_10}
 \end {figure}
 
- {\bf TODO 12: Include table as annex with metallicities from the
- literature?}
+Figure \ref{fig:irtf-teff-logg-met} summarizes the predictions from a
+set of selected regression models in $T_{\rm eff}$ (from the
+GA-NN-$\infty$ model), $\log(g)$ (from the GA-RR-50 model) and
+metallicity (from the PPR-ICA-10 model). Again, plausibility arguments
+such as the lower metallicity of the supergiants apparently give
+evidence supporting the good performance of our models, but the lack
+of extensive good-quality estimates of the physical parameters of the
+IRTF collection of stars prevents us from a more quantitative
+assessment of the predictions.
+
+ \begin{figure}
+ \centering
+ \includegraphics[width=0.5\textwidth]{figs/ordieres-fig8.pdf}
+\caption{Plane of predictions for $T_{\rm eff}$ (from GA-KNN-$\infty$)
+and $log(g)$ (from GA-RR-50) with metallicity predictions from
+PPR-ICA-10.}
+\label{fig:irtf-teff-logg-met}
+\end {figure}
+
+The equivalent plot for predictions based on the features defined
+by \cite{cesetti} and the RF model trained with SNR=50 spectra is
+included as Figure \ref{fig:irtf-ces-met}.
+
+

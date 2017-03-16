@@ -68,18 +68,66 @@ tmp <- gsub("I","",tmp)
 mask <- is.na(lc2)
 lc2[mask] <- 4
 
+tmp2 <- gsub("M","",tmp)
+tmp2 <- gsub(":","",tmp2)
+tmp2 <- gsub("a","",tmp2)
+tmp2 <- gsub("b","",tmp2)
+tmp2 <- gsub("e","",tmp2)
+tmp2 <- gsub("\\+","",tmp2)
+tmp2 <- gsub("7-7.5","7.25",tmp2)
+tmp2 <- gsub("5-9","7",tmp2)
+tmp2 <- gsub("7-8","7.5",tmp2)
+tmp2 <- gsub("6-9","7.5",tmp2)
+tmp2 <- gsub("1-2","1.5",tmp2)
+tmp2 <- gsub("3to4","3.5",tmp2)
+tmp2 <- gsub("8-9","8.5",tmp2)
+tmp2 <- gsub("3-4","3.5",tmp2)
+#tmp2 <- gsub("3to4","3.5",tmp2)
+tmp2 <- gsub("-","",tmp2)
+tmp2 <- as.numeric(tmp2)+10
+
+load("../../../sptype-teff/Teffs.RData")
+teff2 <- predict(m2,tmp2)$y
+new <- data.frame(x = tmp2)
+teff <- predict.lm(m1,new,se.fit=TRUE)$fit
+
+referenceTeff <- df_T_inf$T_Ces
+referenceTeff[lc2==15] <- teff2[lc2==15]
+
 ################################################
 
 
-cex.size <- .6
-pdf("../ordieres-fig1.pdf",width=8,height=8)
-plot(df_T_inf$T_teo,df_T_inf$KNN,pch=lc2,col="black",xlim=c(1500,4500),ylim=c(1500,4500),
-     xlab=expression(T[eff-lit]),ylab=expression(T[eff-est]),cex=cex.size)
-#points(df_T_inf$T_teo,df_T_10$MARS,pch=16,col="red",cex=cex.size)
-points(df_T_inf$T_teo,df_T_inf$`Rule-Regression`,pch=lc2,col="blue",cex=cex.size)
-#points(df_T_inf$T_teo,df_T_10$Chi2_10,pch=16,col="orange",cex=cex.size)
+cex.size <- 1
+pdf("../irtf-teffs-literature.pdf",width=8,height=8)
+par(mar=c(7,7,2,2))
+plot(referenceTeff,df_T_inf$KNN,pch=lc2,col="black",xlim=c(1500,4500),ylim=c(1500,4500),
+     xlab=expression(T[eff-lit]),ylab=expression(T[eff-est]),cex=cex.size,cex.lab=2.0,
+     cex.axis=2.0)
+#points(df_T_inf$T_Ces,df_T_10$MARS,col="red",pch=lc2,cex=cex.size/2)
+points(referenceTeff,df_T_10$Chi2_10,col="orange",pch=lc2,cex=cex.size/2)
+points(referenceTeff,df_T_10$ICA_10,col="blue",pch=lc2,cex=cex.size/2)
 abline(0,1)
 dev.off()
+
+# Not needed: only 4 without Teff
+#cex.size <- 1
+#pdf("../irtf-teffs-spts.pdf",width=8,height=8)
+#par(mar=c(7,7,2,2))
+#plot(teff2,df_T_inf$KNN,pch=lc2,col="black",xlim=c(1500,4500),ylim=c(1500,4500),
+#     xlab=expression(T[eff-spt]),ylab=expression(T[eff-est]),cex=cex.size,cex.lab=1.5,cex.axis=1.5)
+#points(teff2,df_T_10$Chi2_10,col="orange",pch=lc2,cex=cex.size/2)
+#abline(0,1)
+#dev.off()
+#cex.size <- 1
+#pdf("../irtf-teffs-spts-literature.pdf",width=8,height=8)
+#par(mar=c(7,7,2,2))
+#plot(teff2,df_T_inf$T_Ces,pch=lc2,col="black",xlim=c(1500,4500),ylim=c(1500,4500),
+#     xlab=expression(T[eff-spt]),ylab=expression(T[eff-est]),cex=cex.size,cex.lab=1.5,cex.axis=1.5)
+#abline(0,1)
+#dev.off()
+
+
+
 
 ################################################
 
@@ -148,6 +196,20 @@ df_M_CES <- df_M
 df_G <- df_G_ours
 df_M <- df_M_ours
 rm(df_G_ours,df_M_ours)
+
+
+cex.size <- 1
+pdf("../irtf-CESteffs-literature.pdf",width=8,height=8)
+par(mar=c(7,7,2,2))
+plot(referenceTeff,df_T_inf$NNR_Ces,pch=lc2,col="black",xlim=c(1500,4500),ylim=c(1500,4500),
+     xlab=expression(T[eff-lit]),ylab=expression(T[eff-est]),cex=cex.size,cex.lab=2.0,
+     cex.axis=2.0)
+#points(df_T_inf$T_Ces,df_T_10$MARS,col="red",pch=lc2,cex=cex.size/2)
+points(referenceTeff,df_T_10$Chi2_10,col="orange",pch=lc2,cex=cex.size/2)
+points(referenceTeff,df_T_10$ICA_10,col="blue",pch=lc2,cex=cex.size/2)
+abline(0,1)
+dev.off()
+
 
 pdf("../irtf-Cesseti.pdf",width=8,height=5)
 par(cex.axis=1.0)
@@ -245,7 +307,7 @@ gaidos.m[idcs] <- gaidos[,34]
 
 avail <- !(is.na(df_M$M_teo))
 
-pdf("all-met.pdf")
+pdf("irtf-all-met.pdf")
 par(mar = c(6,6,1,1))
 for(i in 2:31)
 {
@@ -274,7 +336,7 @@ for(i in 2:31)
 dev.off()
 
 
-pdf("M-ICA10.pdf")
+pdf("irtf-M-ICA10.pdf")
 par(mar = c(6,6,1,1))
 plot(df_M$M_teo, df_M[,30],pch=lc2,xlim=c(-.8,.8),ylim=c(-.8,.8),xlab="Literature Fe/H or M/H",ylab="M/H",cex.axis=1.5,cex.lab=1.5)
 points(n3.m, df_M[,30],pch=lc2,col="orange") # Fe/H
@@ -290,12 +352,12 @@ abline(0,1)
 dev.off()
 
 
-################33 CEsseti ##########################3
+################ CEsseti ##########################3
 
 pcc_cess <- apply(df_M_CES[,c(2:31)],2,function(tmp){
   cor.test(x = tmp,y=df_M$M_teo,method="p")$p.value})
 
-pdf("all-met-CES.pdf")
+pdf("IRTF-all-met-CES.pdf")
 par(mar = c(6,6,1,1))
 for(i in 2:31)
 {
@@ -314,7 +376,7 @@ for(i in 2:31)
 dev.off()
 
 
-pdf("M-CES.pdf")
+pdf("irtf-M-CES.pdf")
 par(mar = c(6,6,1,1))
 plot(df_M$M_teo, df_M_CES[,18],pch=lc2,xlim=c(-.8,.8),ylim=c(-.8,.8),xlab="Literature Fe/H or M/H",ylab="M/H",cex.axis=1.5,cex.lab=1.5)
 points(n3.m, df_M[,18],pch=lc2,col="orange") # Fe/H
@@ -343,12 +405,15 @@ SetupPalette<-function(c)
 }
 
 pdf("../ordieres-fig8.pdf",width=8,height=5)
-par(cex.axis=1.0)
+par(cex.axis=1.0,mar=c(5,5,1,7))
 col <- SetupPalette(df_M$ICA_10)
 plot(log10(df_T_inf$KNN),df_G$`Rule-Regression_50`,pch=lc2,cex=0.5,col=col,xlab=expression(log(T[eff])),
-     ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
+     ylab="log(g)",cex.lab=1.7, cex.axis=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(tab3[,2]),tab3[,3],cex=.5,pch=lc)
-text(3.4,0,"GA-RR-50",pos=4,cex=0.7)
+text(3.4,-0.75,"GA-RR-50",pos=4,cex=1.2)
+image.plot(legend.only=TRUE, zlim= range(df_M$ICA_10,na.rm=T), horizontal=FALSE,
+           legend.width=2, reset.graphics=TRUE, axis.args=list(cex.axis=1.5,cex.lab=1),
+           legend.mar=6,col=pal(50))
 dev.off()
 
 save.image("irtf.Rdata")

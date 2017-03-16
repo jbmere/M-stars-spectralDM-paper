@@ -73,16 +73,30 @@ xtmp <- seq(0,20,0.1)
 # Parabolic model to Rajpurohit data only
 y <- y0[x0>7]
 x <- x0[x0>7]
-m <- lm(y~x)
+m1 <- lm(y~x)
 new <- data.frame(x = sptn)
-teff <- predict.lm(m,new,se.fit=TRUE)
+teff <- predict.lm(m1,new,se.fit=TRUE)
 lines(sptn-10,teff$fit,pch=16,col="green",lwd=3)
 # Smoothing spline
-m <- smooth.spline(x0,y0,df=8)
-spline <- predict(m,xtmp)
+m2 <- smooth.spline(x0,y0,df=8)
+spline <- predict(m2,xtmp)
 lines(xtmp-10,spline$y,pch=16,col="red",lwd = 3)
 teff2 <- rep(NA,length(sptn))
 teff2[!is.na(sptn)] <- predict(m,sptn[!is.na(sptn)])$y
+
+# CArroll & Ostein used by Cesetti in many of his temperatures
+
+CarOstV <- cbind(
+  c(0,1,2,3,4,5,6,7,8,9),
+#  c(3840,3660,3520,3400,3290,3170,3030,2860)
+  c(3850,3720,3580,3470,3370,3240,3050,2940,2640,2600)
+)
+
+m3 <- smooth.spline(CarOstV[,1],CarOstV[,2],df=8)
+xt <- seq(0,10,0.1)
+yt <- predict(m3,xt)
+lines(xt,yt$y,col="violet",lwd=3)
+points(CarOstV,col="violet",pch=15)
 
 legend(-5,6000,c("Stephens, Leggett & Cushing (2009)","Boyajian et al. (2012)","Rajpurohit et al. (2013)","Spline fit", "Linear Fit"),col=c("black","orange","blue","red", "green"),pch=16,lty=1)
 

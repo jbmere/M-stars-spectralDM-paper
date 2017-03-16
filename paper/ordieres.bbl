@@ -1,4 +1,4 @@
-\begin{thebibliography}{34}
+\begin{thebibliography}{36}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Allard} {et~al.}(2013){Allard}, {Homeier}, {Freytag},
@@ -16,6 +16,14 @@ Baraud, Y. 2002, ESAIM: Probability and Statistics, 6, 127
 \bibitem[{{Boyajian} {et~al.}(2014){Boyajian}, {van Belle}, \& {von
   Braun}}]{2014AJ....147...47B}
 {Boyajian}, T.~S., {van Belle}, G., \& {von Braun}, K. 2014, \aj, 147, 47
+
+\bibitem[{{Boyajian} {et~al.}(2012){Boyajian}, {von Braun}, {van Belle},
+  {McAlister}, {ten Brummelaar}, {Kane}, {Muirhead}, {Jones}, {White},
+  {Schaefer}, {Ciardi}, {Henry}, {L{\'o}pez-Morales}, {Ridgway}, {Gies}, {Jao},
+  {Rojas-Ayala}, {Parks}, {Sturmann}, {Sturmann}, {Turner}, {Farrington},
+  {Goldfinger}, \& {Berger}}]{2012ApJ...757..112B}
+{Boyajian}, T.~S., {von Braun}, K., {van Belle}, G., {et~al.} 2012, \apj, 757,
+  112
 
 \bibitem[{{Cesetti} {et~al.}(2013){Cesetti}, {Pizzella}, {Ivanov}, {Morelli},
   {Corsini}, \& {Dalla Bont{\`a}}}]{cesetti}
@@ -97,6 +105,10 @@ Meyer, D., Leisch, F., \& Hornik, K. 2003, Neurocomputing, 55, 169
   {Berta-Thompson}, {Rojas-Ayala}, {Covey}, \& {Lloyd}}]{Newton2014}
 {Newton}, E.~R., {Charbonneau}, D., {Irwin}, J., {et~al.} 2014, \aj, 147, 20
 
+\bibitem[{{Ostlie} \& {Carroll}(1996)}]{1996imsa.book.....O}
+{Ostlie}, D.~A. \& {Carroll}, B.~W. 1996, {An Introduction to Modern Stellar
+  Astrophysics}
+
 \bibitem[{{Passegger} {et~al.}(2016){Passegger}, {Wende-von Berg}, \&
   {Reiners}}]{2016A&A...587A..19P}
 {Passegger}, V.~M., {Wende-von Berg}, S., \& {Reiners}, A. 2016, \aap, 587, A19
@@ -108,6 +120,11 @@ Meyer, D., Leisch, F., \& Hornik, K. 2003, Neurocomputing, 55, 169
 \bibitem[{{R Core Team}(2016)}]{R2016}
 {R Core Team}. 2016, R: A Language and Environment for Statistical Computing, R
   Foundation for Statistical Computing, Vienna, Austria
+
+\bibitem[{{Rajpurohit} {et~al.}(2013){Rajpurohit}, {Reyl{\'e}}, {Allard},
+  {Homeier}, {Schultheis}, {Bessell}, \& {Robin}}]{2013A&A...556A..15R}
+{Rajpurohit}, A.~S., {Reyl{\'e}}, C., {Allard}, F., {et~al.} 2013, \aap, 556,
+  A15
 
 \bibitem[{{Rayner} {et~al.}(2009){Rayner}, {Cushing}, \&
   {Vacca}}]{2009ApJS..185..289R}
@@ -135,11 +152,6 @@ Riaz, B., Gizis, J.~E., \& Samaddar, D. 2008, The Astrophysical Journal, 672,
   {Forveille}, \& {Queloz}}]{2003A&A...397L...5S}
 {S{\'e}gransan}, D., {Kervella}, P., {Forveille}, T., \& {Queloz}, D. 2003,
   \aap, 397, L5
-
-\bibitem[{{Stephens} {et~al.}(2009){Stephens}, {Leggett}, {Cushing}, {Marley},
-  {Saumon}, {Geballe}, {Golimowski}, {Fan}, \& {Noll}}]{2009ApJ...702..154S}
-{Stephens}, D.~C., {Leggett}, S.~K., {Cushing}, M.~C., {et~al.} 2009, \apj,
-  702, 154
 
 \bibitem[{Svetnik {et~al.}(2003)Svetnik, Liaw, Tong, Culberson, Sheridan, \&
   Feuston}]{svetnik2003random}
