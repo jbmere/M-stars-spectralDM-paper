@@ -1,27 +1,68 @@
 
 rm(list=ls())
-load("LSB_Tdata_plot_IPAC.RData")
-
-lc2 <- 15
 
 #############################################
 # Teffs Validation
 
-c1 <- apply(df_T_10[,c(2:9,18,19)],2,"-",df_T_10$T_teo)
-m1 <- apply(c1,2,median,na.rm=T)
-c1 <- apply(c1,1,"-",m1)
-c1 <- t(c1)
-c1 <- apply(c1,2,mad,na.rm=T)
-c2 <- apply(df_T_50[,c(2:9,18,19)],2,"-",df_T_50$T_teo)
-m2 <- apply(c2,2,median,na.rm=T)
-c2 <- apply(c2,1,"-",m2)
-c2 <- t(c2)
-c2 <- apply(c2,2,mad,na.rm=T)
-c3 <- apply(df_T_inf[,c(2:9,18,19)],2,"-",df_T_inf$T_teo)
-m3 <- apply(c3,2,median,na.rm=T)
-c3 <- apply(c3,1,"-",m3)
-c3 <- t(c3)
-c3 <- apply(c3,2,mad,na.rm=T)
+#c1 <- apply(df_T_10[,c(2:9,18,19)],2,"-",df_T_10$T_teo)
+#m1 <- apply(c1,2,median,na.rm=T)
+#c1 <- apply(c1,1,"-",m1)
+#c1 <- t(c1)
+#c1 <- apply(c1,2,mad,na.rm=T)
+#c2 <- apply(df_T_50[,c(2:9,18,19)],2,"-",df_T_50$T_teo)
+#m2 <- apply(c2,2,median,na.rm=T)
+#c2 <- apply(c2,1,"-",m2)
+#c2 <- t(c2)
+#c2 <- apply(c2,2,mad,na.rm=T)
+#c3 <- apply(df_T_inf[,c(2:9,18,19)],2,"-",df_T_inf$T_teo)
+#m3 <- apply(c3,2,median,na.rm=T)
+#c3 <- apply(c3,1,"-",m3)
+#c3 <- t(c3)
+#c3 <- apply(c3,2,mad,na.rm=T)
+
+load("Trv_GA_models_IPAC-interp2_newT.RData")
+
+tmp2 <- gsub("M","",SpT)
+tmp2 <- gsub(":","",tmp2)
+tmp2 <- gsub("a","",tmp2)
+tmp2 <- gsub("b","",tmp2)
+tmp2 <- gsub("e","",tmp2)
+tmp2 <- gsub("\\+","",tmp2)
+tmp2 <- gsub("7-7.5","7.25",tmp2)
+tmp2 <- gsub("5-9","7",tmp2)
+tmp2 <- gsub("7-8","7.5",tmp2)
+tmp2 <- gsub("6-9","7.5",tmp2)
+tmp2 <- gsub("1-2","1.5",tmp2)
+tmp2 <- gsub("3to4","3.5",tmp2)
+tmp2 <- gsub("8-9","8.5",tmp2)
+tmp2 <- gsub("3-4","3.5",tmp2)
+tmp2 <- gsub("-","",tmp2)
+tmp3 <- as.numeric(tmp2)+10
+
+mask <- !is.na(tmp3)
+
+load("../../../sptype-teff/Teffs.RData")
+teff2 <- rep(NA,length(tmp3))
+teff2[mask] <- predict(m2,tmp3[!is.na(tmp3)])$y
+# new <- data.frame(x = tmp2)
+# teff <- predict.lm(m1,new,se.fit=TRUE)$fit
+
+# <-
+pchmask <- rep(NA,length(LC))
+pchmask[LC=="V"] = 15
+pchmask[LC=="III"] = 17
+pchmask[is.na(LC)] = 1
+colmask <- rep(NA,length(LC))
+colmask[LC=="V"] = "blue"
+colmask[LC=="III"] = "red"
+colmask[is.na(LC)] = "gray"
+
+referenceTeff <- teff2
+#referenceTeff[pchmask==15] <- teff2[pchmask==15]
+
+load("LSB_Tdata_plot_IPAC.RData")
+
+lc2 <- 15
 
 pdf("../ipac-teff.pdf",width=8,height=4)
 par(cex.axis=1.0)
@@ -38,8 +79,9 @@ nf = layout(layoutmat,respect=T,
 
 xl <- c(2000,4500)
 par(mar = c(0,5,1,0))
-plot(jitter(df_T_50$T_teo,5),df_T_50$Chi2_50,pch=lc2,cex=0.3,col="red",
+plot(jitter(df_T_50$T_teo,5),df_T_50$Chi2_50,pch=pchmask,cex=0.3,col="red",
      axes=F,xlab="",ylab=expression(T[eff]),cex.lab=1.5,xlim=xl,ylim=xl)
+points(jitter(referenceTeff,5),df_T_50$Chi2_50,pch=lc2,cex=0.3,col="blue")
 box()
 text(2000,4000,expression(GA-chi^2-50),pos=4,cex=1.5)
 axis(2)
@@ -57,6 +99,7 @@ par(mar = c(4,5,0,0))
 plot(jitter(df_T_50$T_teo,5),df_T_10$MARS,pch=lc2,cex=0.3,col="red",axes=F,
      xlab=expression(T[eff-SpT]),ylab=expression(T[eff]),
      cex.lab=1.5,xlim=xl,ylim=xl)
+points(jitter(referenceTeff,5),df_T_10$MARS,pch=lc2,cex=0.3,col="blue")
 box()
 axis(1)
 axis(2)
