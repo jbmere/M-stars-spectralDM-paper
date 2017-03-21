@@ -42,6 +42,7 @@ tmp3 <- as.numeric(tmp2)+10
 mask <- !is.na(tmp3)
 
 load("../../../sptype-teff/Teffs.RData")
+mask <- !is.na(tmp3)
 teff2 <- rep(NA,length(tmp3))
 teff2[mask] <- predict(m2,tmp3[!is.na(tmp3)])$y
 # new <- data.frame(x = tmp2)
@@ -79,16 +80,15 @@ nf = layout(layoutmat,respect=T,
 
 xl <- c(2000,4500)
 par(mar = c(0,5,1,0))
-plot(jitter(df_T_50$T_teo,5),df_T_50$Chi2_50,pch=pchmask,cex=0.3,col="red",
+plot(jitter(referenceTeff,5),df_T_50$Chi2_50,pch=pchmask,cex=0.5,col=colmask,
      axes=F,xlab="",ylab=expression(T[eff]),cex.lab=1.5,xlim=xl,ylim=xl)
-points(jitter(referenceTeff,5),df_T_50$Chi2_50,pch=lc2,cex=0.3,col="blue")
 box()
 text(2000,4000,expression(GA-chi^2-50),pos=4,cex=1.5)
 axis(2)
 abline(0,1)
 
 par(mar = c(0,0,1,4))
-plot(jitter(df_T_50$T_teo,5),df_T_inf$RF,pch=lc2,cex=0.3,col="red",axes=F,xlab="",
+plot(jitter(referenceTeff,5),df_T_inf$RF,pch=pchmask,cex=0.5,col=colmask,axes=F,xlab="",
      cex.lab=1.5,xlim=xl,ylim=xl)
 box()
 axis(4)
@@ -96,7 +96,7 @@ text(2000,4000,"GA-RF-inf",pos=4,cex=1.5)
 abline(0,1)
 
 par(mar = c(4,5,0,0))
-plot(jitter(df_T_50$T_teo,5),df_T_10$MARS,pch=lc2,cex=0.3,col="red",axes=F,
+plot(jitter(referenceTeff,5),df_T_10$MARS,pch=pchmask,cex=0.5,col=colmask,axes=F,
      xlab=expression(T[eff-SpT]),ylab=expression(T[eff]),
      cex.lab=1.5,xlim=xl,ylim=xl)
 points(jitter(referenceTeff,5),df_T_10$MARS,pch=lc2,cex=0.3,col="blue")
@@ -108,7 +108,7 @@ box()
 abline(0,1)
 #
 par(mar = c(4,0,0,4))
-plot(jitter(df_T_50$T_teo,5),df_T_10$NNR,pch=lc2,cex=0.3,col="red",axes=F,
+plot(jitter(referenceTeff,5),df_T_10$NNR,pch=pchmask,cex=0.5,col=colmask,axes=F,
           xlab=expression(T[eff-SpT]),
      ylab=expression(T[eff]),cex.lab=1.5,xlim=xl,ylim=xl)
 box()
@@ -171,6 +171,7 @@ par(mar = c(0,5,1,0))
 plot(log10(df_T_50$Chi2_50),df_G$NNR_10,pch=pchmask,cex=0.7,col=colmask,axes=F,xlab="",
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(tab3[,2]),tab3[,3],cex=.7,pch=lcirtf)
+points(log10(teffirtf),loggirtf,cex=.7,pch=lc,col="darkgreen")
 box()
 text(3.9,0,"GA-NNR-10",pos=4,cex=1.1)
 axis(2)
@@ -179,6 +180,7 @@ par(mar = c(0,0,1,4))
 plot(log10(df_T_50$Chi2_50),df_G$SVR_10,pch=pchmask,cex=0.7,col=colmask,axes=F,xlab="",
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(tab3[,2]),tab3[,3],cex=.7,pch=lcirtf)
+points(log10(teffirtf),loggirtf,cex=.7,pch=lc,col="darkgreen")
 box()
 axis(4)
 text(3.9,0,"GA-SVR-10",pos=4,cex=1)
@@ -187,16 +189,18 @@ par(mar = c(4,5,0,0))
 plot(log10(df_T_50$Chi2_50),df_G$Chi2_50,pch=pchmask,cex=0.7,col=colmask,axes=F,xlab=expression(log(T[eff])),
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(tab3[,2]),tab3[,3],cex=.7,pch=lcirtf)
+points(log10(teffirtf),loggirtf,cex=.7,pch=lc,col="darkgreen")
 box()
 axis(1)
 axis(2)
-text(3.9,0,expression(GA-chi^2-50),pos=4,cex=1)
+text(3.9,0,expression(chi^2-50),pos=4,cex=1)
 box()
 #
 par(mar = c(4,0,0,4))
 plot(log10(df_T_50$Chi2_50),df_G$ICA_10,pch=pchmask,cex=0.7,col=colmask,axes=F,xlab=expression(log(T[eff])),
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(tab3[,2]),tab3[,3],cex=.7,pch=lcirtf)
+points(log10(teffirtf),loggirtf,cex=.7,pch=lc,col="darkgreen")
 box()
 axis(1)
 axis(4)
@@ -241,6 +245,7 @@ nf = layout(layoutmat,respect=T,
 par(mar = c(0,5,1,0))
 plot(log10(df_T_inf$RF_Ces),df_G_CES$NNR_10,pch=pchmask,cex=0.5,col=colmask,axes=F,xlab="",
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
+points(log10(tab3[,2]),tab3[,3],cex=.7,pch=lcirtf)
 points(log10(teffirtf),loggirtf,cex=.5,pch=lc)
 box()
 text(3.4,0,"CES-NNR-10",pos=4,cex=0.7)
@@ -249,6 +254,7 @@ axis(2)
 par(mar = c(0,0,1,4))
 plot(log10(df_T_inf$RF_Ces),df_G_CES$SVR_50,pch=pchmask,cex=0.5,col=colmask,axes=F,xlab="",
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
+points(log10(tab3[,2]),tab3[,3],cex=.7,pch=lcirtf)
 points(log10(teffirtf),loggirtf,cex=.5,pch=lc)
 box()
 axis(4)
@@ -257,6 +263,7 @@ text(3.4,0,"CES-SVR-50",pos=4,cex=0.7)
 par(mar = c(4,5,0,0))
 plot(log10(df_T_inf$RF_Ces),df_G_CES$Chi2_50,pch=pchmask,cex=0.5,col=colmask,axes=F,xlab=expression(log(T[eff])),
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
+points(log10(tab3[,2]),tab3[,3],cex=.7,pch=lcirtf)
 points(log10(teffirtf),loggirtf,cex=.5,pch=lc)
 box()
 axis(1)
@@ -267,6 +274,7 @@ box()
 par(mar = c(4,0,0,4))
 plot(log10(df_T_inf$RF_Ces),df_G_CES$ICA_10,pch=pchmask,cex=0.5,col=colmask,axes=F,xlab=expression(log(T[eff])),
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
+points(log10(tab3[,2]),tab3[,3],cex=.7,pch=lcirtf)
 points(log10(teffirtf),loggirtf,cex=.5,pch=lc)
 box()
 axis(1)
