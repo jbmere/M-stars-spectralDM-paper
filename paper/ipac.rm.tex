@@ -17,36 +17,33 @@ GA-KPLS). For each model, we report the RMSE/RMDSE obtained for
 several noise levels of the training sets.
 
 Again, as in the IRTF case, we see that the compression of the spectra
-results in a performance degradation. {\bf TODO: continue} 
+results in a clear performance degradation with respect to the
+$\chi^2$ minimization technique results. Figure \ref{ipac-teff} shows
+a comparison between the effective temperatures derived from a
+spectral type calibration ({\it x} axis) and the predictions of the
+best regression models ({\it y} axis). In particular, we have
+converted the spectral types available in the {\it DwarfArchives.org}
+collection to effective temperatures using the same spline fit
+described in the IRTF Section. It shows that the best results based on
+the ten features selected by the GA are barely equivalent to the
+prediction accuracy of the $\chi^2$ estimates. The decrease in
+predictive variables results in a simpler and faster model, but the
+$\chi^2$ model is already simple so our conclusion is that the feature
+selection in this context of low resolution spectra in the optical
+range is unnecessary.
 
 \begin {figure*}
- \centering \includegraphics[width=\textwidth]{figs/ipac-teff.pdf}
+\label{ipac-teff}
+\centering \includegraphics[width=\textwidth]{figs/ipac-teff.pdf}
 \caption{Comparison
  between the effective temperatures derived from the tabulated
- spectral types in \cite{cesetti} and those inferred by the Neural
- Network module (top left, SNR=10), Support Vector Regression module
- (top right, SNR=10), $\chi^2$ minimization module (bottom left,
- SNR=50), and the Projection Pursuit Regression module based on ICA
- components (bottom right, SNR=10).  Blue squares denote Main Sequence
- dwarfs and red triangles denote giant stars (luminosity class III)
- according to \cite{cesetti}} \label{fig:ipac_teff}
+ spectral types in \cite{cesetti} and those inferred by the $\chi^2$
+ module (top left, SNR=50), Random Forest Regression module (top
+ right, SNR=$\infty$), GA-MARS module (bottom left, SNR=10), and the
+ Neural Network module (bottom right, SNR=10).  Blue squares denote
+ Main Sequence dwarfs and red triangles denote giant stars (luminosity
+class III) according to \cite{cesetti}} \label{fig:ipac_teff}
 \end {figure*}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Comparison with the Teff from SpType calibration.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-{\bf Explain the spt-teff calibration used.}
-
-{\bf Biases?}
-
-{\bf We do have problems with the prediction at low temperatures when
-trained with SNR= 10 or 50.}
-
-{\bf Include plot with 4 models}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Comparison with predictions from Cesetti's features. 
@@ -59,52 +56,33 @@ particular, we investigate the possibility that the features proposed
 by \cite{cesetti} result in a performance equal to or even better than
 the one achieved with $\chi^2$.
 
-%\begin{table}
-%\begin{center}
-%\begin{tabular}{rrrr}
-%  \hline
-%  $\lambda_1$ & $\lambda_2$ & $\lambda_{cont;1}$ & $\lambda_{cont;2} $ \\ 
-%  \hline
-%8461 & 8474 & 8474 & 8484 \\
-%8484 & 8513 & 8474 & 8484 \\
-%8522 &  8562 & 8474 & 8484 \\
-%8577 & 8619 & 8563 & 8577 \\
-%8642 & 8682 & 8619 & 8642 \\
-%8730 & 8772 & 8700 & 8725 \\
-%8802 & 8811 & 8776 & 8792 \\
-%8850 & 8890 & 8815 & 8850 \\
-%9000 & 9030 & 8983 & 8998 \\
-%9080  & 9100 & 9040 & 9050 \\
-%\hline
-%\end{tabular}
-%\caption {Features selected by following suggestions from Cesetti et al, table 1. } 
-%\label{tab:tab_CS_T}
-%\end{center}
-%\end{table}
+We train the same types of regression models to the features selected
+in \cite{cesetti}, again learning from BT-Settl spectra of various
+SNRs and predicting over the IPAC set. A summary of the results can be
+found in Table \ref{tab:ipac-teff-rmse-cesetti}, where we use CS- to
+indicate that the model was trained using the features
+by \cite{cesetti}. 
 
-We train the same regression models applied to the GA selected
-features, to the features selected in \cite{cesetti}, again learning
-from BT-Settl spectra of various SNRs and predicting over the IPAC
-set. A summary of the results can be found in Table
-\ref{tab:ipac-teff-rmse-cesetti}, where we use CS- to indicate that the model was
-trained using the features by \cite{cesetti}.
-
-For SNR=10, the GA best models (GA-KPLS in RMDSE or GA-RF in RMSE)
+For SNR=10, the best GA models (GA-KPLS in RMDSE or GA-RF in RMSE)
 outperform the best CS model (GA-GBM). For SNR=50 the situation
 depends on the figure-of-merit used to compare the classifiers: in
 RMSE the best model is CS-GBM while in RMDSE GA-GBM outperforms all
 CS-models. Finally, for the unrealistic case of noiseless spectra,
 Table \ref{tab:ipac-teff-rmse-cesetti} shows an overwhelming
-degradation of the prediction accuracy from CS- features. {\bf
-Overfitting?} But even in the only case where the CS features
-outperform those selected by the GA, the performance is below the one
-achieved by the minimum-$\chi^2$ approach.
+degradation of the prediction accuracy from CS- features. But even in
+the only case where the CS features outperform those selected by the
+GA, the performance is below the one achieved by the minimum-$\chi^2$
+approach. It is important to remark here that the features selected
+in \cite{cesetti} were fit for the IRTF wavelength range and
+resolution, and not all of them can be extracted from ipac
+spectra. Hence, unlike in the case of the IRTF spectra, the comparison
+of GA- and CS-based performances with IPAC spectra is not fair and
+the results are only included for the sake of completeness.
 
-%%% HERE 1 %%%
+{\bf rewrite with details } The relationship between the GA predicted
+effective temperature and the one measured by Rojas-Ayala can be found
+in the Figure~\ref{fig:ipac_lt_lt}
 
-The relationship between the GA predicted Temperature and the one
-measured by Rojas-Ayala can be found in the
-Figure~\ref{fig:ipac_lt_lt}
 \begin{figure}
  \begin{center}
  \includegraphics[width=9cm]{figs/ipac_LG_Trojas_Tknn_10.pdf}
@@ -131,41 +109,49 @@ models. Table~\ref{tab:ipac-logg-rmse} shows the cross-validation RMSE
 and RMDSE for the same set of regression models used throughout this
 article. It shows that the GA-RF model outperforms all other in all
 SNR regimes, giving a consistent RMDSE of 1.0 dex. Obviously, this is
-barely enough for classification in luminosity classes.
+barely enough for classification in luminosity classes. Furthermore,
+and as has been the case in the evaluation of all previous regression
+modules, the cross-validation errors are poor estimates of the true
+performances on real observed spectra. Figure \ref{fig:teffvsloggIPAC}
+shows the $\log(T_{\rm eff})$--$\log(g)$ diagram for the best two
+performing $\log(g)$ regression models (GA-NNR and GA-SVR, both
+trained with SNR=10 BT-Settl spectra) and the two reference modules
+based on the minimization of the $\chi^2$ (SNR=50) and the PPR-ICA
+(SNR=10). Three of the four panels (all except the $\chi^2$
+predictions) show a strong spurious correlation in the gravities of
+the M dwarfs in the sense that the coolest dwarfs have unreasonable
+values of $\log(g)$ around 2 dex. The PPR-ICA model shows this trend
+too, but with a much shallower slope ($\log(g)\approx 4$ at
+$\log(T_{\rm eff})\approx 3.4$). Only the GA-NNR module (and to a
+lesser extent the $\chi^2$ module) places giant stars (red triangles)
+in the locus expected judging by the values in Table 3
+of \cite{cesetti} (black filled symbols) and the predictions for the
+IRTF data set (green filled symbols). The various symbols (squares,
+triangles, circles) reflect the luminosity classes found in either
+Table 3 of \cite{cesetti} (for the IRTF values) or the DwarfArchives
+table. 
 
-
-% THIS PARAGRAPGH NEEDS REWRITING
-Figure \ref{fig:teffvsloggIPAC} shows the $\log(T_{\rm
-  eff})$--$\log(g)$ diagram for the GA-RF and GA-NNET models. The
-  latter is, in our opinion, the one that shows the diagram that is
-  most consistent with Fig. \ref{} in this work, and Fig. 1
-  in \cite{cesetti}. All GA- models predict decreasing surface
-  gravities for main sequence stars below $\log(T_{\rm
-  eff}=3.6$. GA-NNET predicts main sequence values between
-  $4 \le \log(g) \le6$, while luminosity classes III-I appear clearly
-  separated from the main sequence with values concentrated in the 4-6
-  range except for the hottest cases with $\log(T_{rm eff} >
-  3.55$. The GA-RF results, despite showing the best cross-validation
-  errors (RMSE/RMDSE), result in unrealistic main sequence
-  gravities. We interpret this as the result of overfitting to the
-  training examples.
 
 \begin{figure*}
  \begin{center}
  \includegraphics[width=\textwidth]{figs/ipac-teff-logg.pdf}
- \caption{Relationship between $log(T) $ ($x$ axis) 
- and $log(g)$ ($y$ axis) for several regression models.}
- \label{fig:teffvsloggIPAC}
+
+\caption{$\log(T_{\rm eff})$-$log(g)$ planes obtained using the $\chi^2$ (SNR=50)
+$\log(T_{\rm eff}$ preditions and the $\log(g)$ values from the GA-NNR
+(SNR=10, top left), GA-SVR (SNR=10, top right), $\chi^2$ (SNR=50,
+bottom left), and PPR-ICA (SNR=10, bottom right) regression
+models. Black symbols correspond to objects with physical parameters
+in Table 3 of \cite{cesetti}; green symbols correspond to the
+predictions shown in Section \ref{sect:irtf-teff} for the IRTF
+spectra; blue squares correspond to predictions for dwarf stars
+according to the DwarfArchives.org luminosity classes; red triangles
+correspond to giant stars according to DwarfArchives.org; finally,
+empty grey circles correspond to sources with no luminosity class in
+DwatfArchives.org.}
+
+\label{fig:teffvsloggIPAC}
  \end{center}
 \end{figure*}
-
-{\bf Right now, it appears that feature selected models are worse than
-$\chi^2$, judging only from the 10 available estimates (mail sent to
-jbmere). If so, the conclusion is clear: we should not do feature
-selection at these resolutions. This is useful as Cesseti et al do not
-question the utility of feature selection. For the IRTF (which is the
-dataset used by Cesseti et al), we should check this: are the models
-with feature selection better than $\chi^2$?}
 
 \subsubsection{Metallicity models} 
 
@@ -184,11 +170,6 @@ in the grid, which has a step size of 0.5 dex). Models trained with
 SNR=10 and 50, on the contrary,  show a more consistent behaviour for 
 the entire set of regressors, with poorer performances than the 
 apparently optimal $GA-RF-\infty$, but also smaller differences between models. 
-
-%
-% Metalicidad teórica desde NevesIII para IPAC
-%
-% Check if this comes from CV if not, replace
 
 In order to select the best model, we again compare our model
 predictions with the reference catalogs used in
@@ -257,7 +238,9 @@ categories (see Table \ref{tab:known-sds}).
 	\label{tab:known-sds} 
 \end{table}
 
-The remaining 5 stars with metallicities below -1.5 are 2MASS J17275631-3240430 (-2.0 dex); 
-LHS 1625 (-1.97 dex);  2MASS J19215188+2802275 (-1.9 dex); 2MASS J19004675+2806462 (-1.7 dex), 
-classified as K7III by \cite{1994ApJS...94..749K}); and 2MASS J14465233-5320580 (-1.7 dex). 
+The remaining 5 stars with metallicities below -1.5 are 2MASS
+J17275631-3240430 (-2.0 dex); LHS 1625 (-1.97 dex); 2MASS
+J19215188+2802275 (-1.9 dex); 2MASS J19004675+2806462 (-1.7 dex),
+classified as K7III by \cite{1994ApJS...94..749K}); and 2MASS
+J14465233-5320580 (-1.7 dex).
 
