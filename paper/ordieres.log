@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.3.17)  21 MAR 2017 16:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.1.19)  23 MAY 2017 12:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -748,35 +748,7 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 LaTeX Warning: Unused global option(s):
     [printer].
 
-(./ordieres.aux
-
-LaTeX Warning: Label `fig:irtf-teff' multiply defined.
-
-
-LaTeX Warning: Label `fig:irtf-teff' multiply defined.
-
-
-LaTeX Warning: Label `fig:irtf-teff' multiply defined.
-
-
-LaTeX Warning: Label `fig:irtf-teff' multiply defined.
-
-
-LaTeX Warning: Label `fig:irtf-teff' multiply defined.
-
-
-LaTeX Warning: Label `fig:irtf-teff' multiply defined.
-
-
-LaTeX Warning: Label `fig:irtf-teff' multiply defined.
-
-
-LaTeX Warning: Label `fig:irtf-teff' multiply defined.
-
-
-LaTeX Warning: Label `fig:irtf-teff' multiply defined.
-
-)
+(./ordieres.aux)
 \openout1 = `ordieres.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 41.
@@ -970,15 +942,19 @@ LaTeX Font Info:    Font shape `T1/txss/m/n' will be
 (Font)              scaled to size 8.54997pt on input line 123.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
 (Font)              scaled to size 8.54997pt on input line 123.
+LaTeX Font Info:    Font shape `T1/txss/m/it' in size <9> not available
+(Font)              Font shape `T1/txss/m/sl' tried instead on input line 123.
+LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
+(Font)              scaled to size 8.54997pt on input line 123.
 
 Output from handle ordieres going to ordieres.llt
 \ordieres@file=\write4
 \openout4 = `ordieres.llt'.
 
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 10.40245pt on input line 129.
+(Font)              scaled to size 10.40245pt on input line 126.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 10.40245pt on input line 129.
+(Font)              scaled to size 10.40245pt on input line 126.
 (./intro.tex
 
 Package natbib Warning: Citation `rajpurohit' on page 1 undefined on input line
@@ -988,41 +964,40 @@ Package natbib Warning: Citation `rajpurohit' on page 1 undefined on input line
 Package natbib Warning: Citation `amelia' on page 1 undefined on input line 10.
 
 
-) (./meth.tex
+) (./meth.tex [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+]
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
 (Font)              scaled to size 9.49997pt on input line 37.
 LaTeX Font Info:    Font shape `T1/txss/m/it' in size <10> not available
 (Font)              Font shape `T1/txss/m/sl' tried instead on input line 37.
 LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
 (Font)              scaled to size 9.49997pt on input line 37.
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-
-]
 
 Package natbib Warning: Citation `PaperAna' on page 2 undefined on input line 6
 3.
 
 [2]
+Underfull \vbox (badness 2452) has occurred while \output is active []
+
+ [3]
 Underfull \hbox (badness 2302) in paragraph at lines 299--300
 []\T1/txr/m/n/10 Bagging with Mul-ti-adap-tive Spline Re-gres-sion Mod-els
  []
 
-[3]
+
 Overfull \hbox (48.9252pt too wide) in paragraph at lines 380--381
 [] 
  []
 
-) (./irtf.fs.tex [4]
 
-LaTeX Warning: Reference `bandsIRTF' on page 5 undefined on input line 51.
+Underfull \vbox (badness 2698) has occurred while \output is active []
 
-) (./irtf.rm.tex
-
-Package natbib Warning: Citation `PaperAna' on page 5 undefined on input line 6
-7.
-
-<figs/irtf-teffs-literature.pdf, id=29, 578.16pt x 578.16pt>
+) [4]
+(./irtf.fs.tex) (./irtf.rm.tex
+<figs/irtf-teffs-literature.pdf, id=28, 578.16pt x 578.16pt>
 File: figs/irtf-teffs-literature.pdf Graphic file (type pdf)
 
 <use figs/irtf-teffs-literature.pdf>
@@ -1033,8 +1008,7 @@ Overfull \hbox (4.09479pt too wide) in paragraph at lines 79--80
  [][] 
  []
 
-[5 <./figs/irtf-teffs-literature.pdf>]
-<figs/irtf-CESteffs-literature.pdf, id=39, 578.16pt x 578.16pt>
+[5] <figs/irtf-CESteffs-literature.pdf, id=33, 578.16pt x 578.16pt>
 File: figs/irtf-CESteffs-literature.pdf Graphic file (type pdf)
 
 <use figs/irtf-CESteffs-literature.pdf>
@@ -1046,106 +1020,96 @@ Overfull \hbox (4.09479pt too wide) in paragraph at lines 146--147
  [][] 
  []
 
-<figs/ordieres-fig4.pdf, id=40, 578.16pt x 361.35pt>
+[6 <./figs/irtf-teffs-literature.pdf> <./figs/irtf-CESteffs-literature.pdf>]
+<figs/ordieres-fig4.pdf, id=49, 578.16pt x 361.35pt>
 File: figs/ordieres-fig4.pdf Graphic file (type pdf)
 
 <use figs/ordieres-fig4.pdf>
 Package pdftex.def Info: figs/ordieres-fig4.pdf used on input line 197.
 (pdftex.def)             Requested size: 523.5307pt x 327.22452pt.
- [6 <./figs/irtf-CESteffs-literature.pdf>]
+
 <figs/irtf-figs/M-ICA10.pdf, id=50, 505.89pt x 505.89pt>
 File: figs/irtf-figs/M-ICA10.pdf Graphic file (type pdf)
 
 <use figs/irtf-figs/M-ICA10.pdf>
-Package pdftex.def Info: figs/irtf-figs/M-ICA10.pdf used on input line 266.
+Package pdftex.def Info: figs/irtf-figs/M-ICA10.pdf used on input line 270.
 (pdftex.def)             Requested size: 235.5872pt x 235.59149pt.
 
 <figs/ordieres-fig8.pdf, id=51, 578.16pt x 361.35pt>
 File: figs/ordieres-fig8.pdf Graphic file (type pdf)
 
 <use figs/ordieres-fig8.pdf>
-Package pdftex.def Info: figs/ordieres-fig8.pdf used on input line 296.
+Package pdftex.def Info: figs/ordieres-fig8.pdf used on input line 300.
 (pdftex.def)             Requested size: 261.76535pt x 163.60399pt.
 
-Overfull \hbox (5.69055pt too wide) in paragraph at lines 296--299
+Overfull \hbox (5.69055pt too wide) in paragraph at lines 300--303
  [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-) [7 <./figs/ordieres-fig4.pdf>] (./ipac.fs.tex
-Underfull \vbox (badness 4899) has occurred while \output is active []
-
-)
-(./ipac.rm.tex
-
-Package caption Warning: \label without proper \caption on input line 36.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `ipac-teff' on page 8 undefined on input line 21.
-
-<figs/ipac-teff.pdf, id=63, 578.16pt x 289.08pt>
+) [7 <./figs/irtf-figs/M-ICA10.pdf> <./figs/ordieres-fig8.pdf>] (./ipac.fs.tex)
+(./ipac.rm.tex [8 <./figs/ordieres-fig4.pdf>]
+<figs/ipac-teff.pdf, id=78, 578.16pt x 289.08pt>
 File: figs/ipac-teff.pdf Graphic file (type pdf)
  <use figs/ipac-teff.pdf>
-Package pdftex.def Info: figs/ipac-teff.pdf used on input line 37.
+Package pdftex.def Info: figs/ipac-teff.pdf used on input line 36.
 (pdftex.def)             Requested size: 523.5307pt x 261.7796pt.
 
-[8 <./figs/irtf-figs/M-ICA10.pdf> <./figs/ordieres-fig8.pdf>]
-<figs/ipac_LG_Trojas_Tknn_10.pdf, id=79, 650.43pt x 650.43pt>
+<figs/ipac_LG_Trojas_Tknn_10.pdf, id=79, 505.89pt x 505.89pt>
 File: figs/ipac_LG_Trojas_Tknn_10.pdf Graphic file (type pdf)
 
 <use figs/ipac_LG_Trojas_Tknn_10.pdf>
-Package pdftex.def Info: figs/ipac_LG_Trojas_Tknn_10.pdf used on input line 88.
+Package pdftex.def Info: figs/ipac_LG_Trojas_Tknn_10.pdf used on input line 86.
 
 (pdftex.def)             Requested size: 256.0748pt x 256.07838pt.
 
-Underfull \vbox (badness 1221) has occurred while \output is active []
-
- [9 <./figs/ipac-teff.pdf> <./figs/ipac_LG_Trojas_Tknn_10.pdf>]
-<figs/ipac-teff-logg.pdf, id=96, 578.16pt x 361.35pt>
+<figs/ipac-teff-logg.pdf, id=80, 578.16pt x 361.35pt>
 File: figs/ipac-teff-logg.pdf Graphic file (type pdf)
 
 <use figs/ipac-teff-logg.pdf>
-Package pdftex.def Info: figs/ipac-teff-logg.pdf used on input line 137.
+Package pdftex.def Info: figs/ipac-teff-logg.pdf used on input line 136.
 (pdftex.def)             Requested size: 523.5307pt x 327.22452pt.
 
-<figs/ipac-figs/M-RFInf.pdf, id=97, 505.89pt x 505.89pt>
+Underfull \vbox (badness 4634) has occurred while \output is active []
+
+ [9 <./figs/ipac_LG_Trojas_Tknn_10.pdf>]
+<figs/ipac-figs/M-RFInf.pdf, id=90, 505.89pt x 505.89pt>
 File: figs/ipac-figs/M-RFInf.pdf Graphic file (type pdf)
 
 <use figs/ipac-figs/M-RFInf.pdf>
-Package pdftex.def Info: figs/ipac-figs/M-RFInf.pdf used on input line 192.
+Package pdftex.def Info: figs/ipac-figs/M-RFInf.pdf used on input line 188.
 (pdftex.def)             Requested size: 256.0748pt x 256.07838pt.
 
-<figs/ipac-figs/ipac-M-hist.pdf, id=98, 505.89pt x 505.89pt>
+<figs/ipac-figs/ipac-M-hist.pdf, id=91, 505.89pt x 505.89pt>
 File: figs/ipac-figs/ipac-M-hist.pdf Graphic file (type pdf)
 
 <use figs/ipac-figs/ipac-M-hist.pdf>
-Package pdftex.def Info: figs/ipac-figs/ipac-M-hist.pdf used on input line 217.
+Package pdftex.def Info: figs/ipac-figs/ipac-M-hist.pdf used on input line 214.
 
 (pdftex.def)             Requested size: 256.0748pt x 256.07838pt.
 
-Overfull \hbox (12.59526pt too wide) in paragraph at lines 225--237
+Overfull \hbox (12.59526pt too wide) in paragraph at lines 226--238
  [][] 
  []
 
 
-Underfull \hbox (badness 4531) in paragraph at lines 241--246
+Underfull \hbox (badness 4531) in paragraph at lines 242--247
 []\T1/txr/m/n/10 The re-main-ing 5 stars with metal-lic-i-ties be-low -1.5
  []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 241--246
+Underfull \hbox (badness 1661) in paragraph at lines 242--247
 \T1/txr/m/n/10 are 2MASS J17275631-3240430 (-2.0 dex); LHS 1625 (-
  []
 
-) (./ipac.ces.tex) [10 <./figs/ipac-figs/M-RFInf.pdf>] [11 <./figs/ipac-teff-lo
-gg.pdf>] (./summary.tex) (./ordieres.bbl [12
+) (./ipac.ces.tex) [10 <./figs/ipac-teff.pdf>] [11 <./figs/ipac-teff-logg.pdf>]
+(./summary.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- <./figs/ipac-figs/ipac-M-hist.pdf>] (./ordieres.llt)) (./appendix-wavelengths.
-tex
-<figs/BT-spectraAtIRTF-Inf-teff.pdf, id=127, 505.89pt x 505.89pt>
+ [12
+
+ <./figs/ipac-figs/M-RFInf.pdf>]) (./ordieres.bbl (./ordieres.llt))
+(./appendix-wavelengths.tex
+<figs/BT-spectraAtIRTF-Inf-teff.pdf, id=122, 505.89pt x 505.89pt>
 File: figs/BT-spectraAtIRTF-Inf-teff.pdf Graphic file (type pdf)
 
 <use figs/BT-spectraAtIRTF-Inf-teff.pdf>
@@ -1157,7 +1121,7 @@ Overfull \hbox (22.16554pt too wide) in paragraph at lines 39--45
  [][] 
  []
 
-<figs/BT-spectraAtIRTF-10-teff.pdf, id=128, 505.89pt x 505.89pt>
+<figs/BT-spectraAtIRTF-10-teff.pdf, id=123, 505.89pt x 505.89pt>
 File: figs/BT-spectraAtIRTF-10-teff.pdf Graphic file (type pdf)
 
 <use figs/BT-spectraAtIRTF-10-teff.pdf>
@@ -1169,7 +1133,7 @@ Overfull \hbox (22.16554pt too wide) in paragraph at lines 79--85
  [][] 
  []
 
-<figs/BT-spectraAtIRTF-50-teff.pdf, id=129, 505.89pt x 505.89pt>
+<figs/BT-spectraAtIRTF-50-teff.pdf, id=124, 505.89pt x 505.89pt>
 File: figs/BT-spectraAtIRTF-50-teff.pdf Graphic file (type pdf)
 
 <use figs/BT-spectraAtIRTF-50-teff.pdf>
@@ -1181,7 +1145,7 @@ Overfull \hbox (22.16554pt too wide) in paragraph at lines 91--97
  [][] 
  []
 
-<figs/BT-spectraAtIRTF-Inf-logg.pdf, id=130, 505.89pt x 505.89pt>
+<figs/BT-spectraAtIRTF-Inf-logg.pdf, id=125, 505.89pt x 505.89pt>
 File: figs/BT-spectraAtIRTF-Inf-logg.pdf Graphic file (type pdf)
 
 <use figs/BT-spectraAtIRTF-Inf-logg.pdf>
@@ -1193,7 +1157,7 @@ Overfull \hbox (22.16554pt too wide) in paragraph at lines 177--183
  [][] 
  []
 
-<figs/BT-spectraAtIRTF-10-logg.pdf, id=131, 505.89pt x 505.89pt>
+<figs/BT-spectraAtIRTF-10-logg.pdf, id=126, 505.89pt x 505.89pt>
 File: figs/BT-spectraAtIRTF-10-logg.pdf Graphic file (type pdf)
 
 <use figs/BT-spectraAtIRTF-10-logg.pdf>
@@ -1205,7 +1169,7 @@ Overfull \hbox (22.16554pt too wide) in paragraph at lines 216--222
  [][] 
  []
 
-<figs/BT-spectraAtIRTF-50-logg.pdf, id=132, 505.89pt x 505.89pt>
+<figs/BT-spectraAtIRTF-50-logg.pdf, id=127, 505.89pt x 505.89pt>
 File: figs/BT-spectraAtIRTF-50-logg.pdf Graphic file (type pdf)
 
 <use figs/BT-spectraAtIRTF-50-logg.pdf>
@@ -1217,7 +1181,7 @@ Overfull \hbox (22.16554pt too wide) in paragraph at lines 228--234
  [][] 
  []
 
-<figs/BT-spectraAtIRTF-Inf-mh.pdf, id=133, 505.89pt x 505.89pt>
+<figs/BT-spectraAtIRTF-Inf-mh.pdf, id=128, 505.89pt x 505.89pt>
 File: figs/BT-spectraAtIRTF-Inf-mh.pdf Graphic file (type pdf)
 
 <use figs/BT-spectraAtIRTF-Inf-mh.pdf>
@@ -1229,7 +1193,7 @@ Overfull \hbox (22.16554pt too wide) in paragraph at lines 271--277
  [][] 
  []
 
-<figs/BT-spectraAtIRTF-10-mh.pdf, id=134, 505.89pt x 505.89pt>
+<figs/BT-spectraAtIRTF-10-mh.pdf, id=129, 505.89pt x 505.89pt>
 File: figs/BT-spectraAtIRTF-10-mh.pdf Graphic file (type pdf)
 
 <use figs/BT-spectraAtIRTF-10-mh.pdf>
@@ -1241,7 +1205,7 @@ Overfull \hbox (22.16554pt too wide) in paragraph at lines 313--319
  [][] 
  []
 
-<figs/BT-spectraAtIRTF-50-mh.pdf, id=135, 505.89pt x 505.89pt>
+<figs/BT-spectraAtIRTF-50-mh.pdf, id=130, 505.89pt x 505.89pt>
 File: figs/BT-spectraAtIRTF-50-mh.pdf Graphic file (type pdf)
 
 <use figs/BT-spectraAtIRTF-50-mh.pdf>
@@ -1253,31 +1217,29 @@ Overfull \hbox (22.16554pt too wide) in paragraph at lines 325--331
  [][] 
  []
 
-[13 <./figs/BT-spectraAtIRTF-Inf-teff.pdf>] [14] [15]) (./appendix-RMSE.tex
+[13 <./figs/ipac-figs/ipac-M-hist.pdf>] [14] [15]) (./appendix-RMSE.tex
 [16
 
- <./figs/BT-spectraAtIRTF-10-teff.pdf>] [17] [18
+ <./figs/BT-spectraAtIRTF-Inf-teff.pdf>] [17] [18
 
- <./figs/BT-spectraAtIRTF-50-teff.pdf>] [19] [20]) (./appendix-figures.tex [21
+ <./figs/BT-spectraAtIRTF-10-teff.pdf>] [19] [20]) (./appendix-figures.tex [21
 
- <./figs/BT-spectraAtIRTF-Inf-logg.pdf>] [22
-
-] [23]
-<figs/irtf-figs/irtf-Cesseti.pdf, id=192, 578.16pt x 361.35pt>
+ <./figs/BT-spectraAtIRTF-50-teff.pdf>] [22] [23]
+<figs/irtf-figs/irtf-Cesseti.pdf, id=187, 578.16pt x 361.35pt>
 File: figs/irtf-figs/irtf-Cesseti.pdf Graphic file (type pdf)
 
 <use figs/irtf-figs/irtf-Cesseti.pdf>
 Package pdftex.def Info: figs/irtf-figs/irtf-Cesseti.pdf used on input line 8.
 (pdftex.def)             Requested size: 523.5307pt x 327.22452pt.
 
-<figs/irtf-figs/M-CES.pdf, id=193, 505.89pt x 505.89pt>
+<figs/irtf-figs/M-CES.pdf, id=188, 505.89pt x 505.89pt>
 File: figs/irtf-figs/M-CES.pdf Graphic file (type pdf)
 
 <use figs/irtf-figs/M-CES.pdf>
 Package pdftex.def Info: figs/irtf-figs/M-CES.pdf used on input line 20.
 (pdftex.def)             Requested size: 235.5872pt x 235.59149pt.
 
-<figs/ipac-Cesseti.pdf, id=194, 578.16pt x 361.35pt>
+<figs/ipac-Cesseti.pdf, id=189, 578.16pt x 361.35pt>
 File: figs/ipac-Cesseti.pdf Graphic file (type pdf)
 
 <use figs/ipac-Cesseti.pdf>
@@ -1289,43 +1251,40 @@ Package natbib Warning: There were undefined citations.
 
 [24
 
- <./figs/BT-spectraAtIRTF-10-logg.pdf>] [25 <./figs/irtf-figs/irtf-Cesseti.pdf>
-] [26 <./figs/ipac-Cesseti.pdf>] [26 <./figs/BT-spectraAtIRTF-50-logg.pdf> <./f
-igs/BT-spectraAtIRTF-Inf-mh.pdf>] [27 <./figs/BT-spectraAtIRTF-10-mh.pdf> <./fi
-gs/BT-spectraAtIRTF-50-mh.pdf> <./figs/irtf-figs/M-CES.pdf>] (./ordieres.aux)
-
-LaTeX Warning: There were undefined references.
+ <./figs/BT-spectraAtIRTF-Inf-logg.pdf>] [25 <./figs/irtf-figs/irtf-Cesseti.pdf
+>] [26 <./figs/ipac-Cesseti.pdf>] [26 <./figs/BT-spectraAtIRTF-10-logg.pdf> <./
+figs/BT-spectraAtIRTF-50-logg.pdf>] [27 <./figs/BT-spectraAtIRTF-Inf-mh.pdf> <.
+/figs/BT-spectraAtIRTF-10-mh.pdf>] [28
 
 
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+ <./figs/BT-spectraAtIRTF-50-mh.pdf> <./figs/irtf-figs/M-CES.pdf>] (./ordieres.
+aux) ) 
 Here is how much of TeX's memory you used:
- 7903 strings out of 494958
- 111119 string characters out of 6179386
- 219389 words of memory out of 5000000
- 10823 multiletter control sequences out of 15000+600000
- 90764 words of font info for 145 fonts, out of 8000000 for 9000
+ 7922 strings out of 494958
+ 111423 string characters out of 6179386
+ 230561 words of memory out of 5000000
+ 10838 multiletter control sequences out of 15000+600000
+ 95392 words of font info for 150 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
- 41i,21n,45p,937b,480s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txf
-onts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxsc.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/
-uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/urw/times/utmri8a.pfb>
-Output written on ordieres.pdf (28 pages, 4800511 bytes).
+ 41i,21n,45p,938b,440s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/te
+xlive/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtx
+sc.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helve
+tic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/urw/times/utmri8a.pfb>
+Output written on ordieres.pdf (29 pages, 4805008 bytes).
 PDF statistics:
- 305 PDF objects out of 1000 (max. 8388607)
- 213 compressed objects within 3 object streams
+ 308 PDF objects out of 1000 (max. 8388607)
+ 215 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  111 words of extra memory for PDF output out of 10000 (max. 10000000)
 

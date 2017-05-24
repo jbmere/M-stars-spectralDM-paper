@@ -161,7 +161,7 @@ axis(4)
 text(3.4,0,"GA-PLS-50",pos=4,cex=0.7)
 
 par(mar = c(4,5,0,0))
-plot(log10(df_T_inf$KNN),df_G$NNR_50,pch=lc2,cex=0.5,col="blue",axes=F,xlab=expression(log(T[eff])),
+plot(log10(df_T_inf$KNN),df_G$NNR_50,pch=lc2,cex=0.5,col="red",axes=F,xlab=expression(log(T[eff])),
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(tab3[,2]),tab3[,3],cex=.5,pch=lc)
 box()
@@ -171,7 +171,7 @@ text(3.4,0,"GA-NNR-50",pos=4,cex=0.7)
 box()
 #
 par(mar = c(4,0,0,4))
-plot(log10(df_T_inf$KNN),df_G$ICA_10,pch=lc2,cex=0.5,col="blue",axes=F,xlab=expression(log(T[eff])),
+plot(log10(df_T_inf$KNN),df_G$ICA_10,pch=lc2,cex=0.5,col="red",axes=F,xlab=expression(log(T[eff])),
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(tab3[,2]),tab3[,3],cex=.5,pch=lc)
 box()
@@ -407,9 +407,9 @@ SetupPalette<-function(c)
 pdf("../ordieres-fig8.pdf",width=8,height=5)
 par(cex.axis=1.0,mar=c(5,5,1,7))
 col <- SetupPalette(df_M$ICA_10)
-plot(log10(df_T_inf$KNN),df_G$`Rule-Regression_50`,pch=lc2,cex=0.5,col=col,xlab=expression(log(T[eff])),
+plot(log10(df_T_inf$KNN),df_G$`Rule-Regression_50`,pch=lc2,cex=0.8,col=col,xlab=expression(log(T[eff])),
      ylab="log(g)",cex.lab=1.7, cex.axis=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
-points(log10(tab3[,2]),tab3[,3],cex=.5,pch=lc)
+points(log10(tab3[,2]),tab3[,3],cex=.8,pch=lc)
 text(3.4,-0.75,"GA-RR-50",pos=4,cex=1.2)
 image.plot(legend.only=TRUE, zlim= range(df_M$ICA_10,na.rm=T), horizontal=FALSE,
            legend.width=2, reset.graphics=TRUE, axis.args=list(cex.axis=1.5,cex.lab=1),

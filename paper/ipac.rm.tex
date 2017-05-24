@@ -17,8 +17,8 @@ GA-KPLS). For each model, we report the RMSE/RMDSE obtained for
 several noise levels of the training sets.
 
 Again, as in the IRTF case, we see that the compression of the spectra
-results in a clear performance degradation with respect to the
-$\chi^2$ minimization technique results. Figure \ref{ipac-teff} shows
+results in a clear performance degradatio n with respect to the
+$\chi^2$ minimization technique results. Figure \ref{fig:ipac_teff} shows
 a comparison between the effective temperatures derived from a
 spectral type calibration ({\it x} axis) and the predictions of the
 best regression models ({\it y} axis). In particular, we have
@@ -33,7 +33,6 @@ selection in this context of low resolution spectra in the optical
 range is unnecessary.
 
 \begin {figure*}
-\label{ipac-teff}
 \centering \includegraphics[width=\textwidth]{figs/ipac-teff.pdf}
 \caption{Comparison
  between the effective temperatures derived from the tabulated
@@ -42,7 +41,7 @@ range is unnecessary.
  right, SNR=$\infty$), GA-MARS module (bottom left, SNR=10), and the
  Neural Network module (bottom right, SNR=10).  Blue squares denote
  Main Sequence dwarfs and red triangles denote giant stars (luminosity
-class III) according to \cite{cesetti}} \label{fig:ipac_teff}
+ class III) according to \cite{cesetti}} \label{fig:ipac_teff}
 \end {figure*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -137,9 +136,9 @@ table.
  \includegraphics[width=\textwidth]{figs/ipac-teff-logg.pdf}
 
 \caption{$\log(T_{\rm eff})$-$log(g)$ planes obtained using the $\chi^2$ (SNR=50)
-$\log(T_{\rm eff}$ preditions and the $\log(g)$ values from the GA-NNR
-(SNR=10, top left), GA-SVR (SNR=10, top right), $\chi^2$ (SNR=50,
-bottom left), and PPR-ICA (SNR=10, bottom right) regression
+$\log(T_{\rm eff})$ preditions and the $\log(g)$ values from the
+GA-NNR (SNR=10, top left), GA-SVR (SNR=10, top right), $\chi^2$
+(SNR=50, bottom left), and PPR-ICA (SNR=10, bottom right) regression
 models. Black symbols correspond to objects with physical parameters
 in Table 3 of \cite{cesetti}; green symbols correspond to the
 predictions shown in Section \ref{sect:irtf-teff} for the IRTF
@@ -173,20 +172,18 @@ apparently optimal $GA-RF-\infty$, but also smaller differences between models.
 
 In order to select the best model, we again compare our model
 predictions with the reference catalogs used in
-Sect. \ref{sect:irtf-met}. We select, as best model the Random Forest
-trained with noiseless synthetic spectra, which renders the minimum
-RMSE (0.3 dex). Figure \ref{fig:ipac_mt} shows the comparison of our
-estimates with the reference catalogs, using the same symbols and
-colours as in Fig. \ref{MIRTF_ICA_10}.
+Sect. \ref{sect:irtf-met}. We select the Random Forest trained with
+noiseless synthetic spectra as the best model, which renders the
+minimum RMSE (0.3 dex). Figure \ref{fig:ipac_mt} shows the comparison
+of our estimates with the reference catalogs, using the same symbols
+and colours as in Fig. \ref{MIRTF_ICA_10}.
 
 Our value of the RMSE contrasts with the differences between estimates
 for the same star in the literature. We obtain a mean difference of
-0.1 dex {\bf TO BE COMPLETED ALSO FOR IRTF}
+0.1 dex a factor 3 smaller than our RMSE. 
 
+{\bf TODO: discuss why the literature has smaller differences. Do they use higher resolution? IR spectra? IPAC is low res and optical, so we cannot do miracles, but this needs be explained.}
 
-%% Check results from cesseti and add a plot with best prediction
-
-% FIGURE WITH LITERATURE METALLICITIES
 \begin{figure}
  \begin{center} \includegraphics[width=9cm]{figs/ipac-figs/M-RFInf.pdf}
 
@@ -218,6 +215,10 @@ categories (see Table \ref{tab:known-sds}).
 		\caption{}
 		\label{fig:ipac-hist-mets}
 	\end{center}
+        
+        \caption{Predictions of the GA-RF-$\infty$ regression model
+        for the metallicity of IPAC stars.}
+
 \end{figure}
 
 
