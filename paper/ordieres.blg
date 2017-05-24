@@ -3,55 +3,47 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: ordieres.aux
 The style file: bibtex/aa.bst
 Database file #1: references_m.bib
-Repeated entry---line 155 of file references_m.bib
- : @article{2009ApJS..185..289R
- :                             ,
-I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "rajpurohit"
-Warning--I didn't find a database entry for "amelia"
-Warning--I didn't find a database entry for "PaperAna"
-Warning--I didn't find a database entry for ""
 Warning--empty journal in caret
 Warning--empty publisher in 1996imsa.book.....O
-You've used 38 entries,
+You've used 48 entries,
             2947 wiz_defined-function locations,
-            890 strings with 12690 characters,
-and the built_in function-call counts, 19490 in all, are:
-= -- 1579
-> -- 1734
-< -- 11
-+ -- 583
-- -- 540
-* -- 1686
-:= -- 3672
-add.period$ -- 38
-call.type$ -- 38
-change.case$ -- 332
-chr.to.int$ -- 37
-cite$ -- 40
-duplicate$ -- 692
-empty$ -- 975
-format.name$ -- 633
-if$ -- 3789
+            949 strings with 15278 characters,
+and the built_in function-call counts, 25673 in all, are:
+= -- 2081
+> -- 2327
+< -- 14
++ -- 784
+- -- 729
+* -- 2233
+:= -- 4809
+add.period$ -- 48
+call.type$ -- 48
+change.case$ -- 436
+chr.to.int$ -- 47
+cite$ -- 50
+duplicate$ -- 884
+empty$ -- 1265
+format.name$ -- 842
+if$ -- 5017
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 35
-newline$ -- 118
-num.names$ -- 152
-pop$ -- 332
+missing$ -- 44
+newline$ -- 148
+num.names$ -- 192
+pop$ -- 428
 preamble$ -- 1
-purify$ -- 331
+purify$ -- 434
 quote$ -- 0
-skip$ -- 578
+skip$ -- 755
 stack$ -- 0
-substring$ -- 697
-swap$ -- 3
+substring$ -- 946
+swap$ -- 11
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 333
+type$ -- 423
 warning$ -- 2
-while$ -- 142
+while$ -- 185
 width$ -- 0
-write$ -- 383
-(There was 1 error message)
+write$ -- 486
+(There were 2 warnings)

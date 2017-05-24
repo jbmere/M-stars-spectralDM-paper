@@ -60,10 +60,11 @@ diagnostics of the atmopheric parameters of M stars was carried out
 for three SNR values (10, 50 and $\infty$) by degrading the synthetic
 spectra with Gaussian noise of zero mean. These values were found to
 be sufficient in a wide range of experiments carried out in parallel
-and described in \cite{PaperAna}. The special SNR=$\infty$ case has
-been retained for the sake of completeness although \cite{} show that
-training sets derived from noiseless spectra are, at best,
-unnecessary, and at worst damage performance severely.
+and described in \cite{2017MNRAS.465.4556G}. The special SNR=$\infty$
+case has been retained for the sake of completeness
+although \cite{2017MNRAS.465.4556G} show that training sets derived
+from noiseless spectra are, at best, unnecessary, and at worst damage
+performance severely.
 
 \subsection{Feature definition and selection}
 \label{subsec:FD}
@@ -131,7 +132,7 @@ became very popular only when sufficiently powerful computers became
 available. GAs were presented to the astronomical community
 in \cite{1995ApJS..101..309C}, and have been used extensively in the
 past \citep[see][for the last application of GAs in astronomy at the
-time of writing]{}.
+time of writing]{2013A&A...550A..74D}.
 
 For the sake of simplicity let us define Genetic Algorithms (GAs) as
 search algorithms that are based on the principle of evolution by
@@ -237,32 +238,22 @@ potential features. This is $\binom{6000}{10}$ which has an order of
 magnitude of $10^{24}$.
 
 The GA procedure provides us with a large collection of chromosomes,
-each one of them consisting of ten spectral features.  Although these
-are all potential solutions of the problem, it is not immediately
-clear which one should be selected for the final regression model. In
-this work we have selected the most frequent features amongst the
-fittest chromosomes as predictive variables of the physical parameters
-in regression models. Features appearing in less than five chromosomes
-were initially discarded as they can not be relevant by themselves and
-just arise randomly by combination with other stronger chromosomes.
-
-{\bf TODO 1: Rewrite} It is relevant to say that when genes of a
-chromosome induced as ratio of two gaussian variables have extremely
-wide wings if any of the features is centered around zero, the fitness
-criteria removes it as a cadidate feature as it is not able to explain
-the physical parameter.  Therefore, the single regression model
-should, to some extent, be descriptive of the population. The simpler
-strategy would be to use the frequency of the chromosome in the
-population as criterion for inclusion in a forward selection
-strategy. However we prefered to select the features based on their
-highest fitness as it enhances the value of the direct contribution to
-explain the physical parameter.  As we have accepted that compex
-interactions between individual features are possible, it was selected
-a fixed number of features allowing both, enough room for developping
-those complex dependency relationships but to keep the complexity of
-the comming regression models under control.  Therefore, it was
-selected ten as the suitable number of features being considered per
-physical parameter.
+each one consisting of ten spectral features. We choose ten as a
+compromise. On the one hand, we have the intuition that the physical
+parameters that we intend to predict can be formulated as nonlinear
+combinations of several interacting features (that is, the predictive
+power of the set of features is higher that the sum of the individual
+predictive powers of the individual features). On the other hand, we
+need to limit the complexity of the models in order to attain
+reasonable computation times. Although these collections of
+chromosomes resulting from the GA are all potential solutions of the
+problem, it is not immediately clear which one should be selected for
+the final regression model. In this work we have selected the most
+frequent features amongst the fittest chromosomes as predictive
+variables of the physical parameters in regression models. Features
+appearing in less than five chromosomes were initially discarded as
+they can not be relevant by themselves and just arise randomly by
+combination with other stronger chromosomes.
 
 Once the GA has generated a proposal set of features for predicting
 each of the physical parameters, the next step consists in training
@@ -281,7 +272,7 @@ variables for which the predicted variables are available) to infer
 the parameters of an (often analytical) mapping between predictor and
 predicted variables. The regression model parameters should not be
 confused with the physical parameters of the atmosphere we aim at
-inferring. {\bf TODO 2: Check if every occurrence of parameter is clear}
+inferring. 
 
 In this case, our training set is again the BT Settl collection of
 synthetic spectra, for which we already computed the predictor
@@ -317,9 +308,9 @@ physical parameter in order to evaluate their performance:
 In order to assess the validity of our feature sets we also compare
 the predictions based on them with other input spaces. In particular,
 we also compute physical parameters that yield the the minimum
-$\chi^2$, and train a Projection Pursuit regression models with the
-Independent Components derived from each spectrum. {\bf TODO 3: add
-reference for ICA}.
+$\chi^2$, and train a Projection Pursuit regression model with the
+Independent Components \citep{Hyvarinen:1998:NAD:302528.302606}
+derived from each spectrum.
 
 Including here a sufficient description of each and every regression
 model that we trained would render the manuscript excessively lengthy

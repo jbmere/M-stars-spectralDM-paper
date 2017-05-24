@@ -1,4 +1,4 @@
-\begin{thebibliography}{38}
+\begin{thebibliography}{48}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Allard} {et~al.}(2013){Allard}, {Homeier}, {Freytag},
@@ -6,12 +6,26 @@
 {Allard}, F., {Homeier}, D., {Freytag}, B., {et~al.} 2013, Memorie della
   Societa Astronomica Italiana Supplementi, 24, 128
 
+\bibitem[{{Alonso-Floriano} {et~al.}(2015){Alonso-Floriano}, {Morales},
+  {Caballero}, {Montes}, {Klutsch}, {Mundt}, {Cort{\'e}s-Contreras}, {Ribas},
+  {Reiners}, {Amado}, {Quirrenbach}, \& {Jeffers}}]{2015A&A...577A.128A}
+{Alonso-Floriano}, F.~J., {Morales}, J.~C., {Caballero}, J.~A., {et~al.} 2015,
+  \aap, 577, A128
+
 \bibitem[{Baraud(2002)}]{baraud2002model}
 Baraud, Y. 2002, ESAIM: Probability and Statistics, 6, 127
 
-\bibitem[{{Bonnefoy} {et~al.}(2013){Bonnefoy}, {Chauvin}, {Lagrange}, {Rojo},
-  {Allard}, {Pinte}, {Dumas}, \& {Homeier}}]{2013arXiv1306.3709B}
-{Bonnefoy}, M., {Chauvin}, G., {Lagrange}, A.-M., {et~al.} 2013, ArXiv e-prints
+\bibitem[{{Bochanski} {et~al.}(2010){Bochanski}, {Hawley}, {Covey}, {West},
+  {Reid}, {Golimowski}, \& {Ivezi{\'c}}}]{2010AJ....139.2679B}
+{Bochanski}, J.~J., {Hawley}, S.~L., {Covey}, K.~R., {et~al.} 2010, \aj, 139,
+  2679
+
+\bibitem[{{Bonfils} {et~al.}(2013){Bonfils}, {Lo Curto}, {Correia}, {Laskar},
+  {Udry}, {Delfosse}, {Forveille}, {Astudillo-Defru}, {Benz}, {Bouchy},
+  {Gillon}, {H{\'e}brard}, {Lovis}, {Mayor}, {Moutou}, {Naef}, {Neves}, {Pepe},
+  {Perrier}, {Queloz}, {Santos}, \& {S{\'e}gransan}}]{2013A&A...556A.110B}
+{Bonfils}, X., {Lo Curto}, G., {Correia}, A.~C.~M., {et~al.} 2013, \aap, 556,
+  A110
 
 \bibitem[{{Boyajian} {et~al.}(2014){Boyajian}, {van Belle}, \& {von
   Braun}}]{2014AJ....147...47B}
@@ -25,12 +39,23 @@ Baraud, Y. 2002, ESAIM: Probability and Statistics, 6, 127
 {Boyajian}, T.~S., {von Braun}, K., {van Belle}, G., {et~al.} 2012, \apj, 757,
   112
 
+\bibitem[{{Browning}(2008)}]{2008ApJ...676.1262B}
+{Browning}, M.~K. 2008, \apj, 676, 1262
+
+\bibitem[{{Casagrande} {et~al.}(2008){Casagrande}, {Flynn}, \&
+  {Bessell}}]{2008MNRAS.389..585C}
+{Casagrande}, L., {Flynn}, C., \& {Bessell}, M. 2008, \mnras, 389, 585
+
 \bibitem[{{Cesetti} {et~al.}(2013){Cesetti}, {Pizzella}, {Ivanov}, {Morelli},
   {Corsini}, \& {Dalla Bont{\`a}}}]{cesetti}
 {Cesetti}, M., {Pizzella}, A., {Ivanov}, V.~D., {et~al.} 2013, \aap, 549, A129
 
 \bibitem[{{Charbonneau}(1995)}]{1995ApJS..101..309C}
 {Charbonneau}, P. 1995, \apjs, 101, 309
+
+\bibitem[{{De Geyter} {et~al.}(2013){De Geyter}, {Baes}, {Fritz}, \&
+  {Camps}}]{2013A&A...550A..74D}
+{De Geyter}, G., {Baes}, M., {Fritz}, J., \& {Camps}, P. 2013, \aap, 550, A74
 
 \bibitem[{Dietterich(1995)}]{Dietterich:1995:OUM:212094.212114}
 Dietterich, T. 1995, ACM Comput. Surv., 27, 326
@@ -71,6 +96,11 @@ Holland, J.~H. 1975, Adaptation in natural and artificial systems: An
   introductory analysis with applications to biology, control, and artificial
   intelligence. (U Michigan Press)
 
+\bibitem[{Hyv\"{a}rinen(1998)}]{Hyvarinen:1998:NAD:302528.302606}
+Hyv\"{a}rinen, A. 1998, in Proceedings of the 1997 Conference on Advances in
+  Neural Information Processing Systems 10, NIPS '97 (Cambridge, MA, USA: MIT
+  Press), 273--279
+
 \bibitem[{{Jao} {et~al.}(2005){Jao}, {Henry}, {Subasavage}, {Brown}, {Ianna},
   {Bartlett}, {Costa}, \& {M{\'e}ndez}}]{Jao}
 {Jao}, W.-C., {Henry}, T.~J., {Subasavage}, J.~P., {et~al.} 2005, \aj, 129,
@@ -102,13 +132,27 @@ Meyer, D., Leisch, F., \& Hornik, K. 2003, Neurocomputing, 55, 169
 {Ness}, M., {Hogg}, D.~W., {Rix}, H.-W., {Ho}, A.~Y.~Q., \& {Zasowski}, G.
   2015, \apj, 808, 16
 
+\bibitem[{{Neves} {et~al.}(2012){Neves}, {Bonfils}, {Santos}, {Delfosse},
+  {Forveille}, {Allard}, {Nat{\'a}rio}, {Fernandes}, \&
+  {Udry}}]{2012A&A...538A..25N}
+{Neves}, V., {Bonfils}, X., {Santos}, N.~C., {et~al.} 2012, \aap, 538, A25
+
 \bibitem[{{Neves} {et~al.}(2013){Neves}, {Bonfils}, {Santos}, {Delfosse},
   {Forveille}, {Allard}, \& {Udry}}]{NevesIII}
 {Neves}, V., {Bonfils}, X., {Santos}, N.~C., {et~al.} 2013, \aap, 551, A36
 
+\bibitem[{{Neves} {et~al.}(2014){Neves}, {Bonfils}, {Santos}, {Delfosse},
+  {Forveille}, {Allard}, \& {Udry}}]{2014A&A...568A.121N}
+{Neves}, V., {Bonfils}, X., {Santos}, N.~C., {et~al.} 2014, \aap, 568, A121
+
 \bibitem[{{Newton} {et~al.}(2014){Newton}, {Charbonneau}, {Irwin},
   {Berta-Thompson}, {Rojas-Ayala}, {Covey}, \& {Lloyd}}]{Newton2014}
 {Newton}, E.~R., {Charbonneau}, D., {Irwin}, J., {et~al.} 2014, \aj, 147, 20
+
+\bibitem[{{Newton} {et~al.}(2015){Newton}, {Charbonneau}, {Irwin}, \&
+  {Mann}}]{2015ApJ...800...85N}
+{Newton}, E.~R., {Charbonneau}, D., {Irwin}, J., \& {Mann}, A.~W. 2015, \apj,
+  800, 85
 
 \bibitem[{{Ostlie} \& {Carroll}(1996)}]{1996imsa.book.....O}
 {Ostlie}, D.~A. \& {Carroll}, B.~W. 1996, {An Introduction to Modern Stellar
@@ -136,10 +180,6 @@ Meyer, D., Leisch, F., \& Hornik, K. 2003, Neurocomputing, 55, 169
 {Rajpurohit}, A.~S., {Reyl{\'e}}, C., {Allard}, F., {et~al.} 2013, \aap, 556,
   A15
 
-\bibitem[{{Rayner} {et~al.}(2009){Rayner}, {Cushing}, \&
-  {Vacca}}]{2009ApJS..185..289R}
-{Rayner}, J.~T., {Cushing}, M.~C., \& {Vacca}, W.~D. 2009, \apjs, 185, 289
-
 \bibitem[{Reid \& Gizis(2005)}]{1538-3873-117-833-676}
 Reid, I.~N. \& Gizis, J.~E. 2005, Publications of the Astronomical Society of
   the Pacific, 117, 676
@@ -163,9 +203,16 @@ Riaz, B., Gizis, J.~E., \& Samaddar, D. 2008, The Astrophysical Journal, 672,
 {S{\'e}gransan}, D., {Kervella}, P., {Forveille}, T., \& {Queloz}, D. 2003,
   \aap, 397, L5
 
+\bibitem[{Shields {et~al.}(2016)Shields, Ballard, \& Johnson}]{Shields20161}
+Shields, A.~L., Ballard, S., \& Johnson, J.~A. 2016, Physics Reports, 663, 1 ,
+  the habitability of planets orbiting M-dwarf stars
+
 \bibitem[{Svetnik {et~al.}(2003)Svetnik, Liaw, Tong, Culberson, Sheridan, \&
   Feuston}]{svetnik2003random}
 Svetnik, V., Liaw, A., Tong, C., {et~al.} 2003, Journal of chemical information
   and computer sciences, 43, 1947
+
+\bibitem[{{Torres}(2013)}]{2013AN....334....4T}
+{Torres}, G. 2013, Astronomische Nachrichten, 334, 4
 
 \end{thebibliography}

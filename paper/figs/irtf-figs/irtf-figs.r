@@ -1,4 +1,6 @@
 rm(list=ls())
+require("fields")
+   
 
 load("Tdata_plot.RData")
 load("Gdata_plot.RData")
