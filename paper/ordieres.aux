@@ -7,17 +7,17 @@
 \citation{2008ApJ...676.1262B}
 \citation{2013AN....334....4T}
 \citation{2012ApJ...748...93R}
-\citation{2014A&A...568A.121N}
-\citation{2012A&A...538A..25N}
-\citation{2008MNRAS.389..585C}
-\citation{2015ApJ...800...85N}
-\citation{Mann2015}
 \select@language{english}
 \@writefile{toc}{\select@language{english}}
 \@writefile{lof}{\select@language{english}}
 \@writefile{lot}{\select@language{english}}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}}
 \newlabel{sec:intro}{{1}{1}}
+\citation{2014A&A...568A.121N}
+\citation{2012A&A...538A..25N}
+\citation{2008MNRAS.389..585C}
+\citation{2015ApJ...800...85N}
+\citation{Mann2015}
 \citation{cesetti}
 \citation{cesetti}
 \citation{2003A&A...397L...5S}
@@ -47,12 +47,12 @@
 \citation{caret}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Models considered.}{4}}
 \newlabel{ssub:models}{{2.3}{4}}
-\newlabel{caretp}{{2.1}{4}}
 \citation{hoggCannon}
 \citation{heiter}
 \citation{2014AJ....147...47B}
 \citation{cesetti}
 \citation{cesetti}
+\newlabel{caretp}{{2.1}{5}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Physical parameters of the IRTF collection of spectra.}{5}}
 \newlabel{sec:irtf}{{3}{5}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Spectral bands selected}{5}}
@@ -132,10 +132,6 @@
 \newlabel{sect:irtf-met}{{3.2.3}{7}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces $\qopname  \relax o{log}(T_{eff})$--$\qopname  \relax o{log}(g)$ diagrams produced by the GA-KNN (SNR=$\infty $) effective temperatures and gravities derived with the GA-RR (SNR=50), GA-PLS (SNR=50), GA-NNR (SNR=50), and $PPR-ICA-10$ models (clockwise, starting from the top left plot). Squares represent dwarfs stars, triangles represent luminosity class {\sc  III} and circles represent luminosity classes {\sc  I} and {\sc  II}. Black symbols represent values taken from \cite  {cesetti} and red symbols are our own predictions.\relax }}{8}}
 \newlabel{fig:lt_lg_ga}{{3}{8}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Physical parameters of the IPAC collection of spectra.}{9}}
-\newlabel{sec:ipac}{{4}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Spectral bands selected}{9}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Spectral features for the estimation of effective temperatures.}{9}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Comparison between metallicity estimates from the literature and predictions from the PPR-ICA (SNR=10) model. Black empty circles represent values from \cite  {cesetti} ; orange filled circles, values from \cite  {NevesIII}; green filled squares, values that the Vizier catalog entry for Table 8 of \cite  {NevesIII} links to \cite  {Jao}, although we find no evidence that \cite  {Jao} contains estimates of metallicities; cyan and blue filled squares, the values of [M/H] and [Fe/H] respectively in \cite  {RA2012}; red filled squares, values from \cite  {Mann2015}; yellow filled squares, values from \cite  {Newton2014}; and, finally, black filles squares, values from \cite  {Gaidos2015}.\relax }}{9}}
 \newlabel{MIRTF_ICA_10}{{4}{9}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Plane of predictions for $T_{\rm  eff}$ (from GA-KNN-$\infty $) and $log(g)$ (from GA-RR-50) with metallicity predictions from PPR-ICA-10.\relax }}{9}}
@@ -152,13 +148,20 @@
 \citation{RA2012}
 \citation{cesetti}
 \citation{cesetti}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Physical parameters of the IPAC collection of spectra.}{10}}
+\newlabel{sec:ipac}{{4}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Spectral bands selected}{10}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Spectral features for the estimation of effective temperatures.}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Regression models}{10}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Effective temperature models}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Relationship between $\qopname  \relax o{log}(T_{\rm  eff})$ from \cite  {RA2012} in the $x$ axis and $\qopname  \relax o{log}(T_{\rm  eff})$ as predicted by the GA-RF model with SNR=$\infty $ (black symbols, squares for dwarfs and a triangle for the only giant in the sample) and the GA-MARS trained with SNR=10 data (blue symbols).\relax }}{10}}
-\newlabel{fig:ipac_lt_lt}{{7}{10}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Surface gravity models}{10}}
 \citation{cesetti}
 \citation{cesetti}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Comparison between the effective temperatures derived from the tabulated spectral types in \cite  {cesetti} and those inferred by the $\chi ^2$ module (top left, SNR=50), Random Forest Regression module (top right, SNR=$\infty $), GA-MARS module (bottom left, SNR=10), and the Neural Network module (bottom right, SNR=10). Blue squares denote Main Sequence dwarfs and red triangles denote giant stars (luminosity class III) according to \cite  {cesetti}\relax }}{11}}
+\newlabel{fig:ipac_teff}{{6}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Relationship between $\qopname  \relax o{log}(T_{\rm  eff})$ from \cite  {RA2012} in the $x$ axis and $\qopname  \relax o{log}(T_{\rm  eff})$ as predicted by the GA-RF model with SNR=$\infty $ (black symbols, squares for dwarfs and a triangle for the only giant in the sample) and the GA-MARS trained with SNR=10 data (blue symbols).\relax }}{11}}
+\newlabel{fig:ipac_lt_lt}{{7}{11}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Metallicity models}{11}}
 \citation{cesetti}
 \citation{NevesIII}
 \citation{NevesIII}
@@ -184,13 +187,10 @@
 \citation{1538-3873-117-833-676}
 \citation{1995AJ....109..797K}
 \citation{1994ApJS...94..749K}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Comparison between the effective temperatures derived from the tabulated spectral types in \cite  {cesetti} and those inferred by the $\chi ^2$ module (top left, SNR=50), Random Forest Regression module (top right, SNR=$\infty $), GA-MARS module (bottom left, SNR=10), and the Neural Network module (bottom right, SNR=10). Blue squares denote Main Sequence dwarfs and red triangles denote giant stars (luminosity class III) according to \cite  {cesetti}\relax }}{11}}
-\newlabel{fig:ipac_teff}{{6}{11}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Metallicity models}{11}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces TMP TBC\relax }}{11}}
-\newlabel{tab:known-sds}{{1}{11}}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces $\qopname  \relax o{log}(T_{\rm  eff})$-$log(g)$ planes obtained using the $\chi ^2$ (SNR=50) $\qopname  \relax o{log}(T_{\rm  eff})$ preditions and the $\qopname  \relax o{log}(g)$ values from the GA-NNR (SNR=10, top left), GA-SVR (SNR=10, top right), $\chi ^2$ (SNR=50, bottom left), and PPR-ICA (SNR=10, bottom right) regression models. Black symbols correspond to objects with physical parameters in Table 3 of \cite  {cesetti}; green symbols correspond to the predictions shown in Section \ref  {sect:irtf-teff} for the IRTF spectra; blue squares correspond to predictions for dwarf stars according to the DwarfArchives.org luminosity classes; red triangles correspond to giant stars according to DwarfArchives.org; finally, empty grey circles correspond to sources with no luminosity class in DwatfArchives.org.\relax }}{12}}
 \newlabel{fig:teffvsloggIPAC}{{8}{12}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces TMP TBC\relax }}{12}}
+\newlabel{tab:known-sds}{{1}{12}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Comparison with previous feature sets}{12}}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Relationship between the $RF-\infty $ predictions for metallicity and values from the literature. Black empty circles represent values from \cite  {cesetti} ; orange filled circles, values from \cite  {NevesIII}; green filled squares, values that the Vizier catalog entry for Table 8 of \cite  {NevesIII} links to \cite  {Jao}, although we find no evidence that \cite  {Jao} contains estimates of metallicities; cyan and blue filled squares, the values of [M/H] and [Fe/H] respectively in \cite  {RA2012}; red filled squares, values from \cite  {Mann2015}; yellow filled squares, values from \cite  {Newton2014}; and, finally, black filles squares, values from \cite  {Gaidos2015}.\relax }}{13}}
 \newlabel{fig:ipac_mt}{{9}{13}}
@@ -256,87 +256,87 @@
 \newlabel{app}{{5}{14}}
 \@writefile{toc}{\contentsline {section}{\numberline {A}IRTF features}{14}}
 \newlabel{app:features:irtf}{{A}{14}}
-\@writefile{lot}{\contentsline {table}{\numberline {A.2}{\ignorespaces Recommended features and continuum bandpasses for predicting $ T_{eff} $ using BT\_Settl with SNR= $ 10 $ and 50 and the IRTF wavelength range and resolution.\relax }}{15}}
-\newlabel{tab:irtf-teff-noisy}{{A.2}{15}}
-\@writefile{lot}{\contentsline {table}{\numberline {A.3}{\ignorespaces Features and continuum bandpasses defined in \cite  {cesetti} as relevant for the estimation of the effective temperature in bands I and K.\relax }}{15}}
-\newlabel{tab:irtf-cesetti}{{A.3}{15}}
-\@writefile{lot}{\contentsline {table}{\numberline {A.5}{\ignorespaces Recommended features and continuum bandpasses for predicting $log(g)$ using BT-Settl spectra of SNR= $10$ and 50 in the IRTF wavelength range and resolution.\relax }}{16}}
-\newlabel{tab:irtf-logg-noisy}{{A.5}{16}}
-\@writefile{lot}{\contentsline {table}{\numberline {A.7}{\ignorespaces Feature and Continuum bandpasses selected for predicting metallicity using noisy BT\_Settl spectra with signal-to-noise ratios equal to 10 and 50 in the IRTF wavelength range and resolution.\relax }}{16}}
-\newlabel{tab:irtf-met-noisy}{{A.7}{16}}
-\@writefile{toc}{\contentsline {section}{\numberline {B}IPAC features}{17}}
-\newlabel{app:features:ipac}{{B}{17}}
-\@writefile{lot}{\contentsline {table}{\numberline {A.1}{\ignorespaces Features selected by the GA for predicting $T_{eff}$ using BT\_Settl noiseless synthetic spectra in the IRTF wavelength range and resolution. \relax }}{17}}
-\newlabel{tab:irtf-teff-noiseless}{{A.1}{17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces Features selected by the GA for predicting $T_{eff}$ using BT\_Settl noiseless synthetic spectra in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{17}}
-\newlabel{fig:irtf-teff-inf}{{A.1}{17}}
-\@writefile{lot}{\contentsline {table}{\numberline {B.2}{\ignorespaces Spectral features and continuum bandpasses selected by the GA for predicting $ T_{eff}$ using BT\_Settl spectra with SNR=10 and 50 in the IPAC wavelength range and resolution.\relax }}{18}}
-\newlabel{tab:ipac-teff-noisy}{{B.2}{18}}
-\@writefile{lot}{\contentsline {table}{\numberline {B.4}{\ignorespaces Spectral features and continuum bandpasses selected by the GA for predicting $\qopname  \relax o{log}(g)$ using BT\_Settl spectra of SNR=10 and 50 in the IPAC wavelength range and resolution.\relax }}{18}}
-\newlabel{tab:ipac-logg-noisy}{{B.4}{18}}
-\@writefile{lot}{\contentsline {table}{\numberline {B.6}{\ignorespaces Spectral features and continuum bandpasses selected by the GA for predicting metallicities using BT\_Settl spectra of SNR=10 and 50 in the IPAC wavelength range and resolution.\relax }}{18}}
-\newlabel{tab:ipac-met-noisy}{{B.6}{18}}
+\@writefile{lot}{\contentsline {table}{\numberline {A.1}{\ignorespaces Features selected by the GA for predicting $T_{eff}$ using BT\_Settl noiseless synthetic spectra in the IRTF wavelength range and resolution. \relax }}{15}}
+\newlabel{tab:irtf-teff-noiseless}{{A.1}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces Features selected by the GA for predicting $T_{eff}$ using BT\_Settl noiseless synthetic spectra in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{15}}
+\newlabel{fig:irtf-teff-inf}{{A.1}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.2}{\ignorespaces Features selected by the GA for predicting $T_{eff}$ using BT\_Settl synthetic spectra of SNR=10 in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{15}}
+\newlabel{fig:irtf-teff-10}{{A.2}{15}}
+\@writefile{lot}{\contentsline {table}{\numberline {A.2}{\ignorespaces Recommended features and continuum bandpasses for predicting $ T_{eff} $ using BT\_Settl with SNR= $ 10 $ and 50 and the IRTF wavelength range and resolution.\relax }}{16}}
+\newlabel{tab:irtf-teff-noisy}{{A.2}{16}}
+\@writefile{lot}{\contentsline {table}{\numberline {A.3}{\ignorespaces Features and continuum bandpasses defined in \cite  {cesetti} as relevant for the estimation of the effective temperature in bands I and K.\relax }}{16}}
+\newlabel{tab:irtf-cesetti}{{A.3}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.3}{\ignorespaces Features selected by the GA for predicting $T_{eff}$ using BT\_Settl synthetic spectra of SNR=50 in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{17}}
+\newlabel{fig:irtf-teff-50}{{A.3}{17}}
+\@writefile{lot}{\contentsline {table}{\numberline {A.4}{\ignorespaces Recommended features and continuum bandpasses for predicting $\qopname  \relax o{log}(g)$ using noiseless BT\_Settl spectra in the IRTF wavelength range and resolution.\relax }}{17}}
+\newlabel{tab:irtf-logg-noiseless}{{A.4}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.4}{\ignorespaces Features selected by the GA for predicting $\qopname  \relax o{log}(g)$ using BT\_Settl noiseless synthetic spectra in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{17}}
+\newlabel{fig:irtf-logg-inf}{{A.4}{17}}
+\@writefile{lot}{\contentsline {table}{\numberline {A.5}{\ignorespaces Recommended features and continuum bandpasses for predicting $log(g)$ using BT-Settl spectra of SNR= $10$ and 50 in the IRTF wavelength range and resolution.\relax }}{18}}
+\newlabel{tab:irtf-logg-noisy}{{A.5}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.5}{\ignorespaces Features selected by the GA for predicting $\qopname  \relax o{log}(g)$ using BT\_Settl synthetic spectra of SNR=10 in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{18}}
+\newlabel{fig:irtf-logg-10}{{A.5}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.6}{\ignorespaces Features selected by the GA for predicting $\qopname  \relax o{log}(g)$ using BT\_Settl synthetic spectra of SNR=50 in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{18}}
+\newlabel{fig:irtf-logg-50}{{A.6}{18}}
+\@writefile{lot}{\contentsline {table}{\numberline {A.6}{\ignorespaces Feature and Continuum bandpasses selected for predicting metallicity using noiseless BT\_Settl spectra in the IRTF wavelength range and resolution.\relax }}{19}}
+\newlabel{tab:irtf-met-noiseless}{{A.6}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.7}{\ignorespaces Features selected by the GA for predicting [M/H] using BT\_Settl noiseless synthetic spectra in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{19}}
+\newlabel{fig:irtf-met-inf}{{A.7}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.8}{\ignorespaces Features selected by the GA for predicting [M/H] using BT\_Settl synthetic spectra of SNR=10 in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{19}}
+\newlabel{fig:irtf-met-10}{{A.8}{19}}
+\@writefile{lot}{\contentsline {table}{\numberline {A.7}{\ignorespaces Feature and Continuum bandpasses selected for predicting metallicity using noisy BT\_Settl spectra with signal-to-noise ratios equal to 10 and 50 in the IRTF wavelength range and resolution.\relax }}{20}}
+\newlabel{tab:irtf-met-noisy}{{A.7}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.9}{\ignorespaces Features selected by the GA for predicting [M/H] using BT\_Settl synthetic spectra of SNR=50 in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{20}}
+\newlabel{fig:irtf-met-50}{{A.9}{20}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}IPAC features}{21}}
+\newlabel{app:features:ipac}{{B}{21}}
+\@writefile{lot}{\contentsline {table}{\numberline {B.1}{\ignorespaces Spectral features and continuum bandpasses selected by the GA for predicting $T_{\rm  eff}$ using noiseless BT\_Settl spectra in the IPAC wavelength range and resolution.\relax }}{21}}
+\newlabel{tab:ipac-teff-noiseless}{{B.1}{21}}
+\@writefile{lot}{\contentsline {table}{\numberline {B.2}{\ignorespaces Spectral features and continuum bandpasses selected by the GA for predicting $ T_{eff}$ using BT\_Settl spectra with SNR=10 and 50 in the IPAC wavelength range and resolution.\relax }}{22}}
+\newlabel{tab:ipac-teff-noisy}{{B.2}{22}}
+\@writefile{lot}{\contentsline {table}{\numberline {B.3}{\ignorespaces Spectral features and continuum bandpasses selected by the GA for predicting $\qopname  \relax o{log}(g)$ using noiseless BT\_Settl spectra in the IPAC wavelength range and resolution..\relax }}{22}}
+\newlabel{tab:ipac-logg-noiseless}{{B.3}{22}}
+\@writefile{lot}{\contentsline {table}{\numberline {B.4}{\ignorespaces Spectral features and continuum bandpasses selected by the GA for predicting $\qopname  \relax o{log}(g)$ using BT\_Settl spectra of SNR=10 and 50 in the IPAC wavelength range and resolution.\relax }}{23}}
+\newlabel{tab:ipac-logg-noisy}{{B.4}{23}}
+\@writefile{lot}{\contentsline {table}{\numberline {B.5}{\ignorespaces Spectral features and continuum bandpasses selected by the GA for predicting metallicity using noiseless BT\_Settl spectra in the IPAC wavelength range and resolution.\relax }}{23}}
+\newlabel{tab:ipac-met-noiseless}{{B.5}{23}}
+\@writefile{lot}{\contentsline {table}{\numberline {B.6}{\ignorespaces Spectral features and continuum bandpasses selected by the GA for predicting metallicities using BT\_Settl spectra of SNR=10 and 50 in the IPAC wavelength range and resolution.\relax }}{24}}
+\newlabel{tab:ipac-met-noisy}{{B.6}{24}}
 \citation{cesetti}
 \citation{cesetti}
 \citation{cesetti}
 \citation{cesetti}
-\@writefile{toc}{\contentsline {section}{\numberline {C}IRTF RMSE regression models}{19}}
-\newlabel{sec:irtf-rmse}{{C}{19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.2}{\ignorespaces Features selected by the GA for predicting $T_{eff}$ using BT\_Settl synthetic spectra of SNR=10 in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{19}}
-\newlabel{fig:irtf-teff-10}{{A.2}{19}}
-\@writefile{lot}{\contentsline {table}{\numberline {A.4}{\ignorespaces Recommended features and continuum bandpasses for predicting $\qopname  \relax o{log}(g)$ using noiseless BT\_Settl spectra in the IRTF wavelength range and resolution.\relax }}{19}}
-\newlabel{tab:irtf-logg-noiseless}{{A.4}{19}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.1}{\ignorespaces Cross-validation RMSE and RMDSE for the various regression models that predict $T_{eff}$ (K) in the IRTF wavelength range and resolution.\relax }}{20}}
-\newlabel{tab:irtf-teff-rmse}{{C.1}{20}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.2}{\ignorespaces Average bias in the $T_{eff}$ (K) estimates computed (IRTF wavelength range and resolution) with respect to the reference values in Table 3 of \cite  {cesetti}.\relax }}{20}}
-\newlabel{tab:irtf-teff-bias}{{C.2}{20}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.3}{\ignorespaces Regression model performance based on the features proposed by \cite  {cesetti}\relax }}{20}}
-\newlabel{tab:irtf-teff-rmse-cesetti}{{C.3}{20}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.4}{\ignorespaces RMSE and RMDSE for the various $\qopname  \relax o{log}(g)$ regression models [dex] in the IRTF wavelength range and resolution.\relax }}{21}}
-\newlabel{tab:irtf-logg-rmse}{{C.4}{21}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.5}{\ignorespaces RMSE and RMDSE for the various regression models (IRTF wavelength range and resolution) predicting metallicity [dex].\relax }}{21}}
-\newlabel{tab:irtf-met-rmse}{{C.5}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}IRTF RMSE regression models}{25}}
+\newlabel{sec:irtf-rmse}{{C}{25}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.1}{\ignorespaces Cross-validation RMSE and RMDSE for the various regression models that predict $T_{eff}$ (K) in the IRTF wavelength range and resolution.\relax }}{26}}
+\newlabel{tab:irtf-teff-rmse}{{C.1}{26}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.2}{\ignorespaces Average bias in the $T_{eff}$ (K) estimates computed (IRTF wavelength range and resolution) with respect to the reference values in Table 3 of \cite  {cesetti}.\relax }}{26}}
+\newlabel{tab:irtf-teff-bias}{{C.2}{26}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.3}{\ignorespaces Regression model performance based on the features proposed by \cite  {cesetti}\relax }}{26}}
+\newlabel{tab:irtf-teff-rmse-cesetti}{{C.3}{26}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.4}{\ignorespaces RMSE and RMDSE for the various $\qopname  \relax o{log}(g)$ regression models [dex] in the IRTF wavelength range and resolution.\relax }}{27}}
+\newlabel{tab:irtf-logg-rmse}{{C.4}{27}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.5}{\ignorespaces RMSE and RMDSE for the various regression models (IRTF wavelength range and resolution) predicting metallicity [dex].\relax }}{27}}
+\newlabel{tab:irtf-met-rmse}{{C.5}{27}}
 \citation{cesetti}
 \citation{cesetti}
-\@writefile{toc}{\contentsline {section}{\numberline {D}IPAC RMSE regression models}{22}}
-\newlabel{sec:ipac-rmse}{{D}{22}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.3}{\ignorespaces Features selected by the GA for predicting $T_{eff}$ using BT\_Settl synthetic spectra of SNR=50 in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{22}}
-\newlabel{fig:irtf-teff-50}{{A.3}{22}}
-\@writefile{lot}{\contentsline {table}{\numberline {A.6}{\ignorespaces Feature and Continuum bandpasses selected for predicting metallicity using noiseless BT\_Settl spectra in the IRTF wavelength range and resolution.\relax }}{22}}
-\newlabel{tab:irtf-met-noiseless}{{A.6}{22}}
-\@writefile{lot}{\contentsline {table}{\numberline {D.1}{\ignorespaces RMSE and RMDSE for the various regression models that predict $T_{eff}$ (K) in the IPAC wavelength range and resolution.\relax }}{23}}
-\newlabel{tab:ipac-teff-rmse}{{D.1}{23}}
-\@writefile{lot}{\contentsline {table}{\numberline {D.2}{\ignorespaces Performances of regression models trained on the features selected by \cite  {cesetti} and applied to BT-Settl spectra in the IPAC wavelength range and resolution.\relax }}{23}}
-\newlabel{tab:ipac-teff-rmse-cesetti}{{D.2}{23}}
-\@writefile{lot}{\contentsline {table}{\numberline {B.1}{\ignorespaces Spectral features and continuum bandpasses selected by the GA for predicting $T_{\rm  eff}$ using noiseless BT\_Settl spectra in the IPAC wavelength range and resolution.\relax }}{23}}
-\newlabel{tab:ipac-teff-noiseless}{{B.1}{23}}
-\@writefile{lot}{\contentsline {table}{\numberline {B.3}{\ignorespaces Spectral features and continuum bandpasses selected by the GA for predicting $\qopname  \relax o{log}(g)$ using noiseless BT\_Settl spectra in the IPAC wavelength range and resolution..\relax }}{23}}
-\newlabel{tab:ipac-logg-noiseless}{{B.3}{23}}
-\@writefile{lot}{\contentsline {table}{\numberline {D.3}{\ignorespaces RMSE and RMDSE for the various regression models predicting $Log(G)$ [dex] in the IPAC wavelength range and resolution.\relax }}{24}}
-\newlabel{tab:ipac-logg-rmse}{{D.3}{24}}
-\@writefile{lot}{\contentsline {table}{\numberline {D.4}{\ignorespaces RMSE and RMDSE for the various regression models predicting $Met$ [dex] in the IPAC wavelength range and resolution.\relax }}{24}}
-\newlabel{tab:ipac-met-rmse}{{D.4}{24}}
-\@writefile{lot}{\contentsline {table}{\numberline {B.5}{\ignorespaces Spectral features and continuum bandpasses selected by the GA for predicting metallicity using noiseless BT\_Settl spectra in the IPAC wavelength range and resolution.\relax }}{24}}
-\newlabel{tab:ipac-met-noiseless}{{B.5}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.4}{\ignorespaces Features selected by the GA for predicting $\qopname  \relax o{log}(g)$ using BT\_Settl noiseless synthetic spectra in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{25}}
-\newlabel{fig:irtf-logg-inf}{{A.4}{25}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.5}{\ignorespaces Features selected by the GA for predicting $\qopname  \relax o{log}(g)$ using BT\_Settl synthetic spectra of SNR=10 in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{25}}
-\newlabel{fig:irtf-logg-10}{{A.5}{25}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.6}{\ignorespaces Features selected by the GA for predicting $\qopname  \relax o{log}(g)$ using BT\_Settl synthetic spectra of SNR=50 in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{26}}
-\newlabel{fig:irtf-logg-50}{{A.6}{26}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.7}{\ignorespaces Features selected by the GA for predicting [M/H] using BT\_Settl noiseless synthetic spectra in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{26}}
-\newlabel{fig:irtf-met-inf}{{A.7}{26}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.8}{\ignorespaces Features selected by the GA for predicting [M/H] using BT\_Settl synthetic spectra of SNR=10 in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{27}}
-\newlabel{fig:irtf-met-10}{{A.8}{27}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.9}{\ignorespaces Features selected by the GA for predicting [M/H] using BT\_Settl synthetic spectra of SNR=50 in the IRTF wavelength range and resolution. The BT\ Settl spectra are plot in a colour scale that ranges from blue (2000 K) to red (4100 K). The empty boxes correspond to the selected features and the grey boxes to the continuum bands.\relax }}{27}}
-\newlabel{fig:irtf-met-50}{{A.9}{27}}
+\@writefile{toc}{\contentsline {section}{\numberline {D}IPAC RMSE regression models}{28}}
+\newlabel{sec:ipac-rmse}{{D}{28}}
+\@writefile{lot}{\contentsline {table}{\numberline {D.1}{\ignorespaces RMSE and RMDSE for the various regression models that predict $T_{eff}$ (K) in the IPAC wavelength range and resolution.\relax }}{29}}
+\newlabel{tab:ipac-teff-rmse}{{D.1}{29}}
+\@writefile{lot}{\contentsline {table}{\numberline {D.2}{\ignorespaces Performances of regression models trained on the features selected by \cite  {cesetti} and applied to BT-Settl spectra in the IPAC wavelength range and resolution.\relax }}{29}}
+\newlabel{tab:ipac-teff-rmse-cesetti}{{D.2}{29}}
+\@writefile{lot}{\contentsline {table}{\numberline {D.3}{\ignorespaces RMSE and RMDSE for the various regression models predicting $Log(G)$ [dex] in the IPAC wavelength range and resolution.\relax }}{29}}
+\newlabel{tab:ipac-logg-rmse}{{D.3}{29}}
+\@writefile{lot}{\contentsline {table}{\numberline {D.4}{\ignorespaces RMSE and RMDSE for the various regression models predicting $Met$ [dex] in the IPAC wavelength range and resolution.\relax }}{30}}
+\newlabel{tab:ipac-met-rmse}{{D.4}{30}}
 \citation{cesetti}
-\@writefile{toc}{\contentsline {section}{\numberline {E}Results with features from \cite  {cesetti}}{28}}
-\newlabel{app:figures:irtf}{{E}{28}}
-\@writefile{lof}{\contentsline {figure}{\numberline {E.2}{\ignorespaces Comparison of the CES-RF (SNR=50) regression model predictions with the estimates of the metallicity in the literature. The symbols and colours are the same as in Figure \ref  {MIRTF_ICA_10}.\relax }}{28}}
-\newlabel{fig:irtf-ces-met}{{E.2}{28}}
-\@writefile{lof}{\contentsline {figure}{\numberline {E.1}{\ignorespaces $\qopname  \relax o{log}(T_{eff})$--$\qopname  \relax o{log}(g)$ diagrams produced by the CES-KNN (SNR=$\infty $) effective temperatures, and gravities derived with the CES-GB (SNR=50), CES-$\chi ^2$ (SNR=50), CES-NNR (SNR=50), and $ICA-10$ models (clockwise, starting from the top left plot).\relax }}{29}}
-\newlabel{fig:irtf-ces}{{E.1}{29}}
-\@writefile{lof}{\contentsline {figure}{\numberline {E.3}{\ignorespaces \relax }}{30}}
-\newlabel{fig:ipac-ces}{{E.3}{30}}
-\newlabel{LastPage}{{30}{30}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {E}Results with features from \cite  {cesetti}}{31}}
+\newlabel{app:figures:irtf}{{E}{31}}
+\@writefile{lof}{\contentsline {figure}{\numberline {E.1}{\ignorespaces $\qopname  \relax o{log}(T_{eff})$--$\qopname  \relax o{log}(g)$ diagrams produced by the CES-KNN (SNR=$\infty $) effective temperatures, and gravities derived with the CES-GB (SNR=50), CES-$\chi ^2$ (SNR=50), CES-NNR (SNR=50), and $ICA-10$ models (clockwise, starting from the top left plot).\relax }}{32}}
+\newlabel{fig:irtf-ces}{{E.1}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {E.2}{\ignorespaces Comparison of the CES-RF (SNR=50) regression model predictions with the estimates of the metallicity in the literature. The symbols and colours are the same as in Figure \ref  {MIRTF_ICA_10}.\relax }}{32}}
+\newlabel{fig:irtf-ces-met}{{E.2}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {E.3}{\ignorespaces \relax }}{33}}
+\newlabel{fig:ipac-ces}{{E.3}{33}}
+\newlabel{LastPage}{{33}{33}{}{}{}}
