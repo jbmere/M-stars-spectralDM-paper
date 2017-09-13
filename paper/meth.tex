@@ -29,10 +29,15 @@ selection approach that considers the resolution and SNR ratio,
 to assess the utility of spectral features for the task of
 inferring physical atmospheric parameters. 
 
-In the following, we adopt the BT-Settl library of synthetic spectra
+In the following, we adopt the BT-Settl CIFIST2011 library of
+synthetic spectra
 \citep{2013MSAIS..24..128A} as the framework where spectral
-diagnostics will be searched. These synthetic spectra were
-pre-processed in several steps as described below.
+diagnostics will be searched. This library does not include variations
+due to line broadening mechanisms such as micro- or macro-turbulence
+or rotation and hence, our results can be biased if their effects in
+the spectra are strong. The predictions from the models presented here
+do not take this broadening mechanisms into account. These synthetic
+spectra were pre-processed in several steps as described below.
 
 \subsection{Spectral preprocessing}
 
@@ -52,7 +57,9 @@ subsequent trimming to match that range. A unique wavelength sampling
 was also defined and all spectra (synthetic and observed) interpolated
 to match the sampling. Finally, all spectra, both synthetic and
 observed were divided by the integrated flux in order to factor out
-the stellar distance.
+the stellar distance. This is necessary in order to compare our
+feature selection proposal with the techniques that make use of the
+full spectrum (minimum $\chi^2$ and ICA compression; see below).
 
 In order to avoid selecting spectral features that are good predictors
 only in the unrealistic SNR=$\infty$ regime, the search for optimal
