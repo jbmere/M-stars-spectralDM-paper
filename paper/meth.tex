@@ -128,7 +128,7 @@ genetic algorithms publicly available as the R \citep{R2013} GA
 package. The concept of using in-silico evolution for the solution of
 optimization problems was introduced
 by \cite{holland1975adaptation}. Although its application is now
-reasonably widespread \citep[see e.g. ]{goldberg1989genetic}), they
+reasonably widespread \citep[see e.g.][]{goldberg1989genetic}, they
 became very popular only when sufficiently powerful computers became
 available. GAs were presented to the astronomical community
 in \cite{1995ApJS..101..309C}, and have been used extensively in the
@@ -155,33 +155,33 @@ spectrum emerged.
 The implementation of the GA comprises the following steps:
 
 \begin{itemize}
-\item \textbf{Stage 1}:{Definition of the population of
+\item \textbf{Stage 1}:{ Definition of the population of
 potential features (chromosomes).}
 
-\item \textbf{Stage 2}:{Each chromosome in the population
+\item \textbf{Stage 2}:{ Each chromosome in the population
 is evaluated by its ability to predict the physical parameters of each
 star in the dataset (fitness function). }
 
-\item \textbf{Stage 3}:{Chromosome selection. The new
+\item \textbf{Stage 3}:{ Chromosome selection. The new
 generation of individuals is initialised by transferring a number of
 the most fitted ones in the previous generation. The percentage of
 individuals transferred is known as the degree of elitism. }
 
-\item \textbf{Stage 4}:{The population of chromosomes is replicated. 
+\item \textbf{Stage 4}:{ The population of chromosomes is replicated. 
  Chromosomes with higher fitness scores will generate more numerous
  offspring.}
 
-\item \textbf{Stage 5}:{The genetic information contained in
+\item \textbf{Stage 5}:{ The genetic information contained in
 the replicated parent chromosomes is combined through genetic
 crossover. Two randomly selected parent chromosomes are used to create
 two new chromosomes.}
 
-\item \textbf{Stage 6}:{Mutations are then introduced in the
+\item \textbf{Stage 6}:{ Mutations are then introduced in the
 chromosome randomly. These mutations produce new genes used in
 chromosomes.  Steps 5 and 6 are applied over the chromosomes
 established at Step 4.}
 
-\item \textbf{Stage 7}:{This process is repeated from Stage 2 until 
+\item \textbf{Stage 7}:{ This process is repeated from Stage 2 until 
 a target accuracy is achieved or the maximum number of iterations is
 attained.}
 
@@ -341,9 +341,9 @@ with ($n$-1) of the $n$ subsets. The $n$-th subset not used for
 training is used instead to estimate the errors.
 
 As every type of model has its own set of tuneable parameters as well
-as its own training procedure, the authors have selected a common
-\citep{R2016} wrapper for all models named caret (short for
-Classification And REgression Training) \citep{caret}.  This wrapper
+as its own training procedure, we have used a common {\sl R}
+\citep{R2016} wrapper for all models named {\sl caret} \citep[short for
+Classification And REgression Training][]{caret}.  This wrapper
 enables a common interface, as well as the use of the same set of
 training/set samples for the adopted five-fold cross-validation error
 estimation. As explained above, each regression model has its own set

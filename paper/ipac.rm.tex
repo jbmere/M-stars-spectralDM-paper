@@ -36,12 +36,13 @@ range is unnecessary.
 \centering \includegraphics[width=\textwidth]{figs/ipac-teff.pdf}
 \caption{Comparison
  between the effective temperatures derived from the tabulated
- spectral types in \cite{cesetti} and those inferred by the $\chi^2$
- module (top left, SNR=50), Random Forest Regression module (top
- right, SNR=$\infty$), GA-MARS module (bottom left, SNR=10), and the
- Neural Network module (bottom right, SNR=10).  Blue squares denote
- Main Sequence dwarfs and red triangles denote giant stars (luminosity
- class III) according to \cite{cesetti}} \label{fig:ipac_teff}
+ spectral types in \protect\cite{cesetti} and those inferred by the
+ $\chi^2$ module (top left, SNR=50), Random Forest Regression module
+ (top right, SNR=$\infty$), GA-MARS module (bottom left, SNR=10), and
+ the Neural Network module (bottom right, SNR=10).  Blue squares
+ denote Main Sequence dwarfs and red triangles denote giant stars
+ (luminosity class III) according
+ to \protect\cite{cesetti}} \label{fig:ipac_teff}
 \end {figure*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -83,8 +84,10 @@ the one measured by Rojas-Ayala can be found in
 Figure~\ref{fig:ipac_lt_lt}
 
 \begin{figure}
- \begin{center} \includegraphics[width=9cm]{figs/ipac_LG_Trojas_Tknn_10.pdf} \caption{Relationship
- between $\log(T_{\rm eff})$ from \cite{RA2012} in the $x$ axis and
+ \begin{center} \includegraphics[width=9cm]{figs/ipac_LG_Trojas_Tknn_10.pdf}
+
+\caption{Relationship
+ between $\log(T_{\rm eff})$ from \protect\cite{RA2012} in the $x$ axis and
  $\log(T_{\rm eff})$ as predicted by the GA-RF model with SNR=$\infty$
  (black symbols, squares for dwarfs and a triangle for the only giant
  in the sample) and the GA-MARS trained with SNR=10 data (blue
@@ -140,7 +143,7 @@ $\log(T_{\rm eff})$ preditions and the $\log(g)$ values from the
 GA-NNR (SNR=10, top left), GA-SVR (SNR=10, top right), $\chi^2$
 (SNR=50, bottom left), and PPR-ICA (SNR=10, bottom right) regression
 models. Black symbols correspond to objects with physical parameters
-in Table 3 of \cite{cesetti}; green symbols correspond to the
+in Table 3 of \protect\cite{cesetti}; green symbols correspond to the
 predictions shown in Section \ref{sect:irtf-teff} for the IRTF
 spectra; blue squares correspond to predictions for dwarf stars
 according to the DwarfArchives.org luminosity classes; red triangles
@@ -190,15 +193,17 @@ for the same star in the literature. We obtain a mean difference of
 \caption{Relationship
  between the $RF-\infty$ predictions for metallicity and values from
  the literature.  Black empty circles represent values
- from \cite{cesetti} ; orange filled circles, values
- from \cite{NevesIII}; green filled squares, values that the Vizier
- catalog entry for Table 8 of \cite{NevesIII} links to \cite{Jao},
- although we find no evidence that \cite{Jao} contains estimates of
- metallicities; cyan and blue filled squares, the values of [M/H] and
- [Fe/H] respectively in \cite{RA2012}; red filled squares, values
- from \cite{Mann2015}; yellow filled squares, values
- from \cite{Newton2014}; and, finally, black filles squares, values
- from \cite{Gaidos2015}.}  \label{fig:ipac_mt} \end{center}
+ from \protect\cite{cesetti} ; orange filled circles, values
+ from \protect\cite{NevesIII}; green filled squares, values that the
+ Vizier catalog entry for Table 8 of \protect\cite{NevesIII} links
+ to \protect\cite{Jao}, although we find no evidence
+ that \protect\cite{Jao} contains estimates of metallicities; cyan and
+ blue filled squares, the values of [M/H] and [Fe/H] respectively
+ in \protect\cite{RA2012}; red filled squares, values
+ from \protect\cite{Mann2015}; yellow filled squares, values
+ from \protect\cite{Newton2014}; and, finally, black filles squares,
+ values
+ from \protect\cite{Gaidos2015}.}  \label{fig:ipac_mt} \end{center}
 \end{figure}
 
 
@@ -212,8 +217,8 @@ categories (see Table \ref{tab:known-sds}).
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=9cm]{figs/ipac-figs/ipac-M-hist.pdf}
-		\caption{}
-		\label{fig:ipac-hist-mets}
+
+\label{fig:ipac-hist-mets}
 	\end{center}
         
         \caption{Predictions of the GA-RF-$\infty$ regression model
@@ -224,7 +229,7 @@ categories (see Table \ref{tab:known-sds}).
 
 \begin{table}\centering
 	\begin{tabular}{@{}llll@{}}
-		\toprule
+		\hline
 		Identifier & classification & Reference & GA-RF-$\infty$\\
 		\hline
 		LHS 3768 & usdM3 & \cite{1995AJ....109..797K}  & -2.1 \\
@@ -233,10 +238,13 @@ categories (see Table \ref{tab:known-sds}).
 		LHS 2023 & esdM6 & \cite{0004-637X-672-2-1153} & -1.95\\
 		LHS 515  & esdM5 & \cite{1538-3873-117-833-676}& -1.8\\
 		LP471-17 & sdM   & \cite{1995AJ....109..797K}  & -1.7\\
-		\bottomrule
+		\hline
 	\end{tabular}
-	\caption{TMP TBC} 
-	\label{tab:known-sds} 
+        
+	\caption{Previously known subdwarfs in the IPAC collection of
+	spectra and the corresponding GA-RF-$\infty$ predictions.}
+
+\label{tab:known-sds} 
 \end{table}
 
 The remaining 5 stars with metallicities below -1.5 are 2MASS

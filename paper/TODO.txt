@@ -1,3 +1,0 @@
-Tablas en el apéndice 2 ¿son cross validation o cesetti? Mirar correo electrónico.
-Hacer figuras.
-Revisar features y tablas de RMSE y RMDSE
