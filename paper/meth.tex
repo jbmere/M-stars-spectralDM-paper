@@ -25,14 +25,19 @@ region, that may overlap depending on the spectral
 resolution. Furthermore, good spectral diagnostics at a given
 signal-to-noise ratio (SNR) may show a severely degraded predictive
 power in the low SNR regime. Therefore, we propose an alternative
-selection approach that takes the resolution and SNR ratio into
-account, to assess the utility of spectral features for the task of
+selection approach that considers the resolution and SNR ratio, 
+to assess the utility of spectral features for the task of
 inferring physical atmospheric parameters. 
 
-In the following, we adopt the BT-Settl library of synthetic spectra
-(\cite{2013MSAIS..24..128A}) as the framework where spectral
-diagnostics will be searched for. These synthetic spectra were
-pre-processed in several steps as described below.
+In the following, we adopt the BT-Settl CIFIST2011 library of
+synthetic spectra
+\citep{2013MSAIS..24..128A} as the framework where spectral
+diagnostics will be searched. This library does not include variations
+due to line broadening mechanisms such as micro- or macro-turbulence
+or rotation and hence, our results can be biased if their effects in
+the spectra are strong. The predictions from the models presented here
+do not take this broadening mechanisms into account. These synthetic
+spectra were pre-processed in several steps as described below.
 
 \subsection{Spectral preprocessing}
 
@@ -52,25 +57,28 @@ subsequent trimming to match that range. A unique wavelength sampling
 was also defined and all spectra (synthetic and observed) interpolated
 to match the sampling. Finally, all spectra, both synthetic and
 observed were divided by the integrated flux in order to factor out
-the stellar distance.
+the stellar distance. This is necessary in order to compare our
+feature selection proposal with the techniques that make use of the
+full spectrum (minimum $\chi^2$ and ICA compression; see below).
 
 In order to avoid selecting spectral features that are good predictors
 only in the unrealistic SNR=$\infty$ regime, the search for optimal
-diagnostics of the atmopheric parameters of M stars was carried out
+diagnostics of the atmospheric parameters of M stars was carried out
 for three SNR values (10, 50 and $\infty$) by degrading the synthetic
 spectra with Gaussian noise of zero mean. These values were found to
 be sufficient in a wide range of experiments carried out in parallel
-and described in \cite{PaperAna}. The special SNR=$\infty$ case has
-been retained for the sake of completeness although \cite{} show that
-training sets derived from noiseless spectra are, at best,
-unnecessary, and at worst damage performance severely.
+and described in \cite{2017MNRAS.465.4556G}. The special SNR=$\infty$
+case has been retained for the sake of completeness
+although \cite{2017MNRAS.465.4556G} show that training sets derived
+from noiseless spectra are, at best, unnecessary, and at worst damage
+performance severely.
 
 \subsection{Feature definition and selection}
 \label{subsec:FD}
 
 As mentioned in Sect. \ref{sec:intro}, defining good spectral
 diagnostics for the prediction of atmospheric physical parameters of M
-stars is an extremely difficult task .
+stars is an extremely difficult task.
 
 The work in \cite{cesetti} defined wavelength regions in the I and K
 bands optimal for the diagnostic of physical parameters based on the
@@ -82,31 +90,32 @@ best accuracy when used as predictive variables in a regression model
 that estimates the stellar atmospheric physical parameters ($T_{eff}$,
 $\log(g)$ and metallicity). The evaluation of the accuracy of the
 estimates produced from a subset of features is described further
-below. We consider the effective temperature as the dominant parameter
-influencing changes in the stellar spectra (a strong feature) and
-thus, it was estimated first, and then used as input in the regression
-models for the gravity and metalicity.
+below. 
+We consider the effective temperature as the dominant parameter
+influencing changes in the stellar spectra (a strong feature). Therefore,
+it was estimated first, and then used as input in the regression
+models for the gravity and metallicity.
 
 Here, a feature $F$ is defined as
 
 \begin{equation}\label{eq:featureDefinition}
-  F = \int_{\lambda_{1}}^{\lambda_{2}} (1-\frac{f(\lambda)}{F_{cont}} \cdot {\rm d}{\lambda})
+  F = \int_{\lambda_{1}}^{\lambda_{2}} (1-\frac{f(\lambda)}{F_{cont}}) \cdot {\rm d}{\lambda}
 \end{equation}
 
-where $f(\lambda)$ denotes the normalized flux from the star at
+Where $f(\lambda)$ denotes the normalized flux from the star at
 wavelength $\lambda$, and where $F_{cont}$ is the average flux in a
 spectral band between $\lambda_{cont;1}$ and $\lambda_{cont;2}$. We
 explain below how we search for the band definitions that produce
 physical parameter predictions with the smallest errors.
 
-Another type of features defined as
+Another type of features have been considered and, defined as
 
 \begin{equation}\label{eq:feature2}
   F' = \frac{ \int_{\lambda_{1}}^{\lambda_{2}}f(\lambda) \cdot {\rm d}{\lambda}}
                {\int_{\lambda_{3}}^{\lambda_{4}} f(\lambda) \cdot {\rm d}{\lambda}} 
 \end{equation}
 
-were considered, where $\lambda_1, \lambda_2, \lambda_3$, and
+Where $\lambda_1, \lambda_2, \lambda_3$, and
 $\lambda_4$ delimit two spectral bands such that the ratio of the
 integrated fluxes in the two bands is hoped to be a good predictor
 (alone or in combination with other features) of the star atmospheric
@@ -126,14 +135,14 @@ genetic algorithms publicly available as the R \citep{R2013} GA
 package. The concept of using in-silico evolution for the solution of
 optimization problems was introduced
 by \cite{holland1975adaptation}. Although its application is now
-reasonably widespread \citep[see e.g. ]{goldberg1989genetic}), they
+reasonably widespread \citep[see e.g.][]{goldberg1989genetic}, they
 became very popular only when sufficiently powerful computers became
 available. GAs were presented to the astronomical community
 in \cite{1995ApJS..101..309C}, and have been used extensively in the
 past \citep[see][for the last application of GAs in astronomy at the
-time of writing]{}.
+time of writing]{2013A&A...550A..74D}.
 
-For the sake of simplicity let us define Genetic Algorithms (GAs) as
+For the sake of simplicity, let us define Genetic Algorithms (GAs) as
 search algorithms that are based on the principle of evolution by
 natural selection. The procedure works by evolving in the sense
 explained below, chromosomes (in our case, sets of spectral features
@@ -153,33 +162,33 @@ spectrum emerged.
 The implementation of the GA comprises the following steps:
 
 \begin{itemize}
-\item \textbf{Stage 1}:{Definition of the population of
+\item \textbf{Stage 1}:{ Definition of the population of
 potential features (chromosomes).}
 
-\item \textbf{Stage 2}:{Each chromosome in the population
+\item \textbf{Stage 2}:{ Each chromosome in the population
 is evaluated by its ability to predict the physical parameters of each
 star in the dataset (fitness function). }
 
-\item \textbf{Stage 3}:{Stage 3: Chromosome selection. The new
-generation of individuals is initialised by tranferring a number of
+\item \textbf{Stage 3}:{ Chromosome selection. The new
+generation of individuals is initialised by transferring a number of
 the most fitted ones in the previous generation. The percentage of
 individuals transferred is known as the degree of elitism. }
 
-\item \textbf{Stage 4}:{The population of chromosomes is replicated. 
+\item \textbf{Stage 4}:{ The population of chromosomes is replicated. 
  Chromosomes with higher fitness scores will generate more numerous
  offspring.}
 
-\item \textbf{Stage 5}:{The genetic information contained in
+\item \textbf{Stage 5}:{ The genetic information contained in
 the replicated parent chromosomes is combined through genetic
 crossover. Two randomly selected parent chromosomes are used to create
 two new chromosomes.}
 
-\item \textbf{Stage 6}:{Mutations are then introduced in the
+\item \textbf{Stage 6}:{ Mutations are then introduced in the
 chromosome randomly. These mutations produce new genes used in
 chromosomes.  Steps 5 and 6 are applied over the chromosomes
 established at Step 4.}
 
-\item \textbf{Stage 7}:{This process is repeated from Stage 2 until 
+\item \textbf{Stage 7}:{ This process is repeated from Stage 2 until 
 a target accuracy is achieved or the maximum number of iterations is
 attained.}
 
@@ -200,10 +209,10 @@ individual features defined with Eq. \ref{eq:featureDefinition}. An obvious
 conceptual limitation of this univariate approach (considering
 chromosomes that code a single predictive feature) would be the lack
 of consideration that features work in the context of interconnected
-pathways and, therefore, it is their behavior as a group that has to
+pathways and, therefore, it is their behaviour as a group that has to
 be evaluated in terms of the predictive accuracy. In other words, a
 single feature can yield a poor predictive performance alone, but
-improve very significantly the predicton accuracy when used in
+improve very significantly the prediction accuracy when used in
 combination with other features. Multivariate selection methods thus
 seem more suitable for the analysis of the regressors since variables
 are tested in combination to identify interactions between
@@ -237,37 +246,27 @@ potential features. This is $\binom{6000}{10}$ which has an order of
 magnitude of $10^{24}$.
 
 The GA procedure provides us with a large collection of chromosomes,
-each one of them consisting of ten spectral features.  Although these
-are all potential solutions of the problem, it is not immediately
-clear which one should be selected for the final regression model. In
-this work we have selected the most frequent features amongst the
-fittest chromosomes as predictive variables of the physical parameters
-in regression models. Features appearing in less than five chromosomes
-were initially discarded as they can not be relevant by themselves and
-just arise randomly by combination with other stronger chromosomes.
-
-{\bf TODO 1: Rewrite} It is relevant to say that when genes of a
-chromosome induced as ratio of two gaussian variables have extremely
-wide wings if any of the features is centered around zero, the fitness
-criteria removes it as a cadidate feature as it is not able to explain
-the physical parameter.  Therefore, the single regression model
-should, to some extent, be descriptive of the population. The simpler
-strategy would be to use the frequency of the chromosome in the
-population as criterion for inclusion in a forward selection
-strategy. However we prefered to select the features based on their
-highest fitness as it enhances the value of the direct contribution to
-explain the physical parameter.  As we have accepted that compex
-interactions between individual features are possible, it was selected
-a fixed number of features allowing both, enough room for developping
-those complex dependency relationships but to keep the complexity of
-the comming regression models under control.  Therefore, it was
-selected ten as the suitable number of features being considered per
-physical parameter.
+each one consisting of ten spectral features. We choose ten as a
+compromise. On the one hand, we have the intuition that the physical
+parameters that we intend to predict can be formulated as nonlinear
+combinations of several interacting features (that is, the predictive
+power of the set of features is higher that the sum of the individual
+predictive powers of the individual features). On the other hand, we
+need to limit the complexity of the models in order to attain
+reasonable computation times. Although these collections of
+chromosomes resulting from the GA are all potential solutions of the
+problem, it is not immediately clear which one should be selected for
+the final regression model. In this work we have selected the most
+frequent features amongst the fittest chromosomes as predictive
+variables of the physical parameters in regression models. Features
+appearing in less than five chromosomes were initially discarded as
+they can not be relevant by themselves and just arise randomly by
+combination with other stronger chromosomes.
 
 Once the GA has generated a proposal set of features for predicting
 each of the physical parameters, the next step consists in training
 the regression model based on these features. This is described in the
-nest Section.
+next Section.
 
 \subsection{Models considered.}
 \label {ssub:models}
@@ -281,7 +280,7 @@ variables for which the predicted variables are available) to infer
 the parameters of an (often analytical) mapping between predictor and
 predicted variables. The regression model parameters should not be
 confused with the physical parameters of the atmosphere we aim at
-inferring. {\bf TODO 2: Check if every occurrence of parameter is clear}
+inferring. 
 
 In this case, our training set is again the BT Settl collection of
 synthetic spectra, for which we already computed the predictor
@@ -317,19 +316,21 @@ physical parameter in order to evaluate their performance:
 In order to assess the validity of our feature sets we also compare
 the predictions based on them with other input spaces. In particular,
 we also compute physical parameters that yield the the minimum
-$\chi^2$, and train a Projection Pursuit regression models with the
-Independent Components derived from each spectrum. {\bf TODO 3: add
-reference for ICA}.
+$\chi^2$, and train a Projection Pursuit regression model with the
+Independent Components \citep{Hyvarinen:1998:NAD:302528.302606}
+derived from each spectrum.
 
 Including here a sufficient description of each and every regression
 model that we trained would render the manuscript excessively lengthy
 but interested readers can find additional information in
-\cite{baraud2002model,geman1992neural,elith2008working,meyer2003support,svetnik2003random}. Suffice it to say that each one of them can be thought of as
+\cite{baraud2002model,geman1992neural,elith2008working,
+meyer2003support,svetnik2003random}. 
+Suffice is to say that each one of them can be thought of as
 a parametric model that predicts one physical parameter from an input
 vector. The input vector can be the full normalised spectrum, the ICA
 lower-dimensional representation of the full spectrum, the spectral
 features selected by \cite{cesetti} or those selected by the GA. The
-regression model parameters are infered (using strategies that differ
+regression model parameters are inferred (using strategies that differ
 from one regression model to the other) from a set of examples. As
 explained above, this set of examples (spectra of stars for which we
 know the physical parameters) is called the training set, and the
@@ -346,10 +347,10 @@ subsets and training different regression models, each one of them
 with ($n$-1) of the $n$ subsets. The $n$-th subset not used for
 training is used instead to estimate the errors.
 
-As every type of model has its own set of tunable parameters as well
-as its own training procedure, the authors have selected a common
-\cite{R2016} wrapper for all models named caret (short for
-Classification And REgression Training) \cite{caret}.  This wrapper
+As every type of model has its own set of tuneable parameters as well
+as its own training procedure, we have used a common {\sl R}
+\citep{R2016} wrapper for all models named {\sl caret} \citep[short for
+Classification And REgression Training][]{caret}.  This wrapper
 enables a common interface, as well as the use of the same set of
 training/set samples for the adopted five-fold cross-validation error
 estimation. As explained above, each regression model has its own set
@@ -412,7 +413,7 @@ frequencies of examples in the training set represents better the
 biases naturally encountered in surveys than the uniform sampling of
 parameter space found in synthetic libraries. Recently, \cite{heiter}
 have started a program to compile a set of stars with accurate
-physical parameter determinations infered independently of
+physical parameter determinations inferred independently of
 spectroscopic measurements and atmospheric models (as much as
 possible). Unfortunately, this ambitious program only contains 34
 stars of spectral types F, G, and K. In the M regime we find similar

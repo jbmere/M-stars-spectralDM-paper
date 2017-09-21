@@ -1,0 +1,25 @@
+
+
+In this work we have attempted to construct regression models to
+predict physical parameters of M-type star atmospheres. We have tried
+several representation spaces or sets of predictive variables: the
+full spectrum, the ICA compression coefficients, and several sets of
+features (pseudo-equivalent widths) optimized using GAs to predict
+effective temperatures, surface gravities and metallicities. The main
+conclusions for this extensive study can be summarised as follows:
+\begin{itemize}
+
+\item The cross-validation root mean square errors based on a training set of synthetic spectra  are poor predictors of the true performance of a regression model applied to true observed spectra.
+
+\item The features selected by \cite{cesetti} based on sensitivity maps (the gradient of the monochromatic fluxes as functions of the physical parameters) have sub-optimal performances when used for prediction purposes.
+
+\item In the context of IRTF spectra (R$\approx$2000 between 8146 and 24107\AA), our feature set for predicting effective temperatures combined with a nearest-neighbour predictor produces similar results to those obtained from the $\chi^2$ classical technique and a Projection Pursuit Regression model based on the ICA compression coefficients. Hence, there is no apparent gain in reducing the dimensionality of the representation space other than the simplicity, interpretability and computation speed of the models.   
+
+\item For the prediction of the IRTF stars surface gravities, and based on plausibility arguments, we find a significant improvement in the predictions obtained from machine learning models (mainly rule regression and artificial neural networks) and the GA features with respect to minimising the $\chi^2$ of the full spectrum. While ICA remains a competitive alternative, it fails to produce predictions for the coolest giants in the sample that are consistent with the literature luminosity class. In the case of metallicities, the ICA coefficients remain as the optimal representation space although at these reduced resolutions, the accuracy of the predictions is low. 
+
+\item In the context of predicting $T_{\rm eff}$ for IPAC optical spectra, dimensionality reduction is not necessary and may indeed be counterproductive as it seems to induce a bias for the lowest temperatures. The prediction of surface gravities seems hopeless in the representation spaces tested in this work, whether it is the full spectrum in a $\chi^2$ minimisation scheme, or a machine learning algorithm applied to ICA coefficients or GA features.
+
+\item Finally, although the typical dispersion of the predicitions for metallicities of IPAC stars is large ($\approx 0.25 dex$) we find that our module based on GA-selected features and a Random Forest regression model can detect subdwarfs known in the literature and we produce a list of 5 new candidates that need be confirmed with higher resolution spectra.  
+
+\end{itemize}
+

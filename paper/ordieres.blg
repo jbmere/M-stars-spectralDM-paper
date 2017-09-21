@@ -1,57 +1,48 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/dev/Debian)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: ordieres.aux
-The style file: bibtex/aa.bst
+The style file: mnras.bst
 Database file #1: references_m.bib
-Repeated entry---line 155 of file references_m.bib
- : @article{2009ApJS..185..289R
- :                             ,
-I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "rajpurohit"
-Warning--I didn't find a database entry for "amelia"
-Warning--I didn't find a database entry for "PaperAna"
-Warning--I didn't find a database entry for ""
-Warning--empty journal in caret
-Warning--empty publisher in 1996imsa.book.....O
-You've used 38 entries,
-            2947 wiz_defined-function locations,
-            890 strings with 12690 characters,
-and the built_in function-call counts, 19490 in all, are:
-= -- 1579
-> -- 1734
-< -- 11
-+ -- 583
-- -- 540
-* -- 1686
-:= -- 3672
-add.period$ -- 38
-call.type$ -- 38
-change.case$ -- 332
-chr.to.int$ -- 37
-cite$ -- 40
-duplicate$ -- 692
-empty$ -- 975
-format.name$ -- 633
-if$ -- 3789
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 48 entries,
+            2881 wiz_defined-function locations,
+            1116 strings with 19122 characters,
+and the built_in function-call counts, 23258 in all, are:
+= -- 1730
+> -- 1882
+< -- 115
++ -- 833
+- -- 304
+* -- 2890
+:= -- 3827
+add.period$ -- 0
+call.type$ -- 48
+change.case$ -- 97
+chr.to.int$ -- 47
+cite$ -- 48
+duplicate$ -- 1104
+empty$ -- 1129
+format.name$ -- 418
+if$ -- 3917
 int.to.chr$ -- 2
-int.to.str$ -- 1
-missing$ -- 35
-newline$ -- 118
-num.names$ -- 152
-pop$ -- 332
+int.to.str$ -- 0
+missing$ -- 48
+newline$ -- 164
+num.names$ -- 340
+pop$ -- 271
 preamble$ -- 1
-purify$ -- 331
+purify$ -- 192
 quote$ -- 0
-skip$ -- 578
+skip$ -- 631
 stack$ -- 0
-substring$ -- 697
-swap$ -- 3
-text.length$ -- 1
+substring$ -- 1140
+swap$ -- 598
+text.length$ -- 193
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 333
-warning$ -- 2
-while$ -- 142
+type$ -- 423
+warning$ -- 0
+while$ -- 360
 width$ -- 0
-write$ -- 383
-(There was 1 error message)
+write$ -- 506

@@ -1,26 +1,17 @@
-%                                                                 aa.dem
-% AA vers. 8.2, LaTeX class for Astronomy & Astrophysics
-% demonstration file
-%                                                       (c) EDP Sciences
-%-----------------------------------------------------------------------
-%
-%\documentclass[referee]{aa} % for a referee version
-%\documentclass[onecolumn]{aa} % for a paper on 1 column  
-%\documentclass[longauth]{aa} % for the long lists of affiliations 
-%\documentclass[rnote]{aa} % for the research notes
-%\documentclass[letter]{aa} % for the letters 
-%\documentclass[bibyear]{aa} % if the references are not structured 
-% according to the author-year natbib style
+\documentclass[a4paper,fleqn,usenatbib]{mnras}  
+\usepackage{newtxtext,newtxmath}
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+\usepackage{graphicx}	% Including figure files
+\usepackage{amsmath}	% Advanced maths commands
+\usepackage{amssymb}	% Extra maths symbols
+\usepackage[english]{babel}
 
 %
-\documentclass[printer]{aa}  
-
-%
-\usepackage{graphicx}
 \usepackage{caption}
-\usepackage{subcaption}
+%\usepackage{subcaption}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{txfonts}
+%\usepackage{txfonts}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\usepackage[options]{hyperref}
 % To add links in your PDF file, use the package "hyperref"
@@ -28,99 +19,79 @@
 \usepackage{pseudocode}
 %
 % Enable mutiple title row on tables.
-\usepackage{multirow}
+\usepackage{multirow,booktabs}
 %%%%%%%%%%%
 % 
 % Dealing with ``too many unprocessed floats'' use it with \clearpage 
 \usepackage[section] {placeins}
 
 % For marginal notes
-\usepackage{marginnote}
-\usepackage{booktabs}
+%\usepackage{marginnote}
+%\usepackage{booktabs}
+
+\title{Physical parameter estimates of M-type stars: a machine learning perspective.}
+
+\author[L. M. Sarro et al.]
+          {
+L.M. Sarro$^{1}$\thanks{lsb@dia.uned.es},
+J. Ordieres-Mer\'e$^{2}$,       
+A. Bello-Garc\'ia$^{3}$, 
+A. Gonz\'alez-Marcos$^{4}$, 
+E. Solano$^{5}$
+\\
+$^{1}$Department of Artificial Intelligence,Universidad Nacional de Educaci\'{o}n a Distancia, c/ Juan del Rosal, 16, 28040 Madrid.\\
+$^{2}$Universidad Polit\'{e}cnica de Madrid (UPM), ETSII. PMQ Research Group, Jos\'{e} Guti\'{e}rrez Abascal 2, 28006 Madrid, Spain. \\
+$^{3}$Universidad de Oviedo, Construction and Manufacturing Engineering Department, Campus de Viesques s/n, Gij\'{o}n, Asturias, Spain. \\
+$^{4}$Universidad de la Rioja, P2ML Research Group, Luis de Ulloa 20, 26004 Logro\~{n}o, La Rioja, Spain. \\
+$^{5}$Centro de Astrobiolog\'{\i}a (CSIC-INTA), Ctra. Ajalvir km 4, E-28850 Torrejón de Ardoz, Madrid, Spain.\\
+}
+\date{Accepted XXX. Received YYY; in original form ZZZ}
+
+% Enter the current year, for the copyright statements etc.
+\pubyear{2017}
 
 \begin{document} 
+\label{firstpage}
+\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+\maketitle
 
+\begin{abstract}
+    Estimating physical parameters of M type stars has been a
+    difficult task due to the lack of simple diagnostics in the
+    stellar spectra.  We aim at uncovering good sets of predictive
+    features of the stellar atmospheric parameters ($T_{\rm eff}$,
+    $\log(g)$, $M/H$) in spectra of M type stars.  The wavelength
+    ranges that contain the spectral information and the
+    pseudo-continuum define each feature. A set of features is
+    referred to as a representation space.  We define two types of
+    potential features (equivalent widths and integrated flux ratios)
+    as predictors of the atmospheric physical parameters. We search
+    the space of feature sets using a Genetic Algorithm that evaluates
+    solutions by their prediction performance in the framework of the
+    BT-Settl library of stellar spectra. Thereafter, we construct
+    eight regression models using different machine learning
+    techniques and compare their performances with two alternative
+    representation spaces: the full spectrum as in the classical
+    $\chi^2$ approach, and the Independent Component Analysis (ICA)
+    coefficients. Finally, we validate the various alternatives using
+    two sets of real spectra from the IRTF and Dwarf Archive
+    collections.  We find that the cross-validation errors are poor
+    measures of the performance of regression models in the context of
+    physical parameter prediction in M type stars. For R~2000 spectra
+    of the signal-to-noise ratios typical of the IRTF and Dwarf
+    Archive collections, feature selection with Genetic Algorithms or
+    alternative techniques produces only marginal advantages with
+    respect to representation spaces that are unconstrained in
+    wavelength (full spectrum or ICA). We provide physical parameters
+    for the two collections of observed spectra.
+\end{abstract}
 
-   \title{Physical parameter estimates of M-type stars: a machine learning perspective.}
-
-   \author{
-          L. M. Sarro \inst{1}  
-          \and
-          J. Ordieres-Mere \inst{2} 
-          \and
-          A. Bello-Garcia\inst{3} 
-          \and
-          A. Gonzalez-Marcos\inst{4} 
-          \and
-          M.B. Prendes-Gero\inst{3} 
-          }
-
-   \institute{ 
-      \inst{1} Universidad Nacional de Educaci\'{o}n a Distancia, \\
-               Department of Artificial Intelligence.
-               \email{lsb@uned.es}
-        \and 
-      \inst{2}  Universidad Polit\'{e}cnica de Madrid (UPM), PMQ Research Group, \\
-              Jos\'{e} Guti\'{e}rrez Abascal 2, 28006 Madrid, Spain. 
-              \email{j.ordieres@upm.es}
-        \and 
-      \inst{3}   Universidad de Oviedo, Construction and Manufacturing Engineering Department, \\
-              Campus de Viesques s/n, Gij\'{o}n, Asturias, Spain. 
-              \email{\{abello,mbprendes\}@uniovi.es} 
-        \and 
-      \inst{4}  Universidad de la Rioja, P2ML Research Group, \\
-              Luis de Ulloa 20, 26004 Logro\~{n}o, La Rioja, Spain. 
-              \email{ana.gonzalez@unirioja.es}
-      }
-
-   \date{Received \today; accepted }
-
-% \abstract{}{}{}{}{} 
-% 5 {} token are mandatory
- 
-   \abstract
-%   context heading (optional)
-    {Estimating physical parameters of M type stars has been a
-      difficult task due to the lack of simple diagnostics in the
-      stellar spectra.}
-% aims heading (mandatory)
-    {We aim at uncovering good sets of predictive features of the
-      stellar atmospheric parameters ($T_{\rm eff}$, $\log(g)$, $M/H$)
-      in spectra of M type stars. Each feature is defined by the
-      wavelength ranges that contain the spectral information and the
-      pseudo-continuum. A set of features is referred to as a
-      representation space.}
-%   % methods heading (mandatory)
-    {We define two types of potential features (equivalent widths and
-      integrated flux ratios) as predictors of the atmospheric
-      physical parameters. We search the space of feature sets using a
-      Genetic Algorithm that evaluates solutions by their prediction
-      performance in the framework of the BT-Settl library of stellar
-      spectra. Thereafter, we construct eight regression models using
-      different machine learning techniques and compare their
-      performances with two alternative representation spaces: the
-      full spectrum as in the classical $\chi^2$ approach, and the
-      Independent Component Analysis (ICA) coefficients. Finally, we
-      validate the various alternatives using two sets of real spectra
-      from the IRTF and Dwarf Archive collections.}
-%   % results heading (mandatory)
-    {We find that the cross-validation errors are poor measures of the
-      performance of regression models in the context of physical
-      parameter prediction in M type stars. For R~2000 spectra of the
-      signal-to-noise ratios typical of the IRTF and Dwarf Archive
-      collections, feature selection with Genetic Algorithms or
-      alternative techniques produces only marginal advantages with
-      respect to representation spaces that are unconstrained in
-      wavelength (full spectrum or ICA). We provide physical
-      parameters for the two collections of observed spectra.}
-%   % conclusions heading (optional), leave it empty if necessary 
-    {}
-
-   \keywords{ Methods: data analysis; Methods: statistical;
+\begin{keywords}
+Methods: data analysis; Methods: statistical;
      Techniques: spectroscopic; Stars: atmospheres; Stars: fundamental
-     parameters; Stars: late-type; Stars: statistics;}
+     parameters; Stars: late-type; Stars: statistics;
+\end{keywords}
 
-   \maketitle
 %
 
 \section{Introduction}
@@ -150,7 +121,7 @@
 \label{sec:irtf}
 
 In the following, we will summarise the results obtained for the IRTF
-data set. We deal with the different physical paramenters in separate
+data set. We deal with the different physical parameters in separate
 Sections. We start by reporting the Root Mean/Median Square Errors
 (RMSE/RMDSE) with respect to the parameters gathered from the
 literature by \cite{cesetti} and included in their Table 3.
@@ -174,7 +145,7 @@ literature by \cite{cesetti} and included in their Table 3.
 \label{sec:summary}
 \input{summary}
 
-\begin{acknowledgements}
+\section*{Acknowledgements}
 This research has benefitted from the M, L, T, and Y dwarf compendium
 of spectra housed at DwarfArchives.org.  The authors would like to
 acknowledge funding by the Spanish Ministry of Economy and Innovation
@@ -183,13 +154,14 @@ University of Hawaii under Cooperative Agreement no. NNX-08AE38A with
 the National Aeronautics and Space Administration, Science Mission
 Directorate, Planetary Astronomy Program. This research has made
 extensive use of the R software \cite{R} and the {\it caret} R
-package.
-\end{acknowledgements}
+package. Finally, the Centro de Supercomutaci\'on y Visualizaci\'on 
+de Madrid (CeSVIMa) is thankfully acknowledged for the computer
+resources, technical expertise and assistance provided.
 
 %-------------------------------------------------------------------
 
 \bibliography{references_m}{}
-\bibliographystyle{bibtex/aa}
+\bibliographystyle{mnras}
 
 \begin{appendix}
 \label{app}
