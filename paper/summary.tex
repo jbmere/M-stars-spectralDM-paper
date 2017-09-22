@@ -14,7 +14,19 @@ conclusions for this extensive study can be summarised as follows:
 
 \item In the context of IRTF spectra (R$\approx$2000 between 8146 and 24107\AA), our feature set for predicting effective temperatures combined with a nearest-neighbour predictor produces similar results to those obtained from the $\chi^2$ classical technique and a Projection Pursuit Regression model based on the ICA compression coefficients. Hence, there is no apparent gain in reducing the dimensionality of the representation space other than the simplicity, interpretability and computation speed of the models.   
 
-\item For the prediction of the IRTF stars surface gravities, and based on plausibility arguments, we find a significant improvement in the predictions obtained from machine learning models (mainly rule regression and artificial neural networks) and the GA features with respect to minimising the $\chi^2$ of the full spectrum. While ICA remains a competitive alternative, it fails to produce predictions for the coolest giants in the sample that are consistent with the literature luminosity class. In the case of metallicities, the ICA coefficients remain as the optimal representation space although at these reduced resolutions, the accuracy of the predictions is low. 
+\item For the prediction of the IRTF stars surface gravities, and
+  based on plausibility arguments, we find a significant improvement
+  in the predictions obtained from machine learning models (mainly
+  rule regression and artificial neural networks) and the GA features
+  with respect to minimising the $\chi^2$ of the full spectrum. While
+  ICA remains a competitive alternative, it fails to produce
+  predictions for the coolest giants in the sample that are consistent
+  with the literature luminosity class. However, ICA shows the best
+  agreement with the M dwarf stellar parameters derived from
+  high-resolution infrared spectra in \cite{esm1} and \cite{esm2}. In
+  the case of metallicities, the ICA coefficients remain as the
+  optimal representation space although at these reduced resolutions,
+  the accuracy of the predictions is low.
 
 \item In the context of predicting $T_{\rm eff}$ for IPAC optical spectra, dimensionality reduction is not necessary and may indeed be counterproductive as it seems to induce a bias for the lowest temperatures. The prediction of surface gravities seems hopeless in the representation spaces tested in this work, whether it is the full spectrum in a $\chi^2$ minimisation scheme, or a machine learning algorithm applied to ICA coefficients or GA features.
 

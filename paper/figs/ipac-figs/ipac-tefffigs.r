@@ -154,6 +154,11 @@ c1 <- apply(c1,2,mad,na.rm=T)
 
 lc <- 15
 
+# Read esm values (Heiter, Lindegren)
+esm2 <- read.table("../esm2.dat", sep="&", colClasses = c("character",rep("numeric",4)))
+esm3 <- read.table("../esm3.dat", sep="&")
+#####
+
 pdf("../ipac-teff-logg.pdf",width=8,height=5)
 par(cex.axis=1.0)
 nrows = 2
@@ -172,6 +177,7 @@ plot(log10(df_T_50$Chi2_50),df_G$NNR_10,pch=pchmask,cex=0.7,col=colmask,axes=F,x
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(tab3[,2]),tab3[,3],cex=.7,pch=lcirtf)
 points(log10(teffirtf),loggirtf,cex=.7,pch=lc,col="darkgreen")
+points(log10(esm2[,5]),esm2[,4],pch=15,col="orange",cex=.7)
 box()
 text(3.9,0,"GA-NNR-10",pos=4,cex=1.1)
 axis(2)
@@ -181,6 +187,7 @@ plot(log10(df_T_50$Chi2_50),df_G$SVR_10,pch=pchmask,cex=0.7,col=colmask,axes=F,x
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(tab3[,2]),tab3[,3],cex=.7,pch=lcirtf)
 points(log10(teffirtf),loggirtf,cex=.7,pch=lc,col="darkgreen")
+points(log10(esm2[,5]),esm2[,4],pch=15,col="orange",cex=.7)
 box()
 axis(4)
 text(3.9,0,"GA-SVR-10",pos=4,cex=1)
@@ -190,6 +197,7 @@ plot(log10(df_T_50$Chi2_50),df_G$Chi2_50,pch=pchmask,cex=0.7,col=colmask,axes=F,
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(tab3[,2]),tab3[,3],cex=.7,pch=lcirtf)
 points(log10(teffirtf),loggirtf,cex=.7,pch=lc,col="darkgreen")
+points(log10(esm2[,5]),esm2[,4],pch=15,col="orange",cex=.7)
 box()
 axis(1)
 axis(2)
@@ -201,6 +209,7 @@ plot(log10(df_T_50$Chi2_50),df_G$ICA_10,pch=pchmask,cex=0.7,col=colmask,axes=F,x
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(tab3[,2]),tab3[,3],cex=.7,pch=lcirtf)
 points(log10(teffirtf),loggirtf,cex=.7,pch=lc,col="darkgreen")
+points(log10(esm2[,5]),esm2[,4],pch=15,col="orange",cex=.7)
 box()
 axis(1)
 axis(4)

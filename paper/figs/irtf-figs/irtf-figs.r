@@ -133,6 +133,11 @@ dev.off()
 
 ################################################
 
+# Read esm values (Heiter, Lindegren)
+esm2 <- read.table("../esm2.dat", sep="&", colClasses = c("character",rep("numeric",4)))
+esm3 <- read.table("../esm3.dat", sep="&")
+######
+
 pdf("../ordieres-fig4.pdf",width=8,height=5)
 par(cex.axis=1.0)
 nrows = 2
@@ -150,6 +155,7 @@ par(mar = c(0,5,1,0))
 plot(log10(df_T_inf$KNN),df_G$`Rule-Regression_50`,pch=lc2,cex=0.5,col="red",axes=F,xlab="",
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(tab3[,2]),tab3[,3],cex=.5,pch=lc)
+points(log10(esm2[,5]),esm2[,4],pch=15,col="orange",cex=.7)
 box()
 text(3.4,0,"GA-RR-50",pos=4,cex=0.7)
 axis(2)
@@ -158,6 +164,7 @@ par(mar = c(0,0,1,4))
 plot(log10(df_T_inf$KNN),df_G$PLS_50,pch=lc2,cex=0.5,col="red",axes=F,xlab="",
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(tab3[,2]),tab3[,3],cex=.5,pch=lc)
+points(log10(esm2[,5]),esm2[,4],pch=15,col="orange",cex=.7)
 box()
 axis(4)
 text(3.4,0,"GA-PLS-50",pos=4,cex=0.7)
@@ -166,6 +173,7 @@ par(mar = c(4,5,0,0))
 plot(log10(df_T_inf$KNN),df_G$NNR_50,pch=lc2,cex=0.5,col="red",axes=F,xlab=expression(log(T[eff])),
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(tab3[,2]),tab3[,3],cex=.5,pch=lc)
+points(log10(esm2[,5]),esm2[,4],pch=15,col="orange",cex=.7)
 box()
 axis(1)
 axis(2)
@@ -176,6 +184,7 @@ par(mar = c(4,0,0,4))
 plot(log10(df_T_inf$KNN),df_G$ICA_10,pch=lc2,cex=0.5,col="red",axes=F,xlab=expression(log(T[eff])),
      ylab="log(g)",cex.lab=1.5, xlim=c(3.9,3.25), ylim=c(6,-1))
 points(log10(tab3[,2]),tab3[,3],cex=.5,pch=lc)
+points(log10(esm2[,5]),esm2[,4],pch=15,col="orange",cex=.7)
 box()
 axis(1)
 axis(4)

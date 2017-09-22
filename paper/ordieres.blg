@@ -1,48 +1,48 @@
-This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2015/dev/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: ordieres.aux
 The style file: mnras.bst
 Database file #1: references_m.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 48 entries,
+You've used 50 entries,
             2881 wiz_defined-function locations,
-            1116 strings with 19122 characters,
-and the built_in function-call counts, 23258 in all, are:
-= -- 1730
-> -- 1882
-< -- 115
-+ -- 833
-- -- 304
-* -- 2890
-:= -- 3827
+            1132 strings with 19584 characters,
+and the built_in function-call counts, 24236 in all, are:
+= -- 1812
+> -- 1951
+< -- 121
++ -- 862
+- -- 314
+* -- 3013
+:= -- 3980
 add.period$ -- 0
-call.type$ -- 48
-change.case$ -- 97
-chr.to.int$ -- 47
-cite$ -- 48
-duplicate$ -- 1104
-empty$ -- 1129
-format.name$ -- 418
-if$ -- 3917
+call.type$ -- 50
+change.case$ -- 101
+chr.to.int$ -- 49
+cite$ -- 50
+duplicate$ -- 1150
+empty$ -- 1173
+format.name$ -- 436
+if$ -- 4085
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 48
-newline$ -- 164
-num.names$ -- 340
-pop$ -- 271
+missing$ -- 50
+newline$ -- 170
+num.names$ -- 356
+pop$ -- 279
 preamble$ -- 1
-purify$ -- 192
+purify$ -- 200
 quote$ -- 0
-skip$ -- 631
+skip$ -- 659
 stack$ -- 0
-substring$ -- 1140
-swap$ -- 598
-text.length$ -- 193
+substring$ -- 1198
+swap$ -- 630
+text.length$ -- 201
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 423
+type$ -- 441
 warning$ -- 0
-while$ -- 360
+while$ -- 376
 width$ -- 0
-write$ -- 506
+write$ -- 526
