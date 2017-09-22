@@ -78,7 +78,7 @@ nf = layout(layoutmat,respect=T,
             heights=c(windim[2],windim[2]+mardim)
 )
 
-xl <- c(2000,4500)
+xl <- c(2000,4300)
 par(mar = c(0,5,1,0))
 plot(jitter(referenceTeff,5),df_T_50$Chi2_50,pch=pchmask,cex=0.5,col=colmask,
      axes=F,xlab="",ylab=expression(T[eff]),cex.lab=1.5,xlim=xl,ylim=xl)
