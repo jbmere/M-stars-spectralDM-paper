@@ -1,0 +1,92 @@
+
+M-type dwarfs constitute the largest contribution by number to the
+Galactic population \citep{2010AJ....139.2679B}. This Galactic
+component is extremely important as its properties convey crucial
+information about the Galactic structure and
+evolution \citep{2013A&A...556A.110B}. They are known to harbour
+super-Earth exoplanets \citep{2013A&A...556A.110B} and have recently
+become a major target in large-scale searches for habitable ones due,
+amongst other reasons, to the reduced star-to-planet mass and light
+ratios \citep{2015A&A...577A.128A}. In addition, the probability to observe a
+transit is significantly higher because the habitable zone is
+significantly closer to the star \citep{Shields20161}.
+
+These stars span two orders of magnitude in luminosity and almost one
+order of magnitude in mass, from 0.075 M$\odot$ to 0.6 M$\odot$. At
+0.35 M$\odot$, these stars become fully convective and, given their
+low internal pressures, this results in life spans that greatly exceed
+the age of the Universe. Although much theoretical work has been
+invested in understanding this low mass end of the Main
+Sequence \citep{2008ApJ...676.1262B}, there are still some
+discrepancies between models and observations \citep[see e.g.][for an
+account of the observed inflated radii and cooler temperatures with
+respect to model predictions]{2013AN....334....4T}.
+
+Molecular bands of water (H$_2$O), TiO, VO,
+heavily veil their spectra and H$_2$, to the extent that defining a true stellar
+continuum is extraordinarily difficult. The complexity of modelling
+these molecular bands (numerous transitions, frequency-dependent
+absorption coefficients, collisional transitions) and the difficulty in
+defining a true stellar continuum prevents the application of standard
+techniques (common for F-, G- and K-type stars) to the determination
+of physical parameters of M-type stars.
+
+% The state-of-the-art
+% Summary of spectral diagnostics in the IR for M stars
+Given the prevalence of these late-type stars, it has become
+increasingly important to be able to estimate their atmospheric
+physical parameters with reproducible methods that provide homogeneous
+values for large samples of spectra. \cite{2012ApJ...748...93R}
+proposed the H2O-K2, Na~{\sc I} and Ca~{\sc I} spectral indices to
+estimate spectral type, effective temperature ($T_{\rm eff}$) and
+metallicity from K band spectra between 1.0 and 2.4 $\mu$m at a
+resolution R$\approx$2700. They predict spectral types with a quoted
+accuracy of 0.6 sub-types, and metallicities with a root mean square
+error (RMSE) of 0.1 dex (0.14 dex for the Iron abundance). The
+definition of the line/band spectral regions and pseudo-continuum is
+justified in terms of contiguity and the avoidance of other atomic
+features. 
+
+\cite{2014A&A...568A.121N} on the contrary concentrated in
+high resolution (R$\approx$ 115000) spectra in the optical range.
+They proposed a method based on a linear least squares fit of the
+equivalent widths (EWs) of 4104 lines in the 530-690 nm spectral range
+to effective temperatures and metallicities derived from the scales
+by \cite{2012A&A...538A..25N} and \cite{2008MNRAS.389..585C}.  They
+show RMSE of 0.12 dex for the metallicity and 293 K for the effective
+temperature. \cite{2015ApJ...800...85N} develop a calibration of
+effective temperatures, radii and bolometric luminosities with Mg and
+Al spectral features measured in low-resolution near-infrared spectra
+(from the SpeX instrument on IRTF, the same instrument used and
+described in Section \ref{sec:irtf} of this work).  They quote
+residual standard deviations of the $T_{\rm eff}$ fit of 73
+K. \cite{Mann2015} calculate effective temperatures using the
+classical $\chi^2$ minimization of the observed optical spectra with
+respect to the CIFIST2011 library of BT-Settl synthetic spectra.
+Uncertaintites of Temperatures are estimated around 60 K.
+Metallicities are estimated from the EWs of atomic spectral lines in
+near-infrared spectra (again SpeX) using calibrations obtained from
+wide binaries with FGK primaries. The estimated errors in metallicity
+are 0.08 dex.
+
+The previous summary shows a lack of estimates for the surface gravity
+and a variety of methodologies for the estimation of temperatures and
+metallicities. In this work we are mainly concerned with estimating
+atmospheric physical parameters using spectral features and libraries
+of synthetic spectra. Our aim is to identify the best spectral
+features for estimating $T_{\rm eff}$, $\log(g)$ and
+$[M/H]$. \cite{cesetti} proposed the sensitivity maps (the derivative
+of the monochromatic fluxes with respect to the atmospheric physical
+parameters) to rank spectral features. In this work we explore the
+validity of the features proposed by \cite{cesetti} and propose and
+evaluate new features using standard Machine Learning techniques. In
+Section \ref{sec:meth} we describe the methodology used to define and
+evaluate the spectral features; in Section \ref{sec:irtf} we apply the
+methodology described in Section \ref{sec:meth} in the context of the
+wavelength coverage and resolution of the IRTF collection of spectra;
+we describe the feature definition results and evaluate them for the
+task of predicting physical parameters on the actual observed spectra
+that make up the collection. Section \ref{sec:ipac} describes the same
+steps in the context of the Dwarf Archives (hereafter IPAC) collection
+of spectra. Finally, Section \ref{sec:summary} summarises the main
+results and conclusions of the paper.
