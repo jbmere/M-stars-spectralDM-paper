@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Methodology.}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Spectral preprocessing}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Feature definition and selection}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Models considered.}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Physical parameters of the IRTF collection of spectra.}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Spectral bands selected}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{Regression models}{section.3}% 8
+\BOOKMARK [1][-]{section.4}{Physical parameters of the DA collection of spectra.}{}% 9
+\BOOKMARK [2][-]{subsection.4.1}{Spectral bands selected}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.2}{Regression models}{section.4}% 11
+\BOOKMARK [1][-]{section.5}{Summary and conclusions}{}% 12
+\BOOKMARK [1][-]{section.A1}{IRTF features}{}% 13
+\BOOKMARK [1][-]{section.A2}{DA features}{}% 14
+\BOOKMARK [1][-]{section.A3}{IRTF RMSE regression models}{}% 15
+\BOOKMARK [1][-]{section.A4}{DA RMSE regression models}{}% 16
+\BOOKMARK [1][-]{section.A5}{Results with features from Cesetti et al. \(2013\)}{}% 17
