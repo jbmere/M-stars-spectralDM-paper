@@ -62,9 +62,8 @@ the stellar distance. This is necessary in order to compare our
 feature selection proposal with the techniques that make use of the
 full spectrum (minimum $\chi^2$ and ICA compression; see below).
 
-In order to avoid selecting spectral features that are 
-good to explain targeted parameters 
-only in the unrealistic SNR=$\infty$ regime, the search for optimal
+In order to avoid selecting spectral features that work well only in
+the unrealistic SNR=$\infty$ regime, the search for optimal
 diagnostics of the atmospheric parameters of M stars was carried out
 for three SNR values (10, 50 and $\infty$) by degrading the synthetic
 spectra with Gaussian noise of zero mean. These values were found to
@@ -120,17 +119,16 @@ Another type of features have been considered and, defined as
 \end{equation}
 
 \zeroindent{}
-where $\lambda_1, \lambda_2, \lambda_3$, and
-$\lambda_4$ delimit two spectral bands such that the ratio of the
-integrated fluxes in the two bands is assumed to be 
-(alone or in combination with other features) 
-a good way of estimate the star atmospheric
-physical parameters. The results obtained with this alternative
-feature definition did not differ significantly on average from the
-ones observed with the one adopted in Eq. \ref{eq:featureDefinition},
-and including them here would result in an excessively lengthy
-paper. In view of the equivalent global performances, we preferred the
-former because it allows direct comparison with the features proposed
+where $\lambda_1, \lambda_2, \lambda_3$, and $\lambda_4$ delimit two
+spectral bands such that the ratio of the integrated fluxes in the two
+bands is assumed to be (alone or in combination with other features) a
+good feature for predicting the star atmospheric physical
+parameters. The results obtained with this alternative feature
+definition did not differ significantly on average from the ones
+observed with the one adopted in Eq. \ref{eq:featureDefinition}, and
+including them here would result in an excessively lengthy paper. In
+view of the equivalent global performances, we preferred the former
+because it allows direct comparison with the features proposed
 by \cite{cesetti}.
 
 \defindent{}
@@ -149,22 +147,30 @@ available. GAs were presented to the astronomical community
 in \cite{1995ApJS..101..309C}, and have been used extensively in the
 past \citep[see][for a significant application of GAs in astronomy]{2013A&A...550A..74D}.
 
-For the sake of simplicity, let us define GAs as
-search algorithms that are based on the principle of evolution by
-natural selection. The procedure works by evolving in the sense
-explained below, chromosomes (in our case, sets of spectral features
-as defined by Eq. \ref{eq:featureDefinition}) from an initial random
-population of chromosomes. 
-Evolution proceeds via cycles of differential replication,
-recombination and mutation of the fittest chromosomes. The concept of
-fittest is context dependent, but in our case fitness is defined in
-relation with the accuracy with which a given chromosome (a set
-$\{F_i\}$ of spectral features) predicts the physical parameters
+For the sake of simplicity, let us define GAs as search algorithms
+that are based on the principle of evolution by natural selection. The
+procedure works by evolving in the sense explained below, chromosomes
+(in our case, sets of spectral features as defined by
+Eq. \ref{eq:featureDefinition}) from an initial random population of
+chromosomes.  Evolution proceeds via cycles of differential
+replication, recombination and mutation of the fittest
+chromosomes. The concept of fittest is context dependent, but in our
+case fitness is defined in relation with the accuracy with which
 % Explained the fitness JOM
 \textbf{
-by using a naive linear model. Actually, the Akaike information
-criterion (AIC) was used. 
-Then, the AIC value of the model is presented by Eq.} \ref{eq:AIC}.
+a simple multivariate linear model trained on a given chromosome (a
+set $\{F_i\}$ of spectral features) predicts the physical
+parameters. This linear model may not capture instrinsic
+non-linearities between the input space (the features) and the
+predicted physical parameters but it is significantly faster and
+simpler than the actual models that will eventually be used to predict
+the features (described in Section \ref{ssub:models}). It would
+certainly be preferable to use as fitness criterion the accuracy of
+the models described in Section \ref{ssub:models} but this turned out
+to be computationally prohibitive for the several millions of
+evaluations involved in the GA. The accuracy is measured with the
+Akaike information criterion (AIC) of the fitted linear model.  The
+AIC value of a given model is given by Eq.} \ref{eq:AIC}.
 
 \begin{equation}\label{eq:AIC}
   AIC = 2 \times k - 2 \times ln(\hat{L}) 
@@ -172,16 +178,10 @@ Then, the AIC value of the model is presented by Eq.} \ref{eq:AIC}.
 
 \zeroindent{}
 \textbf{
-where \textit{k} is the number of estimated parameters in the model, 
-and $\hat{L}$ is the maximum value of the likelihood function for the model.
-} 
-
-\defindent{}
-\textbf{
-Main reason for using a simple
-multivariate regression model is that several millions of
-evaluations need to be performed, and time effectiveness matters.
-}
+where \textit{k} is the number of model parameters and $\hat{L}$ is
+the maximum value of the likelihood function for the given data. Since
+$k$ is fixed for all models, the AIC effectively reduces to the
+maximum likelihood or least squares criterion.}
 % End of explanation
 
 The data set used to search for the optimal set of spectral features
@@ -194,8 +194,8 @@ The implementation of the GA comprises the following steps:
 
 \begin{itemize}
 \item \textbf{Stage 1}:{ Definition of the population of
-potential features as a set of chromosomes
-that are evolved by the algorithm looking to increase the fitness. }
+potential features as a set of chromosomes that are evolved by the
+genetic algorithm in order to increase the fitness.}
 
 \item \textbf{Stage 2}:{ Each chromosome in the population
 is evaluated by its ability to predict the physical parameters of each
@@ -216,10 +216,10 @@ crossover (two randomly selected parent chromosomes are used to create
 two new chromosomes).}
 
 \item \textbf{Stage 6}:{ Mutations are then introduced in the
-chromosome randomly. These mutations produce new genes used in
-chromosomes by randomly redefining the gene components
-(to change the $\lambda_i$ elements related to the spectrum).  
-Steps 5 and 6 are applied over the chromosomes established at Step 4.}
+chromosome randomly. These mutations produce new genes by randomly
+redefining the gene components (that is, by changing the band
+boundaries $\lambda_i$ that define the gene).  Steps 5 and 6 are
+applied over the chromosomes established at Step 4.}
 
 \item \textbf{Stage 7}:{ This process is repeated from Stage 2 until 
 a target accuracy is achieved or the maximum number of iterations is
@@ -238,8 +238,8 @@ etc). The spectral bands in the numerator and denominator of a test
 feature cannot overlap.
 
 It would be possible to evaluate the predictive performance of
-individual features defined with Eq. \ref{eq:featureDefinition}. An obvious
-conceptual limitation of this univariate approach (considering
+individual features defined with Eq. \ref{eq:featureDefinition}. An
+obvious conceptual limitation of this univariate approach (considering
 chromosomes that code a single predictive feature) would be the lack
 of consideration that features work in the context of interconnected
 pathways and, therefore, it is their behaviour as a group that has to
@@ -251,9 +251,8 @@ seem more suitable for the analysis of the regressors since variables
 are tested in combination to identify interactions between
 features. In this work we define a chromosome as a set of ten
 individual genes, and each gene codes a pair of non-overlapping
-spectral bands, the ratio of which is used as 
-variable to model the 
-physical parameters according to (\ref{eq:featureDefinition}).
+spectral bands, the ratio of which is the feature defined by
+Eq. \ref{eq:featureDefinition}.
 
 The population size was set to 8000 individuals and the maximum number
 of accepted iterations set to 4000. We produced three randomly started
@@ -302,12 +301,12 @@ each of the physical parameters, the next step consists in training
 the regression model based on these features. This is described in the
 next Section.
 
-\subsection{Models considered.}
+\subsection{Regression models.}
 \label {ssub:models}
 
 Once a feature set was selected from the
 output of the GA, we construct regression models to predict the
-physical parameters (response or predicted variables) from it. In the
+physical parameters (response or predicted variables) from it.< In the
 context of ML, constructing a regression model consists
 in using a training set (a set of cases defined by the selected 
 variables for which the physical parameters are available) to infer

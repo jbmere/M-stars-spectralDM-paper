@@ -8,9 +8,9 @@ effective temperatures, surface gravities and metallicities. The main
 conclusions for this extensive study can be summarised as follows:
 \begin{itemize}
 
-\item The cross-validation root mean square errors based on a training 
-      set of synthetic spectra  are poor predictors of the true performance 
-      of a regression model applied to true observed spectra.
+\item The cross-validation root mean square errors based on a training
+  set of synthetic spectra are poor estimates of the true performance
+  of a regression model applied to true observed spectra.
 % Comment to address reviwer's point JOM      
       \textbf{
 	As stated in Section~\ref{sect:irtf-teff}, the obtained 
@@ -29,14 +29,14 @@ conclusions for this extensive study can be summarised as follows:
       physical parameters) have sub-optimal performances when used 
       for prediction purposes.
 
-\item In the context of IRTF spectra (R$\approx$2000 between 
-      8146 and 24107\AA), our feature set for predicting effective 
-      temperatures combined with a nearest-neighbour predictor produces 
-      similar results to those obtained from the $\chi^2$ classical technique 
-      and a Projection Pursuit Regression model based on the ICA compression 
-      coefficients. Hence, there is no apparent gain in reducing the 
-      dimensionality of the representation space other than the simplicity, 
-      interpretability and computation speed of the models.   
+\item In the context of IRTF spectra (R$\approx$2000 between 8146 and
+  24107\AA), our feature set for predicting effective temperatures
+  combined with a nearest-neighbour regression model produces similar
+  results to those obtained from the $\chi^2$ classical technique and
+  a Projection Pursuit Regression model based on the ICA compression
+  coefficients. Hence, there is no apparent gain in reducing the
+  dimensionality of the representation space other than the
+  simplicity, interpretability and computation speed of the models.
 
 \item For the prediction of the IRTF stars surface gravities, and
   based on plausibility arguments, we find a significant improvement
@@ -68,3 +68,8 @@ conclusions for this extensive study can be summarised as follows:
       higher resolution spectra.  
 
 \end{itemize}
+
+
+{\bf The models developed in this work and the tools to preprocess the
+  spectra are available upon request to the first author as RData
+  files.}
