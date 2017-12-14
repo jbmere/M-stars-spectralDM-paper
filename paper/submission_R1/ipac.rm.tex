@@ -89,8 +89,9 @@ results are only included for the sake of completeness.
 The relationship between the GA predicted effective temperature and
 the one measured by \cite{RA2012} (blue for the predictions by the
 GA-MARS SNR=10 model and black for GA-RF SNR=$\infty$ model), and
-by \cite{esm1} and \cite{esm2} (orange and green for the same models
-as before) can be found in Figure~\ref{fig:ipac_lt_lt}
+by \cite{esm1} and \cite{esm2} (orange and green for
+the same models as before) can be found in
+Figure~\ref{fig:ipac_lt_lt}.
 
 \begin{figure}
  \begin{center} \includegraphics[width=7cm]{figs/ipac_LG_Trojas_Tknn_10}
@@ -100,22 +101,24 @@ in the $x$ axis and $\log(T_{\rm eff})$ as predicted by the GA-RF
  model with SNR=$\infty$ (black symbols, squares for dwarfs and a
  triangle for the only giant in the sample) and the GA-MARS trained
  with SNR=10 data (blue symbols). Green and orange symbols correspond
- to sources in common with \protect\cite{esm1} and \protect\cite{esm2}
- and the predictions by the GA-RF (SNR=$\infty$) and GA-MARS (SNR=10)
- models respectively.} \label{fig:ipac_lt_lt} \end{center}
+ to sources in common with \protect\cite{esm1}
+ and \protect\cite{esm2} and the predictions by the
+ GA-RF (SNR=$\infty$) and GA-MARS (SNR=10) models
+ respectively.} \label{fig:ipac_lt_lt} \end{center}
 \end{figure}
-%%%%%%%%%%%%%
+
+
 
 \subsubsection{Surface gravity models}
 
 As in the IRTF exercise, we attempt to select features for surface
 gravity estimation from BT-Settl spectra using GAs despite the much
-lower spectral resolution and smaller wavelength coverage of the DA 
+lower spectral resolution and smaller wavelength coverage of the DA
 spectra. Since there is no substantive compilation of surface
 gravities that we could cross match with the IPAC list of M stars in
 the Dwarf Archive, we are left with the same plausibility arguments
 used in the IRTF study which are based on the $\log(T_{\rm
-  eff})$--$\log(g)$ diagram.
+eff})$--$\log(g)$ diagram.
 
 We again use the effective temperatures as input of the regression
 models. Table~\ref{tab:ipac-logg-rmse} shows the cross-validation RMSE
@@ -160,9 +163,9 @@ spectra; blue squares correspond to predictions for dwarf stars
 according to the DwarfArchives.org luminosity classes; red triangles
 correspond to giant stars according to DwarfArchives.org; orange
 symbols correspond to values derived from high-resolution infrared
-spectra by \protect\cite{esm1} and \protect\cite{esm2}; and finally,
-empty grey circles correspond to sources with no luminosity class in
-DwarfArchives.org.}
+spectra by \protect\cite{esm1} and \protect\cite{esm2};
+and finally, empty grey circles correspond to sources with no
+luminosity class in DwarfArchives.org.}
 
 \label{fig:teffvsloggIPAC}
  \end{center}

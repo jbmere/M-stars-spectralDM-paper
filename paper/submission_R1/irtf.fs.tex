@@ -29,66 +29,15 @@ lists the features found using sensitivity maps.
 }
 % End of changes
 
-
-\begin{figure}
- \captionsetup[subfloat]{farskip=2pt,captionskip=-18pt}
- \vspace*{-10pt}
-\includegraphics[width=\textwidth]{figs/BT-spectraAtIRTF-Inf-teffFullWidth}
+\begin{figure*}
+\includegraphics[width=\textwidth]{figs/BT-spectraAtIRTF-Inf-teff2}
  \caption{Features selected by the GA for predicting $T_{eff}$ using
     noiseless BT\_Settl synthetic spectra in the IRTF wavelength range
     and resolution. The BT\ Settl spectra are plot in a colour scale
     that ranges from blue (2000 K) to red (4100 K). The empty boxes
     correspond to the selected features and the grey boxes to the
     continuum bands.}  \label{fig:IRTF-teff}
-\end{figure}
-
-%
-
-\begin{figure}
- \captionsetup[subfloat]{farskip=2pt,captionskip=-18pt}
- \vspace*{-10pt}
- \subfloat[BT\_Settl noiseless spectra \label{fig:irtf-logg-inf}] {  
-    \includegraphics[width=0.45\textwidth]{figs/BT-spectraAtIRTF-Inf-logg}}\\[-9ex]
-
- \subfloat[BT\_Settl spectra of SNR=10 \label{fig:irtf-logg-10}] { 
-    \includegraphics[width=0.45\textwidth]{figs/BT-spectraAtIRTF-10-logg}}\\[-9ex]
-
- \subfloat[BT\_Settl spectra of SNR=50 \label{fig:irtf-logg-10}] { 
-    \includegraphics[width=0.45\textwidth]{figs/BT-spectraAtIRTF-50-logg}}\\[-7ex]
-
- \caption{Features selected by the GA for predicting $\log(g)$ using
-    BT\_Settl synthetic spectra in the IRTF wavelength range
-    and resolution. The BT\ Settl spectra are plot in a colour scale
-    that ranges from blue (2000 K) to red (4100 K). The empty boxes
-    correspond to the selected features and the grey boxes to the
-    continuum bands.}
- \label{fig:IRTF-logg} 
-\end {figure}
-
-% %
-% 
-\begin{figure}
- \captionsetup[subfloat]{farskip=2pt,captionskip=-18pt}
- \vspace*{-10pt}
- \subfloat[BT\_Settl noiseless spectra \label{fig:irtf-met-inf}] { 
-    \includegraphics[width=0.45\textwidth]{figs/BT-spectraAtIRTF-Inf-mh}}\\[-9ex]
-
- \subfloat[BT\_Settl spectra of SNR=10 \label{fig:irtf-met-10}] { 
-    \includegraphics[width=0.45\textwidth]{figs/BT-spectraAtIRTF-10-mh}}\\[-9ex]
-
- \subfloat[BT\_Settl spectra of SNR=50 \label{fig:irtf-met-50}] { 
-    \includegraphics[width=0.45\textwidth]{figs/BT-spectraAtIRTF-50-mh}}\\[-7ex]
-
- \caption{Features selected by the GA for predicting [M/H] using
-    BT\_Settl synthetic spectra in the IRTF wavelength range
-    and resolution. The BT\ Settl spectra are plot in a colour scale
-    that ranges from blue (2000 K) to red (4100 K). The empty boxes
-    correspond to the selected features and the grey boxes to the
-    continuum bands.}
- \label{fig:IRTF-met}
-\end {figure}
-
-
+\end{figure*}
 
 For gravity estimation (on a logarithmic scale), the GA search
 procedure produces the features presented in
