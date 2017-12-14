@@ -1,0 +1,170 @@
+\documentclass[a4paper,fleqn,usenatbib]{mnras}  
+\usepackage{newtxtext,newtxmath}
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+%\usepackage{graphicx}	% Including figure files
+\usepackage{amsmath}	% Advanced maths commands
+\usepackage{amssymb}	% Extra maths symbols
+\usepackage[english]{babel}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{parskip}
+%\usepackage[export]{adjustbox}
+\pdfminorversion 4
+
+%
+\usepackage{subfig}
+\usepackage{caption}
+%\usepackage{subcaption}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{txfonts}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[options]{hyperref}
+% To add links in your PDF file, use the package "hyperref"
+% with options according to your LaTeX or PDFLaTeX drivers.
+\usepackage{pseudocode}
+%
+% Enable mutiple title row on tables.
+\usepackage{multirow,booktabs}
+%%%%%%%%%%%
+% 
+% Dealing with ``too many unprocessed floats'' use it with \clearpage 
+\usepackage[section] {placeins}
+
+% Defining inentation
+\newcommand{\defindent}{\setlength{\parindent}{4ex}}
+\newcommand{\zeroindent}{\setlength{\parindent}{0ex}}
+
+% For marginal notes
+%\usepackage{marginnote}
+%\usepackage{booktabs}
+
+\title[Estimating the atmospheric parameters of M-type
+  stars]{Estimates of the atmospheric parameters of M-type stars: a
+  machine learning perspective.}
+
+\author[L. M. Sarro et al.]
+          {
+L.M. Sarro$^{1}$\thanks{lsb@dia.uned.es},
+J. Ordieres-Mer\'e$^{2}$,       
+A. Bello-Garc\'ia$^{3}$, 
+A. Gonz\'alez-Marcos$^{4}$, 
+E. Solano$^{5}$
+\\
+$^{1}$Department of Artificial Intelligence,Universidad Nacional de Educaci\'{o}n a Distancia, c/ Juan del Rosal, 16, 28040 Madrid.\\
+$^{2}$Universidad Polit\'{e}cnica de Madrid (UPM), ETSII. PMQ Research Group, Jos\'{e} Guti\'{e}rrez Abascal 2, 28006 Madrid, Spain. \\
+$^{3}$Universidad de Oviedo, Construction and Manufacturing Engineering Department, Campus de Viesques s/n, Gij\'{o}n, Asturias, Spain. \\
+$^{4}$Universidad de la Rioja, P2ML Research Group, San Jos\'{e} de Calasanz 31, 26004 Logro\~{n}o, La Rioja, Spain. \\
+$^{5}$Centro de Astrobiolog\'{\i}a (CSIC-INTA), Ctra. Ajalvir km 4, E-28850 Torrejón de Ardoz, Madrid, Spain.\\
+}
+\date{Accepted XXX. Received YYY; in original form ZZZ}
+
+% Enter the current year, for the copyright statements etc.
+\pubyear{2017}
+
+\begin{document} 
+\label{firstpage}
+\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+\maketitle
+
+\begin{abstract}
+    Estimating atmospheric parameters of M type stars has been a
+    difficult task due to the lack of simple diagnostics in the
+    stellar spectra.  We aim at uncovering good sets of predictive
+    features of the stellar atmospheric parameters ($T_{\rm eff}$,
+    $\log(g)$, [$M/H$]) in spectra of M type stars. We define two types
+    of potential features (equivalent widths and integrated flux
+    ratios) able to explain the atmospheric physical parameters. We
+    search the space of feature sets using a Genetic Algorithm that
+    evaluates solutions by their prediction performance in the
+    framework of the BT-Settl library of stellar spectra. Thereafter,
+    we construct eight regression models using different machine
+    learning techniques and compare their performances with those
+    obtained using the classical $\chi^2$ approach and Independent
+    Component Analysis (ICA) coefficients. Finally, we validate the
+    various alternatives using two sets of real spectra from the IRTF
+    and Dwarf Archive collections (DA).  We find that the cross-validation
+    errors are poor measures of the performance of regression models
+    in the context of physical parameter prediction in M type
+    stars. For R$\sim$2000 spectra of the signal-to-noise ratios
+    typical of the IRTF and DA, feature
+    selection with Genetic Algorithms (GA) or alternative techniques
+    produces only marginal advantages with respect to representation
+    spaces that are unconstrained in wavelength (full spectrum or
+    ICA). We make available the atmospheric parameters for the two
+    collections of observed spectra sd online material.
+    
+\end{abstract}
+
+
+\begin{keywords}
+Methods: data analysis; Methods: statistical;
+     Techniques: spectroscopic; Stars: atmospheres; Stars: fundamental
+     parameters; Stars: late-type; Stars: statistics;
+\end{keywords}
+
+%
+
+\defindent{}
+
+\section{Introduction}
+\label{sec:intro}
+\input{intro}
+
+\section{Methodology.}
+\label{sec:meth}
+\input{meth}
+
+\section{Physical parameters of the IRTF collection of spectra.}
+\label{sec:irtf}
+
+In the following, we will summarise the results obtained for the IRTF
+data set. We deal with the different physical parameters in separate
+Sections. We start by reporting the Root Mean/Median Square Errors
+(RMSE/RMDSE) with respect to the parameters gathered from the
+literature by \cite{cesetti} and included in their Table 3.
+
+\subsection{Spectral bands selected}
+\input{irtf.fs}
+\subsection{Regression models}
+\input{irtf.rm}
+
+\section{Physical parameters of the DA collection of spectra.}
+\label{sec:ipac}
+
+\subsection{Spectral bands selected}
+\input{ipac.fs}
+\subsection{Regression models}
+\input{ipac.rm}
+
+\section{Summary and conclusions}
+\label{sec:summary}
+\input{summary}
+
+\section*{Acknowledgements}
+This research has benefitted from the M, L, T, and Y dwarf compendium
+of spectra housed at DwarfArchives.org.  The authors would like to
+acknowledge funding by the Spanish Ministry of Economy and Innovation
+through the grant AyA2014-55216. The IRTF library is provided by the
+University of Hawaii under Cooperative Agreement no. NNX-08AE38A with
+the National Aeronautics and Space Administration, Science Mission
+Directorate, Planetary Astronomy Program. This research has made
+extensive use of the R software \cite{R} and the {\it caret} R
+package. Finally, 
+the authors acknowledge the computer resources and technical assistance 
+provided by the Centro de Supercomputaci\'on y Visualizaci\'on de Madrid (CeSViMa).
+
+%-------------------------------------------------------------------
+
+
+\begin{appendix}
+\label{app}
+\input{appendix-wavelengths}
+\input{appendix-RMSE}
+\input{appendix-figures}
+\end{appendix}
+
+
+\bibliography{references_m}{}
+\bibliographystyle{mnras}
+
+\end{document}
