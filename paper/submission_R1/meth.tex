@@ -126,51 +126,50 @@ good feature for predicting the star atmospheric physical
 parameters. The results obtained with this alternative feature
 definition did not differ significantly on average from the ones
 observed with the one adopted in Eq. \ref{eq:featureDefinition}, and
-including them here would result in an excessively lengthy paper. In
+including them here would result in an excessively lengthy article. In
 view of the equivalent global performances, we preferred the former
 because it allows direct comparison with the features proposed
 by \cite{cesetti}.
 
 \defindent{}
 We used Genetic Algorithms (hereafter GAs) to solve the optimization
-problem %described above, that is, the problem of finding the features
+problem described above, that is, the problem of finding the features
 (band boundaries) that minimize the prediction error of a regression
 estimate of the physical parameters. We used the implementation of
 genetic algorithms publicly available as the R \citep{R2013} GA
-package. The <concept of using in-silico evolution for the solution of
-optimization problems was introduced
-by \cite{holland1975adaptation}. Although its application is now
-reasonably widespread \citep[see e.g.][]{goldberg1989genetic}, they
-became popular only when sufficiently powerful computers became
+package. The concept of using in-silico {\bf (that is, an algorithmic
+analogue of)} evolution for the solution of optimization problems was
+introduced by \cite{holland1975adaptation}. Although its application
+is now reasonably widespread \citep[see e.g.][]{goldberg1989genetic},
+they became popular only when sufficiently powerful computers became
 available. GAs were presented to the astronomical community
-in \cite{1995ApJS..101..309C}, and have been used extensively in the
-past \citep[see][for a significant application of GAs in
-astronomy]{2013A&A...550A..74D}.
+in \cite{1995ApJS..101..309C}, {\bf and have been used extensively in
+the past \citep[see][for a significant application of GAs in
+astronomy]{2013A&A...550A..74D}}.
 
 For the sake of simplicity, let us define GAs as search algorithms
-that are based on the principle of evolution by natural selection. The
-procedure works by evolving in the sense explained below, chromosomes
-(in our case, sets of spectral features as defined by
-Eq. \ref{eq:featureDefinition}) from an initial random population of
-chromosomes.  Evolution proceeds via cycles of differential
-replication, recombination and mutation of the fittest
+that are based on the principle of evolution by natural
+selection. {\bf The procedure works by evolving (in the sense
+explained below) an initial random population of chromosomes, in our
+case defined as sets of spectral features defined by
+Eq. \ref{eq:featureDefinition}.}  Evolution proceeds via cycles of
+differential replication, recombination and mutation of the fittest
 chromosomes. The concept of fittest is context dependent, but in our
 case fitness is defined in relation with the accuracy with which
-% Explained the fitness JOM
-\textbf{
-a simple multivariate linear model trained on a given chromosome (a
+\textbf{a simple multivariate linear model trained on a given chromosome (a
 set $\{F_i\}$ of spectral features) predicts the physical
 parameters. This linear model may not capture instrinsic
 non-linearities between the input space (the features) and the
 predicted physical parameters but it is significantly faster and
-simpler than the actual models that will eventually be used to predict
-the features (described in Section \ref{ssub:models}). It would
-certainly be preferable to use as fitness criterion the accuracy of
-the models described in Section \ref{ssub:models} but this turned out
-to be computationally prohibitive for the several millions of
-evaluations involved in the GA. The accuracy is measured with the
-Akaike information criterion (AIC) of the fitted linear model.  The
-AIC value of a given model is given by Eq.} \ref{eq:AIC}.
+simpler than the actual models (described in
+Section \ref{ssub:models}) that will eventually be used to predict the
+physical parameters. It would certainly be preferable to use as
+fitness criterion the accuracy of the models described in
+Section \ref{ssub:models} but this turned out to be computationally
+prohibitive for the several millions of evaluations involved in the
+GA. The accuracy of the linear models is measured with the Akaike
+information criterion (AIC) of the fitted linear model.  The AIC value
+of a given model is given by Eq.} \ref{eq:AIC}.
 
 \begin{equation}\label{eq:AIC}
   AIC = 2 \times k - 2 \times ln(\hat{L}) 
@@ -179,9 +178,10 @@ AIC value of a given model is given by Eq.} \ref{eq:AIC}.
 \zeroindent{}
 \textbf{
 where \textit{k} is the number of model parameters and $\hat{L}$ is
-the maximum value of the likelihood function for the given data. Since
-$k$ is fixed for all models, the AIC effectively reduces to the
-maximum likelihood or least squares criterion.}
+the maximum value of the likelihood function (the probability of the
+data given the linear model). Since $k$ is fixed for all models, the
+AIC effectively reduces to the maximum likelihood or least squares
+criterion.}
 % End of explanation
 
 The data set used to search for the optimal set of spectral features
@@ -201,28 +201,28 @@ genetic algorithm in order to increase the fitness.}
 is evaluated by its ability to predict the physical parameters of each
 star in the dataset (fitness function Eq. \ref{eq:AIC}). }
 
-\item \textbf{Stage 3}:{ Chromosome selection. The new
+\item \textbf{Stage 3}:{ Chromosome selection. {\bf The new
 generation of individuals is initialised by transferring a number of
 the fittest chromosomes in the previous generation. The percentage of
-individuals transferred is known as the degree of elitism.}
+individuals transferred is known as the degree of elitism.}}
 
 \item \textbf{Stage 4}:{ The population of chromosomes is replicated. 
  Chromosomes with higher fitness scores will generate more numerous
  offspring.}
 
-\item \textbf{Stage 5}:{ The genetic information contained in
-the replicated parent chromosomes is combined through genetic
-crossover (two randomly selected parent chromosomes are used to create
-two new chromosomes).}
+\item \textbf{Stage 5}:{ {\bf The genetic information contained in
+the parent chromosomes is combined through genetic crossover (two
+randomly selected parent chromosomes are used to create two new
+chromosomes).}}
 
 \item \textbf{Stage 6}:{ Mutations are then introduced in the
-chromosome randomly. These mutations produce new genes by randomly
-redefining the gene components (that is, by changing the band
-boundaries $\lambda_i$ that define the gene).  Steps 5 and 6 are
-applied over the chromosomes established at Step 4.}
+chromosomes randomly. {\bf These mutations produce new genes by
+randomly redefining the gene components (that is, by changing the band
+boundaries $\lambda_i$ that define the gene).  Stages 5 and 6 are
+applied over the chromosomes established at Stage 4.}}
 
 \item \textbf{Stage 7}:{ This process is repeated from Stage 2 until 
-a target accuracy is achieved or the maximum number of iterations is
+a target accuracy is achieved or the maximum number of iterations
 attained.}
 
 \end{itemize}
@@ -264,17 +264,17 @@ generation and composed of the fittest individuals) was fixed to
 implementation of the GA in a farm of fifteen computers per physical
 parameter. \footnote{All computations needed for this work were
 carried out in the CeSViMa (http://www.cesvima.upm.es/) power7 HPC
-which involves processors with 8 cores and four threads per core,
-running at 3,3 GHz and with 32Gb of RAM each.}
+{\bf characterised by} processors with 8 cores and four threads per
+core, running at 3,3 GHz and with 32Gb of RAM each.}
 
 Feature fitness was defined in terms of the RMSE of a linear
 regression model trained with the chromosome features. It is important
 to stress that the regression model used to evaluate the fitness of
 the feature sets (chromosomes) is not the same model that will be used
 in practice to predict physical parameters for observed spectra as
-described in Section \ref{ssub:models} below. For fitness evaluation
-in the GA we used a simple multilinear model for the sake of speed,
-given the extreme size of the search space of all possible
+described in Section \ref{ssub:models} below. For fitness
+evaluation in the GA we used a simple multilinear model for the sake
+of speed, given the extreme size of the search space of all possible
 combinations of 10 spectral features. In the IRTF context, these 10
 features in each chromosome are selected amongst the roughly 6000
 potential features. This is $\binom{6000}{10}$ which has an order of
@@ -358,20 +358,19 @@ Including here a sufficient description of each and every regression
 model that we trained would render the manuscript excessively lengthy
 but interested readers can find additional information in
 \cite{baraud2002model,geman1992neural,elith2008working,
-meyer2003support,svetnik2003random}. 
-Suffice is to say that each one of them can be thought of as
-a parametric model that predicts one physical parameter from an input
-vector. The input vector can be the full normalised spectrum, the ICA
-lower-dimensional representation of the full spectrum, the spectral
-features selected by \cite{cesetti} or those selected by the GA. The
-regression model parameters are inferred (using strategies that differ
-from one regression model to the other) from a set of examples. As
-explained above, this set of examples (spectra of stars for which we
-know the physical parameters) is called the training set, and the
-process by which the model parameters are determined from the training
-set, is called training of the model. In the next paragraph we give
-minimal details of each regression model trained, and references for
-the interested reader.
+meyer2003support,svetnik2003random}.  Suffice it to say that each one
+of them can be thought of as a parametric model that predicts one
+physical parameter from an input vector. The input vector can be the
+full normalised spectrum, the ICA lower-dimensional representation of
+the full spectrum, the spectral features selected by \cite{cesetti} or
+those selected by the GA. The regression model parameters are inferred
+(using strategies that differ from one regression {\bf model to
+another}) from a set of examples. As explained above, this set of
+examples (spectra of stars for which we know the physical parameters)
+is called the training set, and the process by which the model
+parameters are determined from the training set, is called training of
+the model. In the next paragraph we give minimal details of each
+regression model trained, and references for the interested reader.
 
 In order to avoid the well known problem of overfitting \cite[see
 e.g.][]{Dietterich:1995:OUM:212094.212114}, we use five-fold

@@ -17,7 +17,7 @@ Table \ref{tab:irtf-teff-rmse} shows that performance of classifiers
 based on the full spectrum (or in a compressed version in the form of
 ICA components) and the best classifier based on features derived from
 limited spectral bands is equivalent. The Bartlett test shows that the
-variances are homogeneous with a Bartlett\textquoteright s K-squared
+variances are homogeneous with a Bartlett\textquoteright s K$^2$
 of 8.5 with 2 degrees of freedom and a p-value of 0.01426. The
 Flinger-Killen test shows that homoscedasticity is verified at the
 p=0.005886 level. Finally, the F-ANOVA test clearly shows that there
@@ -59,7 +59,14 @@ spectra \cite{2017MNRAS.465.4556G}.
 
 Figure~\ref{fig:irtf-teff} shows the correlation between the $T_{\rm
 eff}$ estimates of the best (in the RMDSE sense) regression models and
-the effective temperatures in Table 3 of \cite{cesetti}. 
+the effective temperatures in Table 3 of \cite{cesetti}. It is worth
+noting that in the M star regime, there are 63 effective temperatures
+available in \cite{cesetti}, and 46 of the 63 were estimated from the
+spectral types using the calibrations
+of \cite{1996imsa.book.....O}. We have substituted them with a spline
+fit to the combined datasets of M dwarfs in \cite{2013A&A...556A..15R}
+and \cite{2012ApJ...757..112B} as it removes systematic biases in the
+temperatures between 2500 and 3500 K.
 
 \begin {figure}
  \centering
@@ -73,14 +80,6 @@ the effective temperatures in Table 3 of \cite{cesetti}.
 
 \label{fig:irtf-teff}
 \end {figure}
-
-It is worth noting that in the M star regime, there are 63 effective
-temperatures available in \cite{cesetti}, and 46 of the 63 were
-estimated from the spectral types using the calibrations
-of \cite{1996imsa.book.....O}. We have substituted them with a spline
-fit to the combined datasets of M dwarfs in \cite{2013A&A...556A..15R}
-and \cite{2012ApJ...757..112B} as it removes systematic biases in the
-temperatures between 2500 and 3500 K.
 
 It is not evident that the GA-KNN model performs significantly better
 than the minimum $\chi^2$ estimate, but in the following we will
@@ -139,25 +138,26 @@ calibration with those from the spline fit described above.
 \end {figure}
 
 Figure \ref{fig:irtf-cesteff} shows that the features found by the GA
-are to be prefered to the ones proposed by \cite{cesetti}. 
-% Add from JOM 
-\textbf{
-It must be stated that \cite{cesetti} have also errors. Therefore,
-the goal is not to qualify the refression models proposed against such 
-estimations, but to compare the behaviour of the selected features.
-}
-% End of comment
+are to be prefered to the ones proposed by \cite{cesetti}.  \textbf{
+We would like to emphasize that Figures \ref{fig:irtf-teff}
+and \ref{fig:irtf-cesteff} compare the predictions of the best
+regression models trained with the features derived by the GA or by
+the sensitivity maps described in \cite{cesetti} with the effective
+temperatures gathered from the literature. These literature estimates
+are not exempt of errors and therefore, the comparison of the two
+figures only reveals the better adequacy of the GA features to
+reproduce these literature values.}
 
 \subsubsection{Surface gravity models}
 
 For the validation of our models, we only have 10 literature values of
 the surface gravity available in Table 3 of
-\cite{cesetti}. Unfortunately, this is too small figure to draw
+\cite{cesetti}. Unfortunately, this is too small {\bf a number} to draw
 significant conclusions on the comparison of methodologies from
 external data. Hence, we are left only with plausibility arguments for
 the selection of models. In this Section $\log(T_{\rm
-eff})$--$\log(g)$ diagram comparisons will be used to select the most 
-plausible model results. 
+eff})$--$\log(g)$ diagram comparisons will be used to select the most
+plausible model results.
 
 An important difference with respect to the models discussed
 above is that we use the $T_{\rm eff}$ estimated in the previous stage
@@ -166,30 +166,7 @@ RMSE/RMDSE of 20\% with respect to the models without input
 information on the effective temperature although it represents a risk
 if the $T_{\rm eff}$ estimate is in gross error.
 
-Table~\ref{tab:irtf-logg-rmse} shows the RMSE and RMDSE of the
-cross-validation experiments for the $\log(g)$ regression models and
-the same SNR regimes discussed for the estimation of $T_{\rm eff}$. We
-have assessed the models according to plausibility arguments relative
-to the distribution of the model predictions in $T_{\rm
-eff}$--$\log(g)$ diagrams.  Figure~\ref{fig:lt_lg_ga} shows this
-distribution for four models selected based on these plausibility
-criteria: GA-RR, GA-PLS, GA-KNN (the three of them for SNR=50), and
-PPR-ICA (clockwise, starting at the top left corner). All four panels
-show a tendency towards lower surface gravities at the coolest end,
-and a reasonable capability to separate dwarfs from giants, and giants
-from supergiants. We include as orange squares the recent predictions
-by \cite{esm1} and \cite{esm2} for a set of sources with
-high-resolution infrared spectra. The estimates are in reasonable
-agreement with the extrapolation of the distributions that can be
-guessed from the values in Table 3 of \cite{cesetti} (represented with
-black filled symbols). Since we cannot propose quantifications of this
-plausibility argument valid for all luminosity classes, we let the
-reader decide which estimate (GA-RR, GA-PLS, GA-KNN, or ICA-10) is to
-be prefered. If we judge only by the concordance with the locus
-defined by the M dwarfs in the studies by \cite{esm1} and \cite{esm2},
-then ICA-10 is to be preferred.
-
-\begin{figure*}
+\begin{figure*}[!htbp]
  \begin{center}
    \includegraphics[width=\textwidth]{figs/ordieres-fig4}
 \caption{$\log(T_{eff})$--$\log(g)$ diagrams produced by the GA-KNN
@@ -206,6 +183,34 @@ then ICA-10 is to be preferred.
 \label{fig:lt_lg_ga}
  \end{center}
 \end{figure*}
+
+Table~\ref{tab:irtf-logg-rmse} shows the RMSE and RMDSE of the
+cross-validation experiments for the $\log(g)$ regression models and
+the same SNR regimes discussed for the estimation of $T_{\rm eff}$. We
+have assessed the models according to plausibility arguments relative
+to the distribution of the model predictions in $T_{\rm
+eff}$--$\log(g)$ diagrams.  Figure~\ref{fig:lt_lg_ga} shows this
+distribution for four models selected based on these plausibility
+criteria: GA-RR, GA-PLS, GA-KNN (the three of them for SNR=50), and
+PPR-ICA (clockwise, starting at the top left corner). {\bf These
+models that produce the most plausible $\log(T_{\rm eff})$--$\log(g)$
+diagrams are not amongst the best performing in terms of RMSE or RMDSE
+except in the case of the PPR-ICA model. This is another indication
+that the cross-validation errors are not good predictors of the true
+performance on real spectra.} All four panels show a tendency towards
+lower surface gravities at the coolest end, and a reasonable
+capability to separate dwarfs from giants, and giants from
+supergiants. We include as orange squares the recent predictions
+by \cite{esm1} and \cite{esm2} for a set of sources with
+high-resolution infrared spectra. The estimates are in reasonable
+agreement with the extrapolation of the distributions that can be
+guessed from the values in Table 3 of \cite{cesetti} (represented with
+black filled symbols). Since we cannot propose quantifications of this
+plausibility argument valid for all luminosity classes, we let the
+reader decide which estimate (GA-RR, GA-PLS, GA-KNN, or ICA-10) is to
+be prefered. If we judge only by the concordance with the locus
+defined by the M dwarfs in the studies by \cite{esm1} and \cite{esm2},
+then ICA-10 is to be preferred.
 
 Figure \ref{fig:irtf-ces} shows the equivalent diagram for predictions
 obtained from the features selected in \cite{cesetti}. Again, we
@@ -247,18 +252,16 @@ correcting for these different scales, $PPR-ICA$ trained with SNR=10
 examples yields the lowest RMSE/RMDSE. Figure \ref{MIRTF_ICA_10}
 represents the estimates of [M/H] obtained from the $PPR-ICA$ based
 regressor, as a function of the values taken from these references for
-the sources in common. 
-
-The black empty circles represent values
+the sources in common. The black empty circles represent values
 from \cite{cesetti} ; orange filled circles, values
 from \cite{NevesIII}; green filled squares, values that the Vizier
-catalog entry for Table 8 of
-\cite{NevesIII} links to \cite{Jao}. Although we find no evidence
-that \cite{Jao} contains estimates of metallicities; cyan and blue
-filled squares, are the values of [M/H] and [Fe/H] respectively
-in \cite{RA2012}; red filled squares, values from \cite{Mann2015};
-yellow filled squares, values from \cite{Newton2014}; and, finally,
-black filles squares, values from \cite{Gaidos2015}.
+catalog entry for Table 8 of \cite{NevesIII} links to \cite{Jao},
+although we find no evidence that \cite{Jao} contains estimates of
+metallicities; cyan and blue filled squares, are the values of [M/H]
+and [Fe/H] respectively in \cite{RA2012}; red filled squares, values
+from \cite{Mann2015}; yellow filled squares, values
+from \cite{Newton2014}; and, finally, black filles squares, values
+from \cite{Gaidos2015}.
 
 It is remarkable that the minimum $\chi^2$ predictions result in a
 50\% increase in the RMDSE with respect to the ICA-10 models and the

@@ -1,33 +1,20 @@
-% Rework the sentence  JOM
 \textbf{
-The GAs were applied to the selection of features for the
-prediction of effective temperature from both, noiseless and noisy spectra.
-For the IRTF wavelength range and resolution, results in the features have been included
-in Table~\ref{tab:irtf-teff-noisy}. 
-}
-% End of update
-Features are ordered by the
-fitness value (according to the AIC criterion, as explained in Eq.~\ref{eq:AIC}) and 
-we only consider features that are present in at least 5 sets.
+The GAs were applied to the selection of features for the prediction
+of effective temperature from both, noiseless and noisy spectra.  For
+the IRTF wavelength range and resolution, results in the features have
+been included in Table~\ref{tab:irtf-teff-noisy}.} Features are
+ordered by the fitness value (according to the AIC criterion, as
+explained in Eq.~\ref{eq:AIC}) and we only consider features that are
+present in at least 5 sets.
 
-% When noise is added to the BT-Settl spectra, we obtain the features
-% included in Table \ref{tab:irtf-teff-noisy}.
-
-Table % \ref{tab:irtf-teff-noiseless} and 
+{\bf Table
 \ref{tab:irtf-teff-noisy}
-show a very wide variety of features with very few repetitions. Only
+shows a very wide variety of features with very few repetitions. Only
 spectral features 4, 5, 6, and 9 in the SNR=50 experiment are found
 too in the SNR=$\infty$ and SNR=10 feature sets (albeit with different
-continuum definitions). This reinforces the impression that the
+continuum definitions).} This reinforces the impression that the
 information useful for the estimation of the effective temperatures is
 spread over the entire IRTF spectrum.
-%% Removing Table A3 => JOM
-%\textbf{
-%As a reference, it is used the Table~3 defined in \cite{cesetti}, which
-%%~\ref{tab:irtf-cesetti} 
-%lists the features found using sensitivity maps.
-%}
-% End of changes
 
 \begin{figure*}
 \includegraphics[width=\textwidth]{figs/BT-spectraAtIRTF-Inf-teff2}
@@ -39,20 +26,11 @@ spread over the entire IRTF spectrum.
     continuum bands.}  \label{fig:IRTF-teff}
 \end{figure*}
 
-For gravity estimation (on a logarithmic scale), the GA search
-procedure produces the features presented in
-Table % \ref{tab:irtf-logg-noiseless} and 
-\ref{tab:irtf-logg-noisy} for
-the noiseless signal and signal-to-noise ratios of 10 and 50,
-respectively. In a similar way, the best features found 
-by the GA for metallicity estimation are listed in % Table~\ref{tab:irtf-met-noiseless} for the noiseless BT-Settl
-% spectra, and in 
-Table~\ref{tab:irtf-met-noisy} for signal-to-noise
-ratios equal to $ \infty, 10 $ and $ 50 $.
-
-{\bf Tables~\ref{tab:irtf-teff-noisy} to \ref{tab:irtf-met-noisy}
-include the band definitions for the three physical parameters and
-Fig. \ref{fig:IRTF-teff} shows a graphical representation of the bands
-selected for the determination of the effective temperature
-superimposed on a set of noiseless BT Settl spectra.}
+{\bf For gravity estimation (on a logarithmic scale) and metallicity,
+the GA search procedure produces the features presented in Tables
+\ref{tab:irtf-logg-noisy} and \ref{tab:irtf-met-noisy}
+respectively. Figure \ref{fig:IRTF-teff} shows a graphical
+representation of the bands selected for the determination of the
+effective temperature superimposed on a set of noiseless BT Settl
+spectra.}
 
