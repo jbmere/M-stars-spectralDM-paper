@@ -22,16 +22,15 @@ of 8.5 with 2 degrees of freedom and a p-value of 0.01426. The
 Flinger-Killen test shows that homoscedasticity is verified at the
 p=0.005886 level. Finally, the F-ANOVA test clearly shows that there
 is no significant difference between models. Thus, we conclude that
-the quality of features from the two approaches (full spectrum and features
-oriented) are equivalent in
-predictive performance.  The difference between the performances of
-the best classifier ($GA-KNN$; best on average over SNR), the minimum
-$\chi^2$ classifier, and the $PPR-ICA$ classifiers are not
-statistically significant. 
-In any case, it is evident that the RMSE is significantly above the grid
-spacing in temperature. We interpret the small differences as an
-indication that there is as much information spread over the entire
-spectrum shape as can be distilled from a few spectral bands.
+the quality of features from the two approaches {\bf (full spectrum
+and selected features)} are equivalent in predictive performance.  The
+difference between the performances of the best classifier ($GA-KNN$;
+best on average over SNR), the minimum $\chi^2$ classifier, and the
+$PPR-ICA$ classifiers are not statistically significant.  In any case,
+it is evident that the RMSE is significantly above the grid spacing in
+temperature. We interpret the small differences as an indication that
+there is as much information spread over the entire spectrum shape as
+can be distilled from a few spectral bands.
 
 The comparison with the effective temperatures compiled by
 \cite{cesetti} shows, however, some significant differences across
@@ -219,7 +218,7 @@ by \cite{cesetti}.
 \subsubsection{Metallicity models} 
 \label{sect:irtf-met}
 
-Finally, the same ML models are trained to infer the
+Finally, the same regression models are trained to infer the
 metallicity, again considering the effective temperature as an input
 feature as in the $\log(g)$ regression
 models. Table~\ref{tab:irtf-met-rmse} shows the RMSE and RMDSE
@@ -229,7 +228,7 @@ with the minimum $\chi^2$, $PPR-ICA$ and $GA-KNN$ (with some
 exceptions). The differences from these cross-validation experiments
 are only marginal, but we see that even at these intermediate
 resolutions the reduction of dimensionality (either with ICA or GA)
-produces an improvement in the predictions. 
+produces an improvement in the predictions.
 
 This is even more evident if we compare our predictions with more
 recent metallicity estimates not included in \cite{cesetti}. We have

@@ -50,17 +50,17 @@ of 535 available spectra.
 
 A series of preprocessing steps were then carried out in order to
 match the spectral resolution and wavelength coverage and sampling of
-the synthetic library to that of the 
-collection of observed spectra collected from the DA or IRTF, (see below). 
-This required the definition of a common
-wavelength range present in all available observed spectra, and the
-subsequent trimming to match that range. A unique wavelength sampling
-was also defined and all spectra (synthetic and observed) interpolated
-to match the sampling. Finally, all spectra, both synthetic and
-observed were divided by the integrated flux in order to factor out
-the stellar distance. This is necessary in order to compare our
-feature selection proposal with the techniques that make use of the
-full spectrum (minimum $\chi^2$ and ICA compression; see below).
+the synthetic library to that of the collection of observed spectra
+collected from the Dwarf Archives or IRTF, (see below).  This required the
+definition of a common wavelength range present in all available
+observed spectra, and the subsequent trimming to match that range. A
+unique wavelength sampling was also defined and all spectra (synthetic
+and observed) interpolated to match the sampling. Finally, all
+spectra, both synthetic and observed were divided by the integrated
+flux in order to factor out the stellar distance. This is necessary in
+order to compare our feature selection proposal with the techniques
+that make use of the full spectrum (minimum $\chi^2$ and ICA
+compression; see below).
 
 In order to avoid selecting spectral features that work well only in
 the unrealistic SNR=$\infty$ regime, the search for optimal
@@ -133,19 +133,19 @@ by \cite{cesetti}.
 
 \defindent{}
 We used Genetic Algorithms (hereafter GAs) to solve the optimization
-problem %described above, that is, the problem 
-of finding the features 
+problem %described above, that is, the problem of finding the features
 (band boundaries) that minimize the prediction error of a regression
 estimate of the physical parameters. We used the implementation of
 genetic algorithms publicly available as the R \citep{R2013} GA
-package. The concept of using in-silico evolution for the solution of
+package. The <concept of using in-silico evolution for the solution of
 optimization problems was introduced
 by \cite{holland1975adaptation}. Although its application is now
 reasonably widespread \citep[see e.g.][]{goldberg1989genetic}, they
 became popular only when sufficiently powerful computers became
 available. GAs were presented to the astronomical community
 in \cite{1995ApJS..101..309C}, and have been used extensively in the
-past \citep[see][for a significant application of GAs in astronomy]{2013A&A...550A..74D}.
+past \citep[see][for a significant application of GAs in
+astronomy]{2013A&A...550A..74D}.
 
 For the sake of simplicity, let us define GAs as search algorithms
 that are based on the principle of evolution by natural selection. The
@@ -203,8 +203,8 @@ star in the dataset (fitness function Eq. \ref{eq:AIC}). }
 
 \item \textbf{Stage 3}:{ Chromosome selection. The new
 generation of individuals is initialised by transferring a number of
-the most fitted ones in the previous generation. The percentage of
-individuals transferred is known as the degree of elitism. }
+the fittest chromosomes in the previous generation. The percentage of
+individuals transferred is known as the degree of elitism.}
 
 \item \textbf{Stage 4}:{ The population of chromosomes is replicated. 
  Chromosomes with higher fitness scores will generate more numerous
@@ -257,12 +257,14 @@ Eq. \ref{eq:featureDefinition}.
 The population size was set to 8000 individuals and the maximum number
 of accepted iterations set to 4000. We produced three randomly started
 populations so as to provide enough initial variety. The crossover and
-mutation probabilities were set to 0.85 and 0.35 respectively. Elitism
-was fixed to 0.15. We used a binary codification of the chromosomes
-and a parallel implementation of the GA in a farm of fifteen computers
-per physical parameter. \footnote{All computations needed for this work
-were carried out in the CeSViMa (http://www.cesvima.upm.es/) power7
-HPC which involves processors with 8 cores and four threads per core,
+mutation probabilities were set to 0.85 and 0.35 respectively. {\bf
+Elitism (the fraction of the population copied into the next
+generation and composed of the fittest individuals) was fixed to
+15\%}. We used a binary codification of the chromosomes and a parallel
+implementation of the GA in a farm of fifteen computers per physical
+parameter. \footnote{All computations needed for this work were
+carried out in the CeSViMa (http://www.cesvima.upm.es/) power7 HPC
+which involves processors with 8 cores and four threads per core,
 running at 3,3 GHz and with 32Gb of RAM each.}
 
 Feature fitness was defined in terms of the RMSE of a linear
@@ -304,17 +306,15 @@ next Section.
 \subsection{Regression models.}
 \label {ssub:models}
 
-Once a feature set was selected from the
-output of the GA, we construct regression models to predict the
-physical parameters (response or predicted variables) from it.< In the
-context of ML, constructing a regression model consists
-in using a training set (a set of cases defined by the selected 
-variables for which the physical parameters are available) to infer
-the parameters of a mapping between 
-the feature set and predicted variables. 
-The regression model parameters should not be
-confused with the physical parameters of the atmosphere we aim at
-inferring. 
+Once a feature set was selected from the output of the GA, we
+construct regression models to predict the physical parameters
+(response or predicted variables) from it. In the context of machine
+learning, constructing a regression model consists in using a training
+set (a set of cases defined by the selected variables for which the
+physical parameters are available) to infer the parameters of a
+mapping between the feature set and predicted variables.  The
+regression model parameters should not be confused with the physical
+parameters of the atmosphere we aim at inferring.
 
 In this case, our training set is again the BT Settl collection of
 synthetic spectra, for which we already computed the 

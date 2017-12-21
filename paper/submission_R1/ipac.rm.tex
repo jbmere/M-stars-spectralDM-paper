@@ -1,20 +1,10 @@
 
-In the following, we will summarise the results obtained for the DA
+In the following, we will summarise the results obtained for the Dwarf Archives
 data set. We deal with the different physical parameters in separate
 Sections. We start by reporting the cross validation Root Mean Square
 Errors (RMSE) and Root Median Square Error (RMDSE) for the five-fold
 cross-validation strategy, and we subsequently discuss the accuracy of
 the predictions with respect to literature values where available.
-
-\textbf{
-Usage of median as well as mean helps to understand when the found 
-deviation is mainly structural or it is due to a few spectra which
-bias the final figure as they perform as outliers. Instead of using the
-classical Mean Absolute Error (MAE) we have chosen the median as a
-better leveraged estimator.
-Therefore, both figures are relevant to uderstand 
-the contribution of an especific model.
-}
 
 \subsubsection{Effective temperature models}
 
@@ -46,14 +36,13 @@ range is unnecessary.
 \centering \includegraphics[width=\textwidth]{figs/ipac-teff}
 \caption{Comparison
  between the effective temperatures derived from the tabulated
- spectral types in \protect\cite{cesetti} (X-axis), and 
- on Y axis, those inferred by the
- $\chi^2$ module (top left, SNR=50), Random Forest Regression module
- (top right, SNR=$\infty$), GA-MARS module (bottom left, SNR=10), and
- the Neural Network module (bottom right, SNR=10).  Blue squares
- denote Main Sequence dwarfs and red triangles denote giant stars
- (luminosity class III) according
- to \protect\cite{cesetti}} \label{fig:ipac_teff}
+ spectral types in \protect\cite{cesetti} ($x$ axis) and those
+ inferred by the various regression modules ($y$ axis): $\chi^2$
+ module (top left, SNR=50), Random Forest Regression module (top
+ right, SNR=$\infty$), GA-MARS module (bottom left, SNR=10), and the
+ Neural Network module (bottom right, SNR=10).  Blue squares denote
+ Main Sequence dwarfs and red triangles denote giant stars (luminosity
+ class III) according to \protect\cite{cesetti}} \label{fig:ipac_teff}
 \end {figure*}
 
 Having shown that the feature selection with GAs degrades the
@@ -65,7 +54,7 @@ the one achieved with $\chi^2$.
 
 We train the same types of regression models to the features selected
 in \cite{cesetti}, again learning from BT-Settl spectra of various
-SNRs and predicting over the DA set. A summary of the results can be
+SNRs and predicting over the Dwarf Archives set. A summary of the results can be
 found in Table \ref{tab:ipac-teff-rmse-cesetti}, where we use CS- to
 indicate that the model was trained using the features
 by \cite{cesetti}. 
@@ -81,9 +70,9 @@ the only case where the CS features outperform those selected by the
 GA, the performance is below the one achieved by the minimum-$\chi^2$
 approach. It is important to remark here that the features selected
 in \cite{cesetti} were fit for the IRTF wavelength range and
-resolution, and not all of them can be extracted from DA 
+resolution, and not all of them can be extracted from Dwarf Archives 
 spectra. Hence, unlike in the case of the IRTF spectra, the comparison
-of GA- and CS-based performances with DA spectra is not fair and the
+of GA- and CS-based performances with Dwarf Archives spectra is not fair and the
 results are only included for the sake of completeness.
 
 The relationship between the GA predicted effective temperature and
@@ -94,7 +83,7 @@ the same models as before) can be found in
 Figure~\ref{fig:ipac_lt_lt}.
 
 \begin{figure}
- \begin{center} \includegraphics[width=7cm]{figs/ipac_LG_Trojas_Tknn_10}
+ \begin{center} \includegraphics[width=8cm]{figs/ipac_LG_Trojas_Tknn_10}
 
 \caption{Relationship  between $\log(T_{\rm eff})$ from \protect\cite{RA2012}
 in the $x$ axis and $\log(T_{\rm eff})$ as predicted by the GA-RF
@@ -113,7 +102,7 @@ in the $x$ axis and $\log(T_{\rm eff})$ as predicted by the GA-RF
 
 As in the IRTF exercise, we attempt to select features for surface
 gravity estimation from BT-Settl spectra using GAs despite the much
-lower spectral resolution and smaller wavelength coverage of the DA
+lower spectral resolution and smaller wavelength coverage of the Dwarf Archives
 spectra. Since there is no substantive compilation of surface
 gravities that we could cross match with the IPAC list of M stars in
 the Dwarf Archive, we are left with the same plausibility arguments
@@ -203,41 +192,40 @@ for the same star in the literature. We obtain a mean difference of
 0.1 dex a factor 3 smaller than our RMSE. 
 
 \begin{figure}
- \begin{center} \includegraphics[width=7cm]{figs/ipac-figs/M-RFInf}
+ \begin{center} \includegraphics[width=8cm]{figs/ipac-figs/M-RFInf}
 
 \caption{Relationship
  between the $RF-\infty$ predictions for metallicity and values from
- the literature.  Black empty circles represent values
- from \protect\cite{cesetti} ; orange filled circles, values
- from \protect\cite{NevesIII}; green filled squares, values that the
- Vizier catalog entry for Table 8 of \protect\cite{NevesIII} links
+ the literature for stars in the Dwarf Archives.  Black symbols
+ represent values from \protect\cite{cesetti} ; orange symbols, values
+ from \protect\cite{NevesIII}; green symbols, values that the Vizier
+ catalog entry for Table 8 of \protect\cite{NevesIII} links
  to \protect\cite{Jao}, although we find no evidence
  that \protect\cite{Jao} contains estimates of metallicities; cyan and
- blue filled squares, the values of [M/H] and [Fe/H] respectively
- in \protect\cite{RA2012}; red filled squares, values
- from \protect\cite{Mann2015}; yellow filled squares, values
- from \protect\cite{Newton2014}; and, finally, black filles squares,
- values
+ blue symbols, the values of [M/H] and [Fe/H] respectively
+ in \protect\cite{RA2012}; red symbols, values
+ from \protect\cite{Mann2015}; yellow symbols, values
+ from \protect\cite{Newton2014}; and, finally, black symbols, values
  from \protect\cite{Gaidos2015}.}  \label{fig:ipac_mt} \end{center}
 \end{figure}
 
 
 It is interesting to note that our predictions extend to metallicities
 as low as [M/H]=-2.1. Figure \ref{fig:ipac-hist-mets} shows a histogram of
-the metallicities predicted by the GA-RF-$\infty$ model for the DA 
+the metallicities predicted by the GA-RF-$\infty$ model for the Dwarf Archives 
 set of spectra. We find predictions below -1.5 for eleven sources, 6
 of which have been previously identified as subdwarfs of different
 categories (see Table \ref{tab:known-sds}).
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=7cm]{figs/ipac-figs/ipac-M-hist}
+		\includegraphics[width=8cm]{figs/ipac-figs/ipac-M-hist}
 
 	\end{center}
         
         \caption{\label{fig:ipac-hist-mets}
 Predictions of the GA-RF-$\infty$ regression model
-        for the metallicity of DA stars.}
+        for the metallicity of Dwarf Archives stars.}
 
 \end{figure}
 
@@ -256,7 +244,7 @@ Predictions of the GA-RF-$\infty$ regression model
 		\hline
 	\end{tabular}
         
-	\caption{Previously known subdwarfs in the DA collection of
+	\caption{Previously known subdwarfs in the Dwarf Archives collection of
 	spectra and the corresponding GA-RF-$\infty$ predictions.}
 
 \label{tab:known-sds} 

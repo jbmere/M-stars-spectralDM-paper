@@ -84,11 +84,11 @@ for(i in 2:31)
   }
 dev.off()
 
-lc2=16
+lc2=4
 pdf("M-RFInf.pdf")
 par(mar = c(6,6,1,1))
 idx = 2
-plot(df_M$M_teo, df_M[,idx],pch=lc2,xlim=c(-1.5,1),ylim=c(-1.5,1),xlab="Literature Fe/H or M/H",ylab="M/H",cex.axis=1.5,cex.lab=1.5)
+plot(df_M$M_teo, df_M[,idx],pch=lc2,xlim=c(-1.1,0.6),ylim=c(-1.1,0.6),xlab="Literature Fe/H or M/H",ylab="M/H",cex.axis=1.5,cex.lab=1.5)
 points(n3.m, df_M[,idx],pch=lc2,col="orange") # Fe/H
 points(nt8.m[,1], df_M[,idx],pch=lc2,col="green") # Fe/H 1
 points(nt8.m[,2], df_M[,idx],pch=lc2,col="darkgreen") # Fe/H 2

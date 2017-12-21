@@ -3,33 +3,38 @@ M-type dwarfs constitute the largest contribution by number to the
 Galactic population \citep{2010AJ....139.2679B}. This Galactic
 component is very important as its properties convey crucial
 information about the Galactic structure and
-evolution \citep{2013A&A...556A.110B}. They are known to harbour
-super-Earth exoplanets \citep{2013A&A...556A.110B} and have recently
-become a major target in large-scale searches for habitable ones due,
-amongst other reasons, to the reduced star-to-planet mass and light
-ratios \citep{2015A&A...577A.128A}. In addition, the probability to observe a
-transit is significantly higher because the habitable zone is
-significantly closer to the star \citep{Shields20161}.
+evolution \citep{2013A&A...556A.110B}. {\bf They are known to harbour
+super-Earth \citep{2013A&A...556A.110B} and Earth-sized
+exoplanets \citep{2015ApJ...807...45D}, and have recently become a
+major target in large-scale searches for habitable ones due, amongst
+other reasons, to the reduced star-to-planet mass and light
+ratios \citep{2015A&A...577A.128A}. In addition, the geometrical
+probability to observe a transit is significantly higher because the
+habitable zone is closer to the host star \citep{Shields20161}, and
+the shorter orbital periods result in higher transit frequencies and
+larger expected numbers of transits for any given observation time
+span.}
 
 These stars span two orders of magnitude in luminosity and almost one
-order of magnitude in mass, from 0.075 M$\odot$ to 0.6 M$\odot$. At
-0.35 M$\odot$, these stars become fully convective and, given their
+order of magnitude in mass, from 0.075 M$\odot$ to 0.6 M$\odot$. {\bf
+At 0.35 M$\odot$, these stars become fully convective and, given their
 low internal pressures, this results in life spans that greatly exceed
-the age of the Universe. Although much theoretical work has been
-invested in understanding this low mass end of the Main
-Sequence \citep{2008ApJ...676.1262B}, there are still some
+the age of the Universe \citep{2005AN....326..913A}.} Although much
+theoretical work has been invested in understanding this low mass end
+of the Main Sequence \citep{2008ApJ...676.1262B}, there are still some
 discrepancies between models and observations \citep[see e.g.][for an
 account of the observed inflated radii and cooler temperatures with
 respect to model predictions]{2013AN....334....4T}.
 
-Molecular bands of water (H$_2$O), TiO, VO,
-heavily veil their spectra and H$_2$, to the extent that defining a true stellar
-continuum is difficult. The complexity of modelling
-these molecular bands (numerous transitions, frequency-dependent
-absorption coefficients, collisional transitions) and the difficulty in
-defining a true stellar continuum prevents the application of standard
-techniques (common for F-, G- and K-type stars) to the determination
-of physical parameters of M-type stars.
+{\bf Scattering from the fine dust grains that form in the atmospheres
+of the coolest M dwarfs results in veiling of the
+spectra \citep{2012EAS....57....3A} to the extent that defining a true
+stellar continuum is difficult. Furthermore, the complexity of
+modelling these molecular bands (numerous transitions,
+frequency-dependent absorption coefficients, collisional transitions)
+and the difficulty in defining a true stellar continuum prevents the
+application of standard techniques (common for F-, G- and K-type
+stars) to the determination of physical parameters of M-type stars.}
 
 % The state-of-the-art
 % Summary of spectral diagnostics in the IR for M stars
@@ -62,15 +67,6 @@ described in Section \ref{sec:irtf} of this work).  They quoted
 residual standard deviations of the $T_{\rm eff}$ fit of 73
 K.
 
-% I'm including here the reference to the requested paper Mann2013 ... JOM 25/11/2017
-\textbf{
-\cite{2013AJ....145...52M} look to determine metallicities of 
-late K and M dwarfs from moderate resolution (1300 < R < 2000) 
-observing visible and infrared spectra. The authors propose to 
-empirically identify the most convenient features relevant 
-to already known metalicities and they generalize from those features.
-}
-% End of the citation for that work.
 \cite{Mann2015} calculate effective temperatures using the
 classical $\chi^2$ minimization of the observed optical spectra with
 respect to the CIFIST2011 library of BT-Settl synthetic spectra.
@@ -85,19 +81,50 @@ and a variety of methodologies for the estimation of temperatures and
 metallicities. In this work we are mainly concerned with estimating
 atmospheric physical parameters using spectral features and libraries
 of synthetic spectra. Our aim is to identify the best spectral
-features for estimating $T_{\rm eff}$, $\log(g)$ and
-$[M/H]$. \cite{cesetti} proposed sensitivity maps (the derivative
-of the monochromatic fluxes with respect to the atmospheric physical
-parameters) to rank spectral features. In this work we explore the
-validity of the features proposed by \cite{cesetti} and propose and
-evaluate new features using standard machine learning (ML) techniques. In
-Section \ref{sec:meth} we describe the methodology used to define and
-evaluate the spectral features; in Section \ref{sec:irtf} we apply the
-methodology described in Section \ref{sec:meth} in the context of the
-wavelength coverage and resolution of the IRTF collection of spectra;
-we describe the feature definition results and evaluate them for the
-task of predicting physical parameters on the actual observed spectra
-that make up the collection. Section \ref{sec:ipac} describes the same
-steps in the context of the Dwarf Archives (hereafter DA) collection
-of spectra. Finally, Section \ref{sec:summary} summarises the main
+features for estimating $T_{\rm eff}$, $\log(g)$ and $[M/H]$, {\bf not
+only for M dwarfs but also for other luminosity classes}.
+
+{\bf \cite{cesetti} proposed sensitivity maps (the derivative of the
+monochromatic fluxes with respect to the atmospheric physical
+parameters) to rank spectral features. They searched the space of
+spectral features for predicting $T_{\rm eff}$, $\log(g)$ and
+$[M/H]$. In contrast, \cite{2013AJ....145...52M} concentrate their
+efforts in a systematic search for spectral diagnostics of the
+metallicity in the domain of moderate resolution (1300 < R < 2000)
+visible and infrared spectra spectra of late-K and M dwarfs. In this
+sense, our work represents an extension of the work
+by \cite{2013AJ....145...52M} in that we {\it i}) include other
+luminosity types other than dwarf stars in the analysis; {\it ii})
+search for spectral diagnostics of the effective temperature and
+surface gravity as well; {\it iii}) include the definition of the
+continuum bands in the search for the optimal features, as opposed to
+using a fixed list of continuum definitions; {\it iv}) we train a
+regression model to predict the physical parameters from the set of
+optimal spectral features rather than a collection of linear models,
+one for each spectral feature; and {\it iv}, we introduce the
+technique of cross-validation in order to minimize the problem of
+overfitting \citep[see e.g.]{gelman2013bayesian} and the associated
+underestimation of the prediction errors. Our (comparatively more
+complex non-linear) regression models integrate all the information
+from the selected features to produce a single estimate of the
+physical parameters. These more complex models come at the expense of
+abandoning the empirical approach of \cite{2013AJ....145...52M} that
+used observed spectra of late-K and M dwarfs in binaries with
+solar-type primaries. Our more comprehensive approach requires a
+larger set of spectra to select the features and train the regression
+models and thus, we must turn to libraries of synthetic spectra that
+cover more densely and homogeneously the space of parameters.}
+
+In this work we explore the validity of the features proposed
+by \cite{cesetti} and propose and evaluate new features using standard
+machine learning (ML) techniques. In Section \ref{sec:meth} we
+describe the methodology used to define and evaluate the spectral
+features; in Section \ref{sec:irtf} we apply the methodology described
+in Section \ref{sec:meth} in the context of the wavelength coverage
+and resolution of the IRTF collection of spectra; we describe the
+feature definition results and evaluate them for the task of
+predicting physical parameters on the actual observed spectra that
+make up the collection. Section \ref{sec:ipac} describes the same
+steps in the context of the Dwarf Archives collection of
+spectra. Finally, Section \ref{sec:summary} summarises the main
 results and conclusions of the paper.
