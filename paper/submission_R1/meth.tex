@@ -137,28 +137,27 @@ problem described above, that is, the problem of finding the features
 (band boundaries) that minimize the prediction error of a regression
 estimate of the physical parameters. We used the implementation of
 genetic algorithms publicly available as the R \citep{R2013} GA
-package. The concept of using in-silico {\bf (that is, an algorithmic
-analogue of)} evolution for the solution of optimization problems was
+package. The concept of using in-silico (that is, an algorithmic
+analogue of) evolution for the solution of optimization problems was
 introduced by \cite{holland1975adaptation}. Although its application
 is now reasonably widespread \citep[see e.g.][]{goldberg1989genetic},
 they became popular only when sufficiently powerful computers became
 available. GAs were presented to the astronomical community
-in \cite{1995ApJS..101..309C}, {\bf and have been used extensively in
+in \cite{1995ApJS..101..309C}, and have been used extensively in
 the past \citep[see][for a significant application of GAs in
-astronomy]{2013A&A...550A..74D}}.
+astronomy]{2013A&A...550A..74D}.
 
 For the sake of simplicity, let us define GAs as search algorithms
-that are based on the principle of evolution by natural
-selection. {\bf The procedure works by evolving (in the sense
-explained below) an initial random population of chromosomes, in our
-case defined as sets of spectral features defined by
-Eq. \ref{eq:featureDefinition}.}  Evolution proceeds via cycles of
-differential replication, recombination and mutation of the fittest
-chromosomes. The concept of fittest is context dependent, but in our
-case fitness is defined in relation with the accuracy with which
-\textbf{a simple multivariate linear model trained on a given chromosome (a
-set $\{F_i\}$ of spectral features) predicts the physical
-parameters. This linear model may not capture instrinsic
+that are based on the principle of evolution by natural selection. The
+procedure works by evolving (in the sense explained below) an initial
+random population of chromosomes, in our case defined as sets of
+spectral features defined by Eq. \ref{eq:featureDefinition}. Evolution
+proceeds via cycles of differential replication, recombination and
+mutation of the fittest chromosomes. The concept of fittest is context
+dependent, but in our case fitness is defined in relation with the
+accuracy with which a simple multivariate linear model trained on a
+given chromosome (a set $\{F_i\}$ of spectral features) predicts the
+physical parameters. This linear model may not capture instrinsic
 non-linearities between the input space (the features) and the
 predicted physical parameters but it is significantly faster and
 simpler than the actual models (described in
@@ -169,20 +168,18 @@ Section \ref{ssub:models} but this turned out to be computationally
 prohibitive for the several millions of evaluations involved in the
 GA. The accuracy of the linear models is measured with the Akaike
 information criterion (AIC) of the fitted linear model.  The AIC value
-of a given model is given by Eq.} \ref{eq:AIC}.
+of a given model is given by Eq. \ref{eq:AIC}.
 
 \begin{equation}\label{eq:AIC}
   AIC = 2 \times k - 2 \times ln(\hat{L}) 
 \end{equation}
 
 \zeroindent{}
-\textbf{
 where \textit{k} is the number of model parameters and $\hat{L}$ is
 the maximum value of the likelihood function (the probability of the
 data given the linear model). Since $k$ is fixed for all models, the
 AIC effectively reduces to the maximum likelihood or least squares
-criterion.}
-% End of explanation
+criterion.
 
 The data set used to search for the optimal set of spectral features
 will be, as mentioned before, the BT Settl collection of synthetic
@@ -201,25 +198,25 @@ genetic algorithm in order to increase the fitness.}
 is evaluated by its ability to predict the physical parameters of each
 star in the dataset (fitness function Eq. \ref{eq:AIC}). }
 
-\item \textbf{Stage 3}:{ Chromosome selection. {\bf The new
+\item \textbf{Stage 3}:{ Chromosome selection. The new
 generation of individuals is initialised by transferring a number of
 the fittest chromosomes in the previous generation. The percentage of
-individuals transferred is known as the degree of elitism.}}
+individuals transferred is known as the degree of elitism.}
 
 \item \textbf{Stage 4}:{ The population of chromosomes is replicated. 
  Chromosomes with higher fitness scores will generate more numerous
  offspring.}
 
-\item \textbf{Stage 5}:{ {\bf The genetic information contained in
+\item \textbf{Stage 5}:{ The genetic information contained in
 the parent chromosomes is combined through genetic crossover (two
 randomly selected parent chromosomes are used to create two new
-chromosomes).}}
+chromosomes).}
 
 \item \textbf{Stage 6}:{ Mutations are then introduced in the
-chromosomes randomly. {\bf These mutations produce new genes by
+chromosomes randomly. These mutations produce new genes by
 randomly redefining the gene components (that is, by changing the band
 boundaries $\lambda_i$ that define the gene).  Stages 5 and 6 are
-applied over the chromosomes established at Stage 4.}}
+applied over the chromosomes established at Stage 4.}
 
 \item \textbf{Stage 7}:{ This process is repeated from Stage 2 until 
 a target accuracy is achieved or the maximum number of iterations
@@ -257,14 +254,14 @@ Eq. \ref{eq:featureDefinition}.
 The population size was set to 8000 individuals and the maximum number
 of accepted iterations set to 4000. We produced three randomly started
 populations so as to provide enough initial variety. The crossover and
-mutation probabilities were set to 0.85 and 0.35 respectively. {\bf
-Elitism (the fraction of the population copied into the next
-generation and composed of the fittest individuals) was fixed to
-15\%}. We used a binary codification of the chromosomes and a parallel
-implementation of the GA in a farm of fifteen computers per physical
+mutation probabilities were set to 0.85 and 0.35 respectively. Elitism
+(the fraction of the population copied into the next generation and
+composed of the fittest individuals) was fixed to 15\%. We used a
+binary codification of the chromosomes and a parallel implementation
+of the GA in a farm of fifteen computers per physical
 parameter. \footnote{All computations needed for this work were
 carried out in the CeSViMa (http://www.cesvima.upm.es/) power7 HPC
-{\bf characterised by} processors with 8 cores and four threads per
+characterised by processors with 8 cores and four threads per
 core, running at 3,3 GHz and with 32Gb of RAM each.}
 
 Feature fitness was defined in terms of the RMSE of a linear
@@ -364,13 +361,13 @@ physical parameter from an input vector. The input vector can be the
 full normalised spectrum, the ICA lower-dimensional representation of
 the full spectrum, the spectral features selected by \cite{cesetti} or
 those selected by the GA. The regression model parameters are inferred
-(using strategies that differ from one regression {\bf model to
-another}) from a set of examples. As explained above, this set of
-examples (spectra of stars for which we know the physical parameters)
-is called the training set, and the process by which the model
-parameters are determined from the training set, is called training of
-the model. In the next paragraph we give minimal details of each
-regression model trained, and references for the interested reader.
+(using strategies that differ from one regression model to another)
+from a set of examples. As explained above, this set of examples
+(spectra of stars for which we know the physical parameters) is called
+the training set, and the process by which the model parameters are
+determined from the training set, is called training of the model. In
+the next paragraph we give minimal details of each regression model
+trained, and references for the interested reader.
 
 In order to avoid the well known problem of overfitting \cite[see
 e.g.][]{Dietterich:1995:OUM:212094.212114}, we use five-fold

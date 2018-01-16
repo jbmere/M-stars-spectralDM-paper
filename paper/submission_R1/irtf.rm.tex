@@ -17,13 +17,13 @@ Table \ref{tab:irtf-teff-rmse} shows that performance of classifiers
 based on the full spectrum (or in a compressed version in the form of
 ICA components) and the best classifier based on features derived from
 limited spectral bands is equivalent. The Bartlett test shows that the
-variances are homogeneous with a Bartlett\textquoteright s K$^2$
-of 8.5 with 2 degrees of freedom and a p-value of 0.01426. The
+variances are homogeneous with a Bartlett\textquoteright s K$^2$ of
+8.5 with 2 degrees of freedom and a p-value of 0.01426. The
 Flinger-Killen test shows that homoscedasticity is verified at the
 p=0.005886 level. Finally, the F-ANOVA test clearly shows that there
 is no significant difference between models. Thus, we conclude that
-the quality of features from the two approaches {\bf (full spectrum
-and selected features)} are equivalent in predictive performance.  The
+the quality of features from the two approaches (full spectrum and
+selected features) are equivalent in predictive performance.  The
 difference between the performances of the best classifier ($GA-KNN$;
 best on average over SNR), the minimum $\chi^2$ classifier, and the
 $PPR-ICA$ classifiers are not statistically significant.  In any case,
@@ -138,21 +138,21 @@ calibration with those from the spline fit described above.
 \end {figure}
 
 Figure \ref{fig:irtf-cesteff} shows that the features found by the GA
-are to be prefered to the ones proposed by \cite{cesetti}.  \textbf{
-We would like to emphasize that Figures \ref{fig:irtf-teff}
+are to be prefered to the ones proposed by \cite{cesetti}. We would
+like to emphasize that Figures \ref{fig:irtf-teff}
 and \ref{fig:irtf-cesteff} compare the predictions of the best
 regression models trained with the features derived by the GA or by
 the sensitivity maps described in \cite{cesetti} with the effective
 temperatures gathered from the literature. These literature estimates
 are not exempt of errors and therefore, the comparison of the two
 figures only reveals the better adequacy of the GA features to
-reproduce these literature values.}
+reproduce these literature values.
 
 \subsubsection{Surface gravity models}
 
 For the validation of our models, we only have 10 literature values of
 the surface gravity available in Table 3 of
-\cite{cesetti}. Unfortunately, this is too small {\bf a number} to draw
+\cite{cesetti}. Unfortunately, this is too small a number to draw
 significant conclusions on the comparison of methodologies from
 external data. Hence, we are left only with plausibility arguments for
 the selection of models. In this Section $\log(T_{\rm
@@ -192,12 +192,12 @@ to the distribution of the model predictions in $T_{\rm
 eff}$--$\log(g)$ diagrams.  Figure~\ref{fig:lt_lg_ga} shows this
 distribution for four models selected based on these plausibility
 criteria: GA-RR, GA-PLS, GA-KNN (the three of them for SNR=50), and
-PPR-ICA (clockwise, starting at the top left corner). {\bf These
-models that produce the most plausible $\log(T_{\rm eff})$--$\log(g)$
+PPR-ICA (clockwise, starting at the top left corner). These models
+that produce the most plausible $\log(T_{\rm eff})$--$\log(g)$
 diagrams are not amongst the best performing in terms of RMSE or RMDSE
 except in the case of the PPR-ICA model. This is another indication
 that the cross-validation errors are not good predictors of the true
-performance on real spectra.} All four panels show a tendency towards
+performance on real spectra.  All four panels show a tendency towards
 lower surface gravities at the coolest end, and a reasonable
 capability to separate dwarfs from giants, and giants from
 supergiants. We include as orange squares the recent predictions
