@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: sarro.aux
+The style file: mnras.bst
+Database file #1: references_m.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 55 entries,
+            2881 wiz_defined-function locations,
+            1180 strings with 21180 characters,
+and the built_in function-call counts, 26995 in all, are:
+= -- 1998
+> -- 2190
+< -- 137
++ -- 962
+- -- 357
+* -- 3359
+:= -- 4429
+add.period$ -- 0
+call.type$ -- 55
+change.case$ -- 111
+chr.to.int$ -- 54
+cite$ -- 55
+duplicate$ -- 1279
+empty$ -- 1312
+format.name$ -- 493
+if$ -- 4565
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 57
+newline$ -- 185
+num.names$ -- 400
+pop$ -- 308
+preamble$ -- 1
+purify$ -- 220
+quote$ -- 0
+skip$ -- 737
+stack$ -- 0
+substring$ -- 1309
+swap$ -- 717
+text.length$ -- 224
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 483
+warning$ -- 0
+while$ -- 418
+width$ -- 0
+write$ -- 578

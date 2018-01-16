@@ -1,0 +1,25 @@
+
+As for the IRTF spectra, the spectral resolution of the BT-Settl
+library was degraded to match the average resolution of the spectra in
+the Dwarf
+Archives\footnote{http://spider.ipac.caltech.edu/staff/davy/ARCHIVE/index.shtml}. Then,
+the spectra were trimmed to produce segments in the spectral range
+common to all spectra of M stars in the archive, to avoid missing data
+in the input variables. Finally, all spectra were divided by the total
+integrated flux in this range in order to factor out the stellar
+distance.
+
+There is little hope {\it a priori} for reasonable accuracies with
+regression models that predict the surface gravity and metallicity
+from such wavelength-limited, low/intermediate resolution
+spectra. Anyhow, we provide the results obtained applying the same
+methodology as in Section \ref{sec:irtf} (and described in
+Section \ref{sec:meth}) to show the limitations.
+
+The application of the GA to the selection of features for the
+prediction of effective temperature within the Dwarf Archives
+wavelength range and resolution results in the features included in
+Table~\ref{tab:ipac-teff-noisy}. Table \ref{tab:ipac-logg-noisy} shows
+the spectral features selected for predicting the surface gravity, and
+Table~\ref{tab:ipac-met-noisy} those for predicting metallicity. 
+

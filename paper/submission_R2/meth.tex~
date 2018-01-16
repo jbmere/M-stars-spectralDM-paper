@@ -1,0 +1,469 @@
+The objective addressed in this Section is to develop an automated
+procedure to identify spectral bands that yield good atmospheric
+temperature, gravity and metallicity (hereafter physical parameters)
+diagnostics for M-type stars. Given the lack of a calibration set of
+benchmark stars with observed spectra and homogeneous coverage of the
+space of physical parameters, we must turn to synthetic libraries of
+spectra. Furthermore, only temperatures and gravities can be
+calibrated independently of the spectra \citep[for example as
+in][using interferometry]{2003A&A...397L...5S}: all metallicity
+estimates in the literature are based on collections of synthetic
+spectra, and therefore spectral synthesis codes are the only resource
+to construct regression models. Even in the case of interferometry,
+the estimates of radii (and therefore gravity) depend on stellar
+models (although less strongly) via the limb darkening corrections.
+
+As an alternative to the methods based on genetic algorithms used in
+this work, the atomic or molecular line/band parameters can be used in
+principle to select the spectral features that are more sensitive to
+changes in the physical parameters as
+in \cite{2016A&A...587A..19P}. However, the suitability of spectral
+features as diagnostics of the stellar atmospheric properties depends
+not only on the individual behaviour of each line/band, but also on
+the relative properties of neighbouring features in the same spectral
+region, that may overlap depending on the spectral
+resolution. Furthermore, good spectral diagnostics at a given
+signal-to-noise ratio (SNR) may show a severely degraded predictive
+power in the low SNR regime. Therefore, we propose an alternative
+selection approach that considers the resolution and SNR ratio, 
+to assess the utility of spectral features for the task of
+inferring physical atmospheric parameters. 
+
+In the following, we adopt the BT-Settl CIFIST2011 library of
+synthetic spectra
+\citep{2013MSAIS..24..128A} as the framework where spectral
+diagnostics will be searched. This library does not include variations
+due to line broadening mechanisms such as micro- or macro-turbulence
+or rotation and hence, our results can be biased if their effects in
+the spectra are strong. The predictions from the models presented here
+do not take this broadening mechanisms into account. These synthetic
+spectra were pre-processed in several steps as described below.
+
+\subsection{Spectral preprocessing}
+
+First, and in order to define good temperature diagnostics, spectra
+between 2000 and 4200K in steps of 100 K were selected, with $\log(g)$
+in the range between 4 and 6 dex (when g is expressed in cm/s$^{-2}$),
+in steps of 0.5 dex. The metallicity of the representative spectra was
+restricted to the set 0, 0.5 and -1 dex.  This yields a total set size
+of 535 available spectra.
+
+A series of preprocessing steps were then carried out in order to
+match the spectral resolution and wavelength coverage and sampling of
+the synthetic library to that of the collection of observed spectra
+collected from the Dwarf Archives or IRTF, (see below).  This required the
+definition of a common wavelength range present in all available
+observed spectra, and the subsequent trimming to match that range. A
+unique wavelength sampling was also defined and all spectra (synthetic
+and observed) interpolated to match the sampling. Finally, all
+spectra, both synthetic and observed, were divided by the integrated
+flux in order to factor out the stellar distance. This is necessary in
+order to compare our feature selection proposal with the techniques
+that make use of the full spectrum (minimum $\chi^2$ and ICA
+compression; see below).
+
+In order to avoid selecting spectral features that work well only in
+the unrealistic SNR=$\infty$ regime, the search for optimal
+diagnostics of the atmospheric parameters of M stars was carried out
+for three SNR values (10, 50 and $\infty$) by degrading the synthetic
+spectra with Gaussian noise of zero mean. These values were found to
+be sufficient in a wide range of experiments carried out in parallel
+and described in \cite{2017MNRAS.465.4556G}. The special SNR=$\infty$
+case has been retained for the sake of completeness
+although \cite{2017MNRAS.465.4556G} show that training sets derived
+from noiseless spectra are, at best, unnecessary, and at worst damage
+performance severely.
+
+\subsection{Feature definition and selection}
+\label{subsec:FD}
+
+As mentioned in Sect. \ref{sec:intro}, defining good spectral
+diagnostics for the prediction of atmospheric physical parameters of M
+stars is a difficult task. The work in \cite{cesetti} defined
+wavelength regions in the I and K bands optimal for determining
+physical parameters based on the sensitivity exhibited by the flux
+emitted in these segments to changes of the physical parameters. The
+sensitivity was measured in terms of the derivative of the flux with
+respect to the physical parameter. The approach adopted here is to
+select spectral features that yield the best accuracy when used as
+predictive variables in a regression model that estimates the stellar
+atmospheric physical parameters ($T_{eff}$, $\log(g)$ and
+metallicity). The evaluation of the accuracy of the estimates produced
+from a subset of features is described further below.  We consider the
+effective temperature as the dominant parameter influencing changes in
+the stellar spectra (a strong feature). Therefore, it was estimated
+first, and then used as input in the regression models for the gravity
+and metallicity.
+
+Here, a feature $F$ is defined as
+
+\begin{equation}\label{eq:featureDefinition}
+  F = \int_{\lambda_{1}}^{\lambda_{2}} (1-\frac{f(\lambda)}{F_{cont}}) \cdot {\rm d}{\lambda}
+\end{equation}
+
+\zeroindent{}
+where $f(\lambda)$ denotes the normalized flux from the star at
+wavelength $\lambda$, and where $F_{cont}$ is the average flux in a
+spectral band between $\lambda_{cont;1}$ and $\lambda_{cont;2}$. We
+explain below how we search for the band definitions that produce
+physical parameter predictions with the smallest errors.
+
+\defindent{}
+We also studied features defined as
+
+\begin{equation}\label{eq:feature2}
+  F' = \frac{ \int_{\lambda_{1}}^{\lambda_{2}}f(\lambda) \cdot {\rm d}{\lambda}}
+               {\int_{\lambda_{3}}^{\lambda_{4}} f(\lambda) \cdot {\rm d}{\lambda}} 
+\end{equation}
+
+\zeroindent{}
+where $\lambda_1, \lambda_2, \lambda_3$, and $\lambda_4$ delimit two
+spectral bands such that the ratio of the integrated fluxes in the two
+bands is assumed to be a good feature for predicting the star 
+atmospheric physical parameters, alone or in combination with other 
+features. The results obtained with this alternative feature
+definition did not differ significantly on average from the ones
+observed with the one adopted in Eq. \ref{eq:featureDefinition}, and
+including them here would result in an excessively lengthy article. In
+view of the equivalent global performances, we preferred the former
+because it allows direct comparison with the features proposed
+by \cite{cesetti}.
+
+\defindent{}
+We used Genetic Algorithms (hereafter GAs) to solve the optimization
+problem described above, that is, the problem of finding the features
+(band boundaries) that minimize the prediction error of a regression
+estimate of the physical parameters. We used the implementation of
+genetic algorithms publicly available as the {\sc R GA}
+package \citep{JSSv053i04}. The concept of using in-silico (that is,
+an algorithmic analogue of) evolution for the solution of optimization
+problems was introduced by \cite{holland1975adaptation}. Although its
+application is now reasonably widespread \citep[see
+e.g.][]{goldberg1989genetic}, they became popular only when
+sufficiently powerful computers became available. GAs were presented
+to the astronomical community in \cite{1995ApJS..101..309C}, and have
+been used extensively in the past \citep[see][for a significant
+application of GAs in astronomy]{2013A&A...550A..74D}.
+
+For the sake of simplicity, let us define GAs as search algorithms
+that are based on the principle of evolution by natural
+selection. The procedure works by evolving (in the sense
+explained below) an initial random population of chromosomes, in our
+case defined as sets of spectral features defined by
+Eq. \ref{eq:featureDefinition}. Evolution proceeds via cycles of
+differential replication, recombination and mutation of the fittest
+chromosomes. The concept of fittest is context dependent, but in our
+case fitness is defined in relation with the accuracy with which
+a simple multivariate linear model trained on a given chromosome (a
+set $\{F_i\}$ of spectral features) predicts the physical
+parameters. This linear model may not capture instrinsic
+non-linearities between the input space (the features) and the
+predicted physical parameters but it is significantly faster and
+simpler than the actual models (described in
+Section \ref{ssub:models}) that will eventually be used to predict the
+physical parameters. It would certainly be preferable to use as
+fitness criterion the accuracy of the models described in
+Section \ref{ssub:models} but this turned out to be computationally
+prohibitive for the several millions of evaluations involved in the
+GA. The accuracy of the linear models is measured with the Akaike
+Information Criterion (AIC) of the fitted linear model.  The AIC value
+of a given model is given by Eq. \ref{eq:AIC}.
+
+\begin{equation}\label{eq:AIC}
+  AIC = 2 \times k - 2 \times ln(\hat{L}) 
+\end{equation}
+
+\zeroindent{}
+
+where \textit{k} is the number of model parameters and $\hat{L}$ is
+the maximum value of the likelihood function (the probability of the
+data given the linear model). Since $k$ is fixed for all models, the
+AIC effectively reduces to the maximum likelihood or least squares
+criterion.
+
+The data set used to search for the optimal set of spectral features
+will be, as mentioned before, the BT Settl collection of synthetic
+spectra, where each spectrum is tagged with the effective temperature,
+gravity and metallicity of the model atmosphere from which the
+spectrum emerged.
+
+The implementation of the GA comprises the following steps:
+
+\begin{itemize}
+\item \textbf{Stage 1}:{ Definition of the population of
+potential features as a set of chromosomes that are evolved by the
+genetic algorithm in order to increase the fitness.}
+
+\item \textbf{Stage 2}:{ Each chromosome in the population
+is evaluated by its ability to predict the physical parameters of each
+star in the dataset (fitness function Eq. \ref{eq:AIC}). }
+
+\item \textbf{Stage 3}:{ Chromosome selection. The new
+generation of individuals is initialised by transferring a number of
+the fittest chromosomes in the previous generation. The percentage of
+individuals transferred is known as the degree of elitism.}
+
+\item \textbf{Stage 4}:{ The population of chromosomes is replicated. 
+ Chromosomes with higher fitness scores will generate more numerous
+ offspring.}
+
+\item \textbf{Stage 5}:{ The genetic information contained in
+the parent chromosomes is combined through genetic crossover (two
+randomly selected parent chromosomes are used to create two new
+chromosomes).}
+
+\item \textbf{Stage 6}:{ Mutations are then introduced in the
+chromosomes randomly. These mutations produce new genes by
+randomly redefining the gene components (that is, by changing the band
+boundaries $\lambda_i$ that define the gene).  Stages 5 and 6 are
+applied over the chromosomes established at Stage 4.}
+
+\item \textbf{Stage 7}:{ This process is repeated from Stage 2 until 
+a target accuracy is achieved or the maximum number of iterations
+attained.}
+
+\end{itemize}
+
+We test features defined by bands (the numerator and denominator of
+Eq. \ref{eq:featureDefinition}) that comprise ten consecutive bins
+(fluxes) of a spectrum. The bands tested in different features may
+overlap by as much as 5 consecutive bins (which in practice implies
+that we define the first feature as the spectral chunk between
+wavelength bins $i=1$ and $i=10$, the second feature between bins
+$i=6$ and $i=15$, the third feature between bins $i=11$ and $i=20$,
+etc). The spectral bands in the numerator and denominator of a test
+feature cannot overlap.
+
+It would be possible to evaluate the predictive performance of
+individual features defined with Eq. \ref{eq:featureDefinition}. An
+obvious conceptual limitation of this univariate approach (considering
+chromosomes that code a single predictive feature) would be the lack
+of consideration that features work in the context of interconnected
+pathways and, therefore, it is their behaviour as a group that has to
+be evaluated in terms of the predictive accuracy. In other words, a
+single feature can yield a poor predictive performance alone, but
+improve very significantly the prediction accuracy when used in
+combination with other features. Multivariate selection methods thus
+seem more suitable for the analysis of the regressors since variables
+are tested in combination to identify interactions between
+features. In this work we define a chromosome as a set of ten
+individual genes, and each gene codes a pair of non-overlapping
+spectral bands, the ratio of which is the feature defined by
+Eq. \ref{eq:featureDefinition}.
+
+The population size was set to 8000 individuals and the maximum number
+of accepted iterations set to 4000. We produced three randomly started
+populations so as to provide enough initial variety. The crossover and
+mutation probabilities were set to 0.85 and 0.35 respectively. 
+Elitism (the fraction of the population copied into the next
+generation and composed of the fittest individuals) was fixed to
+15\%. We used a binary codification of the chromosomes and a parallel
+implementation of the GA in a farm of fifteen computers per physical
+parameter. \footnote{All computations needed for this work were
+carried out in the CeSViMa (http://www.cesvima.upm.es/) power7 HPC
+characterised by processors with 8 cores and four threads per
+core, running at 3,3 GHz and with 32Gb of RAM each.}
+
+Feature fitness was defined in terms of the RMSE of a linear
+regression model trained with the chromosome features. It is important
+to stress that the regression model used to evaluate the fitness of
+the feature sets (chromosomes) is not the same model that will be used
+in practice to predict physical parameters for observed spectra as
+described in Section \ref{ssub:models} below. For fitness
+evaluation in the GA we used a simple multilinear model for the sake
+of speed, given the extreme size of the search space of all possible
+combinations of 10 spectral features. In the IRTF context, these 10
+features in each chromosome are selected amongst the roughly 6000
+potential features. This is $\binom{6000}{10}$ which has an order of
+magnitude of $10^{24}$.
+
+The GA procedure provides us with a large collection of chromosomes,
+each one consisting of ten spectral features. We choose ten as a
+compromise. On the one hand, we have the intuition that the physical
+parameters that we intend to predict can be formulated as nonlinear
+combinations of several interacting features (that is, the predictive
+power of the set of features is higher that the sum of the individual
+predictive powers of the individual features). On the other hand, we
+need to limit the complexity of the models in order to attain
+reasonable computation times. Although these collections of
+chromosomes resulting from the GA are all potential solutions of the
+problem, it is not immediately clear which one should be selected for
+the final regression model. In this work we have selected the most
+frequent features amongst the fittest chromosomes as predictive
+variables of the physical parameters in regression models. Features
+appearing in less than five chromosomes were initially discarded as
+they cannot be relevant by themselves and just arise randomly by
+combination with other stronger chromosomes.
+
+Once the GA has generated a proposal set of features for predicting
+each of the physical parameters, the next step consists in training
+the regression model based on these features. This is described in the
+next Section.
+
+\subsection{Regression models.}
+\label {ssub:models}
+
+Once a feature set was selected from the output of the GA, we
+construct regression models to predict the physical parameters
+(response or predicted variables) from it. In the context of machine
+learning, constructing a regression model consists in using a training
+set (a set of cases defined by the selected variables for which the
+physical parameters are available) to infer the parameters of a
+mapping between the feature set and predicted variables.  The
+regression model parameters should not be confused with the physical
+parameters of the atmosphere we aim at inferring.
+
+In this case, our training set is again the BT Settl collection of
+synthetic spectra, for which we already computed the 
+feature set as part of the GA selection procedure. And,
+of course, for each spectrum we also have available the effective
+temperature, the gravity and the metallicity. Once the model is
+trained, we will apply it to observed spectra as described in
+Sections \ref{sec:irtf} and \ref{sec:ipac}.  
+
+Several regression models are trained for the prediction of each
+physical parameter in order to evaluate their performance:
+
+\begin{itemize}
+
+\item {Bagging with Multiadaptive Spline Regression Models \emph{(hereafter MARS)}.}
+
+\item {Random Forest Regression Models \emph{(RF)}.}
+
+\item {$k$-Nearest Neighbours \emph{(KNN)}.}
+
+\item {Generalized Boosted Regression Models \emph{(GBM)}.}
+
+\item {Support Vector Regression with Gaussian Kernel \emph{(SVR)}.}
+
+\item {Multi-layer Perceptron Neural Networks \emph{(NNET)}.}
+
+\item {Kernel Partial Least Squares Regression \emph{(KPLS)}.}
+
+\item {Rule Regression Models \emph{(RR)}.}
+
+\end{itemize}
+
+In order to assess the validity of our feature sets we also compare
+the predictions based on them with other input spaces. In particular,
+we also compute physical parameters that yield the the minimum
+$\chi^2$, and train a projection pursuit regression model with the
+independent components \citep{Hyvarinen:1998:NAD:302528.302606}
+derived from each spectrum.
+
+Including here a sufficient description of each and every regression
+model that we trained would render the manuscript excessively lengthy
+but interested readers can find additional information in
+\cite{baraud2002model,geman1992neural,elith2008working,
+meyer2003support,svetnik2003random}.  Suffice it to say that each one
+of them can be thought of as a parametric model that predicts one
+physical parameter from an input vector. The input vector can be the
+full normalised spectrum, the ICA lower-dimensional representation of
+the full spectrum, the spectral features selected by \cite{cesetti} or
+those selected by the GA. The regression model parameters are inferred
+(using strategies that differ from one regression model to
+another) from a set of examples. As explained above, this set of
+examples (spectra of stars for which we know the physical parameters)
+is called the training set, and the process by which the model
+parameters are determined from the training set, is called training of
+the model. In the next paragraph we give minimal details of each
+regression model trained, and references for the interested reader.
+
+In order to avoid the well known problem of overfitting \cite[see
+e.g.][]{Dietterich:1995:OUM:212094.212114}, we use five-fold
+cross-validation to estimate the prediction errors. $n$-fold cross
+validation consists in dividing the training set into $n$ disjoint
+subsets and training different regression models, each one of them
+with ($n$-1) of the $n$ subsets. The $n$-th subset not used for
+training is used instead to estimate the errors.
+
+As every type of model has its own set of tuneable parameters as well
+as its own training procedure, we have used a common {\sc R}
+\citep{R2016} wrapper for all models named {\sc caret} \citep[short for
+Classification And REgression Training][]{caret}.  This wrapper
+enables a common interface, as well as the use of the same set of
+training/set samples for the adopted five-fold cross-validation error
+estimation. As explained above, each regression model has its own set
+of model parameters. For each model we have searched for the parameter
+set that minimized the Root Mean Square Error (RMSE) in a grid of
+values defined {\it ad hoc} for each technique.
+
+The adopted procedure for learning the models can then be summarized
+as the pseudocode \ref{caretp}. 
+
+\begin{pseudocode}[plain]{Model Learning}{DataSet,ParRanges}
+\label{caretp}
+ \mathcal{S}_{ModelParameters} \GETS ParRanges \\
+ \mathcal{S}_{DataFolders} \GETS Preprocess(DataSet) \\ 
+ \FOREACH x \in \mathcal{S}_{ModelParameters} \DO
+  \BEGIN
+    \FOREACH z \in \mathcal{S}_{DataFolders} \DO
+      \BEGIN
+	HDS(z) \GETS \mbox{Hold-out specific samples} \\
+	Model(z) \GETS Fits(\mathcal{S}_{DataFolders} \setminus HDS(z) ) \\
+	Perf(z) \GETS Predicts(Model(z),HDS(z)) \\
+      \END \\
+    Perf(x) \GETS Average(Perf(z)) \quad \forall z \in \mathcal{S}_{DataFolders} \\
+  \END \\
+  
+  OPS \GETS argmax(Perf(y)) \quad \forall y \in \mathcal{S}_{Modelparameters} \\
+  Model \GETS Fits(DataSet, OPS) \\
+\end{pseudocode}
+
+In the description of Algorithm \ref{caretp} $ParRanges$ represents
+the set of available parameter ranges which are organized into
+different sets named $S_{ModelParameters}$.  Similarly, the available
+$DataSet$ will be used to create the five disjoint data folders named
+$S_{DataFolders}$. Then, the learning procedure sequentially combines
+all the data folders excluding one ($HDS(z)$).  By fitting the models
+according to the particular parameter set and training data the
+algorithm produces models $Model(z)$. These models can now be scored
+against the unseen data folder to yield $Perf(z)$.  The selection of
+the most suitable model configuration ($Model$) will be based on the
+parameter set $OPS$ which maximizes the average performance for the
+available training data $DataSet$.
+
+
+During the preprocessing stage (\ref{caretp}) the
+spectral resolution of the BT-Settl library was degraded to the IRTF
+resolution (R $\sim$ 2000) by convolving with a Gaussian. Then, the spectra
+were trimmed to produce valid segments between 8145.92 and
+24106.85{\AA}, which is the spectral range common to all M stars in
+the IRTF library. Finally, all spectra were divided by the total
+integrated flux in this range in order to factor out the stellar
+distance.
+
+As mentioned above, the training set was constructed from the BT Settl
+library of stellar spectra. The interested reader may find different
+approaches in the literature to the problem of finding an optimal set
+of training examples. \cite{hoggCannon} for example prefer to use real
+observed spectra rather than synthetic libraries to create a
+generative model in which the individual spectral fluxes are modelled
+as second degree polynomials with the physical parameters as
+arguments. The real observed spectra have physical parameters taken
+from the literature, which in turn are almost always inferred using
+synthetic spectral libraries. In our opinion, this approach does not
+solve the dependence of the predicted parameters on the necessarily
+imperfect synthetic libraries, but has the advantage that the relative
+frequencies of examples in the training set represents better the
+biases naturally encountered in surveys than the uniform sampling of
+parameter space found in synthetic libraries. Recently, \cite{heiter}
+have started a program to compile a set of stars with accurate
+physical parameter determinations inferred independently of
+spectroscopic measurements and atmospheric models (as much as
+possible). Unfortunately, this ambitious program only contains 34
+stars of spectral types F, G, and K. In the M regime we find similar
+approaches in \cite{2014AJ....147...47B} and references therein, where
+the atmospheric parameters are derived using interferometric
+measurements of stellar radii. Again, this only amounts to a very
+small number (21 K and M stars) of examples and a very sparse sampling
+of the parameters space.
+
+All efforts to compile training sets of stars with accurate,
+homogeneous, and reliable physical parameters derived independently of
+spectroscopic measurements are valuable not only because they allow
+for the improvement of the stellar atmospheric models but also because
+they help increase the reliability of the regression models by making
+them independent of these atmospheric models. But until these training
+sets with sufficient and homogeneous sampling of the parameter space
+are available, we must turn to the use of synthetic libraries.
